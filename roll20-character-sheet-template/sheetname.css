@@ -1,0 +1,327 @@
+/*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
+@import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+
+.sheet-main-container {
+  min-width: 600px;
+	max-width: 1000px;
+	border: 1.5px solid black;
+	padding: 30px 30px 0px 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-main-container input {
+	height: 28px;
+}
+
+.sheet-main-container select {
+	width: auto;
+	height: 28px;
+	margin: 0px;
+}
+
+.sheet-main-container input[type=text] {
+	width: 10px;
+	flex-grow: 1;
+}
+
+.sheet-main-container input[type=number] {
+	width: 4.2em;
+}
+
+.sheet-main-container textarea {
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+.sheet-main-container button {
+	margin: 0px !important;
+}
+
+/*----------------- GENERAL CSS ------------------*/
+
+.sheet-main-font {
+	font-family: Paytone One;
+}
+
+.sheet-secondary-font {
+	font-family: Lustria;
+}
+
+.sheet-flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.sheet-flex-column {
+	display: flex;
+  flex-direction: column;
+}
+
+.sheet-grow {
+	flex-grow: 1;
+}
+
+.sheet-label {
+	text-transform: uppercase;
+	margin-right: 5px;
+}
+
+.sheet-row-item-margin {
+	margin-right: 5px !important; 
+}
+
+/*----------------- SHEET PARTS ------------------*/
+
+.sheet-header {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+	align-items: center;
+}
+
+.sheet-header-row {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.sheet-logo {
+	text-align: center;
+	margin-right: 20px;
+}
+
+.sheet-tab-panel {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+
+.sheet-tab-panel button {
+	margin-right: 5px !important;
+}
+
+.sheet-attributes-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: start;
+	align-items: center;
+	gap: 5px;
+}
+
+.sheet-middle {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sheet-middle-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.sheet-footer {
+	text-align: right;
+	font-style: italic;
+}
+
+.sheet-box {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.sheet-box-title {
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.sheet-repeatable-item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.sheet-repeatable-row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	margin-bottom: 5px;
+}
+
+.sheet-repeatable-row-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*----------------- TAB CONTROL ------------------*/
+
+/*Configure the tab buttons*/
+.sheet-profiletab,
+.sheet-configurationtab,
+.sheet-journaltab {
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabcontrol[value="profile"] ~ div.sheet-profiletab,
+.sheet-tabcontrol[value="configuration"] ~ div.sheet-configurationtab,
+.sheet-tabcontrol[value="journal"] ~ div.sheet-journaltab {
+	display: block;
+}
+
+/*----------------- ROLL BUTTON ------------------*/
+
+.sheet-main-container button[type=roll] { 
+	border: 0px;
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+}
+
+.sheet-main-container button[type=roll]::before {
+	content: 'T';
+	font-family: 'dicefontd20' !important;
+}
+
+.sheet-main-container button[type=roll]:hover {
+	opacity: 0.5;
+}
+
+/*------------- REPEATABLE SECTIONS BUTTONS -------------*/
+
+.repcontrol>.btn {
+  background-color: transparent;
+  font-size: 2px;
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+  display: inline-block;
+	position: relative;
+	border: 0px;
+}
+
+.repcontrol>.btn:hover {
+	opacity: 0.5;
+}
+
+.repcontrol>.btn.repcontrol_add::before {
+  content: "&";
+  color: black;
+  font-size: 20px;
+  font-family: 'Pictos' !important;
+	position: absolute;
+	left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.repcontrol>.btn.repcontrol_edit::before {
+	content: "(";
+  color: black;
+  font-size: 20px;
+  font-family: 'Pictos' !important;
+	position: absolute;
+	left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* change the 'Done' text after clicking 'Modify' */
+.editmode ~ .repcontrol>.repcontrol_edit::before {
+	content: ')';
+}
+
+
+/*------------- REPEATABLE SECTIONS TOGGLE SHOW/HIDE -------------*/
+
+.sheet-showhidebutton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sheet-showhidebutton input[type=checkbox] {
+	width: 20px;
+	position: absolute;
+	opacity: 0;
+}
+
+.sheet-showhidebutton:hover {
+	opacity: 0.5;
+}
+
+.sheet-showhidebutton input[type=checkbox]:checked ~ span::before {
+	content: '▲'; 
+}
+
+.sheet-showhidebutton span {
+	color: black;
+  font-size: 20px;
+}
+
+.sheet-showhidebutton span::before {
+	content: '▼';
+}
+
+.sheet-toggle-checkbox {
+	display: none;
+}
+
+.sheet-showhide {
+	display: none;
+}
+
+.sheet-toggle-checkbox:checked ~ .sheet-showhide {
+	display: block;
+}
+
+/*------------- SHEET ROLL TEMPLATE -------------*/
+
+.sheet-rolltemplate-main .sheet-template-container {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+	font-family: Paytone One;
+	text-align: center;
+}
+
+.sheet-rolltemplate-main p {
+    font-family: Paytone One;
+    text-align: left;
+}
+
+.sheet-rolltemplate-main .sheet-template-row {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid black;
+	padding: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-header {
+	flex-direction: row !important;
+	background-color: black;
+	color: white;
+}
+
+.sheet-rolltemplate-main .sheet-template-label {
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .sheet-template-success {
+	color: green;
+}
+
+.sheet-rolltemplate-main .sheet-template-fail {
+	color: red;
+}
