@@ -1,11 +1,14 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
-@import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Shojumaru|Ceviche+One|Lustria&display=swap');
 
+/* Permanent Marker 
+Ceviche One
+Shojumaru*/
 .sheet-main-container {
   min-width: 600px;
 	max-width: 1000px;
 	min-height: 800px;
-	border: 1.5px solid black;
+	border: 3px solid black;
 	padding: 30px 30px 0px 30px;
 	display: flex;
 	flex-direction: column;
@@ -33,6 +36,7 @@
 .sheet-main-container textarea {
 	box-sizing: border-box;
 	margin: 0px;
+	height: 100px;
 }
 
 .sheet-main-container button {
@@ -42,11 +46,14 @@
 /*----------------- GENERAL CSS ------------------*/
 
 .sheet-main-font {
-	font-family: Paytone One;
+	font-family: Shojumaru;
+	color: #2c043e;
 }
 
 .sheet-secondary-font {
-	font-family: Lustria;
+	font-family: Ceviche One;
+	font-size: 20px;
+	color: #a53043;
 }
 
 .sheet-flex-row {
@@ -64,7 +71,6 @@
 }
 
 .sheet-label {
-	text-transform: uppercase;
 	margin-right: 5px;
 }
 
@@ -96,11 +102,6 @@
 }
 
 .sheet-logo {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/logo.png');
-	background-repeat: no-repeat;
-	background-size: 400px 177px;
-	width: 400px;
-	height: 177px;
 	margin-right: 20px;
 }
 
@@ -179,7 +180,7 @@
 
 .sheet-threshold-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 0.6fr 0.5fr 1fr;
 	justify-items: start;
 	align-items: center;
 	gap: 5px;
@@ -188,10 +189,26 @@
 .sheet-vigor input[type="number"] {
 	margin-right: 5px;
 }
+.sheet-paths input[type="checkbox"] {
+	margin-left: 5px;
+}
+
+.sheet-paths-margin {
+	margin-bottom: 5px;
+}
+
+.sheet-trumps input[type="text"] {
+	margin-bottom: 5px;
+}
+
+.sheet-trumps textarea {
+	margin-bottom: 10px;
+}
 
 .sheet-middle {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 0.7fr 1fr;
+	column-gap: 20px;
 }
 
 .sheet-middle-column {
@@ -215,6 +232,13 @@
 	margin-bottom: 10px;
 }
 
+.sheet-technique-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
 .sheet-repeatable-item {
 	display: flex;
 	flex-direction: column;
@@ -232,19 +256,22 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-left: 5px;
 }
 
 /*----------------- TAB CONTROL ------------------*/
 
 /*Configure the tab buttons*/
 .sheet-profiletab,
-.sheet-techniquestab {
+.sheet-techniquestab,
+.sheet-equipmentstab {
 	display: none;
 }
 
 /* show the selected tab */
 .sheet-tabcontrol[value="profile"] ~ div.sheet-profiletab,
-.sheet-tabcontrol[value="techniques"] ~ div.sheet-techniquestab {
+.sheet-tabcontrol[value="techniques"] ~ div.sheet-techniquestab,
+.sheet-tabcontrol[value="equipments"] ~ div.sheet-equipmentstab {
 	display: block;
 }
 
@@ -312,92 +339,4 @@
 /* change the 'Done' text after clicking 'Modify' */
 .editmode ~ .repcontrol>.repcontrol_edit::before {
 	content: ')';
-}
-
-
-/*------------- REPEATABLE SECTIONS TOGGLE SHOW/HIDE -------------*/
-
-.sheet-showhidebutton {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.sheet-showhidebutton input[type=checkbox] {
-	width: 20px;
-	position: absolute;
-	opacity: 0;
-}
-
-.sheet-showhidebutton:hover {
-	opacity: 0.5;
-}
-
-.sheet-showhidebutton input[type=checkbox]:checked ~ span::before {
-	content: '▲'; 
-}
-
-.sheet-showhidebutton span {
-	color: black;
-  font-size: 20px;
-}
-
-.sheet-showhidebutton span::before {
-	content: '▼';
-}
-
-.sheet-toggle-checkbox {
-	display: none;
-}
-
-.sheet-showhide {
-	display: none;
-}
-
-.sheet-toggle-checkbox:checked ~ .sheet-showhide {
-	display: block;
-}
-
-/*------------- SHEET ROLL TEMPLATE -------------*/
-
-.sheet-rolltemplate-main .sheet-template-container {
-	display: flex;
-	flex-direction: column;
-	border: 2px solid black;
-	font-family: Paytone One;
-	text-align: center;
-}
-
-.sheet-rolltemplate-main p {
-    font-family: Paytone One;
-    text-align: left;
-}
-
-.sheet-rolltemplate-main .sheet-template-row {
-	display: flex;
-	flex-direction: column;
-	border-bottom: 1px solid black;
-	padding: 5px;
-	justify-content: center;
-	align-items: center;
-}
-
-.sheet-rolltemplate-main .sheet-template-header {
-	flex-direction: row !important;
-	background-color: black;
-	color: white;
-}
-
-.sheet-rolltemplate-main .sheet-template-label {
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-bottom: 5px;
-}
-
-.sheet-rolltemplate-main .sheet-template-success {
-	color: green;
-}
-
-.sheet-rolltemplate-main .sheet-template-fail {
-	color: red;
 }
