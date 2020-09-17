@@ -11,12 +11,12 @@
 
       <div class="header-row">
         <span class="label secondary-font" data-i18n="name">Nome</span>
-        <input name="attr_character_name" type="text" title="{@character_name}" />
+        <input name="attr_character_name" type="text" title="@{character_name}" />
       </div>
 
       <div class="header-row">
         <span class="label secondary-font" data-i18n="archetype">Arquétipo</span>
-        <input name="attr_archetype" type="text" title="{@archetype}" />
+        <input name="attr_archetype" type="text" title="@{archetype}" />
       </div>
 
     </div>
@@ -48,14 +48,14 @@
 
           <div class="attributes-grid">
             <span class="label secondary-font" data-i18n="strength">Força</span>
-            <input name="attr_charstrength" type="number" title="{@charstrength}" />
-            <button type="roll" class="roll-button" name="roll_strength_check" title="{@strength_check}"
+            <input name="attr_charstrength" type="number" title="@{charstrength}" />
+            <button type="roll" class="roll-button" name="roll_strength_check" title="@{strength_check}"
               value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
             
 
             <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
-            <input name="attr_chardexterity" type="number" title="{@chardexterity}" />
-            <button type="roll" class="roll-button" name="roll_dexterity_check" title="{@dexterity_check}"
+            <input name="attr_chardexterity" type="number" title="@{chardexterity}" />
+            <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
               value="&{template:main} {{charname=@{character_name}}} {{check=@{dexterity}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{chardexterity} ]]}}"></button>
 
           </div>
@@ -64,7 +64,7 @@
         <div class="box flex-column">
 
           <span class="box-title main-font" data-i18n="notes">Anotações</span>
-          <textarea name="attr_notes" title="{@notes}"></textarea>
+          <textarea name="attr_notes" title="@{notes}"></textarea>
 
         </div>
 
@@ -126,7 +126,7 @@
                   </select>
                 </div>
 
-                <button type="roll" class="roll-button" name="roll_weapon_damage" title="{@weapon_damage}"
+                <button type="roll" class="roll-button" name="roll_weapon_damage" title="@{weapon_damage}"
                   value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
 
               </div>
