@@ -4,6 +4,7 @@
 .sheet-main-container {
   min-width: 600px;
 	max-width: 1000px;
+	min-height: 800px;
 	border: 1.5px solid black;
 	padding: 30px 30px 0px 30px;
 	display: flex;
@@ -21,7 +22,7 @@
 }
 
 .sheet-main-container input[type=text] {
-	width: 10px;
+	width: auto;
 	flex-grow: 1;
 }
 
@@ -83,23 +84,42 @@
 .sheet-header-row {
 	margin-bottom: 10px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+}
+
+.sheet-header-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-items: start;
 	align-items: center;
+	gap: 5px;
 }
 
 .sheet-logo {
-	text-align: center;
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/logo.png');
+	background-repeat: no-repeat;
+	background-size: 400px 177px;
+	width: 400px;
+	height: 177px;
 	margin-right: 20px;
 }
 
 .sheet-tab-panel {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	margin: 10px;
 }
 
 .sheet-tab-panel button {
 	margin-right: 5px !important;
+}
+
+.sheet-injury input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
 }
 
 .sheet-attributes-grid {
@@ -110,9 +130,68 @@
 	gap: 5px;
 }
 
+.sheet-occupations-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-items: start;
+	align-items: center;
+	gap: 5px;
+}
+
+.sheet-style-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	justify-items: start;
+	align-items: center;
+	gap: 5px;
+}
+
+.sheet-style-icon {
+	background-repeat: no-repeat;
+	background-size: 35px 35px;
+	width: 35px;
+	height: 35px;
+}
+
+.sheet-grappling-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/agarrao.png');
+}
+
+.sheet-block-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/bloqueio.png');
+}
+
+.sheet-combo-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/combo.png');
+}
+
+.sheet-evasion-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/evasao.png');
+}
+
+.sheet-blow-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/golpe.png');
+}
+
+.sheet-projectile-icon {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/Karyu%20Densetsu%20-%20new%20layout/img/projetil.png');
+}
+
+.sheet-threshold-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-items: start;
+	align-items: center;
+	gap: 5px;
+}
+
+.sheet-vigor input[type="number"] {
+	margin-right: 5px;
+}
+
 .sheet-middle {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 }
 
 .sheet-middle-column {
@@ -133,7 +212,6 @@
 
 .sheet-box-title {
 	text-transform: uppercase;
-	text-align: center;
 	margin-bottom: 10px;
 }
 
@@ -160,15 +238,13 @@
 
 /*Configure the tab buttons*/
 .sheet-profiletab,
-.sheet-configurationtab,
-.sheet-journaltab {
+.sheet-techniquestab {
 	display: none;
 }
 
 /* show the selected tab */
 .sheet-tabcontrol[value="profile"] ~ div.sheet-profiletab,
-.sheet-tabcontrol[value="configuration"] ~ div.sheet-configurationtab,
-.sheet-tabcontrol[value="journal"] ~ div.sheet-journaltab {
+.sheet-tabcontrol[value="techniques"] ~ div.sheet-techniquestab {
 	display: block;
 }
 
