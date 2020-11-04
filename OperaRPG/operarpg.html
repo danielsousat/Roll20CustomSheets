@@ -1,0 +1,607 @@
+<div class="main-container">
+  <!--TODO
+    -Habilidades:
+      colocar uma caixa de seleção de qual o tipo de atributo da habilidade
+      implementar a soma automática do atributo com a pontuação da habilidade.
+    
+    -Testes:
+      Testes de Atributo (roll under): 2 é sucesso crítico e 12 é falha crítica 
+      Testes de Disputa (roll + mod): 12 é sucesso crítico e 2 é falha crítica
+    
+    - Automatizar a tabela do Diagrama de Resistência (em qual parte do corpo o ataque atingiu)
+
+    - Ataque: as rolagens pra corpo a corpo e à distância são diferentes
+    - Dano: incluir o incremento de dano por Golpe Mortal
+  
+  -->
+
+
+  <!-- Header -->
+  <div class="header">
+
+    <div class="logo main-font">
+      <h1 data-i18n="game-title">Título do jogo</h1>
+    </div>
+
+    <div class="flex-column grow">
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="name">Nome</span>
+        <input name="attr_character_name" type="text" title="@{character_name}" />
+      </div>
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="experience_points">Pontos de Experiência</span>
+        <input name="attr_xp" type="number" title="@{xp}" />
+      </div>
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="creation_points">Pontos de Criação</span>
+        <input name="attr_creation_points" type="number" title="@{creation_points}" />
+      </div>
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="initiative">Iniciativa</span>
+        <input name="attr_initiative" type="text" title="@{initiative}" />
+      </div>
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
+        <input name="attr_dodge" type="text" title="@{dodge}" />
+      </div>
+
+      <div class="header-row">
+        <span class="label secondary-font" data-i18n="actions">Ações</span>
+        <input name="attr_dodge" type="text" title="@{actions}" />
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="tab-panel">
+
+    <button type="action" name="act_profile" data-i18n="profile">Perfil</button>
+    <button type="action" name="act_journal" data-i18n="journal">Diário</button>
+    <button type="action" name="act_configuration" data-i18n="configuration">Configuração</button>
+
+  </div>
+  <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
+
+  <!-- Profile Tab -->
+  <div class="profiletab">
+
+    <!-- Middle -->
+    <div class="middle">
+
+      <!-- Middle column 1-->
+      <div class="middle-column">
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="attributes">Atributos</span>
+
+          <div class="attributes-grid">
+
+            <div></div>
+            <div></div>
+            <span class="label secondary-font" data-i18n="original">Original</span>
+            <span class="label secondary-font" data-i18n="modifier">Modificador</span>
+            <span class="label secondary-font" data-i18n="damage">Dano</span>
+            <span class="label secondary-font" data-i18n="effect">Efeito</span>
+
+            <button type="roll" class="roll-button" name="roll_physique_check" title="@{physique_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{physique}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charphysique} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="physique">Físico</span>
+            <input name="attr_charphysique" type="number" title="@{charphysique}" />
+            <input name="attr_charphysiquemod" type="number" title="@{charphysiquemod}" />
+            <input name="attr_charphysiquedamage" type="number" title="@{charphysiquedamage}" />
+            <input name="attr_charphysiqueeffect" type="number" title="@{charphysiqueeffect}" />
+
+            <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{dexterity}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{chardexterity} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
+            <input name="attr_chardexterity" type="number" title="@{chardexterity}" />
+            <input name="attr_chardexteritymod" type="number" title="@{chardexteritymod}" />
+            <input name="attr_chardexteritydamage" type="number" title="@{chardexteritydamage}" />
+            <input name="attr_chardexterityeffect" type="number" title="@{chardexterityeffect}" />
+
+            <button type="roll" class="roll-button" name="roll_intelligence_check" title="@{intelligence_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{intelligence}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charintelligence} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="intelligence">Inteligência</span>
+            <input name="attr_charintelligence" type="number" title="@{charintelligence}" />
+            <input name="attr_charintelligencemod" type="number" title="@{charintelligencemod}" />
+            <input name="attr_charintelligencedamage" type="number" title="@{charintelligencedamage}" />
+            <input name="attr_charintelligenceeffect" type="number" title="@{charintelligenceeffect}" />
+
+            <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{will}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charwill} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="will">Vontade</span>
+            <input name="attr_charwill" type="number" title="@{charwill}" />
+            <input name="attr_charwillmod" type="number" title="@{charwillmod}" />
+            <input name="attr_charwilldamage" type="number" title="@{charwilldamage}" />
+            <input name="attr_charwilleffect" type="number" title="@{charwilleffect}" />
+
+            <button type="roll" class="roll-button" name="roll_mind_check" title="@{mind_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{mind}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charmind} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="mind">Mente</span>
+            <input name="attr_charmind" type="number" title="@{charmind}" />
+            <input name="attr_charmindmod" type="number" title="@{charmindmod}" />
+            <input name="attr_charminddamage" type="number" title="@{charminddamage}" />
+            <input name="attr_charmindeffect" type="number" title="@{charmindeffect}" />
+
+            <button type="roll" class="roll-button" name="roll_magic_check" title="@{magic_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{magic}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charmagic} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="magic">Magia</span>
+            <input name="attr_charmagic" type="number" title="@{charmagic}" />
+            <input name="attr_charmagicmod" type="number" title="@{charmagicmod}" />
+            <input name="attr_charmagicdamage" type="number" title="@{charmagicdamage}" />
+            <input name="attr_charmagiceffect" type="number" title="@{charmagiceffect}" />
+
+            <button type="roll" class="roll-button" name="roll_perception_check" title="@{perception_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{perception}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charperception} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="perception">Percepção</span>
+            <input name="attr_charperception" type="number" title="@{charperception}" />
+            <input name="attr_charperceptionmod" type="number" title="@{charperceptionmod}" />
+            <input name="attr_charperceptiondamage" type="number" title="@{charperceptiondamage}" />
+            <input name="attr_charperceptioneffect" type="number" title="@{charperceptioneffect}" />
+
+            <button type="roll" class="roll-button" name="roll_luck_check" title="@{luck_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{luck}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charluck} ]]}}"></button>
+            <span class="label secondary-font" data-i18n="luck">Sorte</span>
+            <input name="attr_charluck" type="number" title="@{charluck}" />
+            <input name="attr_charluckmod" type="number" title="@{charluckmod}" />
+            <input name="attr_charluckdamage" type="number" title="@{charluckdamage}" />
+            <input name="attr_charluckeffect" type="number" title="@{charluckeffect}" />
+
+          </div>
+        </div>
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="features">Características</span>
+
+          <fieldset class="repeating_features">
+
+            <div class="repeatable-item">
+              
+              <div class="repeatable-grid">
+                
+                <span class="label secondary-font" data-i18n="feature">Característica</span>
+                <span class="label secondary-font" data-i18n="cost">Custo</span>
+                <div></div>
+                
+                <input name="attr_feature" type="text" title="@{feature}" />
+                <input name="attr_featurecost" type="text" title="@{featurecost}" />
+
+                <div class="showhidebutton">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_featuredescription" data-i18n-placeholder="description"
+                title="@{featuredescription}" placeholder="Descrição"></textarea>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="notes">Anotações</span>
+          <textarea name="attr_notes" title="@{notes}"></textarea>
+
+        </div>
+
+      </div>
+
+      <!-- Middle column 2 -->
+      <div class="middle-column">
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="powers_and_mutations">Poderes & Mutações</span>
+
+          <fieldset class="repeating_powers">
+
+            <div class="repeatable-item">
+              
+              <div class="repeatable-grid">
+                
+                <span class="label secondary-font" data-i18n="name">Nome</span>
+                <span class="label secondary-font" data-i18n="cost">Custo</span>
+                <div></div>
+                
+                <input name="attr_power" type="text" title="@{power}" />
+                <input name="attr_powercost" type="text" title="@{powercost}" />
+
+                <div class="showhidebutton">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_powerdescription" data-i18n-placeholder="description"
+                title="@{powerdescription}" placeholder="Descrição"></textarea>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="skills">Habilidades</span>
+
+          <fieldset class="repeating_skills">
+
+            <div class="repeatable-item">
+              
+              <div class="repeatable-grid">
+                
+                <div></div>
+                <span class="label secondary-font" data-i18n="skill">Habilidade</span>
+                <span class="label secondary-font" data-i18n="cost">Custo</span>
+                <span class="label secondary-font" data-i18n="attribute">Atributo</span>
+                <span class="label secondary-font" data-i18n="check">Teste</span>
+                <div></div>
+                
+                <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{luck}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charluck} ]]}}"></button>
+                <input name="attr_skill" type="text" title="@{skill}" />
+                <input name="attr_skillcost" type="text" title="@{skillcost}" />
+                <select class="select row-item-margin" name="attr_skillattribute" title="@{skillattribute}">
+                  <option value="charphysique" data-i18n="physique" selected="selected">Físico</option>
+                  <option value="chardexterity" data-i18n="dexterity">Destreza</option>
+                  <option value="charintelligence" data-i18n="intelligence">Inteligência</option>
+                  <option value="charwill" data-i18n="will">Vontade</option>
+                  <option value="charmind" data-i18n="mind">Mente</option>
+                  <option value="charmagic" data-i18n="magic">Magia</option>
+                  <option value="charperception" data-i18n="perception">Percepção</option>
+                  <option value="charluck" data-i18n="luck">Sorte</option>
+                </select>
+                <input name="attr_skilltest" type="text" readonly title="@{skilltest}" />
+
+                <div class="showhidebutton">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_skilldescription" data-i18n-placeholder="description"
+                title="@{skilldescription}" placeholder="Descrição"></textarea>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+
+      </div>
+
+      <!-- Middle column 3 -->
+      <div class="middle-column">
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="equipments">Equipamentos</span>
+
+          <fieldset class="repeating_equipments">
+
+            <div class="repeatable-item">
+              <div class="repeatable-row">
+                <input name="attr_equipment" type="text" data-i18n-placeholder="equipment" placeholder="Equipamento" title="@{equipment}" />
+
+                <div class="showhidebutton">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
+                title="@{equipmentdescription}"
+                placeholder="Descrição"></textarea>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+
+        <div class="box flex-column">
+
+          <span class="box-title main-font" data-i18n="protection">Proteção</span>
+  
+          <fieldset class="repeating_protection">
+  
+            <div class="repeatable-item">
+  
+              <div class="repeatable-grid">
+  
+                <span class="label secondary-font" data-i18n="name">Nome</span>
+                <span class="label secondary-font" data-i18n="protected_areas">Áreas Protegidas</span>
+                <span class="label secondary-font" data-i18n="normal_absortion">Absorção Normal</span>
+                <span class="label secondary-font" data-i18n="high_absortion">Absorção Alta</span>
+                <span class="label secondary-font" data-i18n="penalty">Penalidade</span>
+                <div></div>
+                
+                <input class="row-item-margin" name="attr_protectionname" type="text" title="@{protectionname}" />
+                <input class="row-item-margin" name="attr_protectionprotectedareas" type="text" title="@{protectionprotectedarreas}" />
+                <input class="row-item-margin" name="attr_protectionnormalabsortion" type="text" title="@{protectionnormalabsortion}" />
+                <input class="row-item-margin" name="attr_protectionhighabsortion" type="text" title="@{protectionhighabsortion}" />
+                <input class="row-item-margin" name="attr_protectionpenalty" type="text" title="@{protectionpenalty}" />
+                
+                <div class="showhidebutton">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+  
+              </div>
+  
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_protectiondescription" data-i18n-placeholder="description"
+                title="@{protectiondescription}"
+                placeholder="Descrição"></textarea>
+  
+            </div>
+          </fieldset>
+  
+        </div>
+
+      </div>
+
+      <div class="box flex-column">
+
+        <span class="box-title main-font" data-i18n="weapons">Armas</span>
+
+        <fieldset class="repeating_weapons">
+
+          <div class="repeatable-item">
+
+            <div class="repeatable-grid">
+
+              <div></div>
+              <span class="label secondary-font" data-i18n="weapon">Arma</span>
+              <span class="label secondary-font" data-i18n="blow">Golpe</span>
+              <span class="label secondary-font" data-i18n="parry">Aparo</span>
+              <span class="label secondary-font" data-i18n="damage">Dano</span>
+              <span class="label secondary-font" data-i18n="fast_shot">Tiro Rápido</span>
+              <span class="label secondary-font" data-i18n="aimed_shot">Tiro Mirado</span>
+              <span class="label secondary-font" data-i18n="rate_of_fire">Cadência</span>
+              <span class="label secondary-font" data-i18n="shots">Carga</span>
+              <span class="label secondary-font" data-i18n="reload_actions">Ações de Recarga</span>
+              <span class="label secondary-font" data-i18n="range">Alcance</span>
+
+              <button type="roll" class="roll-button" name="roll_weapon_damageroll" title="@{weapon_damageroll}"
+                value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
+              <input class="row-item-margin" name="attr_weaponname" type="text" title="@{weaponname}" />
+              <input class="row-item-margin" name="attr_weaponblow" type="text" title="@{weaponblow}" />
+              <input class="row-item-margin" name="attr_weaponparry" type="text" title="@{weaponparry}" />
+              <input class="row-item-margin" name="attr_weapondamage" type="text" title="@{weapondamage}" />
+              <input class="row-item-margin" name="attr_weaponfastshot" type="text" title="@{weaponfastshot}" />
+              <input class="row-item-margin" name="attr_weaponaimedshot" type="text" title="@{weaponaimedshot}" />
+              <input class="row-item-margin" name="attr_weaponrateoffire" type="text" title="@{weaponrateoffire}" />
+              <input class="row-item-margin" name="attr_weaponrshots" type="text" title="@{weaponshots}" />
+              <input class="row-item-margin" name="attr_weaponreloadactions" type="text" title="@{weaponreloadactions}" />
+              <input class="row-item-margin" name="attr_weaponrange" type="text" title="@{weaponrange}" />
+
+            </div>
+
+            <textarea name="attr_weapondescription" data-i18n-placeholder="description"
+              placeholder="Descrição"></textarea>
+
+          </div>
+        </fieldset>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Journal Tab -->
+  <div class='journaltab'>
+    <h2>Journal/Notes</h2>
+    <span>Journal/Notes Stuff Goes here</span>
+  </div>
+
+  <!-- Config tab-->
+  <div class='configurationtab'>
+    <h2>Config/Settings</h2>
+    <span>Sheet Config/Settings goes here</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer secondary-font">
+    <span data-i18n="copyright">[Nome do jogo] é um jogo escrito por [nome do autor].</span>
+  </div>
+
+</div>
+
+<!-- end of sheet -->
+
+<!-- Roll Templates -->
+<rolltemplate class="sheet-rolltemplate-main">
+  <div class="template-container">
+    <div class="template-row template-header template-label secondary-font">
+      {{charname}}
+    </div>
+
+    {{#action}}
+    <div class="template-row">
+      <span class="template-label secondary-font">{{action}}</span>
+      {{#text}}
+      <p>{{text}}</p>
+      {{/text}}
+
+    </div>
+    {{/action}}
+
+    {{#check}}
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="check">Teste</span>
+      {{check}}
+    </div>
+    {{/check}}
+
+    {{#result}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+      {{result}}
+    </div>
+
+    {{#^rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
+    </div>
+    {{/^rollLess() result target}}
+
+    {{#rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
+    </div>
+    {{/rollLess() result target}}
+
+
+    {{#rollWasCrit() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+    </div>
+    {{/rollWasCrit() result}}
+
+    {{#rollWasFumble() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
+    </div>
+    {{/rollWasFumble() result}}
+
+    {{/result}}
+
+  </div>
+
+</rolltemplate>
+
+<!-- Strings translations for Roll Queries-->
+<div style="display: none;">
+  <span data-i18n="advantagedisadvantage">Possui vantagem ou desvantagem?</span>
+  <span data-i18n="no">Não</span>
+  <span data-i18n="advantage">Vantagem</span>
+  <span data-i18n="disadvantage">Desvantagem</span>
+  <span data-i18n="result">Resultado</span>
+  <span data-i18n="success">Sucesso!</span>
+  <span data-i18n="fail">Falha!</span>
+  <span data-i18n="critic">Sucesso Crítico!</span>
+  <span data-i18n="fumble">Falha Crítica!</span>
+  <span data-i18n="check">Teste</span>
+</div>
+
+<!--Sheet Workers -->
+<script type="text/worker">
+
+  const buttonlist = ["profile","journal","configuration"];
+  
+  /*config tabs control */
+  buttonlist.forEach(button => {
+      on(`clicked:${button}`, function() {
+          setAttrs({
+              tabcontrol: button
+          });
+      });
+  });
+
+  /*Controls show hide checkbox button from repeating sections*/
+  on("change:repeating_equipments:showhide_checkbox" , function(eventInfo) {
+    
+    let source = eventInfo.sourceAttribute;
+    let changeAttributes = new Object();
+    let targetId = source + '_invisible';
+    
+    changeAttributes[targetId] = eventInfo.newValue;
+
+    console.log(eventInfo);
+    console.log(changeAttributes);
+
+    setAttrs(changeAttributes);
+  });
+
+  /*config Roll Queries translations */
+  on("sheet:opened", function(eventInfo){
+      
+      setAttrs({
+          advantagedisadvantage: getTranslationByKey("advantagedisadvantage"),
+          no: getTranslationByKey("no"),
+          advantage: getTranslationByKey("advantage"),
+          disadvantage: getTranslationByKey("disadvantage"),
+          result: getTranslationByKey("result"),
+          check: getTranslationByKey("check"),
+          strength: getTranslationByKey("strength"),
+          dexterity: getTranslationByKey("dexterity")
+      });     
+      
+  });
+
+  /*keep attributes values at 13 max*/
+  on("change:charbody change:charmind change:charcharisma change:charcuriosity change:charsurvival", function(eventInfo) {  
+    const maxValue = 13;
+    let oldValue = parseInt(eventInfo.previousValue)||0;
+    let newValue = parseInt(eventInfo.newValue)||0;
+    let attribute = eventInfo.sourceAttribute;
+    let changedAttributes = new Object();
+    
+    changedAttributes[attribute] = maxValue;
+    
+    if (newValue > maxValue) {
+  
+      changedAttributes[attribute] = maxValue;
+      setAttrs(changedAttributes);
+    }
+     
+  });
+
+  /*controls roll buttons when char has a condition checked*/
+  on("change:wounded change:shaken change:ashamed", function(eventInfo) {  
+    const disadvantage = "disadvantage";
+    const normal = "normal";
+    const sourceAttribute = eventInfo.sourceAttribute;
+    const newValue = eventInfo.newValue;
+    let changedAttributes = new Object();
+    let controlToUpdate = sourceAttribute + "control";
+    
+    changedAttributes[controlToUpdate] = normal;
+
+    switch(newValue) {
+      case "on":
+        changedAttributes[controlToUpdate] = disadvantage;
+        break;
+      default:
+        changedAttributes[controlToUpdate] = normal;
+    }
+    
+    setAttrs(changedAttributes);
+     
+  });
+  
+  
+</script>
