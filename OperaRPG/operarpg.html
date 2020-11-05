@@ -160,7 +160,7 @@
               value="@{charperception} + @{charperceptionmod} - @{charperceptiondamage} + @{charperceptioneffect}" />
 
             <button type="roll" class="roll-button" name="roll_luck_check" title="@{luck_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{action=@{luck}}} {{value=[[@{charluckcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charluckcurrent}}+?{@{modifier}|0}]]}}"></button>
+              value="&{template:main} {{charname=@{character_name}}} {{action=@{luck}}} {{value=[[@{charluckcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charluckcurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="luck">Sorte</span>
             <input name="attr_charluck" type="number" title="@{charluck}" value="0" />
             <input name="attr_charluckmod" type="number" title="@{charluckmod}" value="0" />
@@ -409,13 +409,13 @@
       <span class="box-title main-font" data-i18n="weapons">Armas</span>
 
       <div class="repeatable-grid weapons">
-        <div></div>
         <span class="label secondary-font" data-i18n="weapon">Arma</span>
+        <span class="label secondary-font" data-i18n="level">Nível</span>
         <span class="label secondary-font" data-i18n="damage">Dano</span>
         <span class="label secondary-font" data-i18n="blow">Golpe</span>
         <span class="label secondary-font" data-i18n="parry">Aparo</span>
-        <span class="label secondary-font" data-i18n="fast_shot">TR</span>
-        <span class="label secondary-font" data-i18n="aimed_shot">TM</span>
+        <span class="label secondary-font" data-i18n="fast_shot">Tiro Rápido</span>
+        <span class="label secondary-font" data-i18n="aimed_shot">Tiro Mirado</span>
         <span class="label secondary-font" data-i18n="rate_of_fire">Cad</span>
         <div></div>
 
@@ -427,15 +427,37 @@
 
           <div class="repeatable-grid weapons">
 
-            <button type="roll" class="roll-button" name="roll_weapon_damageroll" title="@{weapon_damageroll}"
-              value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
             <input class="row-item-margin" name="attr_weaponname" type="text" title="@{weaponname}" />
-            <input class="row-item-margin" name="attr_weapondamage" type="text" title="@{weapondamage}" />
-            <input class="row-item-margin" name="attr_weaponblow" type="text" title="@{weaponblow}" />
-            <input class="row-item-margin" name="attr_weaponparry" type="text" title="@{weaponparry}" />
-            <input class="row-item-margin" name="attr_weaponfastshot" type="text" title="@{weaponfastshot}" />
-            <input class="row-item-margin" name="attr_weaponaimedshot" type="text" title="@{weaponaimedshot}" />
-            <input class="row-item-margin" name="attr_weaponrateoffire" type="text" title="@{weaponrateoffire}" />
+            <input class="row-item-margin" name="attr_weaponlevel" type="number" title="@{weaponlevel}" value="0" />
+            <input class="row-item-margin" name="attr_weapondamage" type="text" title="@{weapondamage}" value="0" />
+            <div class="weapons-die-label">
+              <input class="row-item-margin" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
+              <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
+            </div>
+
+            <div class="weapons-die-label">
+              <input class="row-item-margin" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
+              <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponparry} + ?{@{modifier}|0} ]] }}"></button>
+            </div>
+            
+            <div class="weapons-die-label">
+              <input class="row-item-margin" name="attr_weaponfastshot" type="number" title="@{weaponfastshot}"
+              value="0" />
+              <button type="roll" class="roll-button" name="roll_weaponfastshot_check" title="@{weaponfastshot_check}"
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{fast_shot}}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponfastshot} + ?{@{modifier}|0} ]] }}"></button>
+            </div>
+            
+            <div class="weapons-die-label">
+              <input class="row-item-margin" name="attr_weaponaimedshot" type="number" title="@{weaponaimedshot}"
+              value="0" />
+              <button type="roll" class="roll-button" name="roll_weaponaimedshot_check" title="@{weaponaimedshot_check}"
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{aimed_shot}}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponaimedshot} + ?{@{modifier}|0} ]] }}"></button>
+            </div>
+                        
+            <input class="row-item-margin" name="attr_weaponrateoffire" type="number" title="@{weaponrateoffire}"
+              value="0" />
 
             <div class="showhidebutton">
               <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -454,9 +476,9 @@
               <span class="label secondary-font" data-i18n="reload_actions">Ações de Recarga</span>
               <span class="label secondary-font" data-i18n="range">Alcance</span>
 
-              <input class="row-item-margin" name="attr_weaponrshots" type="text" title="@{weaponshots}" />
-              <input class="row-item-margin" name="attr_weaponreloadactions" type="text"
-                title="@{weaponreloadactions}" />
+              <input class="row-item-margin" name="attr_weaponrshots" type="number" title="@{weaponshots}" value="0" />
+              <input class="row-item-margin" name="attr_weaponreloadactions" type="number"
+                title="@{weaponreloadactions}" value="0" />
               <input class="row-item-margin" name="attr_weaponrange" type="text" title="@{weaponrange}" />
 
             </div>
@@ -616,7 +638,11 @@
           mind: getTranslationByKey("mind"),
           magic: getTranslationByKey("magic"),
           perception: getTranslationByKey("perception"),
-          luck: getTranslationByKey("luck")
+          luck: getTranslationByKey("luck"),
+          fast_shot: getTranslationByKey("fast_shot"),
+          aimed_shot: getTranslationByKey("aimed_shot"),
+          parry: getTranslationByKey("parry"),
+          blow: getTranslationByKey("blow")
       });     
       
   });
