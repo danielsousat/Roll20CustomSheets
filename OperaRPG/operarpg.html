@@ -1,23 +1,4 @@
 <div class="main-container">
-  <!--TODO
-    -Habilidades:
-      colocar uma caixa de seleção de qual o tipo de atributo da habilidade
-      implementar a soma automática do atributo com a pontuação da habilidade.
-    
-    -Testes:
-      Testes de Atributo (roll under): 2 é sucesso crítico e 12 é falha crítica 
-      Testes de Disputa (roll + mod): 12 é sucesso crítico e 2 é falha crítica
-    
-    - Automatizar a tabela do Diagrama de Resistência (em qual parte do corpo o ataque atingiu)
-
-    - Ataque: as rolagens pra corpo a corpo e à distância são diferentes
-    - Dano: incluir o incremento de dano por Golpe Mortal
-
-    - Ver como calcular iniciativa, esquiva e aparo
-    - Armas: incluir um campo de nível para indicar o nível de habilidade a ser somado na rolagem da arma.
-  
-  -->
-
 
   <!-- Header -->
   <div class="header">
@@ -39,18 +20,49 @@
         <input name="attr_xp" type="number" title="@{xp}" />
         <span class="label secondary-font" data-i18n="creation_points">Pontos de Criação</span>
         <input name="attr_creation_points" type="number" title="@{creation_points}" />
-      </div>
-
-      <div class="header-row">
-
-        <span class="label secondary-font" data-i18n="initiative">Iniciativa</span>
-        <input name="attr_initiative" type="number" title="@{initiative}" />
-
-        <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
-        <input name="attr_dodge" type="number" title="@{dodge}" />
-
         <span class="label secondary-font" data-i18n="actions">Ações</span>
         <input name="attr_dodge" type="number" title="@{actions}" />
+      </div>
+
+      <div class="header-row2">
+
+        <div class="header-grid">
+
+          <button type="roll" class="roll-button" name="roll_initiative_check" title="@{initiative_check}"
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{initiative}}} {{value=[[@{initiativetotal}]]}} {{result=[[2d6cs>2cf<5+@{initiativetotal}}+?{@{modifier}|0}]]}}"></button>
+          <span class="label secondary-font" data-i18n="initiative">Iniciativa</span>
+          <div></div>
+
+          <span class="column-header secondary-font" data-i18n="base">Base</span>
+          <span class="column-header secondary-font" data-i18n="modifier">Mod</span>
+          <span class="column-header secondary-font" data-i18n="total">Total</span>
+          
+          <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
+            value="@{chardexteritycurrent}" />
+          <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
+          <input name="attr_initiativetotal" type="number" disabled="true" title="@{initiativetotal}"
+            value="@{initiativebase} + @{initiativemod}" />
+
+        </div>
+
+        <div class="header-grid">
+
+          <button type="roll" class="roll-button" name="roll_dodge_check" title="@{dodge_check}"
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{dodge}}} {{value=[[@{dodgetotal}]]}} {{result=[[2d6cs>2cf<5+@{dodgetotal}}+?{@{modifier}|0}]]}}"></button>
+            <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
+          <div></div>
+
+          <span class="column-header  secondary-font" data-i18n="base">Base</span>
+          <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
+          <span class="column-header  secondary-font" data-i18n="total">Total</span>
+          
+          <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}"
+            value="@{chardexteritycurrent}" />
+          <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
+          <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
+            value="@{dodgebase} + @{dodgemod}" />
+
+        </div>
 
       </div>
 
@@ -83,11 +95,11 @@
 
             <div></div>
             <div></div>
-            <span class="label secondary-font" data-i18n="original">Orig</span>
-            <span class="label secondary-font" data-i18n="modifier">Mod</span>
-            <span class="label secondary-font" data-i18n="damage">Dano</span>
-            <span class="label secondary-font" data-i18n="effect">Efeito</span>
-            <span class="label secondary-font" data-i18n="current">Atual</span>
+            <span class="column-header  secondary-font" data-i18n="original">Orig</span>
+            <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
+            <span class="column-header  secondary-font" data-i18n="damage">Dano</span>
+            <span class="column-header  secondary-font" data-i18n="effect">Efeito</span>
+            <span class="column-header  secondary-font" data-i18n="current">Atual</span>
 
             <button type="roll" class="roll-button" name="roll_physique_check" title="@{physique_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{physique}}} {{value=[[@{charphysiquecurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charphysiquecurrent}}+?{@{modifier}|0}]]}}"></button>
@@ -177,8 +189,8 @@
           <span class="box-title main-font" data-i18n="features">Características</span>
 
           <div class="repeatable-grid features">
-            <span class="label secondary-font" data-i18n="feature">Característica</span>
-            <span class="label secondary-font" data-i18n="cost">Custo</span>
+            <span class="column-header  secondary-font" data-i18n="feature">Característica</span>
+            <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
             <div></div>
           </div>
 
@@ -202,7 +214,7 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide flex-column">
-                <span class="label secondary-font" data-i18n="description">Descrição</span>
+                <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
                 <textarea name="attr_featuredescription" title="@{featuredescription}"></textarea>
               </div>
             </div>
@@ -216,8 +228,8 @@
           <span class="box-title main-font" data-i18n="powers_and_mutations">Poderes & Mutações</span>
 
           <div class="repeatable-grid powers">
-            <span class="label secondary-font" data-i18n="name">Nome</span>
-            <span class="label secondary-font" data-i18n="cost">Custo</span>
+            <span class="column-header  secondary-font" data-i18n="name">Nome</span>
+            <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
             <div></div>
           </div>
 
@@ -241,7 +253,7 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide flex-column">
-                <span class="label secondary-font" data-i18n="description">Descrição</span>
+                <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
                 <textarea name="attr_powerdescription" title="@{powerdescription}"></textarea>
               </div>
             </div>
@@ -260,11 +272,11 @@
           <span class="box-title main-font" data-i18n="skills">Habilidades</span>
           <div class="repeatable-grid skills">
             <div></div>
-            <span class="label secondary-font" data-i18n="skill">Habilidade</span>
-            <span class="label secondary-font" data-i18n="attribute">Atributo</span>
-            <span class="label secondary-font" data-i18n="cost">Custo</span>
-            <span class="label secondary-font" data-i18n="level">Nível</span>
-            <span class="label secondary-font" data-i18n="total">Total</span>
+            <span class="column-header  secondary-font" data-i18n="skill">Habilidade</span>
+            <span class="column-header  secondary-font" data-i18n="attribute">Atributo</span>
+            <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
+            <span class="column-header  secondary-font" data-i18n="level">Nível</span>
+            <span class="column-header  secondary-font" data-i18n="total">Total</span>
             <div></div>
           </div>
 
@@ -302,7 +314,7 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide flex-column">
-                <span class="label secondary-font" data-i18n="description">Descrição</span>
+                <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
                 <textarea name="attr_skilldescription" title="@{skilldescription}"></textarea>
               </div>
             </div>
@@ -316,10 +328,10 @@
           <span class="box-title main-font" data-i18n="protection">Proteção</span>
 
           <div class="repeatable-grid protection">
-            <span class="label secondary-font" data-i18n="name">Nome</span>
-            <span class="label secondary-font" data-i18n="protected_areas">Áreas Protegidas</span>
-            <span class="label secondary-font absortion" data-i18n="absortion">Absorção</span>
-            <span class="label secondary-font" data-i18n="penalty">Penalidade</span>
+            <span class="column-header  secondary-font" data-i18n="name">Nome</span>
+            <span class="column-header  secondary-font" data-i18n="protected_areas">Áreas Protegidas</span>
+            <span class="column-header  secondary-font absortion" data-i18n="absortion">Absorção</span>
+            <span class="column-header  secondary-font" data-i18n="penalty">Penalidade</span>
             <div></div>
           </div>
 
@@ -355,7 +367,7 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide flex-column">
-                <span class="label secondary-font" data-i18n="description">Descrição</span>
+                <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
                 <textarea name="attr_protectiondescription" title="@{protectiondescription}"></textarea>
               </div>
 
@@ -363,7 +375,7 @@
           </fieldset>
 
           <div class="penalty">
-            <span class="label secondary-font" data-i18n="totalpenalty">Penalidade Total</span>
+            <span class="column-header  secondary-font" data-i18n="totalpenalty">Penalidade Total</span>
             <input class="row-item-margin" name="attr_totalpenalty" readonly type="number" title="@{totalpenalty}" />
           </div>
 
@@ -391,7 +403,7 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide flex-column">
-                <span class="label secondary-font" data-i18n="description">Descrição</span>
+                <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
                 <textarea name="attr_equipmentdescription" title="@{equipmentdescription}"></textarea>
               </div>
             </div>
@@ -409,14 +421,14 @@
       <span class="box-title main-font" data-i18n="weapons">Armas</span>
 
       <div class="repeatable-grid weapons">
-        <span class="label secondary-font" data-i18n="weapon">Arma</span>
-        <span class="label secondary-font" data-i18n="level">Nível</span>
-        <span class="label secondary-font" data-i18n="damage">Dano</span>
-        <span class="label secondary-font" data-i18n="blow">Golpe</span>
-        <span class="label secondary-font" data-i18n="parry">Aparo</span>
-        <span class="label secondary-font" data-i18n="fast_shot">Tiro Rápido</span>
-        <span class="label secondary-font" data-i18n="aimed_shot">Tiro Mirado</span>
-        <span class="label secondary-font" data-i18n="rate_of_fire">Cad</span>
+        <span class="column-header  secondary-font" data-i18n="weapon">Arma</span>
+        <span class="column-header  secondary-font" data-i18n="level">Nível</span>
+        <span class="column-header  secondary-font" data-i18n="damage">Dano</span>
+        <span class="column-header  secondary-font" data-i18n="blow">Golpe</span>
+        <span class="column-header  secondary-font" data-i18n="parry">Aparo</span>
+        <span class="column-header  secondary-font" data-i18n="fast_shot">Tiro Rápido</span>
+        <span class="column-header  secondary-font" data-i18n="aimed_shot">Tiro Mirado</span>
+        <span class="column-header  secondary-font" data-i18n="rate_of_fire">Cad</span>
         <div></div>
 
       </div>
@@ -433,7 +445,7 @@
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
               <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
@@ -441,21 +453,21 @@
               <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
                 value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponparry} + ?{@{modifier}|0} ]] }}"></button>
             </div>
-            
+
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponfastshot" type="number" title="@{weaponfastshot}"
-              value="0" />
+                value="0" />
               <button type="roll" class="roll-button" name="roll_weaponfastshot_check" title="@{weaponfastshot_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{fast_shot}}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponfastshot} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{fast_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponfastshot} + ?{@{modifier}|0} ]] }}"></button>
             </div>
-            
+
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponaimedshot" type="number" title="@{weaponaimedshot}"
-              value="0" />
+                value="0" />
               <button type="roll" class="roll-button" name="roll_weaponaimedshot_check" title="@{weaponaimedshot_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{aimed_shot}}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponaimedshot} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{aimed_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponaimedshot} + ?{@{modifier}|0} ]] }}"></button>
             </div>
-                        
+
             <input class="row-item-margin" name="attr_weaponrateoffire" type="number" title="@{weaponrateoffire}"
               value="0" />
 
@@ -472,9 +484,9 @@
           <div class="showhide flex-column">
 
             <div class="repeatable-grid weapon-hidden">
-              <span class="label secondary-font" data-i18n="shots">Carga</span>
-              <span class="label secondary-font" data-i18n="reload_actions">Ações de Recarga</span>
-              <span class="label secondary-font" data-i18n="range">Alcance</span>
+              <span class="column-header  secondary-font" data-i18n="shots">Carga</span>
+              <span class="column-header  secondary-font" data-i18n="reload_actions">Ações de Recarga</span>
+              <span class="column-header  secondary-font" data-i18n="range">Alcance</span>
 
               <input class="row-item-margin" name="attr_weaponrshots" type="number" title="@{weaponshots}" value="0" />
               <input class="row-item-margin" name="attr_weaponreloadactions" type="number"
@@ -483,7 +495,7 @@
 
             </div>
 
-            <span class="label secondary-font" data-i18n="description">Descrição</span>
+            <span class="column-header  secondary-font" data-i18n="description">Descrição</span>
             <textarea name="attr_weapondescription" title="@{weapondescription}"></textarea>
           </div>
 
@@ -531,7 +543,7 @@
 
     {{#action}}
     <div class="template-row">
-      <span class="template-label secondary-font"></span>{{action}}: {{value}}</span>
+      <span class="template-label secondary-font">{{action}}: {{value}}</span>
       {{#text}}
       <p>{{text}}</p>
       {{/text}}
@@ -548,6 +560,56 @@
 
     {{/result}}
 
+    {{#damage}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="damage">Dano</span>
+      {{damage}}
+    </div>
+
+    {{/damage}}
+
+    {{#bodyroll}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="body_area">Área do Corpo Atingida</span>
+      {{bodyroll}}
+      
+      {{#rollBetween() bodyroll 11 12}}
+      <span class="template-label secondary-font" data-i18n="head_a">Cabeça(A)</span>
+      {{/rollBetween() bodyroll 11 12}}
+
+      {{#rollTotal() bodyroll 2}}
+        <span class="template-label secondary-font" data-i18n="heart_b">Coração(B)</span>
+      {{/rollTotal() bodyroll 2}}
+
+      {{#rollBetween() bodyroll 6 8}}
+      <span class="template-label secondary-font" data-i18n="belly_c">Barriga(C)</span>
+      {{/rollBetween() bodyroll 6 8}}
+
+      {{#rollTotal() bodyroll 3}}
+      <span class="template-label secondary-font" data-i18n="sensitive_parts_d">Partes sensíveis(D)</span>
+      {{/rollTotal() bodyroll 3}}
+
+      {{#rollTotal() bodyroll 4}}
+      <span class="template-label secondary-font" data-i18n="right_arm_e">Braço direito(E)</span>
+      {{/rollTotal() bodyroll 4}}
+
+      {{#rollTotal() bodyroll 10}}
+      <span class="template-label secondary-font" data-i18n="left_arm_f">Braço esquerdo(F)</span>
+      {{/rollTotal() bodyroll 10}}
+
+      {{#rollTotal() bodyroll 5}}
+      <span class="template-label secondary-font" data-i18n="right_leg_f">Perna direita(G)</span>
+      {{/rollTotal() bodyroll 5}}
+
+      {{#rollTotal() bodyroll 9}}
+      <span class="template-label secondary-font" data-i18n="left_leg_h">Perna esquerda(H)</span>
+      {{/rollTotal() bodyroll 9}}
+    </div>
+
+    {{/bodyroll}}
+
   </div>
 
 </rolltemplate>
@@ -560,6 +622,15 @@
   <span data-i18n="normal">Normal</span>
   <span data-i18n="contest">Disputa</span>
   <span data-i18n="normalorcontest">Normal ou Disputa?</span>
+  <span data-i18n="head_a">Cabeça(A)</span>
+  <span data-i18n="heart_b">Coração(B)</span>
+  <span data-i18n="belly_c">Barriga(C)</span>
+  <span data-i18n="sensitive_parts_d">Partes sensíveis(D)</span>
+  <span data-i18n="right_arm_e">Braço direito(E)</span>
+  <span data-i18n="left_arm_f">Braço esquerdo(F)</span>
+  <span data-i18n="right_leg_f">Perna direita(G)</span>
+  <span data-i18n="left_leg_h">Perna esquerda(H)</span>
+
 </div>
 
 <!--Sheet Workers -->
@@ -642,7 +713,9 @@
           fast_shot: getTranslationByKey("fast_shot"),
           aimed_shot: getTranslationByKey("aimed_shot"),
           parry: getTranslationByKey("parry"),
-          blow: getTranslationByKey("blow")
+          blow: getTranslationByKey("blow"),
+          initiative: getTranslationByKey("initiative"),
+          dodge: getTranslationByKey("dodge")
       });     
       
   });
