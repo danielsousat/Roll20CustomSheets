@@ -46,11 +46,14 @@
 .sheet-main-font {
 	font-family: Paytone One;
 	font-size: 12px;
+	color: red;
+	-webkit-text-stroke: 0.5px black;
 }
 
 .sheet-secondary-font {
 	font-family: Lustria;
 	font-size: 10px;
+	font-weight: bold;
 }
 
 .sheet-flex-row {
@@ -339,6 +342,7 @@
 	border: 2px solid black;
 	font-family: Paytone One;
 	text-align: center;
+	background-color: white;
 }
 
 .sheet-rolltemplate-main p {
@@ -357,14 +361,35 @@
 
 .sheet-rolltemplate-main .sheet-template-header {
 	flex-direction: row !important;
-	background-color: black;
-	color: white;
+	color: red;
+	-webkit-text-stroke: 0.5px black;
 }
 
 .sheet-rolltemplate-main .sheet-template-label {
-	font-weight: bold;
 	text-transform: uppercase;
 	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 2px solid rgba(167, 168, 170,1);
+}
+
+.sheet-rolltemplate-main .inlinerollresult.fullcrit {
+	border: 4px solid green;
+	color: green;
+
+}
+
+.sheet-rolltemplate-main .inlinerollresult.fullfail {
+	border: 4px solid red;
+	color: red;
+}
+
+.sheet-rolltemplate-main .inlinerollresult.importantroll {
+	border: 2px solid #4A57ED;
 }
 
 .sheet-rolltemplate-main .sheet-template-success {

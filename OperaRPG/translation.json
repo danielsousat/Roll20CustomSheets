@@ -30,11 +30,11 @@
 	"skills": "Habilidades",
 	"skill": "Habilidade",
 	"attribute": "Atributo",
-	"check": "Teste",
+	"level": "Nível",
+	"total": "Total",
 	"protection": "Proteção",
 	"protected_areas": "Áreas Protegidas",
-	"normal_absortion": "Absorção Normal",
-	"high_absortion": "Absorção Alta",
+	"absortion": "Absorção",
 	"penalty": "Penalidade",
 	"totalpenalty": "Penalidade Total",
 	"equipments": "Equipamentos",
@@ -60,5 +60,8 @@
 	"fail": "Falha!",
 	"critic": "Sucesso Crítico!",
 	"fumble": "Falha Crítica!",
-	"absortion": "Absorção"
+	"check": "Teste",
+	"normal": "Normal",
+	"contest": "Disputa",
+	"normalorcontest": "Normal ou Disputa?"
 }
