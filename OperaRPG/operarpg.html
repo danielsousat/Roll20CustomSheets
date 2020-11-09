@@ -274,8 +274,8 @@
             <div></div>
             <span class="column-header  secondary-font" data-i18n="skill">Habilidade</span>
             <span class="column-header  secondary-font" data-i18n="attribute">Atributo</span>
-            <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
             <span class="column-header  secondary-font" data-i18n="level">Nível</span>
+            <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
             <span class="column-header  secondary-font" data-i18n="total">Total</span>
             <div></div>
           </div>
@@ -298,8 +298,13 @@
                   <option value="@{charperceptioncurrent}" data-i18n="perception">Percepção</option>
                   <option value="@{charluckcurrent}" data-i18n="luck">Sorte</option>
                 </select>
-                <input class="row-item-margin" name="attr_skillcost" type="number" title="@{skillcost}" value="0" />
-                <input class="row-item-margin" name="attr_skilllevel" type="number" title="@{skilllevel}" value="0" />
+                <select class="select row-item-margin" name="attr_skilllevel" title="@{skilllevel}">
+                  <option value="1" selected="selected">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                <input class="row-item-margin" name="attr_skillcost" type="text" readonly title="@{skillcost}" value="1" />
                 <input class="row-item-margin" name="attr_skilltotal" type="number" disabled="true"
                   title="@{skilltotal}" value="@{skillattribute} + @{skilllevel}" />
 
@@ -688,6 +693,35 @@
   /* calculating total protection penalty */
   on('sheet:opened change:repeating_protection remove:repeating_protection', function() {
       repeatingSum("totalpenalty","protection", "protectionpenalty");        
+  });
+
+  /* controlling skill cost due to skill level selection */
+  on('change:repeating_skills:skilllevel', function(eventInfo) {
+
+    const skillLevel = eventInfo.newValue;
+    let skillCost = 0;
+
+    switch (skillLevel) {
+      case '1':
+        skillCost = 1;
+        break;
+      case '2':
+        skillCost = 3;
+        break;
+      case '3':
+        skillCost = 6;
+        break;
+      case '4':
+        skillCost = 10;
+        break;
+    }
+
+    console.log("skill level = " + skillLevel);
+    console.log("skill cost = " + skillCost);
+
+    setAttrs({
+      repeating_skills_skillcost: skillCost
+    });
   });
 
 
