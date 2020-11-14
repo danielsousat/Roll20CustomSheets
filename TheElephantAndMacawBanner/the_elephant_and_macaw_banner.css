@@ -119,14 +119,21 @@
 }
 
 .sheet-header-box {
-	display: grid;
-	grid-template-columns: auto auto;
+	display: flex;
+	align-items: stretch;
+}
+
+.sheet-header-outer-box {
+	overflow: hidden;
+	width: auto;
+	height: 100%;
+	box-sizing: border-box;
 }
 
 .sheet-header-row {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: stretch;
 	justify-content: flex-start;
 }
 
