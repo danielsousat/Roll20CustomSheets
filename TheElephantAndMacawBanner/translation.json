@@ -2,7 +2,8 @@
 	"profile": "Perfil",
 	"journal": "Diário",
 	"configuration": "Configuração",
-	"name": "Nome",
+	"name": "Name",
+	"age": "Age",
 	"attributes": "Atributos",
 	"strength": "Força",
 	"dexterity": "Destreza",
@@ -29,5 +30,6 @@
 	"critic": "Sucesso Crítico!",
 	"fumble": "Falha Crítica!",
 	"check": "Teste",
-	"age": "Age"
+	"characteristics": "Characteristics",
+	"characteristic": "Characteristic"
 }

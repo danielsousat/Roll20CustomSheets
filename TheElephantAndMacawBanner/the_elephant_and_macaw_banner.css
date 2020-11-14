@@ -1,6 +1,6 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Acme&Paytone+One|Lustria&display=swap');
 .sheet-main-container {
 	min-width: 600px;
 	max-width: 800px;
@@ -63,12 +63,27 @@
 }
 
 .sheet-label {
-	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 18px;
 	margin-right: 5px;
 }
 
 .sheet-row-item-margin {
 	margin-right: 5px !important;
+}
+
+.sheet-box-margin {
+	margin-bottom: 10px;
+}
+
+.sheet-black-box {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;
+	padding: 1px 10px 1px 10px;
 }
 
 /*----------------- SHEET PARTS ------------------*/
@@ -84,38 +99,16 @@
 	margin-right: 5px !important;
 }
 
-.sheet-attributes-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	justify-items: start;
-	align-items: center;
-	gap: 5px;
-}
-
 .sheet-middle {
 	display: grid;
 	grid-template-columns: 70% 30%;
+	column-gap: 10px;
 }
 
 .sheet-middle-column {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-}
-
-.sheet-footer {
-	text-align: right;
-	font-style: italic;
-}
-
-.sheet-black-box {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	background-color: black;
-	color: white;
-	padding-left: 10px;
 }
 
 .sheet-header-box {
@@ -142,10 +135,15 @@
 	margin-right: 10px;
 }
 
-.sheet-box-title {
-	text-transform: uppercase;
-	text-align: center;
-	margin-bottom: 10px;
+.sheet-characteristics input {
+	border-bottom: 1px solid black;
+	border-radius: 0;
+	
+}
+
+.sheet-footer {
+	text-align: right;
+	font-style: italic;
 }
 
 .sheet-repeatable-item {
@@ -182,6 +180,10 @@
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
+}
+
+.sheet-content-box {
+	padding: 5px;
 }
 
 .sheet-negative-corner {
