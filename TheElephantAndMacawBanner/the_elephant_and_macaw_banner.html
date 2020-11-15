@@ -306,11 +306,19 @@
 
                 <div class="showhide">
 
-                  <div class="flex-row">
+                  <div class="skill-hidden-grid">
+
+                    <span class="skill-bonus-label secondary-font" data-i18n="passive_defense_bonus">Passive defense bonus</span>
+                    <span class="skill-bonus-label secondary-font" data-i18n="active_defense_bonus">Active defense bonus</span>
+                    <span class="skill-bonus-label secondary-font" data-i18n="energy">Energy</span>
+                    
+                    <input type="checkbox" name="attr_skill_passive_defense_bonus" title="@{skill_passive_defense_bonus}" />
+                    <input type="checkbox" name="attr_skill_active_defense_bonus" title="@{skill_passive_defense_bonus}" />
+                    <input type="checkbox" name="attr_skill_energy" title="@{skill_energy}" />
 
                   </div>
 
-                  <textarea class="showhide" name="attr_skill_description" data-i18n-placeholder="description"
+                  <textarea name="attr_skill_description" data-i18n-placeholder="description"
                   placeholder="Descrição"></textarea>
                 </div>
                 
