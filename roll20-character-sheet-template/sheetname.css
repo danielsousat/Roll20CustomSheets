@@ -116,12 +116,6 @@
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-.sheet-middle-column {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
 .sheet-footer {
 	text-align: right;
 	font-style: italic;
