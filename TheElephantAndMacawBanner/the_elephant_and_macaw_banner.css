@@ -30,7 +30,6 @@
 .sheet-main-container textarea {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
 }
 
 .sheet-main-container button {
@@ -38,11 +37,6 @@
 }
 
 /*----------------- GENERAL CSS ------------------*/
-
-.sheet-middle {
-	display: grid;
-	grid-template-columns: 70% 30%;
-}
 
 .sheet-primary-font {
 	font-family: Lustria;
@@ -80,6 +74,11 @@
 .sheet-italic-label {
 	font-style: italic;
 	font-size: 18px;
+}
+
+.sheet-italic-smaller-label {
+	font-style: italic;
+	font-size: 14px;
 }
 
 .sheet-secondary-label {
@@ -123,12 +122,6 @@
 	column-gap: 10px;
 }
 
-.sheet-middle-column {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
 .sheet-header-box {
 	display: flex;
 	align-items: stretch;
@@ -158,6 +151,72 @@
 	border-radius: 0;
 }
 
+.sheet-history textarea {
+	border: none;
+}
+
+.sheet-shadow-bottom-left {
+	position: relative;
+}
+
+div.sheet-shadow-bottom-left::after {
+	content:'';
+	position: absolute;
+	left: -12px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid black;
+	border-left: 5px solid transparent;
+}
+
+.sheet-physical-condition {
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-footer {
+	text-align: right;
+	font-style: italic;
+}
+
+.sheet-repeatable-item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+}
+
+.sheet-repeatable-row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	margin-bottom: 5px;
+}
+
+.sheet-repeatable-row-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*----------------- SKILLS ------------------*/
+
+.sheet-skills-box-middle {
+	background-color: #d2d3d5;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+
+.sheet-skills-box-bottom {
+	position: relative;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	height: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #d2d3d5;
+}
+
 .sheet-skills-grid {
 	display: grid;
 	grid-template-columns: 3fr 1fr 1fr 1fr 21px;
@@ -182,23 +241,6 @@
 	align-self: end;
 }
 
-.sheet-skills-middle {
-	background-color: #d2d3d5;
-	border-right: 2px solid black;
-	border-left: 2px solid black;
-}
-
-.sheet-skills-bottom {
-	position: relative;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
-	border-right: 2px solid black;
-	height: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	background-color: #d2d3d5;
-}
-
 .sheet-skill-points {
 	display: flex;
 	flex-direction: row;
@@ -217,7 +259,6 @@
 .sheet-skill-points-box span {
 	white-space:nowrap;
 }
-
 
 .sheet-skills-negative-corner {
 	border: 1px solid black;
@@ -256,7 +297,6 @@
 .sheet-skill-name-box {
 	position: relative;
 	left: -12px;
-	width: 100px;
 }
 
 .sheet-skill-hidden-grid {
@@ -266,38 +306,16 @@
 	align-items: center;
 }
 
-div.sheet-shadow-bottom-left::after {
-	content:'';
-	position: absolute;
-	left: -12px;
-	width: 0;
-	height: 0;
-	border-top: 5px solid black;
-	border-left: 5px solid transparent;
-}
-
-.sheet-footer {
-	text-align: right;
-	font-style: italic;
-}
-
-.sheet-repeatable-item {
+/*----------------- PHYSICAL CONDITION ------------------*/
+.sheet-physical-condition-content {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 5px;
+	align-items: flex-start;
 }
 
-.sheet-repeatable-row {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-end;
-	margin-bottom: 5px;
-}
-
-.sheet-repeatable-row-box {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.sheet-physical-condition textarea {
+	border: none;
+	height: 50px;
 }
 
 /*----------------- NEGATIVE BORDER BOX ------------------*/
@@ -328,6 +346,30 @@ div.sheet-shadow-bottom-left::after {
 	height: 15px;
 	position: absolute;
 	background-color: white;
+}
+
+.sheet-negative-corner-thinner {
+	border: 1px solid black;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	background-color: white;
+}
+
+.sheet-box-middle {
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+
+.sheet-box-bottom {
+	position: relative;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	height: 10px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .sheet-top-left-corner {

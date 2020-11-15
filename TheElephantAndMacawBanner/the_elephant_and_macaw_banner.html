@@ -212,7 +212,7 @@
 
           </div>
 
-          <div class="skills-middle content-box">
+          <div class="skills-box-middle content-box skills-background">
 
             <div class="skills-grid">
               
@@ -328,7 +328,7 @@
           </div>
 
           <div class="outer-box">
-            <div class="skills-bottom">
+            <div class="skills-box-bottom">
               
               <div class="negative-corner bottom-left-corner"></div>
               <div class="negative-corner bottom-right-corner"></div>
@@ -337,122 +337,74 @@
 
         </div>
 
-        <div class="box flex-column">
-
-          <span class="box-title main-font" data-i18n="attributes">Atributos</span>
-
-          <div class="attributes-grid">
-            <span class="label primary-font" data-i18n="strength">Força</span>
-            <input name="attr_charstrength" type="number" title="@{charstrength}" />
-            <button type="roll" class="roll-button" name="roll_strength_check" title="@{strength_check}"
-              value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
-
-
-            <span class="label primary-font" data-i18n="dexterity">Destreza</span>
-            <input name="attr_chardexterity" type="number" title="@{chardexterity}" />
-            <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
-              value="&{template:main} {{charname=@{character_name}}} {{check=@{dexterity}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{chardexterity} ]]}}"></button>
-
-          </div>
-        </div>
-
-        <div class="box flex-column">
-
-          <span class="box-title main-font" data-i18n="notes">Anotações</span>
-          <textarea name="attr_notes" title="@{notes}"></textarea>
-
-        </div>
-
       </div>
 
       <!-- Middle column 2 -->
       <div class="middle-column">
 
-        <div class="box flex-column">
+        <!-- Physical Condition -->
+    <div class="physical-condition box-margin">
 
-          <span class="box-title main-font" data-i18n="equipments">Equipamentos</span>
+      <div class="outer-box">
 
-          <fieldset class="repeating_equipments">
+        <div class="black-box inner-box">
+          <span class="label primary-font" data-i18n="physical_condition">Physical condition</span>
 
-            <div class="repeatable-item">
-              <div class="repeatable-row">
-                <input name="attr_equipment" type="text" data-i18n-placeholder="equipment" placeholder="Equipamento" />
-
-                <div class="showhidebutton">
-                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
-                  <span></span>
-                </div>
-
-              </div>
-
-              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
-              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
-
-              <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
-            </div>
-
-          </fieldset>
-
+          <div class="negative-corner top-left-corner"></div>
+          <div class="negative-corner top-right-corner"></div>
         </div>
 
+      </div>
 
-        <div class="box flex-column">
+      <div class="box-middle content-box physical-condition-content">
+        
+        <div class="shadow-bottom-left">
+          <div class="outer-box skill-name-box">
 
-          <span class="box-title main-font" data-i18n="weapons">Armas</span>
-
-          <fieldset class="repeating_weapons">
-
-            <div class="repeatable-item">
-
-              <div class="repeatable-row">
-
-                <input class="row-item-margin" name="attr_weaponname" type="text" data-i18n-placeholder="name"
-                  placeholder="Nome" />
-
-                <div class="repeatable-row-box">
-                  <span class="label primary-font" data-i18n="damage">Tipo</span>
-
-                  <select class="select row-item-margin" name="attr_weapontype" data-i18n-title="type" title="Tipo">
-                    <option value="none" selected="selected">-</option>
-                    <option value="light" data-i18n="light">Leve</option>
-                    <option value="medium" data-i18n="medium">Média</option>
-                    <option value="heavy" data-i18n="heavy">Pesada</option>
-                  </select>
-                </div>
-
-                <button type="roll" class="roll-button" name="roll_weapon_damage" title="@{weapon_damage}"
-                  value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
-
-              </div>
-
-              <textarea name="attr_weapondescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
-
+            <div class="skills-inner-box">
+              <span class="secondary-label secondary-font" data-i18n="endurance">Endurance</span>
+              <div class="negative-corner-thinner top-right-corner"></div>
+              <div class="negative-corner-thinner bottom-right-corner"></div>
             </div>
-          </fieldset>
 
+          </div>
         </div>
 
-        <div class="box flex-column">
+        <div class="shadow-bottom-left">
+          <div class="outer-box skill-name-box">
 
-          <span class="box-title main-font" data-i18n="spells">Feitiços</span>
-
-          <fieldset class="repeating_spells">
-
-            <div class="repeatable-item">
-              <div class="repeatable-row">
-                <input name="attr_spell" type="text" data-i18n-placeholder="spell" placeholder="Feitiço" />
-              </div>
-
-              <textarea name="attr_spelldescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
+            <div class="skills-inner-box">
+              <span class="secondary-label secondary-font" data-i18n="critical_damage">Critical damage</span>
+              <div class="negative-corner-thinner top-right-corner"></div>
+              <div class="negative-corner-thinner bottom-right-corner"></div>
             </div>
 
-          </fieldset>
+          </div>
+        </div>
+        <span class="sheet-italic-smaller-label sheet-primary-font" data-i18n="notes">Anotações</span>
+        <textarea name="attr_notes" title="@{notes}"></textarea>
+        
+      </div>
 
+      <div class="outer-box">
+        <div class="box-bottom">
+          
+          <div class="negative-corner bottom-left-corner"></div>
+          <div class="negative-corner bottom-right-corner"></div>
         </div>
       </div>
+
+    </div>
+
+               
+      </div>
+
+    </div>
+
+    <div class="box flex-column">
+
+      <span class="box-title main-font" data-i18n="general_notes">Anotações Gerais</span>
+      <textarea name="attr_general_notes" title="@{general_notes}"></textarea>
 
     </div>
 

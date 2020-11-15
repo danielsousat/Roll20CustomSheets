@@ -2,7 +2,7 @@
 	"profile": "Perfil",
 	"journal": "Diário",
 	"configuration": "Configuração",
-	"name": "Nome",
+	"name": "Name",
 	"age": "Age",
 	"characteristics": "Characteristics",
 	"characteristic": "Characteristic",
@@ -21,6 +21,9 @@
 	"bonus6": "Bonus\n                  +6",
 	"cost3": "Cost 3",
 	"bonus9": "Bonus\n                  +9",
+	"passive_defense_bonus": "Passive defense bonus",
+	"active_defense_bonus": "Active defense bonus",
+	"active_energy": "Energy",
 	"description": "Descrição",
 	"attributes": "Atributos",
 	"strength": "Força",
@@ -47,7 +50,8 @@
 	"critic": "Sucesso Crítico!",
 	"fumble": "Falha Crítica!",
 	"check": "Teste",
-	"passive_defense_bonus": "Passive defense bonus",
-	"active_defense_bonus": "Active defense bonus",
-	"active_energy": "Energy"
+	"energy": "Energy",
+	"physical_condition": "Physical condition",
+	"endurance": "Endurance",
+	"general_notes": "Anotações Gerais"
 }
