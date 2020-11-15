@@ -57,7 +57,7 @@
             <div class="header-outer-box">
 
               <div class="black-box inner-box">
-                <span class="label secondary-font" data-i18n="name">Name</span>
+                <span class="label primary-font" data-i18n="name">Name</span>
 
                 <div class="negative-corner top-left-corner"></div>
                 <div class="negative-corner bottom-left-corner"></div>
@@ -82,7 +82,7 @@
             <div class="header-outer-box">
 
               <div class="black-box inner-box">
-                <span class="label secondary-font" data-i18n="age">Age</span>
+                <span class="label primary-font" data-i18n="age">Age</span>
 
                 <div class="negative-corner top-left-corner"></div>
                 <div class="negative-corner bottom-left-corner"></div>
@@ -111,7 +111,7 @@
           <div class="outer-box">
 
             <div class="black-box inner-box">
-              <span class="label secondary-font" data-i18n="characteristics">Characteristics</span>
+              <span class="label primary-font" data-i18n="characteristics">Characteristics</span>
 
               <div class="negative-corner top-left-corner"></div>
               <div class="negative-corner top-right-corner"></div>
@@ -152,7 +152,7 @@
           <div class="outer-box">
 
             <div class="black-box inner-box">
-              <span class="label secondary-font" data-i18n="history">History</span>
+              <span class="label primary-font" data-i18n="history">History</span>
 
               <div class="negative-corner top-left-corner"></div>
               <div class="negative-corner top-right-corner"></div>
@@ -177,20 +177,165 @@
 
         </div>
 
+        <!-- Skills -->
+        <div class="skills box-margin">
 
+          <div class="outer-box">
+
+            <div class="black-box inner-box">
+
+              <div class="skills-grid">
+                <div class="skills-label-box">
+                  <span class="label primary-font" data-i18n="skills">Skills</span>
+                </div>
+
+                <div class="skills-header-column">
+                  <span class="smaller-label primary-font" data-i18n="level1">Level 1</span>
+                  <span class="italic-label primary-font" data-i18n="apprentice">Apprentice</span>
+                </div>
+
+                <div class="skills-header-column">
+                  <span class="smaller-label primary-font" data-i18n="level2">Level 2</span>
+                  <span class="italic-label primary-font" data-i18n="practitioner">Practitioner</span>
+                </div>
+
+                <div class="skills-header-column">
+                  <span class="smaller-label primary-font" data-i18n="level3">Level 3</span>
+                  <span class="italic-label primary-font" data-i18n="master">Master</span>
+                </div>
+              </div>
+
+
+              <div class="negative-corner top-left-corner"></div>
+              <div class="negative-corner top-right-corner"></div>
+            </div>
+
+          </div>
+
+          <div class="skills-middle content-box">
+
+            <div class="skills-grid">
+              
+              <div class="skill-points">
+
+                <div class="skill-points-box">
+                  <div class="skill-points-label">
+                    <span class="secondary-label secondary-font" data-i18n="points_to_spend">Points to spend</span>
+                  </div>
+
+                  <div class="outer-box">
+
+                    <div class="skills-inner-box flex-row">
+
+                      <input name="attr_points_to_spend" type="number" title="@{points_to_spend}" />
+
+                      <div class="skills-negative-corner top-right-corner"></div>
+                      <div class="skills-negative-corner bottom-right-corner"></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills-header-column">
+                <span class="skill-bonus-label secondary-font" data-i18n="cost1">Cost 1</span>
+                <span class="skill-bonus-label secondary-font skills-bonus-border" data-i18n="bonus3">Bonus
+                  +3</span>
+              </div>
+
+              <div class="skills-header-column">
+                <span class="skill-bonus-label secondary-font" data-i18n="cost2">Cost 2</span>
+                <span class="skill-bonus-label secondary-font skills-bonus-border" data-i18n="bonus6">Bonus
+                  +6</span>
+              </div>
+
+              <div class="skills-header-column">
+                <span class="skill-bonus-label secondary-font" data-i18n="cost3">Cost 3</span>
+                <span class="skill-bonus-label secondary-font skills-bonus-border" data-i18n="bonus9">Bonus
+                  +9</span>
+              </div>
+            </div>
+
+            <fieldset class="repeating_skills">
+
+              <div class="repeatable-item">
+                <div class="skills-grid">
+
+                  <div class="shadow-bottom-left">
+                    <div class="outer-box skill-name-box">
+  
+                      <div class="skills-inner-box flex-row">
+                        <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
+            value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
+                        <input name="attr_skill_name" type="text" title="@{skill_name}" />
+  
+                        <div class="skills-negative-corner top-right-corner"></div>
+                        <div class="skills-negative-corner bottom-right-corner"></div>
+                      </div>
+  
+                    </div>
+                  </div>
+
+                  <div class="circle-box skill-circle-size">
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1" title="@{skill_level}"/>
+                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control1" />
+                    <div class="blank-circle skill-circle-size circle"></div>
+                    <div class="black-circle skill-circle-size circle"></div>
+                  </div>
+
+                  <div class="circle-box skill-circle-size">
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="2" title="@{skill_level}"/>
+                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control2" />
+                    <div class="blank-circle skill-circle-size circle"></div>
+                    <div class="black-circle skill-circle-size circle"></div>
+                  </div>
+
+                  <div class="circle-box skill-circle-size">
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="3" title="@{skill_level}"/>
+                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control3" />
+                    <div class="blank-circle skill-circle-size circle"></div>
+                    <div class="black-circle skill-circle-size circle"></div>
+                  </div>
+
+                  <div class="showhidebutton">
+                    <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                    <span></span>
+                  </div>
+
+                </div>
+
+                <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
+                  placeholder="Descrição"></textarea>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <div class="outer-box">
+            <div class="skills-bottom">
+              
+              <div class="negative-corner bottom-left-corner"></div>
+              <div class="negative-corner bottom-right-corner"></div>
+            </div>
+          </div>
+
+        </div>
 
         <div class="box flex-column">
 
           <span class="box-title main-font" data-i18n="attributes">Atributos</span>
 
           <div class="attributes-grid">
-            <span class="label secondary-font" data-i18n="strength">Força</span>
+            <span class="label primary-font" data-i18n="strength">Força</span>
             <input name="attr_charstrength" type="number" title="@{charstrength}" />
             <button type="roll" class="roll-button" name="roll_strength_check" title="@{strength_check}"
               value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
 
 
-            <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
+            <span class="label primary-font" data-i18n="dexterity">Destreza</span>
             <input name="attr_chardexterity" type="number" title="@{chardexterity}" />
             <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
               value="&{template:main} {{charname=@{character_name}}} {{check=@{dexterity}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{chardexterity} ]]}}"></button>
@@ -253,7 +398,7 @@
                   placeholder="Nome" />
 
                 <div class="repeatable-row-box">
-                  <span class="label secondary-font" data-i18n="damage">Tipo</span>
+                  <span class="label primary-font" data-i18n="damage">Tipo</span>
 
                   <select class="select row-item-margin" name="attr_weapontype" data-i18n-title="type" title="Tipo">
                     <option value="none" selected="selected">-</option>
@@ -276,11 +421,6 @@
 
         </div>
 
-      </div>
-
-      <!-- Middle column 3 -->
-      <div class="middle-column">
-
         <div class="box flex-column">
 
           <span class="box-title main-font" data-i18n="spells">Feitiços</span>
@@ -299,7 +439,6 @@
           </fieldset>
 
         </div>
-
       </div>
 
     </div>
@@ -319,7 +458,7 @@
   </div>
 
   <!-- Footer -->
-  <div class="footer secondary-font">
+  <div class="footer primary-font">
     <span data-i18n="copyright">[Nome do jogo] é um jogo escrito por [nome do autor].</span>
   </div>
 
@@ -330,13 +469,13 @@
 <!-- Roll Templates -->
 <rolltemplate class="sheet-rolltemplate-main">
   <div class="template-container">
-    <div class="template-row template-header template-label secondary-font">
+    <div class="template-row template-header template-label primary-font">
       {{charname}}
     </div>
 
     {{#action}}
     <div class="template-row">
-      <span class="template-label secondary-font">{{action}}</span>
+      <span class="template-label primary-font">{{action}}</span>
       {{#text}}
       <p>{{text}}</p>
       {{/text}}
@@ -346,7 +485,7 @@
 
     {{#check}}
     <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="check">Teste</span>
+      <span class="template-label primary-font" data-i18n="check">Teste</span>
       {{check}}
     </div>
     {{/check}}
@@ -354,32 +493,32 @@
     {{#result}}
 
     <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+      <span class="template-label primary-font" data-i18n="result">Resultado</span>
       {{result}}
     </div>
 
     {{#^rollLess() result target}}
     <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
+      <span class="template-label primary-font template-success" data-i18n="success">Sucesso!</span>
     </div>
     {{/^rollLess() result target}}
 
     {{#rollLess() result target}}
     <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
+      <span class="template-label primary-font template-fail" data-i18n="fail">Falha!</span>
     </div>
     {{/rollLess() result target}}
 
 
     {{#rollWasCrit() result}}
     <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+      <span class="template-label primary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
     </div>
     {{/rollWasCrit() result}}
 
     {{#rollWasFumble() result}}
     <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
+      <span class="template-label primary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
     </div>
     {{/rollWasFumble() result}}
 
@@ -417,8 +556,32 @@
       });
   });
 
+  /*Controls skill level circles */
+  on("change:repeating_skills:skill_level", function(eventInfo) {
+    let source = eventInfo.sourceAttribute;
+    const levelValue = parseInt(eventInfo.newValue)||0;
+    let changeAttributes = new Object();
+
+    for (let i = 1; i <= 3; i++) {
+      let targetId = source + '_control' + i;
+      let controlValue = 'off';
+      
+      if (i <= levelValue) {
+        controlValue = 'on';
+      }
+      
+      changeAttributes[targetId] = controlValue;
+    }
+    
+    console.log(eventInfo);
+    console.log(changeAttributes);
+
+    setAttrs(changeAttributes);
+
+  });
+
   /*Controls show hide checkbox button from repeating sections*/
-  on("change:repeating_equipments:showhide_checkbox" , function(eventInfo) {
+  on("change:repeating_skills:showhide_checkbox" , function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();
