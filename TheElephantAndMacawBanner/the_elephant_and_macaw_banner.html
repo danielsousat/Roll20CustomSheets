@@ -276,25 +276,22 @@
                     </div>
                   </div>
 
-                  <div class="circle-box skill-circle-size">
+                  <div class="circle-box">
                     <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1" title="@{skill_level}"/>
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control1" />
-                    <div class="blank-circle skill-circle-size circle"></div>
-                    <div class="black-circle skill-circle-size circle"></div>
+                    <span></span>
                   </div>
 
-                  <div class="circle-box skill-circle-size">
+                  <div class="circle-box">
                     <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="2" title="@{skill_level}"/>
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control2" />
-                    <div class="blank-circle skill-circle-size circle"></div>
-                    <div class="black-circle skill-circle-size circle"></div>
+                    <span></span>
                   </div>
 
                   <div class="circle-box skill-circle-size">
                     <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="3" title="@{skill_level}"/>
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control3" />
-                    <div class="blank-circle skill-circle-size circle"></div>
-                    <div class="black-circle skill-circle-size circle"></div>
+                    <span></span>
                   </div>
 
                   <div class="showhidebutton">
@@ -307,8 +304,16 @@
                 <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
                 <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
-                <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
+                <div class="showhide">
+
+                  <div class="flex-row">
+
+                  </div>
+
+                  <textarea class="showhide" name="attr_skill_description" data-i18n-placeholder="description"
                   placeholder="Descrição"></textarea>
+                </div>
+                
               </div>
 
             </fieldset>
