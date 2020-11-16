@@ -754,6 +754,21 @@ div.sheet-shadow-bottom-left::after {
 	display: block;
 }
 
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol {
+  z-index: 99;
+  font-family: 'Pictos'
+}
+
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del {
+  font-family: 'Pictos';
+  background-color: #d13235;
+  background-image: none;
+  position: absolute;
+  z-index: 99 !important;
+  top: 0;
+  right: 0
+}
+
 /*------------- SHEET ROLL TEMPLATE -------------*/
 
 .sheet-rolltemplate-main .sheet-template-container {
