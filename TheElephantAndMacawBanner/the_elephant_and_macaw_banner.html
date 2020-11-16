@@ -279,21 +279,21 @@
                   <div class="circle-box">
                     <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1"
                       title="@{skill_level}" />
-                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control1" />
+                    <input class="control-input" value="on" type="hidden" name="attr_skill_level_control1" />
                     <span></span>
                   </div>
 
                   <div class="circle-box">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="2"
+                    <input class="hidden-input" type="radio" name="attr_skill_level" value="2"
                       title="@{skill_level}" />
-                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control2" />
+                    <input class="control-input" value="off" type="hidden" name="attr_skill_level_control2" />
                     <span></span>
                   </div>
 
                   <div class="circle-box skill-circle-size">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="3"
+                    <input class="hidden-input" type="radio" name="attr_skill_level" value="3"
                       title="@{skill_level}" />
-                    <input class="control-input" value="0" type="hidden" name="attr_skill_level_control3" />
+                    <input class="control-input" value="off" type="hidden" name="attr_skill_level_control3" />
                     <span></span>
                   </div>
 
@@ -508,7 +508,7 @@
 
                   <div class="defence-box">
                     <div class="energy-shield">
-                      <input type="text" disabled="true" name="attr_energy" title="@{energy}" value="0" />
+                      <input type="text" name="attr_energy" title="@{energy}" value="0" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_energy_spent" title="@{energy_spent}" value="0" />
                     </div>
@@ -671,6 +671,53 @@
 
     setAttrs(changeAttributes);
 
+  });
+
+  function getEnergyValue(skillLevel) {
+
+    switch(skillLevel) {
+      case '1':
+        return 5;
+      case '2':
+        return 10;
+      case '3':
+        return 20;
+      default:
+        return 0;
+    }
+  }
+
+  /* Recalculates energy when skill is removed */
+  on("remove:repeating_skills", function(eventInfo) {
+    
+    const skillLevel = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_level'];
+    const energyCheck = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_energy'];
+    const energyValue = 0;
+    
+    /* if energy was checked, then Energy must return to zero */
+    if (energyCheck == 'on') {
+      setAttrs({
+         energy: energyValue
+       });
+    } 
+  });
+
+  /* Calculates energy based on power skill */
+  on("change:repeating_skills:skill_energy change:repeating_skills:skill_level", function(eventInfo) {
+
+    getAttrs(["repeating_skills_skill_level", "repeating_skills_skill_energy"], function(values) {
+      const skillLevel = values.repeating_skills_skill_level;
+      const energyCheck = values.repeating_skills_skill_energy;
+      let energyValue = 0;
+
+      if (energyCheck == 'on') {
+        energyValue = getEnergyValue(skillLevel);
+      } 
+
+      setAttrs({
+        energy: energyValue
+      });
+    });
   });
 
   /*Controls max endurance and max damage*/
