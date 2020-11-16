@@ -214,8 +214,8 @@
 
           <div class="skills-box-middle content-box skills-background">
 
-            <div class="skills-grid">
-              
+            <div class="skills-grid box-margin">
+
               <div class="skill-points">
 
                 <div class="skill-points-box">
@@ -263,33 +263,36 @@
 
                   <div class="shadow-bottom-left">
                     <div class="outer-box skill-name-box">
-  
+
                       <div class="skills-inner-box flex-row">
                         <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
+                          value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
                         <input name="attr_skill_name" type="text" title="@{skill_name}" />
-  
+
                         <div class="skills-negative-corner top-right-corner"></div>
                         <div class="skills-negative-corner bottom-right-corner"></div>
                       </div>
-  
+
                     </div>
                   </div>
 
                   <div class="circle-box">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1" title="@{skill_level}"/>
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1"
+                      title="@{skill_level}" />
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control1" />
                     <span></span>
                   </div>
 
                   <div class="circle-box">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="2" title="@{skill_level}"/>
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="2"
+                      title="@{skill_level}" />
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control2" />
                     <span></span>
                   </div>
 
                   <div class="circle-box skill-circle-size">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="3" title="@{skill_level}"/>
+                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="3"
+                      title="@{skill_level}" />
                     <input class="control-input" value="0" type="hidden" name="attr_skill_level_control3" />
                     <span></span>
                   </div>
@@ -308,20 +311,24 @@
 
                   <div class="skill-hidden-grid">
 
-                    <span class="skill-bonus-label secondary-font" data-i18n="passive_defense_bonus">Passive defense bonus</span>
-                    <span class="skill-bonus-label secondary-font" data-i18n="active_defense_bonus">Active defense bonus</span>
+                    <span class="skill-bonus-label secondary-font" data-i18n="passive_defense_bonus">Passive defense
+                      bonus</span>
+                    <span class="skill-bonus-label secondary-font" data-i18n="active_defense_bonus">Active defense
+                      bonus</span>
                     <span class="skill-bonus-label secondary-font" data-i18n="energy">Energy</span>
-                    
-                    <input type="checkbox" name="attr_skill_passive_defense_bonus" title="@{skill_passive_defense_bonus}" />
-                    <input type="checkbox" name="attr_skill_active_defense_bonus" title="@{skill_passive_defense_bonus}" />
+
+                    <input type="checkbox" name="attr_skill_passive_defense_bonus"
+                      title="@{skill_passive_defense_bonus}" />
+                    <input type="checkbox" name="attr_skill_active_defense_bonus"
+                      title="@{skill_passive_defense_bonus}" />
                     <input type="checkbox" name="attr_skill_energy" title="@{skill_energy}" />
 
                   </div>
 
                   <textarea name="attr_skill_description" data-i18n-placeholder="description"
-                  placeholder="Descrição"></textarea>
+                    placeholder="Descrição"></textarea>
                 </div>
-                
+
               </div>
 
             </fieldset>
@@ -329,7 +336,7 @@
 
           <div class="outer-box">
             <div class="skills-box-bottom">
-              
+
               <div class="negative-corner bottom-left-corner"></div>
               <div class="negative-corner bottom-right-corner"></div>
             </div>
@@ -343,60 +350,79 @@
       <div class="middle-column">
 
         <!-- Physical Condition -->
-    <div class="physical-condition box-margin">
+        <div class="physical-condition box-margin">
 
-      <div class="outer-box">
+          <div class="outer-box">
 
-        <div class="black-box inner-box">
-          <span class="label primary-font" data-i18n="physical_condition">Physical condition</span>
+            <div class="black-box inner-box">
+              <span class="label primary-font" data-i18n="physical_condition">Physical condition</span>
 
-          <div class="negative-corner top-left-corner"></div>
-          <div class="negative-corner top-right-corner"></div>
-        </div>
-
-      </div>
-
-      <div class="box-middle content-box physical-condition-content">
-        
-        <div class="shadow-bottom-left">
-          <div class="outer-box skill-name-box">
-
-            <div class="skills-inner-box">
-              <span class="secondary-label secondary-font" data-i18n="endurance">Endurance</span>
-              <div class="negative-corner-thinner top-right-corner"></div>
-              <div class="negative-corner-thinner bottom-right-corner"></div>
+              <div class="negative-corner top-left-corner"></div>
+              <div class="negative-corner top-right-corner"></div>
             </div>
 
           </div>
-        </div>
 
-        <div class="shadow-bottom-left">
-          <div class="outer-box skill-name-box">
+          <div class="box-middle content-box physical-condition-content">
 
-            <div class="skills-inner-box">
-              <span class="secondary-label secondary-font" data-i18n="critical_damage">Critical damage</span>
-              <div class="negative-corner-thinner top-right-corner"></div>
-              <div class="negative-corner-thinner bottom-right-corner"></div>
+            <div class="shadow-bottom-left">
+              <div class="outer-box skill-name-box">
+
+                <div class="skills-inner-box physical-condition-label">
+                  <span class="secondary-label secondary-font" data-i18n="endurance">Endurance</span>
+                  <div class="negative-corner-thinner top-right-corner"></div>
+                  <div class="negative-corner-thinner bottom-right-corner"></div>
+                </div>
+
+              </div>
             </div>
 
+            <div class="endurance-box">
+
+              <span class="skill-bonus-label secondary-font" data-i18n="max">Max</span>
+              <span class="skill-bonus-label secondary-font" data-i18n="damage">Damage</span>
+
+              <input name="attr_max_endurance" type="number" title="@{max_endurance}" value="10" />
+              <input name="attr_damage" type="number" title="@{damage}" value="0" />
+
+            </div>
+
+            <div class="shadow-bottom-left">
+              <div class="outer-box skill-name-box">
+
+                <div class="skills-inner-box physical-condition-label">
+                  <span class="secondary-label secondary-font" data-i18n="critical_damage">Critical damage</span>
+                  <div class="negative-corner-thinner top-right-corner"></div>
+                  <div class="negative-corner-thinner bottom-right-corner"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="critical-damage">
+              <input class="radio-zero" name="attr_critical_damage" type="radio" value="0" checked="true" /><span></span>
+              <input class="critical-radio" name="attr_critical_damage" type="radio" value="1" checked="true" /><span></span>
+              <input class="critical-radio" name="attr_critical_damage" type="radio" value="2" checked="true" /><span></span>
+              <input class="critical-radio" name="attr_critical_damage" type="radio" value="3" checked="true" /><span></span>
+              <input class="critical-radio" name="attr_critical_damage" type="radio" value="4" checked="true" /><span></span>
+            </div>
+
+            <span class="sheet-italic-smaller-label sheet-primary-font" data-i18n="notes">Anotações</span>
+            <textarea name="attr_notes" title="@{notes}"></textarea>
+
           </div>
+
+          <div class="outer-box">
+            <div class="box-bottom">
+
+              <div class="negative-corner bottom-left-corner"></div>
+              <div class="negative-corner bottom-right-corner"></div>
+            </div>
+          </div>
+
         </div>
-        <span class="sheet-italic-smaller-label sheet-primary-font" data-i18n="notes">Anotações</span>
-        <textarea name="attr_notes" title="@{notes}"></textarea>
-        
-      </div>
 
-      <div class="outer-box">
-        <div class="box-bottom">
-          
-          <div class="negative-corner bottom-left-corner"></div>
-          <div class="negative-corner bottom-right-corner"></div>
-        </div>
-      </div>
 
-    </div>
-
-               
       </div>
 
     </div>
@@ -545,6 +571,23 @@
 
   });
 
+  /*Controls max endurance and max damage*/
+  on("change:max_endurance change:damage", function(eventInfo) {
+    const maxValue = 15;
+    let oldValue = parseInt(eventInfo.previousValue)||0;
+    let newValue = parseInt(eventInfo.newValue)||0;
+    let attribute = eventInfo.sourceAttribute;
+    let changedAttributes = new Object();
+    
+    changedAttributes[attribute] = maxValue;
+    
+    if (newValue > maxValue) {
+  
+      changedAttributes[attribute] = maxValue;
+      setAttrs(changedAttributes);
+    }
+  });
+
   /*Controls show hide checkbox button from repeating sections*/
   on("change:repeating_skills:showhide_checkbox" , function(eventInfo) {
     
@@ -574,24 +617,6 @@
           dexterity: getTranslationByKey("dexterity")
       });     
       
-  });
-
-  /*keep attributes values at 13 max*/
-  on("change:charbody change:charmind change:charcharisma change:charcuriosity change:charsurvival", function(eventInfo) {  
-    const maxValue = 13;
-    let oldValue = parseInt(eventInfo.previousValue)||0;
-    let newValue = parseInt(eventInfo.newValue)||0;
-    let attribute = eventInfo.sourceAttribute;
-    let changedAttributes = new Object();
-    
-    changedAttributes[attribute] = maxValue;
-    
-    if (newValue > maxValue) {
-  
-      changedAttributes[attribute] = maxValue;
-      setAttrs(changedAttributes);
-    }
-     
   });
 
   /*controls roll buttons when char has a condition checked*/

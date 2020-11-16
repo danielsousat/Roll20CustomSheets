@@ -21,8 +21,8 @@
 	"bonus6": "Bonus\n                  +6",
 	"cost3": "Cost 3",
 	"bonus9": "Bonus\n                  +9",
-	"passive_defense_bonus": "Passive defense bonus",
-	"active_defense_bonus": "Active defense bonus",
+	"passive_defense_bonus": "Passive defense\n                      bonus",
+	"active_defense_bonus": "Active defense\n                      bonus",
 	"active_energy": "Energy",
 	"description": "Descrição",
 	"attributes": "Atributos",
@@ -32,7 +32,6 @@
 	"equipments": "Equipamentos",
 	"equipment": "Equipamento",
 	"weapons": "Armas",
-	"damage": "Tipo",
 	"type": "Tipo",
 	"light": "Leve",
 	"medium": "Média",
@@ -53,5 +52,10 @@
 	"energy": "Energy",
 	"physical_condition": "Physical condition",
 	"endurance": "Endurance",
-	"general_notes": "Anotações Gerais"
+	"general_notes": "Anotações Gerais",
+	"game-title": "Título do jogo",
+	"archetype": "Arquétipo",
+	"critical_damage": "Critical damage",
+	"max": "Max",
+	"damage": "Damage"
 }
