@@ -98,6 +98,9 @@
 }
 
 /*----------------- SHEET PARTS ------------------*/
+.sheet-logo {
+	margin-bottom: 10px;
+}
 
 .sheet-tab-panel {
 	display: flex;
