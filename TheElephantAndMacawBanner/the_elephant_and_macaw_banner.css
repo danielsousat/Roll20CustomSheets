@@ -72,11 +72,6 @@
 
 .sheet-italic-label {
 	font-style: italic;
-	font-size: 18px;
-}
-
-.sheet-italic-smaller-label {
-	font-style: italic;
 	font-size: 14px;
 }
 
@@ -117,7 +112,7 @@
 
 .sheet-middle {
 	display: grid;
-	grid-template-columns: 70% 30%;
+	grid-template-columns: 65% 35%;
 	column-gap: 10px;
 }
 
@@ -224,6 +219,7 @@ div.sheet-shadow-bottom-left::after {
 	display: grid;
 	grid-template-columns: 3fr 1fr 1fr 1fr 21px;
 	column-gap: 5px;
+	width: 100%;
 }
 
 .sheet-skills-header-column {
@@ -369,9 +365,9 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-critical-damage {
-	padding: 5px;
+	align-items: center;
 	display: flex;
-
+	margin-bottom: 10px;
 }
 
 .sheet-critical-radio, .sheet-radio-zero {

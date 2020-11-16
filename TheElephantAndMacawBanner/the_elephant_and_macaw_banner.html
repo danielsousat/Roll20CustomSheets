@@ -311,11 +311,11 @@
 
                   <div class="skill-hidden-grid">
 
-                    <span class="skill-bonus-label secondary-font" data-i18n="passive_defense_bonus">Passive defense
+                    <span class="smaller-label secondary-font" data-i18n="passive_defense_bonus">Passive defense
                       bonus</span>
-                    <span class="skill-bonus-label secondary-font" data-i18n="active_defense_bonus">Active defense
+                    <span class="smaller-label secondary-font" data-i18n="active_defense_bonus">Active defense
                       bonus</span>
-                    <span class="skill-bonus-label secondary-font" data-i18n="energy">Energy</span>
+                    <span class="smaller-label secondary-font" data-i18n="energy">Energy</span>
 
                     <input type="checkbox" name="attr_skill_passive_defense_bonus"
                       title="@{skill_passive_defense_bonus}" />
@@ -387,19 +387,21 @@
 
             </div>
 
-            <div class="shadow-bottom-left">
-              <div class="outer-box skill-name-box">
-
-                <div class="skills-inner-box physical-condition-label">
-                  <span class="secondary-label secondary-font" data-i18n="critical_damage">Critical damage</span>
-                  <div class="negative-corner-thinner top-right-corner"></div>
-                  <div class="negative-corner-thinner bottom-right-corner"></div>
-                </div>
-
-              </div>
-            </div>
+            
 
             <div class="critical-damage">
+              <div class="shadow-bottom-left">
+                <div class="outer-box skill-name-box">
+  
+                  <div class="skills-inner-box physical-condition-label">
+                    <span class="secondary-label secondary-font" data-i18n="critical_damage">Critical damage</span>
+                    <div class="negative-corner-thinner top-right-corner"></div>
+                    <div class="negative-corner-thinner bottom-right-corner"></div>
+                  </div>
+  
+                </div>
+              </div>
+              
               <input class="radio-zero" name="attr_critical_damage" type="radio" value="0" checked="true" /><span></span>
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="1" checked="true" /><span></span>
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="2" checked="true" /><span></span>
@@ -407,7 +409,7 @@
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="4" checked="true" /><span></span>
             </div>
 
-            <span class="sheet-italic-smaller-label sheet-primary-font" data-i18n="notes">Anotações</span>
+            <span class="italic-label primary-font" data-i18n="notes">Anotações</span>
             <textarea name="attr_notes" title="@{notes}"></textarea>
 
           </div>
