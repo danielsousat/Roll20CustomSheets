@@ -309,10 +309,11 @@
 
                   <div class="skill-hidden">
 
-                    <span class="smaller-label secondary-font" data-i18n="active_defence_bonus">Active defence bonus</span>
+                    <span class="smaller-label secondary-font" data-i18n="active_defence_bonus">Active defence
+                      bonus</span>
                     <input type="checkbox" name="attr_skill_active_defence_bonus"
                       title="@{skill_active_defence_bonus}" />
-                    
+
                     <span class="smaller-label secondary-font" data-i18n="energy">Energy</span>
                     <input type="checkbox" name="attr_skill_energy" title="@{skill_energy}" />
 
@@ -441,7 +442,7 @@
 
             </div>
 
-            <div class="defence-outer-box">
+            <div class="defence-outer-box grow">
 
               <div class="defence-inner-box">
 
@@ -506,11 +507,15 @@
                 <div class="content-box energy-content">
 
                   <div class="defence-box">
+
+                    <span class="shield-label secondary-font" data-i18n="max">Max</span>
                     <div class="energy-shield">
                       <input type="text" name="attr_energy" readonly="true" title="@{energy}" value="0" />
                       <div class="horizontal-div"></div>
-                      <input type="text" name="attr_energy_spent" title="@{energy_spent}" value="0" />
+                      <input type="text" name="attr_current_energy" title="@{current_energy}" value="0" />
                     </div>
+                    <span class="shield-label secondary-font" data-i18n="current">Current</span>
+
                   </div>
 
                 </div>

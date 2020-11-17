@@ -96,6 +96,10 @@
 	padding: 1px 10px 1px 10px;
 }
 
+.shield-label {
+	font-size: 10px;
+}
+
 /*----------------- SHEET PARTS ------------------*/
 
 .sheet-logo {
@@ -430,6 +434,13 @@ div.sheet-shadow-bottom-left::after {
 }
 
 /*----------------- DEFENCE ------------------*/
+.sheet-defence {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	flex-grow: 1;
+}
+
 .sheet-defence-energy {
 	display: flex;
 	align-items: stretch;
@@ -438,6 +449,7 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-defence-energy input[readonly], .sheet-defence-energy input[disabled] {
 	font-weight: bold;
+	color: blue;
 } 
 
 .sheet-defence-outer-box {
