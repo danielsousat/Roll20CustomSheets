@@ -361,30 +361,31 @@
           </div>
 
           <div class="box-middle content-box physical-condition-content">
+            <div class="endurance-box">
+              <div class="shadow-bottom-left">
+                <div class="outer-box skill-name-box">
 
-            <div class="shadow-bottom-left">
-              <div class="outer-box skill-name-box">
+                  <div class="skills-inner-box physical-condition-label">
+                    <span class="secondary-label secondary-font" data-i18n="endurance">Endurance</span>
+                    <div class="negative-corner-thinner top-right-corner"></div>
+                    <div class="negative-corner-thinner bottom-right-corner"></div>
+                  </div>
 
-                <div class="skills-inner-box physical-condition-label">
-                  <span class="secondary-label secondary-font" data-i18n="endurance">Endurance</span>
-                  <div class="negative-corner-thinner top-right-corner"></div>
-                  <div class="negative-corner-thinner bottom-right-corner"></div>
                 </div>
+              </div>
+
+              <div class="defence-box endurance-container">
+
+                <span class="shield-label secondary-font" data-i18n="max">Max</span>
+                <div class="endurance-shield">
+                  <input name="attr_max_endurance" type="text" title="@{max_endurance}" value="10" />
+                  <div class="horizontal-div"></div>
+                  <input name="attr_current_endurance" type="text" title="@{current_endurance}" value="10" />
+                </div>
+                <span class="shield-label secondary-font" data-i18n="current">Current</span>
 
               </div>
             </div>
-
-            <div class="endurance-box">
-
-              <span class="skill-bonus-label secondary-font" data-i18n="max">Max</span>
-              <span class="skill-bonus-label secondary-font" data-i18n="current">Current</span>
-
-              <input name="attr_max_endurance" type="number" title="@{max_endurance}" value="10" />
-              <input name="attr_damage" type="number" title="@{damage}" value="10" />
-
-            </div>
-
-
 
             <div class="critical-damage">
               <div class="shadow-bottom-left">

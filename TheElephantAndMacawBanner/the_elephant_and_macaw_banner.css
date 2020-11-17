@@ -319,7 +319,7 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-skill-hidden input {
 	margin-left: 5px;
-	margin-right: 10px;
+	margin-right: 20px;
 }
 
 /*----------------- SKILLS LEVEL CIRCLE ------------------*/
@@ -374,13 +374,38 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-endurance-box {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
 	align-items: center;
-	justify-items: center;
-	column-gap: 10px;
-	padding: 5px;
-	margin-bottom: 5px;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+
+.sheet-endurance-shield {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/endurance_shield.png');
+	width: 45px;
+	min-height: 45px !important;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	border: 0 !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.sheet-endurance-shield input {
+	text-align: center;
+	border: none;
+	background: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 0px;
+	color: black;
+	padding: 1px;
+	height: auto;
 }
 
 .sheet-critical-damage {
@@ -481,7 +506,6 @@ div.sheet-shadow-bottom-left::after {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
-	min-height: 70px !important;
 	border: 0 !important;
 	display: flex;
 	flex-direction: column;
@@ -492,11 +516,13 @@ div.sheet-shadow-bottom-left::after {
 .sheet-active-defence {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/active_defense.png');
 	width: 55px;
+	min-height: 70px !important;
 }
 
 .sheet-passive-defence {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/passive_defense.png');
 	width: 60px;
+	min-height: 70px !important;
 }
 
 .sheet-defence-shield input {
