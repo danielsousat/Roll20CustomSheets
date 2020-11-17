@@ -450,9 +450,11 @@
                   <div class="defence-box">
                     <div class="passive-defence defence-shield">
                       <input type="text" disabled="true" name="attr_passive_defence" title="@{passive_defence}"
-                        value="0" />
+                        value="@{passive_defence_mod} + @{passive_defence_base}" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_passive_defence_mod" title="@{passive_defence_mod}" value="0" />
+                      <input type="hidden" name="attr_passive_defence_base" title="@{passive_defence}"
+                        value="0" />
                     </div>
 
                     <div class="defence-label">
@@ -463,9 +465,11 @@
                   <div class="defence-box">
                     <div class="active-defence defence-shield">
                       <input type="text" disabled="true" name="attr_active_defence" title="@{active_defence}"
-                        value="0" />
+                        value="@{active_defence_mod} + @{active_defence_base}" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_active_defence_mod" title="@{active_defence_mod}" value="0" />
+                      <input type="hidden" name="attr_active_defence_base" title="@{passive_defence}"
+                        value="0" />
                     </div>
 
                     <div class="defence-label">
@@ -684,7 +688,7 @@
     }
   }
 
-  /* Recalculates energy when skill is removed */
+  /* Recalculates energy and active defence when skill is removed */
   on("remove:repeating_skills", function(eventInfo) {
     
     const skillLevel = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_level'];
