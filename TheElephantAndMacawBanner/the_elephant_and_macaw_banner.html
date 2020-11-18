@@ -1,19 +1,24 @@
 <div class="main-container">
   <!-- TODO
     Caracteristicas
-    Condicao Fisica
-      Automatizar a regra de quando o personagem so tem 3 ou menos pontos de resistência pra causar 
-      penalidade na rolagem de habilidades (que é basicamente -3).
+
     Defesa e Energia
       Programar pras defesesas ativa e passiva terem um valor máximo de 5.
     Habilidades
       Colocar botão que indica se soma o nível na defesa ativa
       Colocar botão que indica que é habilidade de poder pra somar na quantidade de energia do personagem
-    Magias
-    Armas
-    dinheiro e bens
+    Armas e armaduras
       Colocar aqui a soma dos bônus de armadura para calcular automaticamente o valor da Defesa Passiva
       Colocar um seletor se soma bônus na defesa ativa ou passiva
+      campos:
+        nome
+        custo
+        bônus de defesa passiva ou ativa
+        descrição
+        dano
+        alcance
+    dinheiro e bens
+
     Iniciativa
       Colocar um botão pra rolar Iniciativa (3d6). Ver a possibilidade do resultado já cair na tabela de iniciativa
 
@@ -27,7 +32,9 @@
     Ataque:
       Faz o teste de habilidade e subtrai a defesa do alvo (ativa ou passiva se for à distância) e soma modificador.
 
-  
+    Condicao Fisica
+      Automatizar a regra de quando o personagem so tem 3 ou menos pontos de resistência pra causar 
+      penalidade na rolagem de habilidades (que é basicamente -3).
   
   -->
 
@@ -466,7 +473,7 @@
                   <div class="defence-box">
                     <div class="active-defence defence-shield">
                       <input type="text" disabled="true" name="attr_active_defence" title="@{active_defence}"
-                        value="@{active_defence_mod} + @{active_defence_base}" />
+                        value="@{passive_defence} + @{active_defence_mod} + @{active_defence_base}" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_active_defence_mod" title="@{active_defence_mod}" value="0" />
                       <input type="hidden" name="attr_active_defence_base" value="0" />
@@ -528,6 +535,159 @@
             </div>
 
           </div>
+        </div>
+
+        <!-- Gear -->
+        <div class="gear box-margin">
+
+          <div class="outer-box">
+
+            <div class="black-box inner-box">
+              <span class="label primary-font" data-i18n="money_and_gear">Money & gear</span>
+
+              <div class="negative-corner top-left-corner"></div>
+              <div class="negative-corner top-right-corner"></div>
+            </div>
+
+          </div>
+
+          <div class="outer-box">
+
+            <div class="inner-box">
+
+              <div class="content-box">
+
+                <div class="money">
+                  <span class="secondary-label secondary-font" data-i18n="money">Money</span>
+                  <input name="attr_money" type="number" title="@{money}" value="1000" />
+                </div>
+
+                <fieldset class="repeating_gear">
+
+                  <div class="repeatable-item">
+                    <div class="repeatable-row">
+                      <input name="attr_gear_name" type="text" title="@{gear_name}" />
+
+                      <div class="showhidebutton">
+                        <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                        <span></span>
+                      </div>
+                    </div>
+
+                    <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                    <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                    <div class="showhide">
+
+                      <div class="gear-hidden">
+
+                        <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
+                        <input type="number" name="attr_gear_cost" title="@{gear_cost}" value="0" />
+
+                      </div>
+
+                      <textarea name="attr_gear_description" data-i18n-placeholder="description" placeholder="Descrição"
+                        title="@{gear_description}"></textarea>
+                    </div>
+                  </div>
+
+                </fieldset>
+
+              </div>
+
+              <div class="negative-corner bottom-left-corner"></div>
+              <div class="negative-corner bottom-right-corner"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Weapons and armors -->
+        <div class="equip box-margin">
+
+          <div class="outer-box">
+
+            <div class="black-box inner-box">
+              <span class="label primary-font" data-i18n="weapons_and_armors">Weapons & armors</span>
+
+              <div class="negative-corner top-left-corner"></div>
+              <div class="negative-corner top-right-corner"></div>
+            </div>
+
+          </div>
+
+          <div class="outer-box">
+
+            <div class="inner-box">
+
+              <div class="content-box">
+
+                <fieldset class="repeating_equip">
+
+                  <div class="repeatable-item">
+                    <div class="repeatable-row">
+                      <input name="attr_equip_name" type="text" title="@{equip_name}" />
+
+                      <div class="equip-damage-box">
+                        <span class="smaller-label secondary-font" data-i18n="damage">Damage</span>
+                        <input type="number" name="attr_equip_damage" title="@{equip_damage}" value="0" />
+                      </div>
+                      
+                      <div class="showhidebutton">
+                        <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                        <span></span>
+                      </div>
+                    </div>
+
+                    <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                    <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                    <div class="showhide">
+
+                      <div class="equip-hidden">
+
+                        <!--     Armas e armaduras
+                        Colocar aqui a soma dos bônus de armadura para calcular automaticamente o valor da Defesa Passiva
+                        Colocar um seletor se soma bônus na defesa ativa ou passiva
+                        campos:
+                        nome
+                        custo
+                        bônus de defesa passiva ou ativa
+                        descrição
+                        dano
+                        alcance
+                        -->
+                        
+                        <span class="hidden-section-label secondary-font" data-i18n="passive_defence_bonus">Passive defence bonus</span>
+                        <span class="hidden-section-label secondary-font" data-i18n="active_defence_bonus">Active defence bonus</span>
+                        
+                        <input type="number" name="attr_equip_passive_defence_bonus" title="@{equip_passive_defence_bonus}" value="0" />
+                        <input type="number" name="attr_equip_active_defence_bonus" title="@{equip_active_defence_bonus}" value="0" />
+
+                        <span class="hidden-section-label secondary-font" data-i18n="reach">Reach</span>
+                        <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
+                        
+                        <input type="text" name="attr_equip_reach" title="@{equip_reach}" />
+                        <input type="number" name="attr_equip_cost" title="@{equip_cost}" value="0" />
+
+                      </div>
+
+                      <textarea name="attr_equip_description" data-i18n-placeholder="description" placeholder="Descrição"
+                        title="@{equip_description}"></textarea>
+                    </div>
+                  </div>
+
+                </fieldset>
+
+              </div>
+
+              <div class="negative-corner bottom-left-corner"></div>
+              <div class="negative-corner bottom-right-corner"></div>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -678,6 +838,7 @@
 
   });
 
+  /* calculates energy value from the skill level */
   function getEnergyValue(skillLevel) {
 
     switch(skillLevel) {
@@ -692,6 +853,7 @@
     }
   }
 
+  /* increments the active defence value */
   function updateActiveDefence(value) {
 
     getAttrs(["active_defence_base"], function(values) {
@@ -805,7 +967,7 @@
   });
 
   /*Controls show hide checkbox button from repeating sections*/
-  on("change:repeating_skills:showhide_checkbox" , function(eventInfo) {
+  on("change:repeating_skills:showhide_checkbox change:repeating_gear:showhide_checkbox change:repeating_equip:showhide_checkbox" , function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();

@@ -148,7 +148,7 @@
 	margin-right: 10px;
 }
 
-.sheet-characteristics input {
+.sheet-characteristics input, .sheet-gear input, .sheet-equip input {
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -201,6 +201,10 @@ div.sheet-shadow-bottom-left::after {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.sheet-hidden-section-label {
+	font-size: 12px;
 }
 
 .sheet-header-row input, .sheet-skills input {
@@ -605,6 +609,45 @@ div.sheet-shadow-bottom-left::after {
 	border-top: 2px solid black;
 }
 
+/*----------------- MONEY AND GEAR ------------------*/
+.sheet-money {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 10px;
+}
+
+.sheet-money input {
+	margin-left: 5px;
+}
+
+.sheet-gear-hidden {
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+
+/*----------------- WEAPONS AND ARMORS ------------------*/
+.sheet-equip-damage-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.sheet-equip-hidden {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.sheet-equip-hidden input {
+	font-size: 12px;
+}
+
+.sheet-equip input {
+	margin-bottom: 5px;
+}
+
 /*----------------- NEGATIVE BORDER BOX ------------------*/
 
 .sheet-outer-box {
@@ -803,12 +846,16 @@ div.sheet-shadow-bottom-left::after {
 	display: block;
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
   z-index: 99;
   font-family: 'Pictos'
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
   font-family: 'Pictos';
   background-color: #d13235;
   background-image: none;
