@@ -454,10 +454,9 @@
                   <div class="defence-box">
                     <div class="passive-defence defence-shield">
                       <input type="text" disabled="true" name="attr_passive_defence" title="@{passive_defence}"
-                        value="@{passive_defence_mod} + @{passive_defence_base}" />
+                        value="@{passive_defence_mod} + @{equip_total_passive_defence}" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_passive_defence_mod" title="@{passive_defence_mod}" value="0" />
-                      <input type="hidden" name="attr_passive_defence_base" value="0" />
                     </div>
 
                     <div class="defence-label">
@@ -468,7 +467,7 @@
                   <div class="defence-box">
                     <div class="active-defence defence-shield">
                       <input type="text" disabled="true" name="attr_active_defence" title="@{active_defence}"
-                        value="@{passive_defence} + @{active_defence_mod} + @{active_defence_base}" />
+                        value="@{passive_defence} + @{active_defence_mod} + @{equip_total_active_defence}" />
                       <div class="horizontal-div"></div>
                       <input type="text" name="attr_active_defence_mod" title="@{active_defence_mod}" value="0" />
                       <input type="hidden" name="attr_active_defence_base" value="0" />
@@ -546,54 +545,63 @@
 
           </div>
 
-          <div class="outer-box">
+          <div class="box-middle content-box">
 
-            <div class="inner-box">
+            <fieldset class="repeating_gear">
 
-              <div class="content-box">
+              <div class="repeatable-item">
+                <div class="repeatable-row">
+                  <input name="attr_gear_name" type="text" title="@{gear_name}" />
 
-                <div class="money">
-                  <span class="secondary-label secondary-font" data-i18n="money">Money</span>
-                  <input name="attr_money" type="number" title="@{money}" value="1000" />
+                  <div class="showhidebutton">
+                    <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                    <span></span>
+                  </div>
                 </div>
 
-                <fieldset class="repeating_gear">
+                <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
-                  <div class="repeatable-item">
-                    <div class="repeatable-row">
-                      <input name="attr_gear_name" type="text" title="@{gear_name}" />
+                <div class="showhide">
 
-                      <div class="showhidebutton">
-                        <input type="checkbox" name="attr_showhide_checkbox" value="1" />
-                        <span></span>
-                      </div>
-                    </div>
+                  <div class="gear-hidden">
 
-                    <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
-                    <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+                    <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
+                    <input type="number" name="attr_gear_cost" title="@{gear_cost}" value="0" />
 
-                    <div class="showhide">
-
-                      <div class="gear-hidden">
-
-                        <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
-                        <input type="number" name="attr_gear_cost" title="@{gear_cost}" value="0" />
-
-                      </div>
-
-                      <textarea name="attr_gear_description" data-i18n-placeholder="description" placeholder="Descrição"
-                        title="@{gear_description}"></textarea>
-                    </div>
                   </div>
 
-                </fieldset>
-
+                  <textarea name="attr_gear_description" data-i18n-placeholder="description" placeholder="Descrição"
+                    title="@{gear_description}"></textarea>
+                </div>
               </div>
+
+            </fieldset>
+
+            <div class="money">
+              <div class="shadow-bottom-left">
+                <div class="outer-box skill-name-box">
+
+                  <div class="skills-inner-box physical-condition-label">
+                    <span class="secondary-label secondary-font" data-i18n="money">Money</span>
+                    <div class="negative-corner-thinner top-right-corner"></div>
+                    <div class="negative-corner-thinner bottom-right-corner"></div>
+                  </div>
+
+                </div>
+              </div>
+              
+              <input name="attr_money" type="text" title="@{money}" value="1000" />
+            </div>
+
+          </div>
+
+          <div class="outer-box">
+            <div class="box-bottom">
 
               <div class="negative-corner bottom-left-corner"></div>
               <div class="negative-corner bottom-right-corner"></div>
             </div>
-
           </div>
 
         </div>
@@ -612,75 +620,98 @@
 
           </div>
 
-          <div class="outer-box">
+          <div class="box-middle content-box">
 
-            <div class="inner-box">
+            <fieldset class="repeating_equip">
 
-              <div class="content-box">
+              <div class="repeatable-item">
+                <div class="repeatable-row">
 
-                <fieldset class="repeating_equip">
+                  <input name="attr_equip_name" type="text" title="@{equip_name}" />
 
-                  <div class="repeatable-item">
-                    <div class="repeatable-row">
-                      <input name="attr_equip_name" type="text" title="@{equip_name}" />
-
-                      <div class="equip-damage-box">
-                        <span class="smaller-label secondary-font" data-i18n="damage">Damage</span>
-                        <input type="number" name="attr_equip_damage" title="@{equip_damage}" value="0" />
-                      </div>
-                      
-                      <div class="showhidebutton">
-                        <input type="checkbox" name="attr_showhide_checkbox" value="1" />
-                        <span></span>
-                      </div>
-                    </div>
-
-                    <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
-                    <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
-
-                    <div class="showhide">
-
-                      <div class="equip-hidden">
-                        
-                        <span class="hidden-section-label secondary-font" data-i18n="passive_defence_bonus">Passive defence bonus</span>
-                        <span class="hidden-section-label secondary-font" data-i18n="active_defence_bonus">Active defence bonus</span>
-                        
-                        <input type="number" name="attr_equip_passive_defence_bonus" title="@{equip_passive_defence_bonus}" value="0" />
-                        <input type="number" name="attr_equip_active_defence_bonus" title="@{equip_active_defence_bonus}" value="0" />
-
-                        <span class="hidden-section-label secondary-font" data-i18n="reach">Reach</span>
-                        <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
-                        
-                        <input type="text" name="attr_equip_reach" title="@{equip_reach}" />
-                        <input type="number" name="attr_equip_cost" title="@{equip_cost}" value="0" />
-
-                      </div>
-
-                      <textarea name="attr_equip_description" data-i18n-placeholder="description" placeholder="Descrição"
-                        title="@{equip_description}"></textarea>
-                    </div>
+                  <div class="equip-damage-box">
+                    <span class="smaller-label secondary-font" data-i18n="damage">Damage</span>
+                    <input type="number" name="attr_equip_damage" title="@{equip_damage}" value="0" />
                   </div>
 
-                </fieldset>
+                  <div class="showhidebutton">
+                    <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                    <span></span>
+                  </div>
+                </div>
 
+                <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                <div class="showhide">
+
+                  <div class="equip-hidden">
+
+                    <span class="hidden-section-label secondary-font" data-i18n="passive_defence_bonus">Passive
+                      defence bonus</span>
+                    <span class="hidden-section-label secondary-font" data-i18n="active_defence_bonus">Active
+                      defence bonus</span>
+
+                    <input type="number" name="attr_equip_passive_defence_bonus" title="@{equip_passive_defence_bonus}"
+                      value="0" />
+                    <input type="number" name="attr_equip_active_defence_bonus" title="@{equip_active_defence_bonus}"
+                      value="0" />
+
+                    <span class="hidden-section-label secondary-font" data-i18n="reach">Reach</span>
+                    <span class="hidden-section-label secondary-font" data-i18n="cost">Cost</span>
+
+                    <input type="text" name="attr_equip_reach" title="@{equip_reach}" />
+                    <input type="number" name="attr_equip_cost" title="@{equip_cost}" value="0" />
+
+                  </div>
+
+                  <textarea name="attr_equip_description" data-i18n-placeholder="description" placeholder="Descrição"
+                    title="@{equip_description}"></textarea>
+                </div>
               </div>
+
+            </fieldset>
+
+            <div class="equip-totals">
+
+              <div class="shadow-bottom-left">
+                <div class="outer-box skill-name-box">
+
+                  <div class="skills-inner-box physical-condition-label">
+                    <span class="secondary-label secondary-font" data-i18n="defence-totals">Defence totals</span>
+                    <div class="negative-corner-thinner top-right-corner"></div>
+                    <div class="negative-corner-thinner bottom-right-corner"></div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="equip-totals-grid">
+                <span class="hidden-section-label secondary-font" data-i18n="passive">Passive</span>
+                <span class="hidden-section-label secondary-font" data-i18n="active">Active</span>
+                <input type="text" readonly="true" name="attr_equip_total_passive_defence"
+                  title="{@equip_total_passive_defence}" value="0" />
+                <input type="text" readonly="true" name="attr_equip_total_active_defence"
+                  title="{@equip_total_active_defence}" value="0" />
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+          <div class="outer-box">
+            <div class="box-bottom">
 
               <div class="negative-corner bottom-left-corner"></div>
               <div class="negative-corner bottom-right-corner"></div>
             </div>
-
           </div>
 
         </div>
 
       </div>
-
-    </div>
-
-    <div class="box flex-column">
-
-      <span class="box-title main-font" data-i18n="general_notes">General notes</span>
-      <textarea name="attr_general_notes" title="@{general_notes}"></textarea>
 
     </div>
 
@@ -700,7 +731,7 @@
 
   <!-- Footer -->
   <div class="footer primary-font">
-    <span data-i18n="copyright">[Nome do jogo] é um jogo escrito por [nome do autor].</span>
+    <span data-i18n="copyright">This is a character sheet for the The Elephant and Macaw Banner RPG game written by Christopher Kastensmidt.</span>
   </div>
 
 </div>
@@ -836,37 +867,36 @@
     }
   }
 
-  /* increments the active defence value */
-  function updateActiveDefence(value) {
+  //Repeating Sum [https://wiki.roll20.net/RepeatingSum]
+  const repeatingSum = (destinations, section, fields) => {
+    if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+    if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+    getSectionIDs(`repeating_${section}`, idArray => {
+        const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+        getAttrs([...attrArray], v => {
+            const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+            const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+            const output = {};
+            destinations.forEach((destination, index) => {
+                output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+            });
+            setAttrs(output);
+        }); 
+    }); 
+  };
 
-    getAttrs(["active_defence_base"], function(values) {
+  /* calculating total weapons and armors defence bonus */
+  on('sheet:opened change:repeating_equip remove:repeating_equip', function() {
+      repeatingSum("equip_total_active_defence", "equip", "equip_active_defence_bonus");
+      repeatingSum("equip_total_passive_defence", "equip", "equip_passive_defence_bonus");        
+  });
 
-      let defenceValue = parseInt(values.active_defence_base)||0;
-
-      defenceValue += value;
-
-      console.log('defenceValue ' + defenceValue);
-      console.log('value ' + value);
-
-      if (defenceValue < 0) {
-        defenceValue = 0;
-      }
-
-      setAttrs({
-        active_defence_base: defenceValue
-      });
-
-    });
-  }
-
-  /* Recalculates energy and active defence when skill is removed */
+  /* Recalculates energy when skill is removed */
   on("remove:repeating_skills", function(eventInfo) {
     
     const skillLevel = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_level'];
     const energyCheck = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_energy'];
-    const activeDefenseCheck = eventInfo.removedInfo[eventInfo.sourceAttribute + '_skill_active_defence_bonus'];
     const energyValue = 0;
-    let changedAttributes = new Object();
     
     /* if energy was checked, then Energy must return to zero */
     if (energyCheck == 'on') {
@@ -875,43 +905,6 @@
        });
     }
 
-    if (activeDefenseCheck == 'on') {
-      updateActiveDefence((-1)*skillLevel);
-    }
-
-  });
-
-  /* Updates active defence bonus when skill level is changed */
-  on("change:repeating_skills:skill_level", function(eventInfo) {
-    const newSkillLevel = parseInt(eventInfo.newValue)||0;
-    const oldSkillLevel = parseInt(eventInfo.previousValue)||0;
-    
-    getAttrs(["repeating_skills_skill_active_defence_bonus"], function(values) {
-      const defenceCheck = values.repeating_skills_skill_active_defence_bonus;
-
-      if (defenceCheck == 'on') {
-        let defenceValueUpdate = newSkillLevel - oldSkillLevel;
-        
-        updateActiveDefence(defenceValueUpdate);
-      }
-
-    });
-  });
-
-  /* Updates active defence base value when skill bonus box is checked */
-  on("change:repeating_skills:skill_active_defence_bonus", function(eventInfo) {
-    getAttrs(["repeating_skills_skill_level", "repeating_skills_skill_active_defence_bonus"], function(values) {
-      const skillLevel = parseInt(values.repeating_skills_skill_level)||0;
-      const defenceCheck = values.repeating_skills_skill_active_defence_bonus;
-
-      console.log('skillLevel ' + skillLevel);
-      console.log('defenceCheck ' + defenceCheck);
-      if (defenceCheck == 'on') {
-        updateActiveDefence(skillLevel);
-      } else {
-        updateActiveDefence(skillLevel*(-1));
-      }
-    });
   });
 
   /* Calculates energy based on power skill */

@@ -612,12 +612,19 @@ div.sheet-shadow-bottom-left::after {
 /*----------------- MONEY AND GEAR ------------------*/
 .sheet-money {
 	display: flex;
-	justify-content: flex-end;
-	margin-bottom: 10px;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid black;
 }
 
 .sheet-money input {
 	margin-left: 5px;
+	padding: 0px;
+	border: 1px solid black;
+	text-align: center;
+	width: 50px !important;
 }
 
 .sheet-gear-hidden {
@@ -646,6 +653,31 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-equip input {
 	margin-bottom: 5px;
+}
+
+.sheet-equip-totals {
+	display: flex;
+	border-top: 1px solid black;
+	margin-top: 10px;
+	padding-top: 10px;
+	align-items: center;
+}
+
+.sheet-equip-totals input {
+	background: none;
+	border: 1px solid black;
+	width: 30px !important;
+	height: 20px !important;
+	text-align: center;
+}
+
+.sheet-equip-totals-grid {
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 5px;
+	margin-left: 5px;
+	justify-items: center;
+	width: auto;
 }
 
 /*----------------- NEGATIVE BORDER BOX ------------------*/
