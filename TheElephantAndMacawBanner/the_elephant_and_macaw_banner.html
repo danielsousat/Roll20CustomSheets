@@ -12,9 +12,9 @@
   <!-- Tab navigation -->
   <div class="tab-panel">
 
-    <button type="action" name="act_profile" data-i18n="profile">Perfil</button>
-    <button type="action" name="act_journal" data-i18n="journal">Diário</button>
-    <button type="action" name="act_configuration" data-i18n="configuration">Configuração</button>
+    <button type="action" name="act_profile" ></button>Perfil</button>
+    <button type="action" name="act_journal" >Diário</button>
+    <button type="action" name="act_configuration" >Configuração</button>
 
   </div>
   <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
@@ -238,9 +238,24 @@
               <div class="outer-box skill-name-box">
 
                 <div class="skills-inner-box flex-row">
-                  <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
-                    value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_untrained_skill}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
-                    <span class="secondary-label secondary-font" data-i18n="initiative_untrained_skill">Initiative / Untrained skill</span>
+                  <button type="roll" class="roll-button" name="roll_initiative" title="@{initiative}"
+                    value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_label}}} {{initiative=[[3d6cs>7cf<0]]}}"></button>
+                    <span class="secondary-label secondary-font" data-i18n="initiative">Initiative</span>
+
+                  <div class="skills-negative-corner top-right-corner"></div>
+                  <div class="skills-negative-corner bottom-right-corner"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="shadow-bottom-left untrained_skill">
+              <div class="outer-box skill-name-box">
+
+                <div class="skills-inner-box flex-row">
+                  <button type="roll" class="roll-button" name="roll_untrained_skill" title="@{untrained_skill}"
+                    value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
+                    <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
 
                   <div class="skills-negative-corner top-right-corner"></div>
                   <div class="skills-negative-corner bottom-right-corner"></div>
@@ -735,7 +750,7 @@
 
     {{#check}}
     <div class="template-check template-separator">
-      <span class="template-label" data-i18n="check">Teste</span>
+      <span class="template-label" data-i18n="check">Check</span>
       <span class="template-value">{{check}}</span>
     </div>
     {{/check}}
@@ -773,20 +788,19 @@
 
     {{/result}}
 
+    {{#initiative}}
+    <div class="template-result">
+      <span class="template-value">{{initiative}}</span>
+    </div>
+    {{/initiative}}
+
   </div>
 
 </rolltemplate>
 
 <!-- Strings translations for Roll Queries-->
 <div style="display: none;">
-  <span data-i18n="difficulty">Dificuldade</span>
   <span data-i18n="mod">Mod</span>
-  <span data-i18n="result">Resultado</span>
-  <span data-i18n="success">Sucesso!</span>
-  <span data-i18n="fail">Falha!</span>
-  <span data-i18n="critic">Sucesso Crítico!</span>
-  <span data-i18n="fumble">Falha Crítica!</span>
-  <span data-i18n="check">Teste</span>
 </div>
 
 <!--Sheet Workers -->
@@ -936,11 +950,10 @@
   on("sheet:opened", function(eventInfo){
       
       setAttrs({
-          result: getTranslationByKey("result"),
-          check: getTranslationByKey("check"),
-          difficulty: getTranslationByKey("difficulty"),
           mod: getTranslationByKey("mod"),
-          initiative_untrained_skill: getTranslationByKey("initiative_untrained_skill")
+          difficulty: getTranslationByKey("difficulty"),
+          initiative_label: getTranslationByKey("initiative"),
+          untrained_skill_label: getTranslationByKey("untrained_skill")
       });     
       
   });
