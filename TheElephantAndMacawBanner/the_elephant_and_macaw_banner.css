@@ -256,6 +256,11 @@ div.sheet-shadow-bottom-left::after {
 	align-self: end;
 }
 
+.sheet-untrained_skill {
+	width: 250px;
+	margin-bottom: 10px;
+}
+
 .sheet-skill-points {
 	display: flex;
 	flex-direction: row;
@@ -464,6 +469,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 /*----------------- DEFENCE ------------------*/
+
 .sheet-defence {
 	display: flex;
 	flex-direction: column;
@@ -480,7 +486,7 @@ div.sheet-shadow-bottom-left::after {
 .sheet-defence-energy input[readonly], .sheet-defence-energy input[disabled] {
 	font-weight: bold;
 	color: blue;
-} 
+}
 
 .sheet-defence-outer-box {
 	overflow: hidden;
@@ -561,6 +567,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 /*----------------- ENERGY ------------------*/
+
 .sheet-energy {
 	display: flex;
 	flex-direction: column;
@@ -611,6 +618,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 /*----------------- MONEY AND GEAR ------------------*/
+
 .sheet-money {
 	display: flex;
 	justify-content: flex-start;
@@ -634,6 +642,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 /*----------------- WEAPONS AND ARMORS ------------------*/
+
 .sheet-equip-damage-box {
 	display: flex;
 	flex-direction: column;
@@ -890,23 +899,19 @@ div.sheet-shadow-bottom-left::after {
 	display: block;
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol,
-.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol,
-.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
-  z-index: 99;
-  font-family: 'Pictos'
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
+	z-index: 99;
+	font-family: 'Pictos'
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del,
-.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del,
-.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
-  font-family: 'Pictos';
-  background-color: #d13235;
-  background-image: none;
-  position: absolute;
-  z-index: 99 !important;
-  top: 0;
-  right: 0
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
+	font-family: 'Pictos';
+	background-color: #d13235;
+	background-image: none;
+	position: absolute;
+	z-index: 99 !important;
+	top: 0;
+	right: 0
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/
@@ -915,34 +920,65 @@ div.sheet-shadow-bottom-left::after {
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
-	font-family: Paytone One;
-	text-align: center;
-}
-
-.sheet-rolltemplate-main p {
-	font-family: Paytone One;
-	text-align: left;
-}
-
-.sheet-rolltemplate-main .sheet-template-row {
-	display: flex;
-	flex-direction: column;
-	border-bottom: 1px solid black;
-	padding: 5px;
-	justify-content: center;
-	align-items: center;
-}
-
-.sheet-rolltemplate-main .sheet-template-header {
-	flex-direction: row !important;
-	background-color: black;
-	color: white;
+	background-color: white;
+	padding: 2px;
 }
 
 .sheet-rolltemplate-main .sheet-template-label {
 	font-weight: bold;
-	text-transform: uppercase;
+	font-family: Lustria;
+}
+
+.sheet-rolltemplate-main .sheet-template-value {
+	font-family: Paytone One;
+	font-style: italic;
+}
+
+.sheet-rolltemplate-main .sheet-template-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-check {
+	display: grid;
+	gap: 5px;
+	justify-items: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-separator {
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
 	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .sheet-template-roll {
+	display: grid;
+	gap: 10px;
+	justify-items: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-difficulty {
+	display: flex;
+	justify-content: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-difficulty .sheet-template-label {
+	margin-right: 5px;
+}
+
+.sheet-rolltemplate-main .sheet-template-result {
+	display: grid;
+	gap: 5px;
+	justify-items: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-target span {
+	background: none;
+	border: 2px solid black;
 }
 
 .sheet-rolltemplate-main .sheet-template-success {
@@ -951,4 +987,18 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-rolltemplate-main .sheet-template-fail {
 	color: red;
+}
+
+.sheet-rolltemplate-main .sheet-template-result .importantroll::after {
+	content: 'teste';
+	position: relative;
+	display: inline-block;
+}
+
+.sheet-rolltemplate-main .sheet-template-result .fullfail::after {
+	display: inline-block;
+}
+
+.sheet-rolltemplate-main .sheet-template-result .fullcrit::after {
+	display: inline-block;
 }

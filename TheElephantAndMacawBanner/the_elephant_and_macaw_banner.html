@@ -1,36 +1,7 @@
 <div class="main-container">
   <!-- TODO
-    Caracteristicas
-
     Defesa e Energia
       Programar pras defesesas ativa e passiva terem um valor máximo de 5.
-    Habilidades
-      Colocar botão que indica se soma o nível na defesa ativa
-      Colocar botão que indica que é habilidade de poder pra somar na quantidade de energia do personagem
-    Armas e armaduras
-      Colocar aqui a soma dos bônus de armadura para calcular automaticamente o valor da Defesa Passiva
-      Colocar um seletor se soma bônus na defesa ativa ou passiva
-      campos:
-        nome
-        custo
-        bônus de defesa passiva ou ativa
-        descrição
-        dano
-        alcance
-    dinheiro e bens
-
-    Iniciativa
-      Colocar um botão pra rolar Iniciativa (3d6). Ver a possibilidade do resultado já cair na tabela de iniciativa
-
-
-    Testes:
-      3d6 + nível habilidade + modificador >= dificuldade (4 níveis de dificuldade)
-      Fracasso épico: rolar 1 em todos os dados;
-      Sucesso épico: rolar 6 em todos os dados;
-      * obs: incluir um botão pra realizar teste sem nível de habilidade (só rola os 3d6 + modificador)
-
-    Ataque:
-      Faz o teste de habilidade e subtrai a defesa do alvo (ativa ou passiva se for à distância) e soma modificador.
 
     Condicao Fisica
       Automatizar a regra de quando o personagem so tem 3 ou menos pontos de resistência pra causar 
@@ -263,6 +234,21 @@
               </div>
             </div>
 
+            <div class="shadow-bottom-left untrained_skill">
+              <div class="outer-box skill-name-box">
+
+                <div class="skills-inner-box flex-row">
+                  <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
+                    value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_untrained_skill}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
+                    <span class="secondary-label secondary-font" data-i18n="initiative_untrained_skill">Initiative / Untrained skill</span>
+
+                  <div class="skills-negative-corner top-right-corner"></div>
+                  <div class="skills-negative-corner bottom-right-corner"></div>
+                </div>
+
+              </div>
+            </div>
+
             <fieldset class="repeating_skills">
 
               <div class="repeatable-item">
@@ -273,7 +259,7 @@
 
                       <div class="skills-inner-box flex-row">
                         <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
-                          value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
+                          value="&{template:main} {{charname=@{character_name}}} {{check=@{skill_name}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[@{skill_level}*3]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
                         <input name="attr_skill_name" type="text" title="@{skill_name}" />
 
                         <div class="skills-negative-corner top-right-corner"></div>
@@ -743,58 +729,47 @@
 <!-- Roll Templates -->
 <rolltemplate class="sheet-rolltemplate-main">
   <div class="template-container">
-    <div class="template-row template-header template-label primary-font">
-      {{charname}}
+    <div class="template-header template-label">
+      <span class="template-label">{{charname}}</span>
     </div>
-
-    {{#action}}
-    <div class="template-row">
-      <span class="template-label primary-font">{{action}}</span>
-      {{#text}}
-      <p>{{text}}</p>
-      {{/text}}
-
-    </div>
-    {{/action}}
 
     {{#check}}
-    <div class="template-row">
-      <span class="template-label primary-font" data-i18n="check">Teste</span>
-      {{check}}
+    <div class="template-check template-separator">
+      <span class="template-label" data-i18n="check">Teste</span>
+      <span class="template-value">{{check}}</span>
     </div>
     {{/check}}
 
     {{#result}}
 
-    <div class="template-row">
-      <span class="template-label primary-font" data-i18n="result">Resultado</span>
-      {{result}}
+    <div class="template-roll template-separator">
+      <div class="template-difficulty">
+        <span class="template-label" data-i18n="difficulty">Difficulty</span>
+        <span class="template-value">{{target}}</span>
+      </div>
+      
+      <span class="template-value">{{dice}} + {{skill_bonus}} + {{mod}} = {{result}}</span>
+      
     </div>
 
-    {{#^rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label primary-font template-success" data-i18n="success">Sucesso!</span>
-    </div>
-    {{/^rollLess() result target}}
+    <div class="template-result">
+      <span class="template-label" data-i18n="result">Result</span>
+      {{#^rollLess() result target}}
+        <span class="template-value template-success" data-i18n="success">Success</span>
+      {{/^rollLess() result target}}
 
-    {{#rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label primary-font template-fail" data-i18n="fail">Falha!</span>
-    </div>
-    {{/rollLess() result target}}
+      {{#rollLess() result target}}
+        <span class="template-value template-fail" data-i18n="failure">Failure</span>
+      {{/rollLess() result target}}
 
+      {{#rollTotal() dice 3}}
+        <span class="template-value template-fail" data-i18n="epic_failure">Epic failure!</span>
+      {{/rollTotal() dice 3}}
 
-    {{#rollWasCrit() result}}
-    <div class="template-row">
-      <span class="template-label primary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+      {{#rollTotal() dice 18}}
+        <span class="template-value template-success" data-i18n="epic_success">Epic success!</span>
+      {{/rollTotal() dice 18}}
     </div>
-    {{/rollWasCrit() result}}
-
-    {{#rollWasFumble() result}}
-    <div class="template-row">
-      <span class="template-label primary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
-    </div>
-    {{/rollWasFumble() result}}
 
     {{/result}}
 
@@ -804,10 +779,8 @@
 
 <!-- Strings translations for Roll Queries-->
 <div style="display: none;">
-  <span data-i18n="advantagedisadvantage">Possui vantagem ou desvantagem?</span>
-  <span data-i18n="no">Não</span>
-  <span data-i18n="advantage">Vantagem</span>
-  <span data-i18n="disadvantage">Desvantagem</span>
+  <span data-i18n="difficulty">Dificuldade</span>
+  <span data-i18n="mod">Mod</span>
   <span data-i18n="result">Resultado</span>
   <span data-i18n="success">Sucesso!</span>
   <span data-i18n="fail">Falha!</span>
@@ -963,14 +936,11 @@
   on("sheet:opened", function(eventInfo){
       
       setAttrs({
-          advantagedisadvantage: getTranslationByKey("advantagedisadvantage"),
-          no: getTranslationByKey("no"),
-          advantage: getTranslationByKey("advantage"),
-          disadvantage: getTranslationByKey("disadvantage"),
           result: getTranslationByKey("result"),
           check: getTranslationByKey("check"),
-          strength: getTranslationByKey("strength"),
-          dexterity: getTranslationByKey("dexterity")
+          difficulty: getTranslationByKey("difficulty"),
+          mod: getTranslationByKey("mod"),
+          initiative_untrained_skill: getTranslationByKey("initiative_untrained_skill")
       });     
       
   });
