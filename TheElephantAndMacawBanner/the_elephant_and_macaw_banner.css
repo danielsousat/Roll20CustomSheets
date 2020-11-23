@@ -159,6 +159,7 @@
 
 .sheet-history textarea {
 	border: none;
+	height: 100px !important;
 }
 
 .sheet-shadow-bottom-left {
@@ -195,7 +196,6 @@ div.sheet-shadow-bottom-left::after {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;
-	margin-bottom: 5px;
 }
 
 .sheet-repeatable-row-box {
@@ -710,6 +710,10 @@ div.sheet-shadow-bottom-left::after {
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
 	column-gap: 10px;
+}
+
+.sheet-equipped {
+	margin-right: 5px;
 }
 
 .sheet-equip-hidden input {

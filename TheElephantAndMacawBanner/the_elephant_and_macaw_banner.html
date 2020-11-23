@@ -646,6 +646,8 @@
               <div class="repeatable-item">
                 <div class="repeatable-row">
 
+                  <input class="equipped" name="attr_equip_equipped" type="checkbox" title="@{equip_equipped}" />
+
                   <input name="attr_equip_name" type="text" title="@{equip_name}" />
 
                   <div class="equip-damage-box">
@@ -696,7 +698,9 @@
                 <div class="outer-box skill-name-box">
 
                   <div class="skills-inner-box physical-condition-label">
-                    <span class="secondary-label secondary-font" data-i18n="defence-totals">Defence totals</span>
+                    <span class="secondary-label secondary-font" data-i18n-title="equip-totals-explain"
+                      title="Only equipments with the checkbox marked will count for the defence bonuses."
+                      data-i18n="defence-totals">Defence totals</span>
                     <div class="negative-corner-thinner top-right-corner"></div>
                     <div class="negative-corner-thinner bottom-right-corner"></div>
                   </div>
@@ -705,8 +709,12 @@
               </div>
 
               <div class="equip-totals-grid">
-                <span class="hidden-section-label secondary-font" data-i18n="passive">Passive</span>
-                <span class="hidden-section-label secondary-font" data-i18n="active">Active</span>
+                <span class="hidden-section-label secondary-font" data-i18n-title="equip-totals-explain"
+                  title="Only equipments with the checkbox marked will count for the defence bonuses."
+                  data-i18n="passive">Passive</span>
+                <span class="hidden-section-label secondary-font" data-i18n-title="equip-totals-explain"
+                  title="Only equipments with the checkbox marked will count for the defence bonuses."
+                  data-i18n="active">Active</span>
                 <input type="text" readonly="true" name="attr_equip_total_passive_defence"
                   title="{@equip_total_passive_defence}" value="0" />
                 <input type="text" readonly="true" name="attr_equip_total_active_defence"
@@ -894,8 +902,8 @@
 
   /* calculating total weapons and armors defence bonus */
   on('sheet:opened change:repeating_equip remove:repeating_equip', function() {
-      repeatingSum("equip_total_active_defence", "equip", "equip_active_defence_bonus");
-      repeatingSum("equip_total_passive_defence", "equip", "equip_passive_defence_bonus");        
+      repeatingSum("equip_total_active_defence", "equip", ["equip_active_defence_bonus", "equip_equipped"]);
+      repeatingSum("equip_total_passive_defence", "equip", ["equip_passive_defence_bonus", "equip_equipped"]);        
   });
 
   /* Turning off all other skills energy checkbox when the player checks a box */
