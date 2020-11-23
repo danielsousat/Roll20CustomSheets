@@ -254,7 +254,7 @@
 
                 <div class="skills-inner-box flex-row">
                   <button type="roll" class="roll-button" name="roll_untrained_skill" title="@{untrained_skill}"
-                    value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
+                    value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty} | @{easy}, 12 | @{intermediate}, 15 | @{difficult}, 18 | @{legendary}, 21 }]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
                   <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
 
                   <div class="skills-negative-corner top-right-corner"></div>
@@ -274,7 +274,7 @@
 
                       <div class="skills-inner-box flex-row">
                         <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
-                          value="&{template:main} {{charname=@{character_name}}} {{check=@{skill_name}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[(@{skill_level}-@{endurance_penalty})*3]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
+                          value="&{template:main} {{charname=@{character_name}}} {{check=@{skill_name}}} {{target=[[?{@{difficulty} | @{easy}, 12 | @{intermediate}, 15 | @{difficult}, 18 | @{legendary}, 21 }]]}} {{result=[[ [[3d6cs>2cf<5]] + [[(@{skill_level}-@{endurance_penalty})*3]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
                         <input name="attr_skill_name" type="text" title="@{skill_name}" />
 
                         <div class="skills-negative-corner top-right-corner"></div>
@@ -805,6 +805,11 @@
 <!-- Strings translations for Roll Queries-->
 <div style="display: none;">
   <span data-i18n="mod">Mod</span>
+  <span data-i18n="easy">Easy</span>
+  <span data-i18n="intermediate">Intermediate</span>
+  <span data-i18n="difficult">Difficult</span>
+  <span data-i18n="legendary">Legendary</span>
+
 </div>
 
 <!--Sheet Workers -->
@@ -972,7 +977,12 @@
           mod: getTranslationByKey("mod"),
           difficulty: getTranslationByKey("difficulty"),
           initiative_label: getTranslationByKey("initiative"),
-          untrained_skill_label: getTranslationByKey("untrained_skill")
+          untrained_skill_label: getTranslationByKey("untrained_skill"),
+          easy: getTranslationByKey("easy"),
+          intermediate: getTranslationByKey("intermediate"),
+          difficult: getTranslationByKey("difficult"),
+          legendary: getTranslationByKey("legendary")
+        
       });     
       
   });
