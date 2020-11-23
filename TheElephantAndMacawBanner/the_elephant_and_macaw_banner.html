@@ -234,36 +234,6 @@
               </div>
             </div>
 
-            <div class="shadow-bottom-left untrained_skill">
-              <div class="outer-box skill-name-box">
-
-                <div class="skills-inner-box flex-row">
-                  <button type="roll" class="roll-button" name="roll_initiative" title="@{initiative}"
-                    value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_label}}} {{initiative=[[3d6cs>7cf<0]]}}"></button>
-                  <span class="secondary-label secondary-font" data-i18n="initiative">Initiative</span>
-
-                  <div class="skills-negative-corner top-right-corner"></div>
-                  <div class="skills-negative-corner bottom-right-corner"></div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="shadow-bottom-left untrained_skill">
-              <div class="outer-box skill-name-box">
-
-                <div class="skills-inner-box flex-row">
-                  <button type="roll" class="roll-button" name="roll_untrained_skill" title="@{untrained_skill}"
-                    value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty} | @{easy}, 12 | @{intermediate}, 15 | @{difficult}, 18 | @{legendary}, 21 }]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
-                  <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
-
-                  <div class="skills-negative-corner top-right-corner"></div>
-                  <div class="skills-negative-corner bottom-right-corner"></div>
-                </div>
-
-              </div>
-            </div>
-
             <fieldset class="repeating_skills">
 
               <div class="repeatable-item">
@@ -349,6 +319,23 @@
         <img class="logo"
           src="https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/logo-english.png">
 
+        <!-- Initiative and Untrained Skill -->
+        <div class="initiative box-margin">
+
+          <div class="initiative-box">
+            <button type="roll" class="roll-button" name="roll_initiative" title="@{initiative}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_label}}} {{initiative=[[3d6cs>7cf<0]]}}"></button>
+            <span class="secondary-label secondary-font" data-i18n="initiative">Initiative</span>
+          </div>
+
+          <div class="initiative-box">
+            <button type="roll" class="roll-button" name="roll_untrained_skill" title="@{untrained_skill}"
+              value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty} | @{easy}, 12 | @{intermediate}, 15 | @{difficult}, 18 | @{legendary}, 21 }]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
+            <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
+          </div>
+
+        </div>
+
         <!-- Physical Condition -->
         <div class="physical-condition box-margin">
 
@@ -415,7 +402,7 @@
                 title="@{critical_damage}" /><span></span>
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="4"
                 title="@{critical_damage}" /><span></span>
-                <input class="critical-radio" name="attr_critical_damage" type="radio" value="5"
+              <input class="critical-radio" name="attr_critical_damage" type="radio" value="5"
                 title="@{critical_damage}" /><span></span>
             </div>
 

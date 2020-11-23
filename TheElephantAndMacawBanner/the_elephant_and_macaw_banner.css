@@ -212,6 +212,19 @@ div.sheet-shadow-bottom-left::after {
 	border: none;
 }
 
+/*----------------- INITIATIVE ------------------*/
+.sheet-initiative {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 5px;
+}
+
+.sheet-initiative-box {
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+}
+
 /*----------------- SKILLS ------------------*/
 
 .sheet-skills-box-middle {
