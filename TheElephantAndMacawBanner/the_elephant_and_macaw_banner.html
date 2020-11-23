@@ -12,9 +12,9 @@
   <!-- Tab navigation -->
   <div class="tab-panel">
 
-    <button type="action" name="act_profile" ></button>Perfil</button>
-    <button type="action" name="act_journal" >Diário</button>
-    <button type="action" name="act_configuration" >Configuração</button>
+    <button type="action" name="act_profile"></button>Perfil</button>
+    <button type="action" name="act_journal">Diário</button>
+    <button type="action" name="act_configuration">Configuração</button>
 
   </div>
   <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
@@ -240,7 +240,7 @@
                 <div class="skills-inner-box flex-row">
                   <button type="roll" class="roll-button" name="roll_initiative" title="@{initiative}"
                     value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative_label}}} {{initiative=[[3d6cs>7cf<0]]}}"></button>
-                    <span class="secondary-label secondary-font" data-i18n="initiative">Initiative</span>
+                  <span class="secondary-label secondary-font" data-i18n="initiative">Initiative</span>
 
                   <div class="skills-negative-corner top-right-corner"></div>
                   <div class="skills-negative-corner bottom-right-corner"></div>
@@ -255,7 +255,7 @@
                 <div class="skills-inner-box flex-row">
                   <button type="roll" class="roll-button" name="roll_untrained_skill" title="@{untrained_skill}"
                     value="&{template:main} {{charname=@{character_name}}} {{check=@{untrained_skill_label}}} {{target=[[?{@{difficulty}}]]}} {{result=[[ [[3d6cs>2cf<5]] + [[0]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
-                    <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
+                  <span class="secondary-label secondary-font" data-i18n="untrained_skill">Untrained skill</span>
 
                   <div class="skills-negative-corner top-right-corner"></div>
                   <div class="skills-negative-corner bottom-right-corner"></div>
@@ -386,7 +386,7 @@
                   <input name="attr_current_endurance" type="text" title="@{current_endurance}" value="10" />
                 </div>
                 <span class="shield-label secondary-font" data-i18n="current">Current</span>
-                
+
                 <input type="hidden" name="attr_endurance_penalty" value="0" />
 
               </div>
@@ -414,6 +414,8 @@
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="3"
                 title="@{critical_damage}" /><span></span>
               <input class="critical-radio" name="attr_critical_damage" type="radio" value="4"
+                title="@{critical_damage}" /><span></span>
+                <input class="critical-radio" name="attr_critical_damage" type="radio" value="5"
                 title="@{critical_damage}" /><span></span>
             </div>
 
@@ -764,27 +766,27 @@
         <span class="template-label" data-i18n="difficulty">Difficulty</span>
         <span class="template-value">{{target}}</span>
       </div>
-      
+
       <span class="template-value">{{dice}} + {{skill_bonus}} + {{mod}} = {{result}}</span>
-      
+
     </div>
 
     <div class="template-result">
       <span class="template-label" data-i18n="result">Result</span>
       {{#^rollLess() result target}}
-        <span class="template-value template-success" data-i18n="success">Success</span>
+      <span class="template-value template-success" data-i18n="success">Success</span>
       {{/^rollLess() result target}}
 
       {{#rollLess() result target}}
-        <span class="template-value template-fail" data-i18n="failure">Failure</span>
+      <span class="template-value template-fail" data-i18n="failure">Failure</span>
       {{/rollLess() result target}}
 
       {{#rollTotal() dice 3}}
-        <span class="template-value template-fail" data-i18n="epic_failure">Epic failure!</span>
+      <span class="template-value template-fail" data-i18n="epic_failure">Epic failure!</span>
       {{/rollTotal() dice 3}}
 
       {{#rollTotal() dice 18}}
-        <span class="template-value template-success" data-i18n="epic_success">Epic success!</span>
+      <span class="template-value template-success" data-i18n="epic_success">Epic success!</span>
       {{/rollTotal() dice 18}}
     </div>
 
