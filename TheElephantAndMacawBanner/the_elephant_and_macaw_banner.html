@@ -854,9 +854,6 @@
       
       changeAttributes[targetId] = controlValue;
     }
-    
-    console.log(eventInfo);
-    console.log(changeAttributes);
 
     setAttrs(changeAttributes);
 
@@ -901,6 +898,30 @@
       repeatingSum("equip_total_passive_defence", "equip", "equip_passive_defence_bonus");        
   });
 
+  /* Turning off all other skills energy checkbox when the player checks a box */
+  on("change:repeating_skills:skill_energy", function(eventInfo) {
+    
+    if (eventInfo.newValue == 'off') {
+      return;
+    }
+
+    const id = eventInfo.sourceAttribute.split('_')[2];
+
+    getSectionIDs("skills", function(idarray) {
+      let attrs = new Object();
+
+      for(var i=0; i < idarray.length; i++) {
+         
+        if (idarray[i] != id) {
+          let field = 'repeating_skills_' + idarray[i] + '_skill_energy';
+          attrs[field] = 'off';
+        }
+      }
+
+      setAttrs(attrs);
+   });
+  });
+
   /* Recalculates energy when skill is removed */
   on("remove:repeating_skills", function(eventInfo) {
     
@@ -920,15 +941,26 @@
   /* Calculates energy based on power skill */
   on("change:repeating_skills:skill_energy change:repeating_skills:skill_level", function(eventInfo) {
 
+    const source = eventInfo.sourceAttribute;
+
+    if (eventInfo.sourceType == 'sheetworker') {
+      return;
+    }
+
     getAttrs(["repeating_skills_skill_level", "repeating_skills_skill_energy"], function(values) {
       const skillLevel = values.repeating_skills_skill_level;
       const energyCheck = values.repeating_skills_skill_energy;
       let energyValue = 0;
 
+      /* if the change was on the skill level, but the energy check is off, then do nothing */
+      if (source.search('skill_level') >= 0 && energyCheck == 'off') {
+        return;
+      }
+
       if (energyCheck == 'on') {
         energyValue = getEnergyValue(skillLevel);
       } 
-
+      
       setAttrs({
         energy: energyValue
       });
@@ -975,9 +1007,6 @@
     let targetId = source + '_invisible';
     
     changeAttributes[targetId] = eventInfo.newValue;
-
-    console.log(eventInfo);
-    console.log(changeAttributes);
 
     setAttrs(changeAttributes);
   });
