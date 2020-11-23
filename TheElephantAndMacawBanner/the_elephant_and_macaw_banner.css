@@ -402,6 +402,13 @@ div.sheet-shadow-bottom-left::after {
 	margin-bottom: 10px;
 }
 
+.sheet-endurance-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 .sheet-endurance-shield {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/endurance_shield.png');
 	width: 45px;
