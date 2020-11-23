@@ -220,7 +220,6 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-initiative-box {
-	border: 1px solid black;
 	display: flex;
 	align-items: center;
 }
@@ -520,10 +519,40 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-defence-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto auto;
 	align-items: center;
+	justify-items: flex-end;
+	padding: 5px;
+	gap: 5px;
+}
+
+.sheet-defence-box {
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-auto-flow: column;
+	align-items: center;
+	justify-items: center;
 	column-gap: 5px;
-	padding: 5px 10px 5px 10px;
+}
+
+.sheet-defence-row {
+	display: flex;
+	align-items: flex-end;
+}
+
+.sheet-defence-symbol {
+	width: 30px;
+	text-align: center;
+}
+
+.sheet-defence-box input {
+	border: 1px solid black;
+	width: 30px !important;
+	text-align: center;
+}
+
+.sheet-defence-row-span {
+	grid-row: 1 / 3;
 }
 
 .sheet-defence-shield {
@@ -540,13 +569,13 @@ div.sheet-shadow-bottom-left::after {
 .sheet-active-defence {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/active_defense.png');
 	width: 55px;
-	min-height: 70px !important;
+	min-height: 55px !important;
 }
 
 .sheet-passive-defence {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/passive_defense.png');
-	width: 60px;
-	min-height: 70px !important;
+	width: 55px;
+	min-height: 55px !important;
 }
 
 .sheet-defence-shield input {
@@ -564,19 +593,16 @@ div.sheet-shadow-bottom-left::after {
 	height: auto;
 }
 
-.sheet-defence-box {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .sheet-defence-label {
-	z-index: -1;
 	text-align: center;
-	margin-top: -5px;
 	border: 1px solid black;
 	font-weight: bold;
 	min-width: 70px;
+	margin-right: 10px;
+}
+
+.sheet-margin-top {
+	margin-top: 10px;
 }
 
 /*----------------- ENERGY ------------------*/

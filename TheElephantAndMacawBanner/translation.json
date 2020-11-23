@@ -14,9 +14,9 @@
 	"points_to_spend": "Points to spend",
 	"cost1": "Cost 1",
 	"bonus3": "Bonus\n                  +3",
-	"cost3": "Cost 3",
+	"cost2": "Cost 2",
 	"bonus6": "Bonus\n                  +6",
-	"cost7": "Cost 7",
+	"cost3": "Cost 3",
 	"bonus9": "Bonus\n                  +9",
 	"initiative": "Initiative",
 	"untrained_skill": "Untrained skill",
@@ -51,5 +51,7 @@
 	"easy": "Easy",
 	"intermediate": "Intermediate",
 	"difficult": "Difficult",
-	"legendary": "Legendary"
+	"legendary": "Legendary",
+	"cost7": "Cost 7",
+	"equipped": "Equipped"
 }
