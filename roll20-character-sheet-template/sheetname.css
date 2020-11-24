@@ -2,13 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
 
 .sheet-main-container {
-  min-width: 600px;
-	max-width: 1000px;
+	min-width: 600px;
+	max-width: 800px;
 	min-height: 600px;
-	border: 1.5px solid black;
-	padding: 30px 30px 0px 30px;
-	display: flex;
-	flex-direction: column;
 }
 
 .sheet-main-container input {
@@ -56,7 +52,7 @@
 
 .sheet-flex-column {
 	display: flex;
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .sheet-grow {
@@ -69,7 +65,7 @@
 }
 
 .sheet-row-item-margin {
-	margin-right: 5px !important; 
+	margin-right: 5px !important;
 }
 
 /*----------------- SHEET PARTS ------------------*/
@@ -82,7 +78,7 @@
 }
 
 .sheet-header-row {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -122,19 +118,13 @@
 }
 
 .sheet-box {
-	padding: 10px;
+	padding: 5px;
 	margin-bottom: 10px;
 }
 
 .sheet-box-title {
 	text-transform: uppercase;
 	text-align: center;
-	margin-bottom: 10px;
-}
-
-.sheet-repeatable-item {
-	display: flex;
-	flex-direction: column;
 	margin-bottom: 10px;
 }
 
@@ -161,15 +151,15 @@
 }
 
 /* show the selected tab */
-.sheet-tabcontrol[value="profile"] ~ div.sheet-profiletab,
-.sheet-tabcontrol[value="configuration"] ~ div.sheet-configurationtab,
-.sheet-tabcontrol[value="journal"] ~ div.sheet-journaltab {
+.sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
+.sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
+.sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
 	display: block;
 }
 
 /*----------------- ROLL BUTTON ------------------*/
 
-.sheet-main-container button[type=roll] { 
+.sheet-main-container button[type=roll] {
 	border: 0px;
 	font-size: 25px;
 	width: 25px;
@@ -192,12 +182,12 @@
 /*------------- REPEATABLE SECTIONS BUTTONS -------------*/
 
 .repcontrol>.btn {
-  background-color: transparent;
-  font-size: 2px;
-  background-image: none;
-  text-shadow: none;
-  box-shadow: none;
-  display: inline-block;
+	background-color: transparent;
+	font-size: 2px;
+	background-image: none;
+	text-shadow: none;
+	box-shadow: none;
+	display: inline-block;
 	position: relative;
 	border: 0px;
 }
@@ -207,29 +197,29 @@
 }
 
 .repcontrol>.btn.repcontrol_add::before {
-  content: "&";
-  color: black;
-  font-size: 20px;
-  font-family: 'Pictos' !important;
+	content: "&";
+	color: black;
+	font-size: 20px;
+	font-family: 'Pictos' !important;
 	position: absolute;
 	left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .repcontrol>.btn.repcontrol_edit::before {
 	content: "(";
-  color: black;
-  font-size: 20px;
-  font-family: 'Pictos' !important;
+	color: black;
+	font-size: 20px;
+	font-family: 'Pictos' !important;
 	position: absolute;
 	left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 /* change the 'Done' text after clicking 'Modify' */
-.editmode ~ .repcontrol>.repcontrol_edit::before {
+.editmode~.repcontrol>.repcontrol_edit::before {
 	content: ')';
 }
 
@@ -252,13 +242,13 @@
 	opacity: 0.5;
 }
 
-.sheet-showhidebutton input[type=checkbox]:checked ~ span::before {
-	content: '▲'; 
+.sheet-showhidebutton input[type=checkbox]:checked~span::before {
+	content: '▲';
 }
 
 .sheet-showhidebutton span {
 	color: black;
-  font-size: 20px;
+	font-size: 20px;
 }
 
 .sheet-showhidebutton span::before {
@@ -273,23 +263,23 @@
 	display: none;
 }
 
-.sheet-toggle-checkbox:checked ~ .sheet-showhide {
+.sheet-toggle-checkbox:checked~.sheet-showhide {
 	display: block;
 }
 
 .sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .itemcontrol {
-  z-index: 99;
-  font-family: 'Pictos'
+	z-index: 99;
+	font-family: 'Pictos'
 }
 
 .sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .repcontrol_del {
-  font-family: 'Pictos';
-  background-color: #d13235;
-  background-image: none;
-  position: absolute;
-  z-index: 99 !important;
-  top: 0;
-  right: 0
+	font-family: 'Pictos';
+	background-color: #d13235;
+	background-image: none;
+	position: absolute;
+	z-index: 99 !important;
+	top: 0;
+	right: 0
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/
@@ -303,8 +293,8 @@
 }
 
 .sheet-rolltemplate-main p {
-    font-family: Paytone One;
-    text-align: left;
+	font-family: Paytone One;
+	text-align: left;
 }
 
 .sheet-rolltemplate-main .sheet-template-row {
