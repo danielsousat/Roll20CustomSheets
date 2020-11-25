@@ -16,15 +16,26 @@
       </div>
 
       <div class="header-row">
-        <span class="label secondary-font" data-i18n="experience_points">Pontos de Experiência</span>
-        <input name="attr_xp" type="number" title="@{xp}" />
         <span class="label secondary-font" data-i18n="creation_points">Pontos de Criação</span>
         <input name="attr_creation_points" type="number" title="@{creation_points}" />
-        <span class="label secondary-font" data-i18n="actions">Ações</span>
-        <input name="attr_dodge" type="number" title="@{actions}" />
       </div>
 
       <div class="header-row2">
+
+        <div class="actions">
+          <div class="actions-label">
+            <span class="label secondary-font actions-label" data-i18n="actions">Ações</span>
+          </div>
+
+          <div class="actions-grid">
+            <span class="column-header  secondary-font" data-i18n="physical">Físicas</span>
+            <span class="column-header  secondary-font" data-i18n="mental">Mentais</span>
+
+            <input name="attr_physical_actions" type="number" title="@{physical_actions}" />
+            <input name="attr_mental_actions" type="number" title="@{mental_actions}" />
+          </div>
+
+        </div>
 
         <div class="header-grid">
 
@@ -36,7 +47,7 @@
           <span class="column-header secondary-font" data-i18n="base">Base</span>
           <span class="column-header secondary-font" data-i18n="modifier">Mod</span>
           <span class="column-header secondary-font" data-i18n="total">Total</span>
-          
+
           <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
             value="@{chardexteritycurrent}" />
           <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
@@ -49,13 +60,13 @@
 
           <button type="roll" class="roll-button" name="roll_dodge_check" title="@{dodge_check}"
             value="&{template:main} {{charname=@{character_name}}} {{action=@{dodge}}} {{value=[[@{dodgetotal}]]}} {{result=[[2d6cs>2cf<5+@{dodgetotal}}+?{@{modifier}|0}]]}}"></button>
-            <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
+          <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
           <div></div>
 
           <span class="column-header  secondary-font" data-i18n="base">Base</span>
           <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
           <span class="column-header  secondary-font" data-i18n="total">Total</span>
-          
+
           <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}"
             value="@{chardexteritycurrent}" />
           <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
@@ -105,81 +116,81 @@
               value="&{template:main} {{charname=@{character_name}}} {{action=@{physique}}} {{value=[[@{charphysiquecurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charphysiquecurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="physique">Físico</span>
             <input name="attr_charphysique" type="number" title="@{charphysique}" value="0" />
-            <input name="attr_charphysiquemod" type="number" title="@{charphysiquemod}" value="0" />
+            <input name="attr_charphysiquemod" type="text" title="@{charphysiquemod}" value="1" />
             <input name="attr_charphysiquedamage" type="number" title="@{charphysiquedamage}" value="0" />
             <input name="attr_charphysiqueeffect" type="number" title="@{charphysiqueeffect}" value="0" />
             <input name="attr_charphysiquecurrent" type="number" disabled="true" title="@{charphysiquecurrent}"
-              value="@{charphysique} + @{charphysiquemod} - @{charphysiquedamage} + @{charphysiqueeffect}" />
+              value="floor(@{charphysique} * @{charphysiquemod}) - @{charphysiquedamage} + @{charphysiqueeffect}" />
 
             <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{dexterity}}} {{value=[[@{chardexteritycurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{chardexteritycurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
             <input name="attr_chardexterity" type="number" title="@{chardexterity}" value="0" />
-            <input name="attr_chardexteritymod" type="number" title="@{chardexteritymod}" value="0" />
+            <input name="attr_chardexteritymod" type="text" title="@{chardexteritymod}" value="1" />
             <input name="attr_chardexteritydamage" type="number" title="@{chardexteritydamage}" value="0" />
             <input name="attr_chardexterityeffect" type="number" title="@{chardexterityeffect}" value="0" />
             <input name="attr_chardexteritycurrent" type="number" disabled="true" title="@{chardexteritycurrent}"
-              value="@{chardexterity} + @{chardexteritymod} - @{chardexteritydamage} + @{chardexterityeffect}" />
+              value="floor(@{chardexterity} * @{chardexteritymod}) - @{chardexteritydamage} + @{chardexterityeffect}" />
 
             <button type="roll" class="roll-button" name="roll_intelligence_check" title="@{intelligence_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{intelligence}}} {{value=[[@{charintelligencecurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charintelligencecurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="intelligence">Inteligência</span>
             <input name="attr_charintelligence" type="number" title="@{charintelligence}" value="0" />
-            <input name="attr_charintelligencemod" type="number" title="@{charintelligencemod}" value="0" />
+            <input name="attr_charintelligencemod" type="text" title="@{charintelligencemod}" value="1" />
             <input name="attr_charintelligencedamage" type="number" title="@{charintelligencedamage}" value="0" />
             <input name="attr_charintelligenceeffect" type="number" title="@{charintelligenceeffect}" value="0" />
             <input name="attr_charintelligencecurrent" type="number" disabled="true" title="@{charintelligencecurrent}"
-              value="@{charintelligence} + @{charintelligencemod} - @{charintelligencedamage} + @{charintelligenceeffect}" />
-
-            <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
-              value="&{template:main} {{charname=@{character_name}}} {{action=@{will}}} {{value=[[@{charwillcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charwillcurrent}}+?{@{modifier}|0}]]}}"></button>
-            <span class="label secondary-font" data-i18n="will">Vontade</span>
-            <input name="attr_charwill" type="number" title="@{charwill}" value="0" />
-            <input name="attr_charwillmod" type="number" title="@{charwillmod}" value="0" />
-            <input name="attr_charwilldamage" type="number" title="@{charwilldamage}" value="0" />
-            <input name="attr_charwilleffect" type="number" title="@{charwilleffect}" value="0" />
-            <input name="attr_charwillcurrent" type="number" disabled="true" title="@{charwillcurrent}"
-              value="@{charwill} + @{charwillmod} - @{charwilldamage} + @{charwilleffect}" />
-
-            <button type="roll" class="roll-button" name="roll_mind_check" title="@{mind_check}"
-              value="&{template:main} {{charname=@{character_name}}} {{action=@{mind}}} {{value=[[@{charmindcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmindcurrent}}+?{@{modifier}|0}]]}}"></button>
-            <span class="label secondary-font" data-i18n="mind">Mente</span>
-            <input name="attr_charmind" type="number" title="@{charmind}" value="0" />
-            <input name="attr_charmindmod" type="number" title="@{charmindmod}" value="0" />
-            <input name="attr_charminddamage" type="number" title="@{charminddamage}" value="0" />
-            <input name="attr_charmindeffect" type="number" title="@{charmindeffect}" value="0" />
-            <input name="attr_charmindcurrent" type="number" disabled="true" title="@{charmindcurrent}"
-              value="@{charmind} + @{charmindmod} - @{charminddamage} + @{charmindeffect}" />
-
-            <button type="roll" class="roll-button" name="roll_magic_check" title="@{magic_check}"
-              value="&{template:main} {{charname=@{character_name}}} {{action=@{magic}}} {{value=[[@{charmagiccurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmagiccurrent}}+?{@{modifier}|0}]]}}"></button>
-            <span class="label secondary-font" data-i18n="magic">Magia</span>
-            <input name="attr_charmagic" type="number" title="@{charmagic}" value="0" />
-            <input name="attr_charmagicmod" type="number" title="@{charmagicmod}" value="0" />
-            <input name="attr_charmagicdamage" type="number" title="@{charmagicdamage}" value="0" />
-            <input name="attr_charmagiceffect" type="number" title="@{charmagiceffect}" value="0" />
-            <input name="attr_charmagiccurrent" type="number" disabled="true" title="@{charmagiccurrent}"
-              value="@{charmagic} + @{charmagicmod} - @{charmagicdamage} + @{charmagiceffect}" />
+              value="floor(@{charintelligence} * @{charintelligencemod}) - @{charintelligencedamage} + @{charintelligenceeffect}" />
 
             <button type="roll" class="roll-button" name="roll_perception_check" title="@{perception_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{perception}}} {{value=[[@{charperceptioncurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charperceptioncurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="perception">Percepção</span>
             <input name="attr_charperception" type="number" title="@{charperception}" value="0" />
-            <input name="attr_charperceptionmod" type="number" title="@{charperceptionmod}" value="0" />
+            <input name="attr_charperceptionmod" type="text" title="@{charperceptionmod}" value="1" />
             <input name="attr_charperceptiondamage" type="number" title="@{charperceptiondamage}" value="0" />
             <input name="attr_charperceptioneffect" type="number" title="@{charperceptioneffect}" value="0" />
             <input name="attr_charperceptioncurrent" type="number" disabled="true" title="@{charperceptioncurrent}"
-              value="@{charperception} + @{charperceptionmod} - @{charperceptiondamage} + @{charperceptioneffect}" />
+              value="floor(@{charperception} * @{charperceptionmod}) - @{charperceptiondamage} + @{charperceptioneffect}" />
+
+            <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{action=@{will}}} {{value=[[@{charwillcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charwillcurrent}}+?{@{modifier}|0}]]}}"></button>
+            <span class="label secondary-font" data-i18n="will">Vontade</span>
+            <input name="attr_charwill" type="number" title="@{charwill}" value="6" />
+            <input name="attr_charwillmod" type="text" title="@{charwillmod}" value="1" />
+            <input name="attr_charwilldamage" type="number" title="@{charwilldamage}" value="0" />
+            <input name="attr_charwilleffect" type="number" title="@{charwilleffect}" value="0" />
+            <input name="attr_charwillcurrent" type="number" disabled="true" title="@{charwillcurrent}"
+              value="floor(@{charwill} * @{charwillmod}) - @{charwilldamage} + @{charwilleffect}" />
+
+            <button type="roll" class="roll-button" name="roll_mind_check" title="@{mind_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{action=@{mind}}} {{value=[[@{charmindcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmindcurrent}}+?{@{modifier}|0}]]}}"></button>
+            <span class="label secondary-font" data-i18n="mind">Mente</span>
+            <input name="attr_charmind" type="number" title="@{charmind}" value="8" />
+            <input name="attr_charmindmod" type="text" title="@{charmindmod}" value="1" />
+            <input name="attr_charminddamage" type="number" title="@{charminddamage}" value="0" />
+            <input name="attr_charmindeffect" type="number" title="@{charmindeffect}" value="0" />
+            <input name="attr_charmindcurrent" type="number" disabled="true" title="@{charmindcurrent}"
+              value="floor(@{charmind} * @{charmindmod}) - @{charminddamage} + @{charmindeffect}" />
+
+            <button type="roll" class="roll-button" name="roll_magic_check" title="@{magic_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{action=@{magic}}} {{value=[[@{charmagiccurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmagiccurrent}}+?{@{modifier}|0}]]}}"></button>
+            <span class="label secondary-font" data-i18n="magic">Magia</span>
+            <input name="attr_charmagic" type="number" title="@{charmagic}" value="0" />
+            <input name="attr_charmagicmod" type="text" title="@{charmagicmod}" value="1" />
+            <input name="attr_charmagicdamage" type="number" title="@{charmagicdamage}" value="0" />
+            <input name="attr_charmagiceffect" type="number" title="@{charmagiceffect}" value="0" />
+            <input name="attr_charmagiccurrent" type="number" disabled="true" title="@{charmagiccurrent}"
+              value="floor(@{charmagic} * @{charmagicmod}) - @{charmagicdamage} + @{charmagiceffect}" />
 
             <button type="roll" class="roll-button" name="roll_luck_check" title="@{luck_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{luck}}} {{value=[[@{charluckcurrent}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charluckcurrent}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="luck">Sorte</span>
             <input name="attr_charluck" type="number" title="@{charluck}" value="0" />
-            <input name="attr_charluckmod" type="number" title="@{charluckmod}" value="0" />
+            <input name="attr_charluckmod" type="text" title="@{charluckmod}" value="1" />
             <input name="attr_charluckdamage" type="number" title="@{charluckdamage}" value="0" />
             <input name="attr_charluckeffect" type="number" title="@{charluckeffect}" value="0" />
             <input name="attr_charluckcurrent" type="number" disabled="true" title="@{charluckcurrent}"
-              value="@{charluck} + @{charluckmod} - @{charluckdamage} + @{charluckeffect}" />
+              value="floor(@{charluck} * @{charluckmod}) - @{charluckdamage} + @{charluckeffect}" />
 
           </div>
         </div>
@@ -304,7 +315,8 @@
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
-                <input class="row-item-margin" name="attr_skillcost" type="text" readonly title="@{skillcost}" value="1" />
+                <input class="row-item-margin" name="attr_skillcost" type="text" readonly title="@{skillcost}"
+                  value="1" />
                 <input class="row-item-margin" name="attr_skilltotal" type="number" disabled="true"
                   title="@{skilltotal}" value="@{skillattribute} + @{skilllevel}" />
 
@@ -415,6 +427,11 @@
 
           </fieldset>
 
+        </div>
+
+        <div class="experience-points box">
+          <span class="label secondary-font" data-i18n="experience_points">Pontos de Experiência</span>
+          <input name="attr_xp" type="number" title="@{xp}" />
         </div>
 
       </div>
@@ -579,13 +596,13 @@
     <div class="template-row">
       <span class="template-label secondary-font" data-i18n="body_area">Área do Corpo Atingida</span>
       {{bodyroll}}
-      
+
       {{#rollBetween() bodyroll 11 12}}
       <span class="template-label secondary-font" data-i18n="head_a">Cabeça(A)</span>
       {{/rollBetween() bodyroll 11 12}}
 
       {{#rollTotal() bodyroll 2}}
-        <span class="template-label secondary-font" data-i18n="heart_b">Coração(B)</span>
+      <span class="template-label secondary-font" data-i18n="heart_b">Coração(B)</span>
       {{/rollTotal() bodyroll 2}}
 
       {{#rollBetween() bodyroll 6 8}}
