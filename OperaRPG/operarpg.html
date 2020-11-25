@@ -771,46 +771,5 @@
       
   });
   
-  /*keep attributes values at 13 max*/
-  on("change:charbody change:charmind change:charcharisma change:charcuriosity change:charsurvival", function(eventInfo) {  
-    const maxValue = 13;
-    let oldValue = parseInt(eventInfo.previousValue)||0;
-    let newValue = parseInt(eventInfo.newValue)||0;
-    let attribute = eventInfo.sourceAttribute;
-    let changedAttributes = new Object();
-    
-    changedAttributes[attribute] = maxValue;
-    
-    if (newValue > maxValue) {
-  
-      changedAttributes[attribute] = maxValue;
-      setAttrs(changedAttributes);
-    }
-     
-  });
-
-  /*controls roll buttons when char has a condition checked*/
-  on("change:wounded change:shaken change:ashamed", function(eventInfo) {  
-    const disadvantage = "disadvantage";
-    const normal = "normal";
-    const sourceAttribute = eventInfo.sourceAttribute;
-    const newValue = eventInfo.newValue;
-    let changedAttributes = new Object();
-    let controlToUpdate = sourceAttribute + "control";
-    
-    changedAttributes[controlToUpdate] = normal;
-
-    switch(newValue) {
-      case "on":
-        changedAttributes[controlToUpdate] = disadvantage;
-        break;
-      default:
-        changedAttributes[controlToUpdate] = normal;
-    }
-    
-    setAttrs(changedAttributes);
-     
-  });
-  
   
 </script>
