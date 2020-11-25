@@ -82,7 +82,7 @@
             <div class="repeatable-row">
               <input name="attr_equipment" type="text" data-i18n-placeholder="equipment" placeholder="Equipamento" />
 
-              <div class="showhidebutton">
+              <div class="showhidebutton arrowtype">
                 <input type="checkbox" name="attr_showhide_checkbox" value="1" />
                 <span></span>
               </div>
@@ -144,6 +144,23 @@
         <div class="box flex-column">
 
           <span class="box-title main-font" data-i18n="spells">Feitiços</span>
+
+          <div class="showhidebutton configtype corner-position">
+            <input type="checkbox" name="attr_spells_showhide_checkbox" value="1" />
+            <span></span>
+          </div>
+
+          <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+          <input class="toggle-checkbox" type="checkbox" name="attr_spells_showhide_checkbox_invisible" value="1" />
+
+          <div class="showhide">
+            <div class="select-spells">
+              <button type="action" class="add-button" name="act_fire"></button> <span class="label secondary-font"
+                data-i18n="fire">Fogo</span>
+              <button type="action" class="add-button" name="act_ice"></button> <span class="label secondary-font"
+                data-i18n="ice">Gelo</span>
+            </div>
+          </div>
 
           <fieldset class="repeating_spells">
 
@@ -259,12 +276,27 @@
   <span data-i18n="critic">Sucesso Crítico!</span>
   <span data-i18n="fumble">Falha Crítica!</span>
   <span data-i18n="check">Teste</span>
+  <span data-i18n="fire-description">Dá 1d6 de dano de fogo.</span>
+  <span data-i18n="ice-description">Congela 1d4 inimigos.</span>
 </div>
 
 <!--Sheet Workers -->
 <script type="text/worker">
 
   const buttonlist = ["profile","journal","configuration"];
+  const spellslist = [
+    {
+      button: 'fire',
+      name: getTranslationByKey('fire'),
+      description: getTranslationByKey('fire-description')
+    },
+    
+    {
+      button: 'ice',
+      name: getTranslationByKey('ice'),
+      description: getTranslationByKey('ice-description')
+    }
+  ];
   
   /*config tabs control */
   buttonlist.forEach(button => {
@@ -275,8 +307,19 @@
       });
   });
 
+  /*config spells select */
+  spellslist.forEach(spell => {
+      on(`clicked:${spell.button}`, function() {
+        var newrowid = generateRowID();
+        var newrowattrs = {};
+        newrowattrs["repeating_spells_" + newrowid + "_spell"] = spell.name;
+        newrowattrs["repeating_spells_" + newrowid + "_spelldescription"] = spell.description;
+        setAttrs(newrowattrs);
+      });
+  });
+
   /*Controls show hide checkbox button from repeating sections*/
-  on("change:repeating_equipments:showhide_checkbox" , function(eventInfo) {
+  on("change:repeating_equipments:showhide_checkbox change:spells_showhide_checkbox" , function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();

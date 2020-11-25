@@ -110,6 +110,7 @@
 .sheet-middle {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+	gap: 5px;
 }
 
 .sheet-footer {
@@ -120,6 +121,9 @@
 .sheet-box {
 	padding: 5px;
 	margin-bottom: 10px;
+	position: relative;
+	border: 2px solid black;
+	border-radius: 15px;
 }
 
 .sheet-box-title {
@@ -230,6 +234,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 20px;
 }
 
 .sheet-showhidebutton input[type=checkbox] {
@@ -242,17 +247,17 @@
 	opacity: 0.5;
 }
 
-.sheet-showhidebutton input[type=checkbox]:checked~span::before {
+.sheet-arrowtype input[type=checkbox]:checked~span::before {
 	content: '▲';
+}
+
+.sheet-arrowtype span::before {
+	content: '▼';
 }
 
 .sheet-showhidebutton span {
 	color: black;
 	font-size: 20px;
-}
-
-.sheet-showhidebutton span::before {
-	content: '▼';
 }
 
 .sheet-toggle-checkbox {
@@ -280,6 +285,52 @@
 	z-index: 99 !important;
 	top: 0;
 	right: 0
+}
+
+/*------------- HIDDEN SELECT ITEMS -------------*/
+.sheet-select-spells {
+	display: grid;
+	grid-template-columns: 20px auto;
+	gap: 2px;
+	align-items: center;
+	background-color: antiquewhite;
+}
+
+.sheet-configtype {
+	font-family: 'Pictos';
+}
+
+.sheet-configtype input[type=checkbox]:checked~span::before {
+	content: '*';
+}
+
+.sheet-configtype span::before {
+	content: 'y';
+}
+
+.sheet-corner-position {
+	position: absolute;
+	right: 10px;
+}
+
+.sheet-add-button {
+	border: 0px;
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+}
+
+.sheet-add-button::before {
+	content: '+';
+	font-family: 'Pictos' !important;
+}
+
+.sheet-add-button:hover {
+	opacity: 0.5;
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/

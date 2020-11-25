@@ -26,11 +26,13 @@
 	"advantage": "Vantagem",
 	"disadvantage": "Desvantagem",
 	"result": "Resultado",
-	"check": "Teste",
-	"survivalaction": "Gasto um ponto de sobrevivência",
-	"survivalexplanation": "\n    Você pode escolher uma das coisas:\n    - Manter uma ação;\n    - Encontrar uma pista;\n    - Rolar os dados outra vez;\n    - Inserir um elemento narrativo;\n    - Dizer que tem um \"equipamento\".",
-	"fail": "Falha!",
 	"success": "Sucesso!",
+	"fail": "Falha!",
 	"critic": "Sucesso Crítico!",
-	"fumble": "Falha Crítica!"
+	"fumble": "Falha Crítica!",
+	"check": "Teste",
+	"fire": "Fogo",
+	"ice": "Gelo",
+	"fire-description": "Dá 1d6 de dano de fogo.",
+	"ice-description": "Congela 1d4 inimigos."
 }
