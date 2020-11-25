@@ -16,8 +16,29 @@
       </div>
 
       <div class="header-row">
+        <span class="label secondary-font" data-i18n="attribute_points">Pontos de Atributo</span>
+
+        <div class="actions-grid row-item-margin">
+          <span class="column-header  secondary-font" data-i18n="max">Max</span>
+          <span class="column-header  secondary-font" data-i18n="used">Used</span>
+
+          <input name="attr_max_attribute_points" type="number" title="@{max_attribute_points}" 
+            value="18"/>
+          <input name="attr_used_attribute_points" type="number" disabled="true" title="@{used_attribute_points}"
+            value="@{charphysique} + @{chardexterity} + @{charintelligence}" />
+        </div>
+
         <span class="label secondary-font" data-i18n="creation_points">Pontos de Criação</span>
-        <input name="attr_creation_points" type="number" title="@{creation_points}" />
+
+        <div class="actions-grid">
+          <span class="column-header  secondary-font" data-i18n="max">Max</span>
+          <span class="column-header  secondary-font" data-i18n="used">Used</span>
+
+          <input name="attr_max_creation_points" type="number" title="@{max_creation_points}" disabled="true"
+            value="3*@{charintelligence} + 10"/>
+          <input name="attr_used_creation_points" type="number" disabled="true" title="@{used_creation_points}"
+            value="@{powers_total_cost} + @{skills_total_cost} + @{features_total_cost}" />
+        </div>
       </div>
 
       <div class="header-row2">
@@ -205,6 +226,8 @@
             <div></div>
           </div>
 
+          <input type="hidden" name="attr_features_total_cost" />
+
           <fieldset class="repeating_features">
 
             <div class="repeatable-item">
@@ -243,6 +266,8 @@
             <span class="column-header  secondary-font" data-i18n="cost">Custo</span>
             <div></div>
           </div>
+
+          <input type="hidden" name="attr_powers_total_cost" />
 
           <fieldset class="repeating_powers">
 
@@ -290,6 +315,8 @@
             <span class="column-header  secondary-font" data-i18n="total">Total</span>
             <div></div>
           </div>
+
+          <input type="hidden" name="attr_skills_total_cost" />
 
           <fieldset class="repeating_skills">
 
@@ -710,6 +737,21 @@
   /* calculating total protection penalty */
   on('sheet:opened change:repeating_protection remove:repeating_protection', function() {
       repeatingSum("totalpenalty","protection", "protectionpenalty");        
+  });
+
+  /* calculating total powers cost */
+  on('sheet:opened change:repeating_powers remove:repeating_powers', function() {
+      repeatingSum("powers_total_cost","powers", "powercost");        
+  });
+
+  /* calculating total skills cost */
+  on('sheet:opened change:repeating_skills remove:repeating_skills', function() {
+      repeatingSum("skills_total_cost","skills", "skillcost");        
+  });
+
+  /* calculating total features cost */
+  on('sheet:opened change:repeating_features remove:repeating_features', function() {
+      repeatingSum("features_total_cost","features", "featurecost");        
   });
 
   /* controlling skill cost due to skill level selection */

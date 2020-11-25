@@ -1,8 +1,9 @@
 {
 	"name": "Nome",
-	"experience_points": "Pontos de Experiência",
 	"creation_points": "Pontos de Criação",
 	"actions": "Ações",
+	"physical": "Físicas",
+	"mental": "Mentais",
 	"initiative": "Iniciativa",
 	"base": "Base",
 	"modifier": "Mod",
@@ -19,10 +20,10 @@
 	"physique": "Físico",
 	"dexterity": "Destreza",
 	"intelligence": "Inteligência",
+	"perception": "Percepção",
 	"will": "Vontade",
 	"mind": "Mente",
 	"magic": "Magia",
-	"perception": "Percepção",
 	"luck": "Sorte",
 	"features": "Características",
 	"feature": "Característica",
@@ -40,6 +41,7 @@
 	"totalpenalty": "Penalidade Total",
 	"equipments": "Equipamentos",
 	"equipment": "Equipamento",
+	"experience_points": "Pontos de Experiência",
 	"weapons": "Armas",
 	"weapon": "Arma",
 	"blow": "Golpe",
@@ -67,6 +69,7 @@
 	"right_leg_f": "Perna direita(G)",
 	"left_leg_h": "Perna esquerda(H)",
 	"body_area": "Área do Corpo Atingida",
-	"physical": "Físicas",
-	"mental": "Mentais"
+	"attribute_points": "Pontos de Atributo",
+	"max": "Max",
+	"used": "Used"
 }
