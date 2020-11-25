@@ -166,7 +166,8 @@
 
 .sheet-middle {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	gap: 5px;
 }
 
 .sheet-middle-column {
@@ -183,6 +184,8 @@
 .sheet-box {
 	padding: 10px;
 	margin-bottom: 10px;
+	border: 2px solid lightgrey;
+	border-radius: 15px;
 }
 
 .sheet-box-title {
