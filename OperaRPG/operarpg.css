@@ -353,6 +353,31 @@
 	content: ')';
 }
 
+.sheet-main-container .repcontainer[data-groupname="repeating_weapons"]>.repitem .itemcontrol, 
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_powers"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_features"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_protection"]>.repitem .itemcontrol {
+	z-index: 99;
+	font-family: 'Pictos'
+}
+
+.sheet-main-container .repcontainer[data-groupname="repeating_weapons"]>.repitem .repcontrol_del, 
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_powers"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_features"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_protection"]>.repitem .repcontrol_del {
+	font-family: 'Pictos';
+	background-color: #d13235;
+	background-image: none;
+	position: absolute;
+	z-index: 99 !important;
+	top: 0;
+	right: 0
+}
+
 
 /*------------- REPEATABLE SECTIONS TOGGLE SHOW/HIDE -------------*/
 
