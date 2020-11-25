@@ -51,7 +51,7 @@
             <input name="attr_charstrength" type="number" title="@{charstrength}" />
             <button type="roll" class="roll-button" name="roll_strength_check" title="@{strength_check}"
               value="&{template:main} {{charname=@{character_name}}} {{check=@{strength}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charstrength} ]]}}"></button>
-            
+
 
             <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
             <input name="attr_chardexterity" type="number" title="@{chardexterity}" />
@@ -79,23 +79,22 @@
 
           <fieldset class="repeating_equipments">
 
-            <div class="repeatable-item">
-              <div class="repeatable-row">
-                <input name="attr_equipment" type="text" data-i18n-placeholder="equipment" placeholder="Equipamento" />
-                
-                <div class="showhidebutton">
-                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
-                  <span></span>
-                </div>
+            <div class="repeatable-row">
+              <input name="attr_equipment" type="text" data-i18n-placeholder="equipment" placeholder="Equipamento" />
 
+              <div class="showhidebutton">
+                <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                <span></span>
               </div>
-              
-              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
-              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
-              
-              <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
+
             </div>
+
+            <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+            <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+            <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
+              placeholder="Descrição"></textarea>
+
 
           </fieldset>
 
@@ -108,33 +107,31 @@
 
           <fieldset class="repeating_weapons">
 
-            <div class="repeatable-item">
+            <div class="repeatable-row">
 
-              <div class="repeatable-row">
+              <input class="row-item-margin" name="attr_weaponname" type="text" data-i18n-placeholder="name"
+                placeholder="Nome" />
 
-                <input class="row-item-margin" name="attr_weaponname" type="text" data-i18n-placeholder="name"
-                  placeholder="Nome" />
+              <div class="repeatable-row-box">
+                <span class="label secondary-font" data-i18n="damage">Tipo</span>
 
-                <div class="repeatable-row-box">
-                  <span class="label secondary-font" data-i18n="damage">Tipo</span>
-
-                  <select class="select row-item-margin" name="attr_weapontype" data-i18n-title="type" title="Tipo">
-                    <option value="none" selected="selected">-</option>
-                    <option value="light" data-i18n="light">Leve</option>
-                    <option value="medium" data-i18n="medium">Média</option>
-                    <option value="heavy" data-i18n="heavy">Pesada</option>
-                  </select>
-                </div>
-
-                <button type="roll" class="roll-button" name="roll_weapon_damage" title="@{weapon_damage}"
-                  value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
-
+                <select class="select row-item-margin" name="attr_weapontype" data-i18n-title="type" title="Tipo">
+                  <option value="none" selected="selected">-</option>
+                  <option value="light" data-i18n="light">Leve</option>
+                  <option value="medium" data-i18n="medium">Média</option>
+                  <option value="heavy" data-i18n="heavy">Pesada</option>
+                </select>
               </div>
 
-              <textarea name="attr_weapondescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
+              <button type="roll" class="roll-button" name="roll_weapon_damage" title="@{weapon_damage}"
+                value="&{template:main} {{charname=@{character_name}}} {{check=@{body}}} {{target=[[15]]}} {{result=[[ ?{ @{advantagedisadvantage} | @{no}, 1d20 | @{advantage}, 2d20kh1 | @{disadvantage}, 2d20kl1 } + @{charbody} ]]}}"></button>
 
             </div>
+
+            <textarea name="attr_weapondescription" data-i18n-placeholder="description"
+              placeholder="Descrição"></textarea>
+
+
           </fieldset>
 
         </div>
@@ -150,14 +147,12 @@
 
           <fieldset class="repeating_spells">
 
-            <div class="repeatable-item">
-              <div class="repeatable-row">
-                <input name="attr_spell" type="text" data-i18n-placeholder="spell" placeholder="Feitiço" />
-              </div>
-
-              <textarea name="attr_spelldescription" data-i18n-placeholder="description"
-                placeholder="Descrição"></textarea>
+            <div class="repeatable-row">
+              <input name="attr_spell" type="text" data-i18n-placeholder="spell" placeholder="Feitiço" />
             </div>
+
+            <textarea name="attr_spelldescription" data-i18n-placeholder="description"
+              placeholder="Descrição"></textarea>
 
           </fieldset>
 
@@ -172,13 +167,13 @@
   <!-- Journal Tab -->
   <div class='journaltab'>
     <h2>Journal/Notes</h2>
-    <span>Journal/Notes Stuff Goes here</span> 
+    <span>Journal/Notes Stuff Goes here</span>
   </div>
-  
+
   <!-- Config tab-->
   <div class='configurationtab'>
     <h2>Config/Settings</h2>
-    <span>Sheet Config/Settings goes here</span> 
+    <span>Sheet Config/Settings goes here</span>
   </div>
 
   <!-- Footer -->
@@ -216,35 +211,35 @@
 
     {{#result}}
 
-      <div class="template-row">
-        <span class="template-label secondary-font" data-i18n="result">Resultado</span>
-        {{result}}
-      </div>
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+      {{result}}
+    </div>
 
-      {{#^rollLess() result target}}
-      <div class="template-row">
-        <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
-      </div>
-      {{/^rollLess() result target}}
+    {{#^rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
+    </div>
+    {{/^rollLess() result target}}
 
-      {{#rollLess() result target}}
-      <div class="template-row">
-        <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
-      </div>
-      {{/rollLess() result target}}
+    {{#rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
+    </div>
+    {{/rollLess() result target}}
 
 
-      {{#rollWasCrit() result}}
-      <div class="template-row">
-        <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
-      </div>
-      {{/rollWasCrit() result}}
+    {{#rollWasCrit() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+    </div>
+    {{/rollWasCrit() result}}
 
-      {{#rollWasFumble() result}}
-      <div class="template-row">
-        <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
-      </div>
-      {{/rollWasFumble() result}}
+    {{#rollWasFumble() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
+    </div>
+    {{/rollWasFumble() result}}
 
     {{/result}}
 
