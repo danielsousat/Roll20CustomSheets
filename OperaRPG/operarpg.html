@@ -89,10 +89,11 @@
           <span class="column-header  secondary-font" data-i18n="total">Total</span>
 
           <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}"
-            value="@{chardexterity}" />
+            value="@{chardexterity} + @{dodgefeaturemod}" />
           <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
           <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
             value="@{dodgebase} + @{dodgemod}" />
+          <input type="hidden" name="attr_dodgefeaturemod" value="0">
 
         </div>
 
@@ -289,6 +290,8 @@
           </div>
 
           <input type="hidden" name="attr_features_total_cost" />
+
+          <input type="hidden" name="attr_features_effects" />
 
           <fieldset class="repeating_features">
 
@@ -893,12 +896,16 @@
     {
       button: 'contortion',
       name: getTranslationByKey('contortion'),
-      cost: 2
+      cost: 2,
+      sum: level => floor(level/2),
+      target: 'dodgefeaturemod'
     },
     {
       button: 'slow_reflexes',
       name: getTranslationByKey('slow_reflexes'),
-      cost: -5
+      cost: -5,
+      sum: level => (-1)*level,
+      target: 'dodgefeaturemod'
     },
     {
       button: 'fast_reflexes',
@@ -991,5 +998,40 @@
       cost: -12
     }
   ];
+
+  class Effect {
+    constructor(attribute, mult, sum, physicalAction, mentalAction) {
+
+    }
+  }
+  const effect = [
+    {
+      totalMult: 0,
+      totalSum: 0,
+      attribute: 'physical'
+      physicalActions:
+      mentalActions:
+    },
+    {
+      totalMult: 1,
+      totalSum: 2,
+      attribute: 'dexterity'
+    }
+  ];
+
+  on("sheet:opened", function() {
+
+    setAttrs({
+      featureeffect: effect
+    });
+  });
+
+  on("change:notes", function(eventInfo) {
+    
+    getAttrs(["featureeffect"], function(values) {
+      console.log("effect object:");
+      console.log(values.featureeffect);
+    });
+  });
   
 </script>
