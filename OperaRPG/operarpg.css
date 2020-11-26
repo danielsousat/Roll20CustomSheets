@@ -186,6 +186,7 @@
 	margin-bottom: 10px;
 	border: 2px solid lightgrey;
 	border-radius: 15px;
+	position: relative;
 }
 
 .sheet-box-title {
@@ -219,7 +220,7 @@
 }
 
 .sheet-features {
-	grid-template-columns: auto 60px 24px;
+	grid-template-columns: auto 60px 60px 24px;
 }
 
 .sheet-weapons {
@@ -385,6 +386,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 20px;
 }
 
 .sheet-showhidebutton input[type=checkbox] {
@@ -397,17 +399,17 @@
 	opacity: 0.5;
 }
 
-.sheet-showhidebutton input[type=checkbox]:checked ~ span::before {
-	content: '▲'; 
+.sheet-arrowtype input[type=checkbox]:checked~span::before {
+	content: '▲';
+}
+
+.sheet-arrowtype span::before {
+	content: '▼';
 }
 
 .sheet-showhidebutton span {
 	color: black;
-  font-size: 15px;
-}
-
-.sheet-showhidebutton span::before {
-	content: '▼';
+	font-size: 20px;
 }
 
 .sheet-toggle-checkbox {
@@ -418,9 +420,71 @@
 	display: none;
 }
 
-.sheet-toggle-checkbox:checked ~ .sheet-showhide {
+.sheet-toggle-checkbox:checked~.sheet-showhide {
 	display: block;
 }
+
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .itemcontrol {
+	z-index: 99;
+	font-family: 'Pictos'
+}
+
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .repcontrol_del {
+	font-family: 'Pictos';
+	background-color: #d13235;
+	background-image: none;
+	position: absolute;
+	z-index: 99 !important;
+	top: 0;
+	right: 0
+}
+
+/*------------- HIDDEN SELECT ITEMS -------------*/
+.sheet-select-features {
+	display: grid;
+	grid-template-columns: 20px auto;
+	gap: 2px;
+	align-items: center;
+	background-color: antiquewhite;
+}
+
+.sheet-configtype {
+	font-family: 'Pictos';
+}
+
+.sheet-configtype input[type=checkbox]:checked~span::before {
+	content: '*';
+}
+
+.sheet-configtype span::before {
+	content: 'y';
+}
+
+.sheet-corner-position {
+	position: absolute;
+	right: 10px;
+}
+
+.sheet-add-button {
+	border: 0px;
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+}
+
+.sheet-add-button::before {
+	content: '+';
+	font-family: 'Pictos' !important;
+}
+
+.sheet-add-button:hover {
+	opacity: 0.5;
+}
+
 
 /*------------- SHEET ROLL TEMPLATE -------------*/
 
