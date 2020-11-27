@@ -52,8 +52,8 @@
             <span class="column-header  secondary-font" data-i18n="physical">Físicas</span>
             <span class="column-header  secondary-font" data-i18n="mental">Mentais</span>
 
-            <input name="attr_physical_actions" type="number" title="@{physical_actions}" />
-            <input name="attr_mental_actions" type="number" title="@{mental_actions}" />
+            <input name="attr_physical_actions" type="number" title="@{physical_actions}" value="0" />
+            <input name="attr_mental_actions" type="number" title="@{mental_actions}" value="0" />
           </div>
 
         </div>
@@ -89,11 +89,11 @@
           <span class="column-header  secondary-font" data-i18n="total">Total</span>
 
           <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}"
-            value="@{chardexterity} + @{dodgefeaturemod}" />
+            value="@{chardexterity} @{dodgefeaturemod}" />
           <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
           <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
             value="@{dodgebase} + @{dodgemod}" />
-          <input type="hidden" name="attr_dodgefeaturemod" value="0">
+          <input type="hidden" name="attr_dodgefeaturemod" value="+0">
 
         </div>
 
@@ -164,6 +164,7 @@
             <input name="attr_charperceptionmod" type="text" title="@{charperceptionmod}" value="1" />
             <input name="attr_charperceptiondamage" type="number" title="@{charperceptiondamage}" value="0" />
             <input name="attr_charperceptiontotal" type="number" disabled="true" title="@{charperceptiontotal}" value="floor(@{charperception} * @{charperceptionmod})" />
+            <input name="attr_perceptionfeaturemod" type="hidden" value=""/>
 
             <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{will}}} {{value=[[@{charwill}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charwill}}+?{@{modifier}|0}]]}}"></button>
@@ -291,8 +292,6 @@
 
           <input type="hidden" name="attr_features_total_cost" />
 
-          <input type="hidden" name="attr_features_effects" />
-
           <fieldset class="repeating_features">
 
             <div class="repeatable-item">
@@ -302,6 +301,8 @@
                 <input name="attr_feature" type="text" title="@{feature}" />
                 <input name="attr_featurelevel" type="text" title="@{featurelevel}" value="1" />
                 <input name="attr_featurecost" type="text" title="@{featurecost}" value="0" />
+
+                <input type="hidden" name="attr_featureid" />
 
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -882,156 +883,289 @@
       
   });
 
-  const features = [
+  const OperationEnum = {
+    SUM: 0,
+    MULT: 1
+  };
+
+  /* Pre configured feature effects. Every feature object will have:
+    - button: An act button associated (the add button);
+    - name: The translated feature's name;
+    - cost: how much does it cost to purchase;
+    - effects: An array of effects objects. Each of these objects consist of:
+      - target: The sheet's attribute where the effect will be applied;
+      - value: A function that returns a calculated formula of the value of the effect;
+      - operation: If it is a sum or multiplication(division if the value is negative). This value is used
+                   later to calculate the mod to be applied on the target sheet's attribute. The formula
+                   will be explained in the function that deals with it.
+  */  
+  const features = {
+    ambidexterity: 
     {
-      button: 'ambidexterity',
       name: getTranslationByKey('ambidexterity'),
       cost: 3
     },
+    obvious_feature: 
     {
-      button: 'obvious_feature',
       name: getTranslationByKey('obvious_feature'),
       cost: 0
     },
+    contortion:
     {
-      button: 'contortion',
       name: getTranslationByKey('contortion'),
       cost: 2,
-      sum: level => floor(level/2),
-      target: 'dodgefeaturemod'
+      effects: [
+        {
+          target: 'dodgefeaturemod',
+          value: level => floor(level/2),
+          operation: OperationEnum.SUM
+        }
+      ]
     },
+    slow_reflexes:
     {
-      button: 'slow_reflexes',
       name: getTranslationByKey('slow_reflexes'),
       cost: -5,
-      sum: level => (-1)*level,
-      target: 'dodgefeaturemod'
+      effects: [
+        {
+          target: 'dodgefeaturemod',
+          value: level => (-1)*level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
+    fast_reflexes: 
     {
-      button: 'fast_reflexes',
       name: getTranslationByKey('fast_reflexes'),
-      cost: 5
+      cost: 5,
+      effects: [
+        {
+          target: 'dodgefeaturemod',
+          value: level => level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
-    {
-      button: 'increased_senses',
+    increased_senses: {
       name: getTranslationByKey('increased_senses'),
-      cost: 8
+      cost: 8,
+      effects: [
+        {
+          target: 'perceptionfeaturemod',
+          value: level => level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
+    reduced_senses: 
     {
-      button: 'reduced_senses',
       name: getTranslationByKey('reduced_senses'),
-      cost: -8
+      cost: -8,
+      effects: [
+        {
+          target: 'perceptionfeaturemod',
+          value: level => (-1)*level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
-    {
-      button: 'increased_mind',
+    increased_mind: {
       name: getTranslationByKey('increased_mind'),
       cost: 3
     },
+    post:
     {
-      button: 'post',
       name: getTranslationByKey('post'),
       cost: 2
     },
+    readiness: 
     {
-      button: 'readiness',
       name: getTranslationByKey('readiness'),
       cost: 4
     },
+    reduced_mind: 
     {
-      button: 'reduced_mind',
       name: getTranslationByKey('reduced_mind'),
       cost: -3
     },
+    strong_will: 
     {
-      button: 'strong_will',
       name: getTranslationByKey('strong_will'),
       cost: 6
     },
+    weak_will:
     {
-      button: 'weak_will',
       name: getTranslationByKey('weak_will'),
       cost: -6
     },
+    increased_dexterity:
     {
-      button: 'increased_dexterity',
       name: getTranslationByKey('increased_dexterity'),
       cost: 14
     },
+    increased_physical:
     {
-      button: 'increased_physical',
       name: getTranslationByKey('increased_physical'),
       cost: 16
     },
+    increased_intelligence:
     {
-      button: 'increased_intelligence',
       name: getTranslationByKey('increased_intelligence'),
       cost: 12
     },
+    additional_limbs: 
     {
-      button: 'additional_limbs',
       name: getTranslationByKey('additional_limbs'),
       cost: 6
     },
+    reduced_dexterity:
     {
-      button: 'reduced_dexterity',
       name: getTranslationByKey('reduced_dexterity'),
       cost: -14
     },
+    reduced_physical:
     {
-      button: 'reduced_physical',
       name: getTranslationByKey('reduced_physical'),
       cost: -16
     },
+    reduced_intelligence: 
     {
-      button: 'reduced_intelligence',
       name: getTranslationByKey('reduced_intelligence'),
       cost: -12
     },
+    increased_size:
     {
-      button: 'increased_size',
       name: getTranslationByKey('increased_size'),
       cost: 11
     },
+    reduced_size:
     {
-      button: 'reduced_size',
       name: getTranslationByKey('reduced_size'),
       cost: -12
     }
-  ];
+  };
 
-  class Effect {
-    constructor(attribute, mult, sum, physicalAction, mentalAction) {
+  /*config preconfigured features' add buttons */
+  for (let button in features) {
+    on(`clicked:${button}`, function() {
+      var newrowid = generateRowID();
+      var newrowattrs = {};
 
-    }
+      newrowattrs["repeating_features_" + newrowid + "_feature"] = button.name;
+      newrowattrs["repeating_features_" + newrowid + "_featurecost"] = button.cost;
+      
+      if (feature.effects !== undefined) {
+        newrowattrs["repeating_features_" + newrowid + "_featureid"] = button;
+      }
+      
+      setAttrs(newrowattrs);
+      
+    });
   }
-  const effect = [
-    {
-      totalMult: 0,
-      totalSum: 0,
-      attribute: 'physical'
-      physicalActions:
-      mentalActions:
-    },
-    {
-      totalMult: 1,
-      totalSum: 2,
-      attribute: 'dexterity'
-    }
-  ];
 
-  on("sheet:opened", function() {
+  /* setting and calculating feature effects */
+  on('sheet:opened change:repeating_features remove:repeating_features', function() {
+    let totals = {};
+    let out = {}
 
-    setAttrs({
-      featureeffect: effect
+    getSectionIDs("features", function(idarray) {
+      
+      for(var i=0; i < idarray.length; i++) {
+          const id = idarray[i];
+
+          getAttrs(["repeating_features_${id}_featurelevel", "repeating_features_${id}_featureid"], function(values) {
+            const level = parseInt(values["repeating_features_${id}_featurelevel"])||0;
+            const featureID = values["repeating_features_${id}_featureid"];
+            const effects;
+
+            if (featureID === undefined) {
+              return;
+            }
+
+            effects = features[featureID];
+
+            if (effects === undefined) {
+              return;
+            }
+
+            sumEffects(effects, level, totals);
+          });
+      }
     });
-  });
 
-  on("change:notes", function(eventInfo) {
+    out = generateEffectFormulas(totals);
     
-    getAttrs(["featureeffect"], function(values) {
-      console.log("effect object:");
-      console.log(values.featureeffect);
-    });
+    setAttrs(out);
   });
+
+  function sumEffects(effects, level, totals) {
+    
+    effects.forEach(effect => {
+
+      if (!totals.hasOwnProperty(effect.target)) {
+        totals[effect.target] = {
+          totalSum: 0,
+          totalMult: 0
+        }
+      }
+
+      switch(effect.operation) {
+        case OperationEnum.sum:
+          totals[effect.target].totalSum += effect.value(level);
+          break;
+        case OperationEnum.mult:
+          totals[effect.target].totalMult += effect.value(level);
+          break;
+      }
+      
+    });
+  }
+
+  /* The effect formula is like this:
+    If the total multiplication is negative, then we have to do a division.
+    If the total multiplication is positive, then we have to do a multiplication.
+    If the total multiplication is zero, then it is not added to the formula.
+    The total sum is just summed at the end of the formula.
+
+    Example:
+      feature A gives a x4 bonus to physique.
+      feature B gives a /2 penalty to physique.
+
+      multiplication counts as positive.
+      division counts as negative.
+      We have to do the sum of multiplications minus the sum of divisions to determine the bonus formula.
+      For simplicity, we store on the effects, a negative value on the mult field when it is a division.
+
+      physique's featureMod will then have the formula:
+       (4 - 2) = 2, which is positive. So it will be a multiplication:
+
+       formula = *2;
+
+       Then, physique in the end will be = orig*2.
+  */
+  function generateEffectFormulas(totals) {
+    let targetAttributes = {};
+
+    for (let target in totals) {
+      let formula = '';
+
+      if (totals[target].totalMult > 0) {
+        formula += '*${totals[target].totalMult}';
+      }
+
+      if (totals[target].totalMult < 0) {
+        formula += '/${totals[target].totalMult}';
+      }
+
+      if (totals[target].totalSum != 0) {
+        formula += '+${totals[target].totalMult}';
+      }
+
+      targetAttributes[target] = formula;
+    }
+
+    return targetAttributes;
+  }
+
   
 </script>
