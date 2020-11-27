@@ -18,85 +18,113 @@
       <div class="header-row">
         <span class="label secondary-font" data-i18n="attribute_points">Pontos de Atributo</span>
 
-        <div class="actions-grid row-item-margin">
+        <div class="header-grid row-item-margin">
           <span class="column-header  secondary-font" data-i18n="max">Max</span>
           <span class="column-header  secondary-font" data-i18n="used">Usado</span>
 
-          <input name="attr_max_attribute_points" type="number" title="@{max_attribute_points}" 
-            value="18"/>
+          <input name="attr_max_attribute_points" type="number" title="@{max_attribute_points}" value="18" />
           <input name="attr_used_attribute_points" type="number" disabled="true" title="@{used_attribute_points}"
             value="@{charphysique} + @{chardexterity} + @{charintelligence}" />
         </div>
 
         <span class="label secondary-font" data-i18n="creation_points">Pontos de Criação</span>
 
-        <div class="actions-grid">
+        <div class="header-grid">
           <span class="column-header  secondary-font" data-i18n="max">Max</span>
           <span class="column-header  secondary-font" data-i18n="used">Usado</span>
 
           <input name="attr_max_creation_points" type="number" title="@{max_creation_points}" disabled="true"
-            value="3*@{charintelligence} + 10"/>
+            value="3*@{charintelligence} + 10" />
           <input name="attr_used_creation_points" type="number" disabled="true" title="@{used_creation_points}"
             value="@{powers_total_cost} + @{skills_total_cost} + @{features_total_cost}" />
         </div>
       </div>
 
-      <div class="header-row2">
+    </div>
 
-        <div class="actions">
-          <div class="actions-label">
-            <span class="label secondary-font actions-label" data-i18n="actions">Ações</span>
-          </div>
+  </div>
 
-          <div class="actions-grid">
-            <span class="column-header  secondary-font" data-i18n="physical">Físicas</span>
-            <span class="column-header  secondary-font" data-i18n="mental">Mentais</span>
+  <div class="header-row2">
 
-            <input name="attr_physical_actions" type="number" title="@{physical_actions}" value="0" />
-            <input name="attr_mental_actions" type="number" title="@{mental_actions}" value="0" />
-          </div>
+    <div class="actions header-box">
+      <div class="actions-label">
+        <span class="label secondary-font actions-label" data-i18n="physical_actions">Ações Físicas</span>
+      </div>
 
-        </div>
+      <div class="actions-grid">
+        <span class="column-header  secondary-font" data-i18n="base">Base</span>
+        <span class="column-header  secondary-font" data-i18n="effect">Efeito</span>
+        <span class="column-header secondary-font" data-i18n="total">Total</span>
 
-        <div class="header-grid">
+        <input name="attr_physical_actionsbase" type="number" title="@{physical_actionsbase}" value="0" />
+        <input name="attr_physical_actionseffect" type="text" readonly="true" title="@{physical_actionseffect}" />
+        <input name="attr_physical_actionstotal" type="number" disabled="true" title="@{physical_actionstotal}"
+          value="@{physical_actionsbase} @{physical_actionseffect}" />
+      </div>
 
-          <button type="roll" class="roll-button" name="roll_initiative_check" title="@{initiative_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{action=@{initiative}}} {{value=[[@{initiativetotal}]]}} {{result=[[2d6cs>2cf<5+@{initiativetotal}}+?{@{modifier}|0}]]}}"></button>
-          <span class="label secondary-font" data-i18n="initiative">Iniciativa</span>
-          <div></div>
+    </div>
 
-          <span class="column-header secondary-font" data-i18n="base">Base</span>
-          <span class="column-header secondary-font" data-i18n="modifier">Mod</span>
-          <span class="column-header secondary-font" data-i18n="total">Total</span>
+    <div class="actions header-box">
+      <div class="actions-label">
+        <span class="label secondary-font actions-label" data-i18n="mind_actions">Ações Mentais</span>
+      </div>
 
-          <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
-            value="@{chardexterity}" />
-          <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
-          <input name="attr_initiativetotal" type="number" disabled="true" title="@{initiativetotal}"
-            value="@{initiativebase} + @{initiativemod}" />
+      <div class="actions-grid">
+        <span class="column-header  secondary-font" data-i18n="base">Base</span>
+        <span class="column-header  secondary-font" data-i18n="effect">Efeito</span>
+        <span class="column-header secondary-font" data-i18n="total">Total</span>
 
-        </div>
+        <input name="attr_mind_actionsbase" type="number" title="@{mind_actionsbase}" value="0" />
+        <input name="attr_mind_actionseffect" type="text" readonly="true" title="@{mind_actionseffect}" />
+        <input name="attr_mind_actionstotal" type="number" disabled="true" title="@{mind_actionstotal}"
+          value="@{mind_actionsbase} @{mind_actionseffect}" />
+      </div>
 
-        <div class="header-grid">
+    </div>
 
-          <button type="roll" class="roll-button" name="roll_dodge_check" title="@{dodge_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{action=@{dodge}}} {{value=[[@{dodgetotal}]]}} {{result=[[2d6cs>2cf<5+@{dodgetotal}}+?{@{modifier}|0}]]}}"></button>
-          <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
-          <div></div>
+    <div class="init header-box">
 
-          <span class="column-header  secondary-font" data-i18n="base">Base</span>
-          <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
-          <span class="column-header  secondary-font" data-i18n="total">Total</span>
+      <div class="actions-label">
+        <button type="roll" class="roll-button" name="roll_initiative_check" title="@{initiative_check}"
+          value="&{template:main} {{charname=@{character_name}}} {{action=@{initiative}}} {{value=[[@{initiativetotal}]]}} {{result=[[2d6cs>2cf<5+@{initiativetotal}}+?{@{modifier}|0}]]}}"></button>
+        <span class="label secondary-font" data-i18n="initiative">Iniciativa</span>
+      </div>
 
-          <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}"
-            value="@{chardexterity} @{dodgefeaturemod}" />
-          <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
-          <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
-            value="@{dodgebase} + @{dodgemod}" />
-          <input type="hidden" name="attr_dodgefeaturemod" value="+0">
+      <div class="init-grid">
 
-        </div>
+        <span class="column-header secondary-font" data-i18n="base">Base</span>
+        <span class="column-header secondary-font" data-i18n="modifier">Mod</span>
+        <span class="column-header secondary-font" data-i18n="total">Total</span>
 
+        <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
+          value="@{chardexterity}" />
+        <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
+        <input name="attr_initiativetotal" type="number" disabled="true" title="@{initiativetotal}"
+          value="@{initiativebase} + @{initiativemod}" />
+
+      </div>
+
+    </div>
+
+    <div class="dodge header-box">
+
+      <div class="actions-label">
+        <button type="roll" class="roll-button" name="roll_dodge_check" title="@{dodge_check}"
+          value="&{template:main} {{charname=@{character_name}}} {{action=@{dodge}}} {{value=[[@{dodgetotal}]]}} {{result=[[2d6cs>2cf<5+@{dodgetotal}}+?{@{modifier}|0}]]}}"></button>
+        <span class="label secondary-font" data-i18n="dodge">Esquiva</span>
+      </div>
+
+      <div class="dodge-grid">
+        <span class="column-header  secondary-font" data-i18n="base">Base</span>
+        <span class="column-header  secondary-font" data-i18n="effect">Effect</span>
+        <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
+        <span class="column-header  secondary-font" data-i18n="total">Total</span>
+
+        <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}" value="@{chardexterity}" />
+        <input type="text" readonly="true" name="attr_dodgefeatureeffect" value="+0">
+        <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
+        <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
+          value="@{dodgebase} @{dodgefeatureeffect} + @{dodgemod}" />
       </div>
 
     </div>
@@ -129,7 +157,9 @@
             <div></div>
             <div></div>
             <span class="column-header  secondary-font" data-i18n="original">Orig</span>
+            <div></div>
             <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
+            <span class="column-header  secondary-font" data-i18n="effect">Efeito</span>
             <span class="column-header  secondary-font" data-i18n="damage">Dano</span>
             <span class="column-header  secondary-font" data-i18n="total">Total</span>
 
@@ -137,66 +167,117 @@
               value="&{template:main} {{charname=@{character_name}}} {{action=@{physique}}} {{value=[[@{charphysique}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charphysique}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="physique">Físico</span>
             <input name="attr_charphysique" type="number" title="@{charphysique}" value="0" />
-            <input name="attr_charphysiquemod" type="text" title="@{charphysiquemod}" value="1" />
+            <select class="select" name="attr_charphysiquemodoperator" title="@{physiquemodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charphysiquemod" type="number" title="@{charphysiquemod}" value="1" />
+            <input name="attr_charphysicalfeatureeffect" type="text" readonly="true"
+              title="@{charphysicalfeatureeffect}" />
             <input name="attr_charphysiquedamage" type="number" title="@{charphysiquedamage}" value="0" />
-            <input name="attr_charphysiquetotal" type="number" disabled="true" title="@{charphysiquetotal}" value="floor(@{charphysique} * @{charphysiquemod})" />
+            <input name="attr_charphysiquetotal" type="number" disabled="true" title="@{charphysiquetotal}"
+              value="floor(@{charphysique} @{charphysicalfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{dexterity}}} {{value=[[@{chardexterity}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{chardexterity}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="dexterity">Destreza</span>
             <input name="attr_chardexterity" type="number" title="@{chardexterity}" value="0" />
-            <input name="attr_chardexteritymod" type="text" title="@{chardexteritymod}" value="1" />
+            <select class="select" name="attr_chardexteritymodoperator" title="@{dexteritymodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_chardexteritymod" type="number" title="@{chardexteritymod}" value="1" />
+            <input name="attr_chardexterityfeatureeffect" type="text" readonly="true"
+              title="@{chardexterityfeatureeffect}" />
             <input name="attr_chardexteritydamage" type="number" title="@{chardexteritydamage}" value="0" />
-            <input name="attr_chardexteritytotal" type="number" disabled="true" title="@{chardexteritytotal}" value="floor(@{chardexterity} * @{chardexteritymod})" />
+            <input name="attr_chardexteritytotal" type="number" disabled="true" title="@{chardexteritytotal}"
+              value="floor(@{chardexterity} @{chardexterityfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_intelligence_check" title="@{intelligence_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{intelligence}}} {{value=[[@{charintelligence}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charintelligence}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="intelligence">Inteligência</span>
             <input name="attr_charintelligence" type="number" title="@{charintelligence}" value="0" />
-            <input name="attr_charintelligencemod" type="text" title="@{charintelligencemod}" value="1" />
+            <select class="select" name="attr_charintelligencemodoperator" title="@{intelligencemodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charintelligencemod" type="number" title="@{charintelligencemod}" value="1" />
+            <input name="attr_charintelligencefeatureeffect" type="text" readonly="true"
+              title="@{charintelligencefeatureeffect}" />
             <input name="attr_charintelligencedamage" type="number" title="@{charintelligencedamage}" value="0" />
-            <input name="attr_charintelligencetotal" type="number" disabled="true" title="@{charintelligencetotal}" value="floor(@{charintelligence} * @{charintelligencemod})" />
+            <input name="attr_charintelligencetotal" type="number" disabled="true" title="@{charintelligencetotal}"
+              value="floor(@{charintelligence} @{charintelligencefeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_perception_check" title="@{perception_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{perception}}} {{value=[[@{charperception}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charperception}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="perception">Percepção</span>
             <input name="attr_charperception" type="number" title="@{charperception}" value="0" />
-            <input name="attr_charperceptionmod" type="text" title="@{charperceptionmod}" value="1" />
+            <select class="select" name="attr_charperceptionmodoperator" title="@{perceptionmodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charperceptionmod" type="number" title="@{charperceptionmod}" value="1" />
+            <input name="attr_charperceptionfeatureeffect" type="text" readonly="true"
+              title="@{charperceptionfeatureeffect}" />
             <input name="attr_charperceptiondamage" type="number" title="@{charperceptiondamage}" value="0" />
-            <input name="attr_charperceptiontotal" type="number" disabled="true" title="@{charperceptiontotal}" value="floor(@{charperception} * @{charperceptionmod})" />
-            <input name="attr_perceptionfeaturemod" type="hidden" value=""/>
+            <input name="attr_charperceptiontotal" type="number" disabled="true" title="@{charperceptiontotal}"
+              value="floor(@{charperception} @{charperceptionfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{will}}} {{value=[[@{charwill}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charwill}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="will">Vontade</span>
             <input name="attr_charwill" type="number" title="@{charwill}" value="6" />
-            <input name="attr_charwillmod" type="text" title="@{charwillmod}" value="1" />
+            <select class="select" name="attr_charwillmodoperator" title="@{willmodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charwillmod" type="number" title="@{charwillmod}" value="1" />
+            <input name="attr_charwillfeatureeffect" type="text" readonly="true" title="@{charwillfeatureeffect}" />
             <input name="attr_charwilldamage" type="number" title="@{charwilldamage}" value="0" />
-            <input name="attr_charwilltotal" type="number" disabled="true" title="@{charwilltotal}" value="floor(@{charwill} * @{charwillmod})" />
+            <input name="attr_charwilltotal" type="number" disabled="true" title="@{charwilltotal}"
+              value="floor(@{charwill} @{charwillfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_mind_check" title="@{mind_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{mind}}} {{value=[[@{charmind}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmind}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="mind">Mente</span>
             <input name="attr_charmind" type="number" title="@{charmind}" value="8" />
-            <input name="attr_charmindmod" type="text" title="@{charmindmod}" value="1" />
+            <select class="select" name="attr_charmindmodoperator" title="@{mindmodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charmindmod" type="number" title="@{charmindmod}" value="1" />
+            <input name="attr_charmindfeatureeffect" type="text" readonly="true" title="@{charmindfeatureeffect}" />
             <input name="attr_charminddamage" type="number" title="@{charminddamage}" value="0" />
-            <input name="attr_charmindtotal" type="number" disabled="true" title="@{charmindtotal}" value="floor(@{charmind} * @{charmindmod})" />
+            <input name="attr_charmindtotal" type="number" disabled="true" title="@{charmindtotal}"
+              value="floor(@{charmind} @{charmindfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_magic_check" title="@{magic_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{magic}}} {{value=[[@{charmagic}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmagic}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="magic">Magia</span>
             <input name="attr_charmagic" type="number" title="@{charmagic}" value="0" />
-            <input name="attr_charmagicmod" type="text" title="@{charmagicmod}" value="1" />
+            <select class="select" name="attr_charmagicmodoperator" title="@{charmagicmodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charmagicmod" type="number" title="@{charmagicmod}" value="1" />
+            <input name="attr_charmagicfeatureeffect" type="text" readonly="true" title="@{charmagicfeatureeffect}" />
             <input name="attr_charmagicdamage" type="number" title="@{charmagicdamage}" value="0" />
-            <input name="attr_charmagictotal" type="number" disabled="true" title="@{charmagictotal}" value="floor(@{charmagic} * @{charmagicmod})" />
+            <input name="attr_charmagictotal" type="number" disabled="true" title="@{charmagictotal}"
+              value="floor(@{charmagic} @{charmagicfeatureeffect})" />
 
             <button type="roll" class="roll-button" name="roll_luck_check" title="@{luck_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{luck}}} {{value=[[@{charluck}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charluck}}+?{@{modifier}|0}]]}}"></button>
             <span class="label secondary-font" data-i18n="luck">Sorte</span>
             <input name="attr_charluck" type="number" title="@{charluck}" value="0" />
-            <input name="attr_charluckmod" type="text" title="@{charluckmod}" value="1" />
+            <select class="select" name="attr_charluckmodoperator" title="@{luckmodoperator}">
+              <option value="*" selected="selected">x</option>
+              <option value="/" >/</option>
+            </select>
+            <input name="attr_charluckmod" type="number" title="@{charluckmod}" value="1" />
+            <input name="attr_charluckfeatureeffect" type="text" readonly="true" title="@{charluckfeatureeffect}" />
             <input name="attr_charluckdamage" type="number" title="@{charluckdamage}" value="0" />
-            <input name="attr_charlucktotal" type="number" disabled="true" title="@{charlucktotal}" value="floor(@{charluck} * @{charluckmod})" />
+            <input name="attr_charlucktotal" type="number" disabled="true" title="@{charlucktotal}"
+              value="floor(@{charluck} @{charluckfeatureeffect})" />
 
           </div>
         </div>
@@ -215,71 +296,99 @@
 
           <div class="showhide">
             <div class="select-features">
-              <button type="action" class="add-button" name="act_ambidexterity"></button> 
+              <button type="action" class="add-button" name="act_ambidexterity"></button>
               <span class="label secondary-font" data-i18n="ambidexterity">Ambidestria</span>
-              
-              <button type="action" class="add-button" name="act_obvious_feature"></button> 
+
+              <button type="action" class="add-button" name="act_obvious_feature"></button>
               <span class="label secondary-font" data-i18n="obvious_feature">Característica Óbvia</span>
 
-              <button type="action" class="add-button" name="act_contortion"></button> 
-              <span class="label secondary-font" data-i18n="contortion">Contorcionismo</span>
+              <button type="action" class="add-button" name="act_contortion"></button>
+              <span class="label secondary-font" data-i18n="contortion" data-i18n-title="contortion-description"
+                title="Cada 2 níveis atribuí +1 de Esquiva">Contorcionismo</span>
 
-              <button type="action" class="add-button" name="act_slow_reflexes"></button> 
-              <span class="label secondary-font" data-i18n="slow_reflexes">Reflexos Lentos</span>
+              <button type="action" class="add-button" name="act_slow_reflexes"></button>
+              <span class="label secondary-font" data-i18n="slow_reflexes" data-i18n-title="slow_reflexes-description"
+                title="Cada nível atribuí -1 de Esquiva">Reflexos Lentos</span>
 
-              <button type="action" class="add-button" name="act_fast_reflexes"></button> 
-              <span class="label secondary-font" data-i18n="fast_reflexes">Reflexos Rápidos</span>
+              <button type="action" class="add-button" name="act_fast_reflexes"></button>
+              <span class="label secondary-font" data-i18n="fast_reflexes" data-i18n-title="fast_reflexes-description"
+                title="Cada nível atribuí +1 de Esquiva">Reflexos Rápidos</span>
 
-              <button type="action" class="add-button" name="act_increased_senses"></button> 
-              <span class="label secondary-font" data-i18n="increased_senses">Sentidos Ampliados</span>
+              <button type="action" class="add-button" name="act_increased_senses"></button>
+              <span class="label secondary-font" data-i18n="increased_senses"
+                data-i18n-title="increased_senses-description" title="Cada nível atribuí +1 de Percepção">Sentidos Ampliados</span>
 
-              <button type="action" class="add-button" name="act_reduced_senses"></button> 
-              <span class="label secondary-font" data-i18n="reduced_senses">Sentidos Reduzidos</span>
+              <button type="action" class="add-button" name="act_reduced_senses"></button>
+              <span class="label secondary-font" data-i18n="reduced_senses" data-i18n-title="reduced_senses-description"
+                title="Cada nível atribuí -1 de Percepção">Sentidos Reduzidos</span>
 
-              <button type="action" class="add-button" name="act_increased_mind"></button> 
-              <span class="label secondary-font" data-i18n="increased_mind">Ampliação Mental</span>
+              <button type="action" class="add-button" name="act_increased_mind"></button>
+              <span class="label secondary-font" data-i18n="increased_mind" data-i18n-title="increased_mind-description"
+                title="Cada nível atribuí +1 de Mente">Ampliação Mental</span>
 
-              <button type="action" class="add-button" name="act_post"></button> 
+              <button type="action" class="add-button" name="act_post"></button>
               <span class="label secondary-font" data-i18n="post">Cargo</span>
 
-              <button type="action" class="add-button" name="act_readiness"></button> 
+              <button type="action" class="add-button" name="act_readiness"></button>
               <span class="label secondary-font" data-i18n="readiness">Prontidão</span>
 
-              <button type="action" class="add-button" name="act_reduced_mind"></button> 
-              <span class="label secondary-font" data-i18n="reduced_mind">Redução Mental</span>
+              <button type="action" class="add-button" name="act_reduced_mind"></button>
+              <span class="label secondary-font" data-i18n="reduced_mind" data-i18n-title="reduced_mind-description"
+                title="Cada nível atribuí -1 de Mente">Redução Mental</span>
 
-              <button type="action" class="add-button" name="act_strong_will"></button> 
-              <span class="label secondary-font" data-i18n="strong_will">Vontade Forte</span>
+              <button type="action" class="add-button" name="act_strong_will"></button>
+              <span class="label secondary-font" data-i18n="strong_will" data-i18n-title="strong_will-description"
+                title="Cada nível atribuí +1 de Vontade">Vontade Forte</span>
 
-              <button type="action" class="add-button" name="act_weak_will"></button> 
-              <span class="label secondary-font" data-i18n="weak_will">Vontade Fraca</span>
-              
-              <button type="action" class="add-button" name="act_increased_dexterity"></button> 
-              <span class="label secondary-font" data-i18n="increased_dexterity">Ampliação de Destreza</span>
+              <button type="action" class="add-button" name="act_weak_will"></button>
+              <span class="label secondary-font" data-i18n="weak_will" data-i18n-title="weak_will-description"
+                title="Cada nível atribuí -1 de Vontade">Vontade Fraca</span>
 
-              <button type="action" class="add-button" name="act_increased_physical"></button> 
-              <span class="label secondary-font" data-i18n="increased_physical">Ampliação de Físico</span>
-              
-              <button type="action" class="add-button" name="act_increased_intelligence"></button> 
-              <span class="label secondary-font" data-i18n="increased_intelligence">Ampliação de Físico</span>
+              <button type="action" class="add-button" name="act_increased_dexterity"></button>
+              <span class="label secondary-font" data-i18n="increased_dexterity"
+                data-i18n-title="increased_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Destreza. Adiciona seu (nível-1) ao número de ações físicas ao personagem."
+                >Ampliação de Destreza</span>
 
-              <button type="action" class="add-button" name="act_additional_limbs"></button> 
-              <span class="label secondary-font" data-i18n="additional_limbs">Membros Adicionais</span>
+              <button type="action" class="add-button" name="act_increased_physical"></button>
+              <span class="label secondary-font" data-i18n="increased_physical"
+                data-i18n-title="increased_physical-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Físico">Ampliação de Físico</span>
 
-              <button type="action" class="add-button" name="act_reduced_dexterity"></button> 
-              <span class="label secondary-font" data-i18n="reduced_dexterity">Redução de Destreza</span>
+              <button type="action" class="add-button" name="act_increased_intelligence"></button>
+              <span class="label secondary-font" data-i18n="increased_intelligence"
+                data-i18n-title="increased_intelligence-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Inteligência. Adiciona seu (nível-1) ao número de ações mentais ao personagem."
+                >Ampliação de Inteligência</span>
 
-              <button type="action" class="add-button" name="act_reduced_physical"></button> 
-              <span class="label secondary-font" data-i18n="reduced_physical">Redução de Físico</span>
-              
+              <button type="action" class="add-button" name="act_additional_limbs"></button>
+              <span class="label secondary-font" data-i18n="additional_limbs"
+                data-i18n-title="additional_limbs-description"
+                title="Cada dois níveis, atribuí a expressão “x(nível/2+1)” ao atributo Destreza. Adiciona seu (nível/2) ao número de ações físicas ao personagem"
+                >Membros Adicionais</span>
+
+              <button type="action" class="add-button" name="act_reduced_dexterity"></button>
+              <span class="label secondary-font" data-i18n="reduced_dexterity"
+                data-i18n-title="reduced_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Destreza">Redução de Destreza</span>
+
+              <button type="action" class="add-button" name="act_reduced_physical"></button>
+              <span class="label secondary-font" data-i18n="reduced_physical"
+                data-i18n-title="reduced_physical-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Físico">Redução de Físico</span>
+
               <button type="action" class="add-button" name="act_reduced_intelligence"></button>
-              <span class="label secondary-font" data-i18n="reduced_intelligence">Redução de Inteligência</span>
+              <span class="label secondary-font" data-i18n="reduced_intelligence"
+                data-i18n-title="reduced_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Inteligência">Redução de Inteligência</span>
 
               <button type="action" class="add-button" name="act_increased_size"></button>
-              <span class="label secondary-font" data-i18n="increased_size">Tamanho Ampliado</span>
+              <span class="label secondary-font" data-i18n="increased_size" data-i18n-title="increased_size-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Físico">Tamanho Ampliado</span>
 
               <button type="action" class="add-button" name="act_reduced_size"></button>
-              <span class="label secondary-font" data-i18n="reduced_size">Tamanho Reduzido</span>
+              <span class="label secondary-font" data-i18n="reduced_size" data-i18n-title="reduced_size-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Físico">Tamanho Reduzido</span>
             </div>
           </div>
 
@@ -888,6 +997,36 @@
     MULT: 1
   };
 
+  const effectsTargets = { 
+    charperceptionfeatureeffect: {
+      attributeMod: 'charperceptionmod'
+    }, 
+    charphysicalfeatureeffect: {
+      attributeMod: 'charphysiquemod'
+    },
+    chardexterityfeatureeffect: {
+      attributeMod: 'chardexteritymod'
+    },
+    charintelligencefeatureeffect: {
+      attributeMod: 'charintelligencemod'
+    },
+    charwillfeatureeffect: {
+      attributeMod: 'charwillmod'
+    },
+    charmindfeatureeffect: {
+      attributeMod: 'charmindmod'
+    },
+    charmagicfeatureeffect: {
+      attributeMod: 'charmagicmod'
+    },
+    charluckfeatureeffect: {
+      attributeMod: 'charluckmod'
+    },
+    dodgefeatureeffect: {}, 
+    physical_actionseffect:{},
+    mind_actionseffect:{}
+  };
+
   /* Pre configured feature effects. Every feature object will have:
     - button: An act button associated (the add button);
     - name: The translated feature's name;
@@ -916,8 +1055,8 @@
       cost: 2,
       effects: [
         {
-          target: 'dodgefeaturemod',
-          value: level => floor(level/2),
+          target: 'dodgefeatureeffect',
+          value: level => Math.floor(level/2),
           operation: OperationEnum.SUM
         }
       ]
@@ -928,7 +1067,7 @@
       cost: -5,
       effects: [
         {
-          target: 'dodgefeaturemod',
+          target: 'dodgefeatureeffect',
           value: level => (-1)*level,
           operation: OperationEnum.SUM
         }
@@ -940,7 +1079,7 @@
       cost: 5,
       effects: [
         {
-          target: 'dodgefeaturemod',
+          target: 'dodgefeatureeffect',
           value: level => level,
           operation: OperationEnum.SUM
         }
@@ -951,7 +1090,7 @@
       cost: 8,
       effects: [
         {
-          target: 'perceptionfeaturemod',
+          target: 'charperceptionfeatureeffect',
           value: level => level,
           operation: OperationEnum.SUM
         }
@@ -963,7 +1102,7 @@
       cost: -8,
       effects: [
         {
-          target: 'perceptionfeaturemod',
+          target: 'charperceptionfeatureeffect',
           value: level => (-1)*level,
           operation: OperationEnum.SUM
         }
@@ -971,7 +1110,14 @@
     },
     increased_mind: {
       name: getTranslationByKey('increased_mind'),
-      cost: 3
+      cost: 3,
+      effects: [
+        {
+          target: 'charmindfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     post:
     {
@@ -986,62 +1132,161 @@
     reduced_mind: 
     {
       name: getTranslationByKey('reduced_mind'),
-      cost: -3
+      cost: -3,
+      effects: [
+        {
+          target: 'charmindfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     strong_will: 
     {
       name: getTranslationByKey('strong_will'),
-      cost: 6
+      cost: 6,
+      effects: [
+        {
+          target: 'charwillfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     weak_will:
     {
       name: getTranslationByKey('weak_will'),
-      cost: -6
+      cost: -6,
+      effects: [
+        {
+          target: 'charwillfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     increased_dexterity:
     {
       name: getTranslationByKey('increased_dexterity'),
-      cost: 14
+      cost: 14,
+      effects: [
+        {
+          target: 'chardexterityfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'physical_actionseffect',
+          value: level => level-1,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     increased_physical:
     {
       name: getTranslationByKey('increased_physical'),
-      cost: 16
+      cost: 16,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        }
+      ]
     },
     increased_intelligence:
     {
       name: getTranslationByKey('increased_intelligence'),
-      cost: 12
+      cost: 12,
+      effects: [
+        {
+          target: 'charintelligencefeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'mind_actionseffect',
+          value: level => level-1,
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     additional_limbs: 
     {
       name: getTranslationByKey('additional_limbs'),
-      cost: 6
+      cost: 6,
+      effects: [
+        {
+          target: 'chardexterityfeatureeffect',
+          value: level => Math.floor(level/2)+1,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'physical_actionseffect',
+          value: level => Math.floor(level/2),
+          operation: OperationEnum.SUM
+        }
+      ]
     },
     reduced_dexterity:
     {
       name: getTranslationByKey('reduced_dexterity'),
-      cost: -14
+      cost: -14,
+      effects: [
+        {
+          target: 'chardexterityfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.MULT
+        }
+      ]
     },
     reduced_physical:
     {
       name: getTranslationByKey('reduced_physical'),
-      cost: -16
+      cost: -16,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.MULT
+        }
+      ]
     },
     reduced_intelligence: 
     {
       name: getTranslationByKey('reduced_intelligence'),
-      cost: -12
+      cost: -12,
+      effects: [
+        {
+          target: 'charintelligencefeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.MULT
+        }
+      ]
     },
     increased_size:
     {
       name: getTranslationByKey('increased_size'),
-      cost: 11
+      cost: 11,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        }
+      ]
     },
     reduced_size:
     {
       name: getTranslationByKey('reduced_size'),
-      cost: -12
+      cost: -12,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.MULT
+        }
+      ]
     }
   };
 
@@ -1050,71 +1295,123 @@
     on(`clicked:${button}`, function() {
       var newrowid = generateRowID();
       var newrowattrs = {};
-
-      newrowattrs["repeating_features_" + newrowid + "_feature"] = button.name;
-      newrowattrs["repeating_features_" + newrowid + "_featurecost"] = button.cost;
       
-      if (feature.effects !== undefined) {
+      newrowattrs["repeating_features_" + newrowid + "_feature"] = features[button].name;
+      newrowattrs["repeating_features_" + newrowid + "_featurecost"] = features[button].cost;
+      
+      if (features[button].effects !== undefined) {
         newrowattrs["repeating_features_" + newrowid + "_featureid"] = button;
       }
+
+      console.log('newrowattrs');
+      console.log(newrowattrs);
       
       setAttrs(newrowattrs);
       
     });
   }
 
+  function addAttributesMods(attributesArray) {
+
+    for(target in effectsTargets) {
+
+      if (effectsTargets[target].hasOwnProperty('attributeMod')) {
+        attributesArray.push(effectsTargets[target].attributeMod);
+        attributesArray.push(effectsTargets[target].attributeMod + 'operator');
+      }
+    }
+  }
+
+  function buildFeaturesAttributesArray(featuresRowIds) {
+    let attributesArray = [];
+    for(var i=0; i < featuresRowIds.length; i++) {
+      const id = featuresRowIds[i];
+      
+      attributesArray.push(`repeating_features_${id}_featurelevel`);
+      attributesArray.push(`repeating_features_${id}_featureid`);
+    }
+
+    addAttributesMods(attributesArray);
+
+    return attributesArray;
+  }
+
   /* setting and calculating feature effects */
-  on('sheet:opened change:repeating_features remove:repeating_features', function() {
+  on('sheet:opened change:repeating_features remove:repeating_features '+
+  'change:charphysiquemod change:charphysiquemodoperator '+
+  'change:chardexteritymod change:chardexteritymodoperator '+
+  'change:charintelligencemod change:charintelligencemodoperator '+
+  'change:charperceptionmod change:charperceptionmodoperator '+
+  'change:charwillmod change:charwillmodoperator '+
+  'change:charmindmod change:charmindmodoperator '+
+  'change:charmagicmod change:charmagicmodoperator '+
+  'change:charluckmod change:charluckmodoperator' , function() {
     let totals = {};
     let out = {}
 
     getSectionIDs("features", function(idarray) {
-      
-      for(var i=0; i < idarray.length; i++) {
+      let attributesArray = buildFeaturesAttributesArray(idarray);
+      console.log(attributesArray);
+      getAttrs(attributesArray, function(values) {
+        
+        for(var i=0; i < idarray.length; i++) {
           const id = idarray[i];
+          const level = parseInt(values[`repeating_features_${id}_featurelevel`])||0;
+          const featureID = values[`repeating_features_${id}_featureid`];
+          let effects;
+          console.log(level);
+          console.log(featureID);
+          if (featureID !== undefined) {
+            effects = features[featureID].effects;
 
-          getAttrs(["repeating_features_${id}_featurelevel", "repeating_features_${id}_featureid"], function(values) {
-            const level = parseInt(values["repeating_features_${id}_featurelevel"])||0;
-            const featureID = values["repeating_features_${id}_featureid"];
-            const effects;
-
-            if (featureID === undefined) {
-              return;
+            console.log("effects");
+            console.log(effects);
+            if (effects !== undefined) {
+              sumEffects(effects, level, totals);
             }
+          }        
+        }
 
-            effects = features[featureID];
-
-            if (effects === undefined) {
-              return;
-            }
-
-            sumEffects(effects, level, totals);
-          });
-      }
-    });
-
-    out = generateEffectFormulas(totals);
+        out = generateEffectFormulas(totals, values);
     
-    setAttrs(out);
+        setAttrs(out);
+      });
+  
+    });
   });
+
+  function initTotal() {
+    return {
+      totalSum: 0,
+      totalMult: 0
+    }
+  }
 
   function sumEffects(effects, level, totals) {
     
     effects.forEach(effect => {
 
       if (!totals.hasOwnProperty(effect.target)) {
-        totals[effect.target] = {
-          totalSum: 0,
-          totalMult: 0
-        }
+        const target = effect.target;
+        
+        totals[target] = initTotal();
       }
+    
+      const value = effect.value(level);
+
+      console.log("effect");
+      console.log(effect);
+      console.log('value');
+      console.log(value);
 
       switch(effect.operation) {
-        case OperationEnum.sum:
-          totals[effect.target].totalSum += effect.value(level);
+        case OperationEnum.SUM:
+          totals[effect.target].totalSum += value;
+          console.log('summed');
           break;
-        case OperationEnum.mult:
-          totals[effect.target].totalMult += effect.value(level);
+        case OperationEnum.MULT:
+          totals[effect.target].totalMult += value;
+          console.log('mult');
           break;
       }
       
@@ -1143,28 +1440,71 @@
 
        Then, physique in the end will be = orig*2.
   */
-  function generateEffectFormulas(totals) {
+  function generateEffectFormulas(totals, values) {
     let targetAttributes = {};
+    
+    for (target in effectsTargets) {
+    
+      let formula = ``;
 
-    for (let target in totals) {
-      let formula = '';
+      treatAttributesMods(target, values, totals);
+      
+      if (totals.hasOwnProperty(target)) {
+        
+        if (totals[target].totalMult > 0) {
+          formula += `*${totals[target].totalMult}`;
+        }
+  
+        if (totals[target].totalMult < 0) {
+          formula += `/${Math.abs(totals[target].totalMult)}`;
+        }
+  
+        if (totals[target].totalSum > 0) {
+          formula += `+${totals[target].totalSum}`;
+        }
 
-      if (totals[target].totalMult > 0) {
-        formula += '*${totals[target].totalMult}';
+        if (totals[target].totalSum < 0) {
+          formula += `${totals[target].totalSum}`;
+        }
       }
 
-      if (totals[target].totalMult < 0) {
-        formula += '/${totals[target].totalMult}';
+      if (formula == ``) {
+        formula = '+0';
       }
 
-      if (totals[target].totalSum != 0) {
-        formula += '+${totals[target].totalMult}';
-      }
+      console.log('target');
+      console.log(target);
 
       targetAttributes[target] = formula;
+
     }
 
+    console.log('targetAttributes');
+    console.log(targetAttributes);
+
     return targetAttributes;
+  }
+
+  function treatAttributesMods(target, values, totals) {
+    
+    if (effectsTargets[target].hasOwnProperty('attributeMod')) {
+      const attributeMod = effectsTargets[target].attributeMod;
+      const attributeModValue = Math.abs(parseInt(values[attributeMod])||0);
+      const attributeModOperator = values[attributeMod+'operator'];
+      
+      if (!totals.hasOwnProperty(target)) {
+        totals[target] = initTotal();
+      }
+
+      switch(attributeModOperator) {
+        case '*':
+          totals[target].totalMult += attributeModValue;
+          break;
+        case '/':
+          totals[target].totalMult -= attributeModValue;
+          break;
+      }
+    }
   }
 
   
