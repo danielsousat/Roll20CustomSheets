@@ -200,6 +200,10 @@
 	width: 4.2em !important;
 }
 
+.sheet-special-mod {
+	grid-column: 4/6;
+}
+
 
 .sheet-middle {
 	display: grid;
