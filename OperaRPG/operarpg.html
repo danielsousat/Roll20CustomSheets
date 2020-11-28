@@ -176,7 +176,7 @@
               title="@{charphysicalfeatureeffect}" />
             <input name="attr_charphysiquedamage" type="number" title="@{charphysiquedamage}" value="0" />
             <input name="attr_charphysiquetotal" type="number" disabled="true" title="@{charphysiquetotal}"
-              value="floor(@{charphysique} @{charphysicalfeatureeffect})" />
+              value="floor(@{charphysique} @{charphysicalfeatureeffect}) - @{charphysiquedamage}" />
 
             <button type="roll" class="roll-button" name="roll_dexterity_check" title="@{dexterity_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{dexterity}}} {{value=[[@{chardexterity}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{chardexterity}}+?{@{modifier}|0}]]}}"></button>
@@ -191,7 +191,7 @@
               title="@{chardexterityfeatureeffect}" />
             <input name="attr_chardexteritydamage" type="number" title="@{chardexteritydamage}" value="0" />
             <input name="attr_chardexteritytotal" type="number" disabled="true" title="@{chardexteritytotal}"
-              value="floor(@{chardexterity} @{chardexterityfeatureeffect})" />
+              value="floor(@{chardexterity} @{chardexterityfeatureeffect}) - @{chardexteritydamage}" />
 
             <button type="roll" class="roll-button" name="roll_intelligence_check" title="@{intelligence_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{intelligence}}} {{value=[[@{charintelligence}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charintelligence}}+?{@{modifier}|0}]]}}"></button>
@@ -206,7 +206,7 @@
               title="@{charintelligencefeatureeffect}" />
             <input name="attr_charintelligencedamage" type="number" title="@{charintelligencedamage}" value="0" />
             <input name="attr_charintelligencetotal" type="number" disabled="true" title="@{charintelligencetotal}"
-              value="floor(@{charintelligence} @{charintelligencefeatureeffect})" />
+              value="floor(@{charintelligence} @{charintelligencefeatureeffect}) - @{charintelligencedamage}" />
 
             <button type="roll" class="roll-button" name="roll_perception_check" title="@{perception_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{perception}}} {{value=[[@{charperception}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charperception}}+?{@{modifier}|0}]]}}"></button>
@@ -221,7 +221,7 @@
               title="@{charperceptionfeatureeffect}" />
             <input name="attr_charperceptiondamage" type="number" title="@{charperceptiondamage}" value="0" />
             <input name="attr_charperceptiontotal" type="number" disabled="true" title="@{charperceptiontotal}"
-              value="floor(@{charperception} @{charperceptionfeatureeffect})" />
+              value="floor(@{charperception} @{charperceptionfeatureeffect}) - @{charperceptiondamage}" />
 
             <button type="roll" class="roll-button" name="roll_will_check" title="@{will_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{will}}} {{value=[[@{charwill}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charwill}}+?{@{modifier}|0}]]}}"></button>
@@ -235,7 +235,7 @@
             <input name="attr_charwillfeatureeffect" type="text" readonly="true" title="@{charwillfeatureeffect}" />
             <input name="attr_charwilldamage" type="number" title="@{charwilldamage}" value="0" />
             <input name="attr_charwilltotal" type="number" disabled="true" title="@{charwilltotal}"
-              value="floor(@{charwill} @{charwillfeatureeffect})" />
+              value="floor(@{charwill} @{charwillfeatureeffect}) - @{charwilldamage}" />
 
             <button type="roll" class="roll-button" name="roll_mind_check" title="@{mind_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{mind}}} {{value=[[@{charmind}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmind}}+?{@{modifier}|0}]]}}"></button>
@@ -249,7 +249,7 @@
             <input name="attr_charmindfeatureeffect" type="text" readonly="true" title="@{charmindfeatureeffect}" />
             <input name="attr_charminddamage" type="number" title="@{charminddamage}" value="0" />
             <input name="attr_charmindtotal" type="number" disabled="true" title="@{charmindtotal}"
-              value="floor(@{charmind} @{charmindfeatureeffect})" />
+              value="floor(@{charmind} @{charmindfeatureeffect}) - @{charminddamage}" />
 
             <button type="roll" class="roll-button" name="roll_magic_check" title="@{magic_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{magic}}} {{value=[[@{charmagic}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charmagic}}+?{@{modifier}|0}]]}}"></button>
@@ -263,7 +263,7 @@
             <input name="attr_charmagicfeatureeffect" type="text" readonly="true" title="@{charmagicfeatureeffect}" />
             <input name="attr_charmagicdamage" type="number" title="@{charmagicdamage}" value="0" />
             <input name="attr_charmagictotal" type="number" disabled="true" title="@{charmagictotal}"
-              value="floor(@{charmagic} @{charmagicfeatureeffect})" />
+              value="floor(@{charmagic} @{charmagicfeatureeffect}) - @{charmagicdamage}" />
 
             <button type="roll" class="roll-button" name="roll_luck_check" title="@{luck_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{luck}}} {{value=[[@{charluck}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{charluck}}+?{@{modifier}|0}]]}}"></button>
@@ -277,7 +277,7 @@
             <input name="attr_charluckfeatureeffect" type="text" readonly="true" title="@{charluckfeatureeffect}" />
             <input name="attr_charluckdamage" type="number" title="@{charluckdamage}" value="0" />
             <input name="attr_charlucktotal" type="number" disabled="true" title="@{charlucktotal}"
-              value="floor(@{charluck} @{charluckfeatureeffect})" />
+              value="floor(@{charluck} @{charluckfeatureeffect}) - @{charluckdamage}" />
 
           </div>
         </div>
