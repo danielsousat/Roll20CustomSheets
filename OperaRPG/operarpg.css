@@ -250,8 +250,6 @@
 	grid-template-columns: auto 60px 60px 24px;
 }
 
-.sheet-features input[type="hidden"]
-
 .sheet-weapons {
 	grid-template-columns: auto 45px 70px 65px 65px 65px 65px 45px 24px;
 }
