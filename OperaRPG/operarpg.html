@@ -1184,6 +1184,7 @@
     {
       name: getTranslationByKey('increased_dexterity'),
       cost: 14,
+      level: 2,
       effects: [
         {
           target: 'chardexterityfeatureeffect',
@@ -1201,6 +1202,7 @@
     {
       name: getTranslationByKey('increased_physical'),
       cost: 16,
+      level: 2,
       effects: [
         {
           target: 'charphysicalfeatureeffect',
@@ -1213,6 +1215,7 @@
     {
       name: getTranslationByKey('increased_intelligence'),
       cost: 12,
+      level: 2,
       effects: [
         {
           target: 'charintelligencefeatureeffect',
@@ -1247,6 +1250,7 @@
     {
       name: getTranslationByKey('reduced_dexterity'),
       cost: -14,
+      level: 2,
       effects: [
         {
           target: 'chardexterityfeatureeffect',
@@ -1259,6 +1263,7 @@
     {
       name: getTranslationByKey('reduced_physical'),
       cost: -16,
+      level: 2,
       effects: [
         {
           target: 'charphysicalfeatureeffect',
@@ -1271,6 +1276,7 @@
     {
       name: getTranslationByKey('reduced_intelligence'),
       cost: -12,
+      level: 2,
       effects: [
         {
           target: 'charintelligencefeatureeffect',
@@ -1283,6 +1289,7 @@
     {
       name: getTranslationByKey('increased_size'),
       cost: 11,
+      level: 2,
       effects: [
         {
           target: 'charphysicalfeatureeffect',
@@ -1295,6 +1302,7 @@
     {
       name: getTranslationByKey('reduced_size'),
       cost: -12,
+      level: 2,
       effects: [
         {
           target: 'charphysicalfeatureeffect',
@@ -1313,6 +1321,10 @@
       
       newrowattrs["repeating_features_" + newrowid + "_feature"] = features[button].name;
       newrowattrs["repeating_features_" + newrowid + "_featurecost"] = features[button].cost;
+      
+      if (features[button].hasOwnProperty('level')) {
+        newrowattrs["repeating_features_" + newrowid + "_featurelevel"] = features[button].level;
+      }
       
       if (features[button].effects !== undefined) {
         newrowattrs["repeating_features_" + newrowid + "_featureid"] = button;
@@ -1374,10 +1386,14 @@
           const level = parseInt(values[`repeating_features_${id}_featurelevel`])||0;
           const featureID = values[`repeating_features_${id}_featureid`];
           let effects;
+          console.log('level');
           console.log(level);
+          console.log('featureID');
           console.log(featureID);
-          if (featureID !== undefined) {
-            effects = features[featureID].effects;
+          if (featureID !== undefined && featureID !== '') {
+            if (features[featureID].hasOwnProperty('effects')) {
+              effects = features[featureID].effects;
+            }
 
             console.log("effects");
             console.log(effects);
