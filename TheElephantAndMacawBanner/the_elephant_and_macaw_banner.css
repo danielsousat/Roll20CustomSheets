@@ -105,6 +105,7 @@
 .sheet-logo {
 	margin-bottom: 10px;
 	margin-top: -20px;
+	position: relative;
 }
 
 .sheet-tab-panel {
@@ -962,6 +963,33 @@ div.sheet-shadow-bottom-left::after {
 	z-index: 99 !important;
 	top: 0;
 	right: 0
+}
+
+/*------------- HIDDEN CONFIG -------------*/
+.sheet-config {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 2px;
+	align-items: center;
+	background-color: lightgrey;
+}
+
+.sheet-configtype {
+	font-family: 'Pictos';
+}
+
+.sheet-configtype input[type=checkbox]:checked~span::before {
+	content: '*';
+}
+
+.sheet-configtype span::before {
+	content: 'y';
+}
+
+.sheet-corner-position {
+	position: absolute;
+	right: 0px;
+  bottom: 0px;
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/

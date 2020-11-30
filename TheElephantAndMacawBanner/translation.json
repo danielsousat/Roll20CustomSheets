@@ -54,5 +54,6 @@
 	"legendary": "Legendary",
 	"cost7": "Cost 7",
 	"equipped": "Equipped",
-	"equip-totals-explain": "Only equipments with the checkbox marked will count for the defence bonuses."
+	"equip-totals-explain": "Only equipments with the checkbox marked will count for the defence bonuses.",
+	"max_defence_value": "Max defence value"
 }

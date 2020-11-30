@@ -197,8 +197,8 @@
                     <span class="defence-symbol secondary-font">=</span>
 
                     <div class="passive-defence defence-shield defence-row-span">
-                      <input type="text" disabled="true" name="attr_passive_defence" title="@{passive_defence}"
-                        value="@{passive_defence_mod} + @{equip_total_passive_defence}" />
+                      <input type="text" readonly="true" name="attr_passive_defence" title="@{passive_defence}"
+                        value="0" />
                     </div>
                   </div>
 
@@ -228,7 +228,7 @@
                     <span class="defence-symbol secondary-font">=</span>
 
                     <div class="active-defence defence-shield defence-row-span">
-                      <input type="text" disabled="true" name="attr_active_defence" title="@{active_defence}"
+                      <input type="text" readonly="true" name="attr_active_defence" title="@{active_defence}"
                         value="@{passive_defence} + @{active_defence_mod} + @{equip_total_active_defence}" />
                     </div>
                   </div>
@@ -442,9 +442,27 @@
 
       <!-- Middle column 2 -->
       <div class="middle-column">
+        <div class="logo">
+          <img
+            src="https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/logo-english.png">
 
-        <img class="logo"
-          src="https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/logo-english.png">
+          <div class="showhidebutton configtype corner-position">
+            <input type="checkbox" name="attr_config_showhide_checkbox" value="1" />
+            <span></span>
+          </div>
+
+        </div>
+
+        <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+        <input class="toggle-checkbox" type="checkbox" name="attr_config_showhide_checkbox_invisible" value="1" />
+
+        <div class="showhide">
+          <div class="config">
+            <span class="secondary-label secondary-font" data-i18n="max_defence_value">Max defence value</span>
+            <input type="number" name="attr_max_defence_value" value="5" title="@{max_defence_value}">
+          </div>
+        </div>
+
 
         <!-- Initiative and Untrained Skill -->
         <div class="initiative box-margin">
@@ -975,6 +993,47 @@
     });
   });
 
+  const defenceFactors = ["equip_total_passive_defence", 
+    "equip_total_active_defence",
+    "passive_defence_mod",
+    "active_defence_mod",
+    "max_defence_value"];
+
+  /* controls defence values calculation */
+  defenceFactors.forEach(attr => {
+    on(`sheet:opened change:${attr}`, function(eventInfo) {
+
+      getAttrs([...defenceFactors], values => {
+        
+        /* Parsing values */
+        Object.keys(values).map(function(key, index) {
+          values[key] = parseInt(values[key])||0;
+        });
+
+        const maxDefence = values.max_defence_value;
+        let passiveDefence = 0;
+        let activeDefence = 0;
+
+        passiveDefence = values.equip_total_passive_defence + values.passive_defence_mod;
+        activeDefence = passiveDefence + values.equip_total_active_defence + values.active_defence_mod;
+
+        if (passiveDefence > maxDefence) {
+          passiveDefence = maxDefence;
+        }
+
+        if (activeDefence > maxDefence) {
+          activeDefence = maxDefence;
+        }
+
+        setAttrs({
+          passive_defence: passiveDefence,
+          active_defence: activeDefence
+        });
+
+      });
+    });
+  });
+
   /*Controls max endurance and max damage*/
   on("change:max_endurance change:damage", function(eventInfo) {
     const maxValue = 15;
@@ -1008,7 +1067,10 @@
   });
 
   /*Controls show hide checkbox button from repeating sections*/
-  on("change:repeating_skills:showhide_checkbox change:repeating_gear:showhide_checkbox change:repeating_equip:showhide_checkbox" , function(eventInfo) {
+  on("change:repeating_skills:showhide_checkbox " +
+    "change:repeating_gear:showhide_checkbox " +
+    "change:config_showhide_checkbox " +
+    "change:repeating_equip:showhide_checkbox" , function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();
