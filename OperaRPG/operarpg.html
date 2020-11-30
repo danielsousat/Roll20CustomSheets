@@ -529,16 +529,7 @@
             <button type="roll" class="roll-button" name="roll_fight_check" title="@{fight_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=[[@{fighttotal}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{fighttotal}}+?{@{modifier}|0}]]}}"></button>
             <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}" data-i18n-placeholder="fight" placeholder="Briga" />
-            <select class="select row-item-margin" name="attr_fightattribute" title="@{fightattribute}" disabled="true">
-              <option value="@{charphysique}" data-i18n="physique">Físico</option>
-              <option value="@{chardexterity}" data-i18n="dexterity" selected="selected">Destreza</option>
-              <option value="@{charintelligence}" data-i18n="intelligence">Inteligência</option>
-              <option value="@{charwill}" data-i18n="will">Vontade</option>
-              <option value="@{charmind}" data-i18n="mind">Mente</option>
-              <option value="@{charmagic}" data-i18n="magic">Magia</option>
-              <option value="@{charperception}" data-i18n="perception">Percepção</option>
-              <option value="@{charluck}" data-i18n="luck">Sorte</option>
-            </select>
+            <span class="secondary-font" data-i18n="dexterity">Destreza</span>
             <input type="hidden" name="attr_fightattribute" value="@{chardexterity}" />
             <select class="select row-item-margin" name="attr_fightlevel" title="@{fightlevel}">
               <option value="0" selected="selected">0</option>
