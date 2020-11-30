@@ -109,5 +109,7 @@
 	"right_leg_f": "Perna direita(G)",
 	"left_leg_h": "Perna esquerda(H)",
 	"body_area": "Área do Corpo Atingida",
-	"special_modifier": "Mod Espec"
+	"special_modifier": "Mod Espec",
+	"fight": "Briga",
+	"physcial_damage": "Dano por Físico"
 }

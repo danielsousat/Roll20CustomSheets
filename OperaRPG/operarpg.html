@@ -36,7 +36,7 @@
           <input name="attr_max_creation_points" type="number" title="@{max_creation_points}" disabled="true"
             value="3*@{charintelligence} + 10" />
           <input name="attr_used_creation_points" type="number" disabled="true" title="@{used_creation_points}"
-            value="@{powers_total_cost} + @{skills_total_cost} + @{features_total_cost}" />
+            value="@{powers_total_cost} + @{skills_total_cost} + @{features_total_cost} + @{fightcost}" />
         </div>
       </div>
 
@@ -117,21 +117,23 @@
       <div class="dodge-grid">
         <span class="column-header  secondary-font" data-i18n="base">Base</span>
         <span class="column-header  secondary-font" data-i18n="effect">Effect</span>
+        <span class="column-header  secondary-font" data-i18n="fight">Briga</span>
         <span class="column-header  secondary-font" data-i18n="modifier">Mod</span>
         <span class="column-header  secondary-font" data-i18n="total">Total</span>
 
         <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}" value="@{chardexterity}" />
         <input type="text" readonly="true" name="attr_dodgefeatureeffect" value="+0">
+        <input name="attr_fightdodgebonus" type="number" readonly="true" title="@{fightdodgebonus}" value="0" />
         <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
         <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
-          value="@{dodgebase} @{dodgefeatureeffect} + @{dodgemod}" />
+          value="@{dodgebase} @{dodgefeatureeffect} + @{fightdodgebonus} + @{dodgemod}" />
       </div>
 
     </div>
 
     <div class="header-box damage">
 
-      <span class="label secondary-font" data-i18n="damage">Dano</span>
+      <span class="label secondary-font" data-i18n="physcial_damage">Dano por Físico</span>
       <input type="text" disabled="true" name="attr_chardamage"
         value="floor(floor(@{charphysique} @{charphysicalfeatureeffect})/8)" />
 
@@ -523,6 +525,38 @@
             <div></div>
           </div>
 
+          <div class="repeatable-grid skills">
+            <button type="roll" class="roll-button" name="roll_fight_check" title="@{fight_check}"
+              value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=[[@{fighttotal}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{fighttotal}}+?{@{modifier}|0}]]}}"></button>
+            <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}" data-i18n-placeholder="fight" placeholder="Briga" />
+            <select class="select row-item-margin" name="attr_fightattribute" title="@{fightattribute}" disabled="true">
+              <option value="@{charphysique}" data-i18n="physique">Físico</option>
+              <option value="@{chardexterity}" data-i18n="dexterity" selected="selected">Destreza</option>
+              <option value="@{charintelligence}" data-i18n="intelligence">Inteligência</option>
+              <option value="@{charwill}" data-i18n="will">Vontade</option>
+              <option value="@{charmind}" data-i18n="mind">Mente</option>
+              <option value="@{charmagic}" data-i18n="magic">Magia</option>
+              <option value="@{charperception}" data-i18n="perception">Percepção</option>
+              <option value="@{charluck}" data-i18n="luck">Sorte</option>
+            </select>
+            <input type="hidden" name="attr_fightattribute" value="@{chardexterity}" />
+            <select class="select row-item-margin" name="attr_fightlevel" title="@{fightlevel}">
+              <option value="0" selected="selected">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            <input class="row-item-margin" name="attr_fightcost" type="text" readonly title="@{fightcost}"
+              value="1" />
+            <input class="row-item-margin" name="attr_fighttotal" type="number" disabled="true"
+              title="@{fighttotal}" value="@{fightattribute} + @{fightlevel}" />
+
+            <div>
+            </div>
+
+          </div>
+
           <input type="hidden" name="attr_skills_total_cost" />
 
           <fieldset class="repeating_skills">
@@ -689,6 +723,27 @@
 
       </div>
 
+      <div class="repeatable-grid weapons">
+
+        <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}" data-i18n-placeholder="fight" placeholder="Briga" />
+        <input class="row-item-margin" readonly="true" name="attr_fightlevel" type="number" title="@{fightlevel}" />
+        <input class="row-item-margin" readonly="true" name="attr_fightdamage" type="text" title="@{fightdamage}" value="d2-1" />
+        <div class="weapons-die-label">
+          <input class="row-item-margin" readonly="true" name="attr_fightblow" type="number" title="@{fightblow}" value="0" />
+          <button type="roll" class="roll-button" name="roll_fightblow_check" title="@{fightblow_check}"
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{blow}}} {{damage=[[@{fightdamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{fightlevel} + @{fightblow} + ?{@{modifier}|0} ]] }}"></button>
+        </div>
+
+        <div class="weapons-die-label">
+          <input class="row-item-margin" readonly="true" name="attr_fightparry" type="number" title="@{fightparry}" value="0" />
+          <button type="roll" class="roll-button" name="roll_fightparry_check" title="@{fightparry_check}"
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{fightlevel} + @{fightparry} + ?{@{modifier}|0} ]] }}"></button>
+        </div>
+
+        <div class="fight-span"></div>
+
+      </div>
+
       <fieldset class="repeating_weapons">
 
         <div class="repeatable-item">
@@ -701,27 +756,27 @@
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
               <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
               <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponparry} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{weaponlevel} + @{weaponparry} + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponfastshot" type="number" title="@{weaponfastshot}"
                 value="0" />
               <button type="roll" class="roll-button" name="roll_weaponfastshot_check" title="@{weaponfastshot_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{fast_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponfastshot} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{fast_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexterity} + @{weaponlevel} + @{weaponfastshot} + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponaimedshot" type="number" title="@{weaponaimedshot}"
                 value="0" />
               <button type="roll" class="roll-button" name="roll_weaponaimedshot_check" title="@{weaponaimedshot_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{aimed_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexteritycurrent} + @{weaponlevel} + @{weaponaimedshot} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{aimed_shot}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs<5cf>2 + @{chardexterity} + @{weaponlevel} + @{weaponaimedshot} + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <input class="row-item-margin" name="attr_weaponrateoffire" type="number" title="@{weaponrateoffire}"
@@ -963,10 +1018,7 @@
       repeatingSum("features_total_cost","features", "featurecost");        
   });
 
-  /* controlling skill cost due to skill level selection */
-  on('change:repeating_skills:skilllevel', function(eventInfo) {
-
-    const skillLevel = eventInfo.newValue;
+  function getSkillCost(skillLevel) {
     let skillCost = 0;
 
     switch (skillLevel) {
@@ -987,9 +1039,70 @@
     console.log("skill level = " + skillLevel);
     console.log("skill cost = " + skillCost);
 
+    return skillCost;
+  }
+
+  /* controlling skill cost due to skill level selection */
+  on('change:repeating_skills:skilllevel', function(eventInfo) {
+
+    const skillLevel = eventInfo.newValue;
+    
+    let skillCost = getSkillCost(skillLevel);
+
     setAttrs({
       repeating_skills_skillcost: skillCost
     });
+  });
+
+  const fightParameters = [
+    {
+      fightblow: 0,
+      fightparry: 0,
+      fightdodgebonus: 0,
+      fightdamage: 'd2-1' 
+    },
+    {
+      fightblow: 1,
+      fightparry: 0,
+      fightdodgebonus: 0,
+      fightdamage: 'd2-1' 
+    },
+    {
+      fightblow: 1,
+      fightparry: 1,
+      fightdodgebonus: 1,
+      fightdamage: '1' 
+    },
+    {
+      fightblow: 2,
+      fightparry: 2,
+      fightdodgebonus: 1,
+      fightdamage: '1' 
+    },
+    {
+      fightblow: 3,
+      fightparry: 3,
+      fightdodgebonus: 2,
+      fightdamage: '1' 
+    }
+  ];
+
+  /* controlling fight cost, damage, dodge, parry and blow due to fight level selection */
+  on('change:fightlevel', function(eventInfo) {
+
+    const skillLevel = eventInfo.newValue;
+    out = {};
+    
+    let skillCost = getSkillCost(skillLevel);
+    let fightParams = fightParameters[skillLevel];
+    
+    out.fightcost = skillCost;
+    out = Object.assign(out, fightParams);
+
+    console.log('fight control: out');
+    console.log(out);
+
+    setAttrs(out);
   });
 
 
@@ -1017,7 +1130,8 @@
           parry: getTranslationByKey("parry"),
           blow: getTranslationByKey("blow"),
           initiative: getTranslationByKey("initiative"),
-          dodge: getTranslationByKey("dodge")
+          dodge: getTranslationByKey("dodge"),
+          fight: getTranslationByKey("fight"),
       });     
       
   });

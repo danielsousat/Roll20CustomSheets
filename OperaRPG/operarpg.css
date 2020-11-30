@@ -157,7 +157,7 @@
 
 .sheet-dodge-grid {
 	display: grid;
-	grid-template-columns: auto auto auto auto;
+	grid-template-columns: auto auto auto auto auto;
 	justify-items: center;
 	align-items: center;
 	gap: 5px;
@@ -170,6 +170,10 @@
 	justify-content: space-evenly;
 	padding-left: 20px;
   padding-right: 20px;
+}
+
+.sheet-damage span {
+	text-align: center;
 }
 
 .sheet-logo {
@@ -266,6 +270,10 @@
 
 .sheet-weapons {
 	grid-template-columns: auto 45px 70px 65px 65px 65px 65px 45px 24px;
+}
+
+.sheet-fight-span {
+	grid-column: 6/10;
 }
 
 .sheet-weapons-die-label {
