@@ -303,7 +303,7 @@
           <input class="toggle-checkbox" type="checkbox" name="attr_features_showhide_checkbox_invisible" value="1" />
 
           <div class="showhide">
-            <div class="select-features">
+            <div class="select-hidden-grid">
               <button type="action" class="add-button" name="act_ambidexterity"></button>
               <span class="label secondary-font" data-i18n="ambidexterity">Ambidestria</span>
 
@@ -353,47 +353,11 @@
               <span class="label secondary-font" data-i18n="weak_will" data-i18n-title="weak_will-description"
                 title="Cada nível atribuí -1 de Vontade">Vontade Fraca</span>
 
-              <button type="action" class="add-button" name="act_increased_dexterity"></button>
-              <span class="label secondary-font" data-i18n="increased_dexterity"
-                data-i18n-title="increased_dexterity-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Destreza. Adiciona seu (nível-1) ao número de ações físicas ao personagem.">Ampliação
-                de Destreza</span>
-
-              <button type="action" class="add-button" name="act_increased_physical"></button>
-              <span class="label secondary-font" data-i18n="increased_physical"
-                data-i18n-title="increased_physical-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Físico">Ampliação de
-                Físico</span>
-
-              <button type="action" class="add-button" name="act_increased_intelligence"></button>
-              <span class="label secondary-font" data-i18n="increased_intelligence"
-                data-i18n-title="increased_intelligence-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Inteligência. Adiciona seu (nível-1) ao número de ações mentais ao personagem.">Ampliação
-                de Inteligência</span>
-
               <button type="action" class="add-button" name="act_additional_limbs"></button>
               <span class="label secondary-font" data-i18n="additional_limbs"
                 data-i18n-title="additional_limbs-description"
                 title="Cada dois níveis, atribuí a expressão “x(nível/2+1)” ao atributo Destreza. Adiciona seu (nível/2) ao número de ações físicas ao personagem">Membros
                 Adicionais</span>
-
-              <button type="action" class="add-button" name="act_reduced_dexterity"></button>
-              <span class="label secondary-font" data-i18n="reduced_dexterity"
-                data-i18n-title="reduced_dexterity-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Destreza">Redução de
-                Destreza</span>
-
-              <button type="action" class="add-button" name="act_reduced_physical"></button>
-              <span class="label secondary-font" data-i18n="reduced_physical"
-                data-i18n-title="reduced_physical-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Físico">Redução de
-                Físico</span>
-
-              <button type="action" class="add-button" name="act_reduced_intelligence"></button>
-              <span class="label secondary-font" data-i18n="reduced_intelligence"
-                data-i18n-title="reduced_dexterity-description"
-                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Inteligência">Redução de
-                Inteligência</span>
 
               <button type="action" class="add-button" name="act_increased_size"></button>
               <span class="label secondary-font" data-i18n="increased_size" data-i18n-title="increased_size-description"
@@ -452,6 +416,55 @@
 
           <span class="box-title main-font" data-i18n="powers">Poderes</span>
 
+          <div class="showhidebutton configtype corner-position">
+            <input type="checkbox" name="attr_powers_showhide_checkbox" value="1" />
+            <span></span>
+          </div>
+
+          <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+          <input class="toggle-checkbox" type="checkbox" name="attr_powers_showhide_checkbox_invisible" value="1" />
+
+          <div class="showhide">
+            <div class="select-hidden-grid">
+              
+              <button type="action" class="add-button" name="act_increased_dexterity"></button>
+              <span class="label secondary-font" data-i18n="increased_dexterity"
+                data-i18n-title="increased_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Destreza. Adiciona seu (nível-1) ao número de ações físicas ao personagem.">Ampliação
+                de Destreza</span>
+
+              <button type="action" class="add-button" name="act_increased_physical"></button>
+              <span class="label secondary-font" data-i18n="increased_physical"
+                data-i18n-title="increased_physical-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Físico">Ampliação de
+                Físico</span>
+
+              <button type="action" class="add-button" name="act_increased_intelligence"></button>
+              <span class="label secondary-font" data-i18n="increased_intelligence"
+                data-i18n-title="increased_intelligence-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “x(nível)” ao atributo Inteligência. Adiciona seu (nível-1) ao número de ações mentais ao personagem.">Ampliação
+                de Inteligência</span>
+
+              <button type="action" class="add-button" name="act_reduced_dexterity"></button>
+              <span class="label secondary-font" data-i18n="reduced_dexterity"
+                data-i18n-title="reduced_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Destreza">Redução de
+                Destreza</span>
+
+              <button type="action" class="add-button" name="act_reduced_physical"></button>
+              <span class="label secondary-font" data-i18n="reduced_physical"
+                data-i18n-title="reduced_physical-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Físico">Redução de
+                Físico</span>
+
+              <button type="action" class="add-button" name="act_reduced_intelligence"></button>
+              <span class="label secondary-font" data-i18n="reduced_intelligence"
+                data-i18n-title="reduced_dexterity-description"
+                title="Comprada a partir do nível 2. Atribuí a expressão “/(nível)” ao atributo Inteligência">Redução de
+                Inteligência</span>
+            </div>
+          </div>
+
           <div class="repeatable-grid powers">
             <span class="column-header  secondary-font" data-i18n="name">Nome</span>
             <span class="column-header  secondary-font" data-i18n="level">Nível</span>
@@ -470,6 +483,7 @@
                 <input name="attr_power" type="text" title="@{power}" />
                 <input name="attr_powerlevel" type="text" title="@{powerlevel}" value="1" />
                 <input name="attr_powercost" type="text" title="@{powercost}" value="0" />
+                <input type="hidden" name="attr_powerid" />
 
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -894,6 +908,7 @@
      "change:repeating_weapons:showhide_checkbox " + 
      "change:repeating_protection:showhide_checkbox " +
      "change:repeating_skills:showhide_checkbox " +
+     "change:powers_showhide_checkbox " +
      "change:repeating_powers:showhide_checkbox " +
      "change:features_showhide_checkbox " +
      "change:repeating_features:showhide_checkbox" , function(eventInfo) {
@@ -1042,7 +1057,7 @@
     mind_actionseffect:{}
   };
 
-  /* Pre configured feature effects. Every feature object will have:
+  /* Pre configured feature and power effects. Every feature object will have:
     - button: An act button associated (the add button);
     - name: The translated feature's name;
     - cost: how much does it cost to purchase;
@@ -1180,6 +1195,53 @@
         }
       ]
     },
+    additional_limbs: 
+    {
+      name: getTranslationByKey('additional_limbs'),
+      cost: 6,
+      effects: [
+        {
+          target: 'chardexterityfeatureeffect',
+          value: level => Math.floor(level/2)+1,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'physical_actionseffect',
+          value: level => Math.floor(level/2),
+          operation: OperationEnum.SUM
+        }
+      ]
+    },
+    increased_size:
+    {
+      name: getTranslationByKey('increased_size'),
+      cost: 11,
+      level: 2,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        }
+      ]
+    },
+    reduced_size:
+    {
+      name: getTranslationByKey('reduced_size'),
+      cost: -12,
+      level: 2,
+      effects: [
+        {
+          target: 'charphysicalfeatureeffect',
+          value: level => (-1)*level,
+          operation: OperationEnum.MULT
+        }
+      ]
+    }
+  };
+  
+  /* POWERS CONFIG*/
+  const powers = {
     increased_dexterity:
     {
       name: getTranslationByKey('increased_dexterity'),
@@ -1229,23 +1291,6 @@
         }
       ]
     },
-    additional_limbs: 
-    {
-      name: getTranslationByKey('additional_limbs'),
-      cost: 6,
-      effects: [
-        {
-          target: 'chardexterityfeatureeffect',
-          value: level => Math.floor(level/2)+1,
-          operation: OperationEnum.MULT
-        },
-        {
-          target: 'physical_actionseffect',
-          value: level => Math.floor(level/2),
-          operation: OperationEnum.SUM
-        }
-      ]
-    },
     reduced_dexterity:
     {
       name: getTranslationByKey('reduced_dexterity'),
@@ -1284,60 +1329,41 @@
           operation: OperationEnum.MULT
         }
       ]
-    },
-    increased_size:
-    {
-      name: getTranslationByKey('increased_size'),
-      cost: 11,
-      level: 2,
-      effects: [
-        {
-          target: 'charphysicalfeatureeffect',
-          value: level => level,
-          operation: OperationEnum.MULT
-        }
-      ]
-    },
-    reduced_size:
-    {
-      name: getTranslationByKey('reduced_size'),
-      cost: -12,
-      level: 2,
-      effects: [
-        {
-          target: 'charphysicalfeatureeffect',
-          value: level => (-1)*level,
-          operation: OperationEnum.MULT
-        }
-      ]
     }
   };
 
-  /*config preconfigured features' add buttons */
-  for (let button in features) {
-    on(`clicked:${button}`, function() {
-      var newrowid = generateRowID();
-      var newrowattrs = {};
-      
-      newrowattrs["repeating_features_" + newrowid + "_feature"] = features[button].name;
-      newrowattrs["repeating_features_" + newrowid + "_featurecost"] = features[button].cost;
-      
-      if (features[button].hasOwnProperty('level')) {
-        newrowattrs["repeating_features_" + newrowid + "_featurelevel"] = features[button].level;
-      }
-      
-      if (features[button].effects !== undefined) {
-        newrowattrs["repeating_features_" + newrowid + "_featureid"] = button;
-      }
+  /*setting preconfigured powers and features add buttons */
+  setPreconfiguredSections(features, 'feature');
+  setPreconfiguredSections(powers, 'power');
 
-      console.log('newrowattrs');
-      console.log(newrowattrs);
-      
-      setAttrs(newrowattrs);
-      
-    });
+  /* Sets preconfigured sections add buttons, like features and powers */
+  function setPreconfiguredSections(values, sectionName) {
+    for (let button in values) {
+      on(`clicked:${button}`, function() {
+        var newrowid = generateRowID();
+        var newrowattrs = {};
+        
+        newrowattrs[`repeating_${sectionName}s_${newrowid}_${sectionName}`] = values[button].name;
+        newrowattrs[`repeating_${sectionName}s_${newrowid}_${sectionName}cost`] = values[button].cost;
+        
+        if (values[button].hasOwnProperty('level')) {
+          newrowattrs[`repeating_${sectionName}s_${newrowid}_${sectionName}level`] = values[button].level;
+        }
+        
+        if (values[button].effects !== undefined) {
+          newrowattrs[`repeating_${sectionName}s_${newrowid}_${sectionName}id`] = button;
+        }
+  
+        console.log('setPreconfiguredSections: newrowattrs');
+        console.log(newrowattrs);
+        
+        setAttrs(newrowattrs);
+        
+      });  
+    }
   }
 
+  /* adds the list of the character's attributes to the array of values to be retrieved */
   function addAttributesMods(attributesArray) {
 
     for(target in effectsTargets) {
@@ -1349,22 +1375,55 @@
     }
   }
 
-  function buildFeaturesAttributesArray(featuresRowIds) {
-    let attributesArray = [];
-    for(var i=0; i < featuresRowIds.length; i++) {
-      const id = featuresRowIds[i];
+  /* build the repeating section's list of attributes which values should be retrieved */
+  function buildSectionAttributesArray(sectionRowIds, sectionName, attributesArray) {
+    
+    for(var i=0; i < sectionRowIds.length; i++) {
+      const id = sectionRowIds[i];
       
-      attributesArray.push(`repeating_features_${id}_featurelevel`);
-      attributesArray.push(`repeating_features_${id}_featureid`);
+      attributesArray.push(`repeating_${sectionName}s_${id}_${sectionName}level`);
+      attributesArray.push(`repeating_${sectionName}s_${id}_${sectionName}id`);
     }
-
-    addAttributesMods(attributesArray);
 
     return attributesArray;
   }
 
+  /* Calculate the totals for the effects of a repeating section 
+    sectionConfig: The const object with the configuration of the effects and its formulas;
+    sectionName: The name of the sheet's repeating section which effects will be calculated. Should be in singular (ex: power, instead of powers);
+    values: The values object retrieved from the getAttrs function;
+    sectionIds: the array of ids from the repeating section;
+    totals: the totals object that will store all the calculations to set the formulas on all effects fields on the sheet
+  */
+  function calculateEffectsAndMods(sectionConfig, sectionName, values, sectionIds, totals) {
+    
+    console.log("calculateEffectsAndMods: values");
+    console.log(values);
+
+    for(var i=0; i < sectionIds.length; i++) {
+      const id = sectionIds[i];
+      const level = parseInt(values[`repeating_${sectionName}s_${id}_${sectionName}level`])||0;
+      const itemID = values[`repeating_${sectionName}s_${id}_${sectionName}id`];
+      let effects;      
+
+      if (itemID !== undefined && itemID !== '') {
+        if (sectionConfig[itemID].hasOwnProperty('effects')) {
+          effects = sectionConfig[itemID].effects;
+        }
+
+        console.log("calculateEffectsAndMods: effects");
+        console.log(effects);
+        if (effects !== undefined) {
+          sumEffects(effects, level, totals);
+        }
+      }        
+    }
+
+  }
+
   /* setting and calculating feature effects */
   on('sheet:opened change:repeating_features remove:repeating_features '+
+  'change:repeating_powers remove:repeating_powers ' +
   'change:charphysiquemod change:charphysiquemodoperator '+
   'change:chardexteritymod change:chardexteritymodoperator '+
   'change:charintelligencemod change:charintelligencemodoperator '+
@@ -1373,42 +1432,33 @@
   'change:charmindmod change:charmindmodoperator '+
   'change:charmagicmod change:charmagicmodoperator '+
   'change:charluckmod change:charluckmodoperator' , function() {
-    let totals = {};
-    let out = {}
-
-    getSectionIDs("features", function(idarray) {
-      let attributesArray = buildFeaturesAttributesArray(idarray);
-      console.log(attributesArray);
-      getAttrs(attributesArray, function(values) {
-        
-        for(var i=0; i < idarray.length; i++) {
-          const id = idarray[i];
-          const level = parseInt(values[`repeating_features_${id}_featurelevel`])||0;
-          const featureID = values[`repeating_features_${id}_featureid`];
-          let effects;
-          console.log('level');
-          console.log(level);
-          console.log('featureID');
-          console.log(featureID);
-          if (featureID !== undefined && featureID !== '') {
-            if (features[featureID].hasOwnProperty('effects')) {
-              effects = features[featureID].effects;
-            }
-
-            console.log("effects");
-            console.log(effects);
-            if (effects !== undefined) {
-              sumEffects(effects, level, totals);
-            }
-          }        
-        }
-
-        out = generateEffectFormulas(totals, values);
     
-        setAttrs(out);
+    let totals = {};
+    let out = {};
+    console.log("setting and calculating feature effects start");
+    
+    getSectionIDs('features', function(featuresIdarray) {
+      getSectionIDs('powers', function(powersIdarray) {
+        
+        let attributesArray = [];
+        buildSectionAttributesArray(featuresIdarray, 'feature', attributesArray);
+        buildSectionAttributesArray(powersIdarray, 'power', attributesArray);
+        addAttributesMods(attributesArray);
+        
+        console.log("setting and calculating feature effects: attributesArray");
+        console.log(attributesArray);
+
+        getAttrs(attributesArray, function(values) {
+
+          calculateEffectsAndMods(features, 'feature', values, featuresIdarray, totals);
+          calculateEffectsAndMods(powers, 'power', values, powersIdarray, totals);
+          out = generateEffectFormulas(totals, values);
+      
+          setAttrs(out);
+        });
       });
-  
     });
+
   });
 
   function initTotal() {
@@ -1430,19 +1480,14 @@
     
       const value = effect.value(level);
 
-      console.log("effect");
-      console.log(effect);
-      console.log('value');
-      console.log(value);
-
       switch(effect.operation) {
         case OperationEnum.SUM:
           totals[effect.target].totalSum += value;
-          console.log('summed');
+          
           break;
         case OperationEnum.MULT:
           totals[effect.target].totalMult += value;
-          console.log('mult');
+          
           break;
       }
       
@@ -1503,15 +1548,9 @@
         formula = '+0';
       }
 
-      console.log('target');
-      console.log(target);
-
       targetAttributes[target] = formula;
 
     }
-
-    console.log('targetAttributes');
-    console.log(targetAttributes);
 
     return targetAttributes;
   }

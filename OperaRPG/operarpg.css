@@ -481,7 +481,7 @@
 }
 
 /*------------- HIDDEN SELECT ITEMS -------------*/
-.sheet-select-features {
+.sheet-select-hidden-grid {
 	display: grid;
 	grid-template-columns: 20px auto;
 	gap: 2px;
