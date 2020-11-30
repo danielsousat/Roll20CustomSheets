@@ -411,8 +411,8 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-endurance-shield {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/endurance_shield.png');
-	width: 45px;
-	min-height: 45px !important;
+	width: 47px;
+	min-height: 47px !important;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
