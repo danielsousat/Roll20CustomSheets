@@ -25,6 +25,11 @@
 	width: 4.2em;
 }
 
+.sheet-main-container input[readonly], .sheet-main-container input[disabled] {
+	font-weight: bold;
+	color: blue;
+}
+
 .sheet-main-container textarea {
 	box-sizing: border-box;
 	margin: 0px;
@@ -283,6 +288,7 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-skill-points input {
 	text-align: center;
+	padding: 0px !important;
 }
 
 .sheet-skill-points-box {
@@ -290,6 +296,7 @@ div.sheet-shadow-bottom-left::after {
 	flex-direction: row;
 	align-items: stretch;
 	background-color: white;
+	position: relative;
 }
 
 .sheet-skill-points-box span {
@@ -320,6 +327,16 @@ div.sheet-shadow-bottom-left::after {
 	border-bottom: 1px solid black;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.sheet-skill-points-middle {
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .sheet-skill-bonus-label {
@@ -501,11 +518,6 @@ div.sheet-shadow-bottom-left::after {
 	display: flex;
 	align-items: stretch;
 	justify-content: space-between;
-}
-
-.sheet-defence-energy input[readonly], .sheet-defence-energy input[disabled] {
-	font-weight: bold;
-	color: blue;
 }
 
 .sheet-defence-outer-box {

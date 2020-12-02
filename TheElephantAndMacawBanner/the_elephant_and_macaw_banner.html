@@ -328,11 +328,16 @@
                     <span class="secondary-label secondary-font" data-i18n="points_to_spend">Points to spend</span>
                   </div>
 
+                  <div class="skill-points-middle">
+                    <input name="attr_points_to_spend" type="number" title="@{points_to_spend}" value="20" />
+                  </div>
+
                   <div class="outer-box">
-
+                    
                     <div class="skills-inner-box flex-row">
-
-                      <input name="attr_points_to_spend" type="number" title="@{points_to_spend}" />
+                      
+                      <input name="attr_points_left" disabled="true" type="number" title="@{points_left}" value="@{points_to_spend} - @{points_spent}" />
+                      <input name="attr_points_spent" type="hidden" value="0" />
 
                       <div class="skills-negative-corner top-right-corner"></div>
                       <div class="skills-negative-corner bottom-right-corner"></div>
@@ -373,6 +378,7 @@
                         <button type="roll" class="roll-button" name="roll_skill_check" title="@{skill_check}"
                           value="&{template:main} {{charname=@{character_name}}} {{check=@{skill_name}}} {{target=[[?{@{difficulty} | @{easy}, 12 | @{intermediate}, 15 | @{difficult}, 18 | @{legendary}, 21 }]]}} {{result=[[ [[3d6cs>2cf<5]] + [[(@{skill_level}-@{endurance_penalty})*3]] + [[?{@{mod}|0}]] ]]}} {{dice=$[[1]]}} {{skill_bonus=$[[2]]}} {{mod=$[[3]]}}"></button>
                         <input name="attr_skill_name" type="text" title="@{skill_name}" />
+                        <input name="attr_skill_cost" type="hidden" value="1"/>
 
                         <div class="skills-negative-corner top-right-corner"></div>
                         <div class="skills-negative-corner bottom-right-corner"></div>
@@ -921,6 +927,38 @@
   on('sheet:opened change:repeating_equip remove:repeating_equip', function() {
       repeatingSum("equip_total_active_defence", "equip", ["equip_active_defence_bonus", "equip_equipped"]);
       repeatingSum("equip_total_passive_defence", "equip", ["equip_passive_defence_bonus", "equip_equipped"]);        
+  });
+
+  /* calculating total skill points used */
+  on('sheet:opened change:repeating_skills remove:repeating_skills', function() {
+      repeatingSum("points_spent", "skills", ["skill_cost"]);
+  });
+
+  /* Controlling skill costs */
+  on("change:repeating_skills:skill_level", function(eventInfo) {
+    const skillLevel = parseInt(eventInfo.newValue)||0;
+    let skillCost = 0;
+    console.log("skill level changed");
+
+    console.log(skillLevel);
+    switch(skillLevel) {
+      case 1:
+        skillCost = 1;
+        break;
+      case 2:
+        skillCost = 3;
+        break;
+      case 3:
+        skillCost = 7;
+        break;
+    }
+
+    console.log(skillCost);
+
+    setAttrs({
+      repeating_skills_skill_cost: skillCost
+    });
+    
   });
 
   /* Turning off all other skills energy checkbox when the player checks a box */
