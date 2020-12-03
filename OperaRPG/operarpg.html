@@ -93,14 +93,16 @@
       <div class="init-grid">
 
         <span class="column-header secondary-font" data-i18n="base">Base</span>
+        <span class="column-header  secondary-font" data-i18n="effect">Effect</span>
         <span class="column-header secondary-font" data-i18n="modifier">Mod</span>
         <span class="column-header secondary-font" data-i18n="total">Total</span>
 
         <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
           value="@{chardexterity}" />
+        <input type="text" readonly="true" name="attr_initiativefeatureeffect" value="+0" title="@{initiativefeatureeffect}">
         <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
         <input name="attr_initiativetotal" type="number" disabled="true" title="@{initiativetotal}"
-          value="@{initiativebase} + @{initiativemod}" />
+          value="@{initiativebase} @{initiativefeatureeffect} + @{initiativemod}" />
 
       </div>
 
@@ -122,7 +124,7 @@
         <span class="column-header  secondary-font" data-i18n="total">Total</span>
 
         <input name="attr_dodgebase" type="number" disabled="true" title="@{dodgebase}" value="@{chardexterity}" />
-        <input type="text" readonly="true" name="attr_dodgefeatureeffect" value="+0">
+        <input type="text" readonly="true" name="attr_dodgefeatureeffect" value="+0" title="@{dodgefeatureeffect}">
         <input name="attr_fightdodgebonus" type="number" readonly="true" title="@{fightdodgebonus}" value="0" />
         <input name="attr_dodgemod" type="number" title="@{dodgemod}" value="0" />
         <input name="attr_dodgetotal" type="number" disabled="true" title="@{dodgetotal}"
@@ -133,8 +135,8 @@
 
     <div class="header-box damage">
 
-      <span class="label secondary-font" data-i18n="physcial_damage">Dano por Físico</span>
-      <input type="text" disabled="true" name="attr_chardamage"
+      <span class="label secondary-font" data-i18n="physical_damage">Dano por Físico</span>
+      <input type="text" disabled="true" name="attr_physicaldamage" title="@{physicaldamage}"
         value="floor(floor(@{charphysique} @{charphysicalfeatureeffect})/8)" />
 
     </div>
@@ -722,18 +724,20 @@
         <div class="weapons-die-label">
           <input class="row-item-margin" readonly="true" name="attr_fightblow" type="number" title="@{fightblow}" value="0" />
           <button type="roll" class="roll-button" name="roll_fightblow_check" title="@{fightblow_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{blow}}} {{damage=[[@{fightdamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{fightlevel} + @{fightblow} + ?{@{modifier}|0} ]] }}"></button>
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{blow}}} {{damage=[[@{fightdamage}+@{physicaldamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{fightlevel} + @{fightblow} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
         </div>
 
         <div class="weapons-die-label">
           <input class="row-item-margin" readonly="true" name="attr_fightparry" type="number" title="@{fightparry}" value="0" />
           <button type="roll" class="roll-button" name="roll_fightparry_check" title="@{fightparry_check}"
-            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{fightlevel} + @{fightparry} + ?{@{modifier}|0} ]] }}"></button>
+            value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{fightlevel} + @{fightparry} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
         </div>
 
         <div class="fight-span"></div>
 
       </div>
+
+      <input type="hidden" name="attr_weaponeffect" value="+0" />
 
       <fieldset class="repeating_weapons">
 
@@ -746,14 +750,16 @@
             <input class="row-item-margin" name="attr_weapondamage" type="text" title="@{weapondamage}" value="0" />
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
+                            
               <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{weaponlevel} + @{weaponblow} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}+@{physicaldamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{weaponlevel} + @{weaponblow} + @{fightblow} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
               <input class="row-item-margin" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
+              
               <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
-                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{chardexterity} + @{weaponlevel} + @{weaponparry} + ?{@{modifier}|0} ]] }}"></button>
+                value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{weaponlevel} + @{weaponparry} + @{fightparry} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
             <div class="weapons-die-label">
@@ -1132,6 +1138,9 @@
     MULT: 1
   };
 
+  /* Configuring all the fields that have an effect applied
+    For the effect fields from the attributes, you have to specify the name of the mod field on the attributeMod property.  
+    */
   const effectsTargets = { 
     charperceptionfeatureeffect: {
       attributeMod: 'charperceptionmod'
@@ -1159,7 +1168,9 @@
     },
     dodgefeatureeffect: {}, 
     physical_actionseffect:{},
-    mind_actionseffect:{}
+    mind_actionseffect:{},
+    initiativefeatureeffect: {},
+    weaponeffect: {}
   };
 
   /* Pre configured feature and power effects. Every feature object will have:
@@ -1311,6 +1322,21 @@
           operation: OperationEnum.MULT
         },
         {
+          target: 'initiativefeatureeffect',
+          value: level => Math.floor(level/2)+1,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'dodgefeatureeffect',
+          value: level => Math.floor(level/2)+1,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'weaponeffect',
+          value: level => Math.floor(level/2),
+          operation: OperationEnum.MULT
+        },
+        {
           target: 'physical_actionseffect',
           value: level => Math.floor(level/2),
           operation: OperationEnum.SUM
@@ -1355,6 +1381,21 @@
       effects: [
         {
           target: 'chardexterityfeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'initiativefeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'dodgefeatureeffect',
+          value: level => level,
+          operation: OperationEnum.MULT
+        },
+        {
+          target: 'weaponeffect',
           value: level => level,
           operation: OperationEnum.MULT
         },

@@ -149,7 +149,7 @@
 
 .sheet-init-grid {
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto auto auto auto;
 	justify-items: center;
 	align-items: center;
 	gap: 5px;
