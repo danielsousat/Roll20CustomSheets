@@ -292,7 +292,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-skill-general-mod {
-	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .sheet-skill-points input {
@@ -338,16 +338,6 @@ div.sheet-shadow-bottom-left::after {
 	padding-right: 10px;
 	display: flex;
     align-items: center;
-}
-
-.sheet-skill-points-middle {
-	border-left: 1px solid black;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 }
 
 .sheet-skill-bonus-label {

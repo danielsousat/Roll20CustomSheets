@@ -325,28 +325,6 @@
 
               <div class="skill-points">
 
-                <div class="skill-points-box">
-                  <div class="skill-points-label">
-                    <span class="secondary-label secondary-font" data-i18n="points_to_spend">Points to spend</span>
-                  </div>
-
-                  <div class="skill-points-middle">
-                    <input name="attr_points_to_spend" type="number" title="@{points_to_spend}" value="20" />
-                  </div>
-
-                  <div class="outer-box">
-
-                    <div class="skills-inner-box flex-row">
-
-                      <input name="attr_points_spent" type="number" readonly="true" value="0" title="@{points_spent}" />
-
-                      <div class="skills-negative-corner top-right-corner"></div>
-                      <div class="skills-negative-corner bottom-right-corner"></div>
-                    </div>
-
-                  </div>
-                </div>
-
                 <div class="skill-points-box skill-general-mod">
                   <div class="skill-points-label">
                     <span class="secondary-label secondary-font" data-i18n="all_tests_modifier">All tests
@@ -365,6 +343,26 @@
 
                   </div>
                 </div>
+
+                <div class="skill-points-box">
+                  <div class="skill-points-label">
+                    <span class="secondary-label secondary-font" data-i18n="points_to_spend">Points to spend</span>
+                  </div>
+
+                  <div class="outer-box">
+
+                    <div class="skills-inner-box flex-row">
+
+                      <input name="attr_points_to_spend" type="number" title="@{points_to_spend}" value="20" />
+
+                      <div class="skills-negative-corner top-right-corner"></div>
+                      <div class="skills-negative-corner bottom-right-corner"></div>
+                    </div>
+
+                  </div>
+                </div>
+
+                
               </div>
 
               <div class="skills-header-column">
@@ -406,10 +404,11 @@
                     </div>
                   </div>
 
+                  <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="0" />
                   <div class="circle-box">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" checked="true" value="1"
+                    <input class="hidden-input" type="radio" name="attr_skill_level" value="1"
                       title="@{skill_level}" />
-                    <input class="control-input" value="on" type="hidden" name="attr_skill_level_control1" />
+                    <input class="control-input" value="off" type="hidden" name="attr_skill_level_control1" />
                     <span></span>
                   </div>
 
@@ -962,56 +961,61 @@
       repeatingSum("equip_total_passive_defence", "equip", ["equip_passive_defence_bonus", "equip_equipped"]);        
   });
 
-  function buildSkillsAttributesArray(ids) {
-    let attributesArray = [];
+  function getSkillCost(skillLevel) {
+    let skillCost = 0;
+    switch(skillLevel) {
+      case 1:
+        skillCost = 1;
+        break;
+      case 2:
+        skillCost = 3;
+        break;
+      case 3:
+        skillCost = 7;
+        break;
+    }
 
-    ids.forEach(id => { 
-      attributesArray.push(`repeating_skills_${id}_skill_level`);
-    });
-
-    return attributesArray;
+    return skillCost;
   }
 
-  function calculateTotalSkillCost(ids, values) {
-    let totalCost = 0;
+  function updatePointsToSpend(plusPoints) {
 
-    ids.forEach(id => {
-      const skillLevel = parseInt(values[`repeating_skills_${id}_skill_level`])||0;
-      let skillCost = 0;
+    getAttrs(['points_to_spend'], values => {
+      const points = parseInt(values.points_to_spend)||0;
+      let currentPoints = points + plusPoints;
 
-      switch(skillLevel) {
-        case 1:
-          skillCost = 1;
-          break;
-        case 2:
-          skillCost = 3;
-          break;
-        case 3:
-          skillCost = 7;
-          break;
-      }
-
-      totalCost += skillCost;
-
-    });
-
-    return totalCost;
-  }
-
-  /* controlling total skill cost */
-  on('sheet:opened change:repeating_skills remove:repeating_skills change:points_to_spend', function(eventInfo) {
-    getSectionIDs('repeating_skills', idArray => {
-      let attributesArray = buildSkillsAttributesArray(idArray);
-
-      getAttrs([...attributesArray], function(values) {
-        let totalSkillCost = calculateTotalSkillCost(idArray, values);
-        console.log('totalSkillCost');
-        console.log(totalSkillCost);
-        setAttrs({
-          points_spent: totalSkillCost
-        });
+      setAttrs({
+        points_to_spend: currentPoints
       });
     });
+  }
+
+  /* Controlling points to spend when the skill is removed */
+  on('remove:repeating_skills', function(eventInfo) {
+    const skillLevel = parseInt(eventInfo.removedInfo[`${eventInfo.sourceAttribute}_skill_level`])||0; 
+    
+    /*adding the skill cost to the points to spend when the skill is removed */
+    updatePointsToSpend(getSkillCost(skillLevel));
+    
+  });
+
+  /* Controlling points to spend when the skill level is changed */
+  on('change:repeating_skills:skill_level', function(eventInfo) {
+    const newValue = parseInt(eventInfo.newValue)||0;
+    const oldValue = parseInt(eventInfo.previousValue)||0;
+    const oldCost = getSkillCost(oldValue);
+    const newCost = getSkillCost(newValue);
+
+    let difference = oldCost - newCost;
+
+    /* When the repeating item is new, the oldValue will be equal to the newValue
+    In this case, we have to consider the cost in total */
+    if (difference == 0) {
+      difference = (-1)*newCost;
+    }
+
+    updatePointsToSpend(difference);
+
   });
 
   /* Turning off all other skills energy checkbox when the player checks a box */
