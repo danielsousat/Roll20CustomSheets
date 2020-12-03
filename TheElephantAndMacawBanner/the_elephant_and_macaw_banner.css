@@ -123,6 +123,19 @@
 
 .sheet-tab-panel button {
 	margin-right: 5px !important;
+	border: 0px;
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+    background: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+	padding: 0px;
+	font-family: 'Pictos' !important;
+}
+
+.sheet-tab-panel button:hover {
+	opacity: 0.5;
 }
 
 .sheet-middle {
@@ -860,7 +873,7 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-profiletab,
 .sheet-configurationtab,
-.sheet-journaltab {
+.sheet-helptab {
 	display: none;
 }
 
@@ -868,7 +881,7 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
 .sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
-.sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
+.sheet-tabcontrol[value="help"]~div.sheet-helptab {
 	display: block;
 }
 
@@ -999,33 +1012,6 @@ div.sheet-shadow-bottom-left::after {
 	z-index: 99 !important;
 	top: 0;
 	right: 0
-}
-
-/*------------- HIDDEN CONFIG -------------*/
-.sheet-config {
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 2px;
-	align-items: center;
-	background-color: lightgrey;
-}
-
-.sheet-configtype {
-	font-family: 'Pictos';
-}
-
-.sheet-configtype input[type=checkbox]:checked~span::before {
-	content: '*';
-}
-
-.sheet-configtype span::before {
-	content: 'y';
-}
-
-.sheet-corner-position {
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/

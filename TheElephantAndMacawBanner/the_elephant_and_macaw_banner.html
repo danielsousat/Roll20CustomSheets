@@ -1,20 +1,11 @@
 <div class="main-container">
-  <!-- TODO
-    Defesa e Energia
-      Programar pras defesesas ativa e passiva terem um valor máximo de 5.
-
-    Condicao Fisica
-      Automatizar a regra de quando o personagem so tem 3 ou menos pontos de resistência pra causar 
-      penalidade na rolagem de habilidades (que é basicamente -3).
-  
-  -->
 
   <!-- Tab navigation -->
   <div class="tab-panel">
 
-    <button type="action" name="act_profile">Perfil</button>
-    <button type="action" name="act_journal">Diário</button>
-    <button type="action" name="act_configuration">Configuração</button>
+    <button type="action" name="act_profile">U</button>
+    <button type="action" name="act_configuration">y</button>
+    <button type="action" name="act_help">?</button>
 
   </div>
   <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
@@ -472,24 +463,7 @@
         <div class="logo">
           <img
             src="https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/logo-english.png">
-
-          <div class="showhidebutton configtype corner-position">
-            <input type="checkbox" name="attr_config_showhide_checkbox" value="1" />
-            <span></span>
-          </div>
-
         </div>
-
-        <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
-        <input class="toggle-checkbox" type="checkbox" name="attr_config_showhide_checkbox_invisible" value="1" />
-
-        <div class="showhide">
-          <div class="config">
-            <span class="secondary-label secondary-font" data-i18n="max_defence_value">Max defence value</span>
-            <input type="number" name="attr_max_defence_value" value="5" title="@{max_defence_value}">
-          </div>
-        </div>
-
 
         <!-- Initiative and Untrained Skill -->
         <div class="initiative box-margin">
@@ -788,16 +762,19 @@
 
   </div>
 
-  <!-- Journal Tab -->
-  <div class='journaltab'>
-    <h2>Journal/Notes</h2>
-    <span>Journal/Notes Stuff Goes here</span>
-  </div>
-
   <!-- Config tab-->
   <div class='configurationtab'>
     <h2>Config/Settings</h2>
     <span>Sheet Config/Settings goes here</span>
+
+    <span class="secondary-label secondary-font" data-i18n="max_defence_value">Max defence value</span>
+    <input type="number" name="attr_max_defence_value" value="5" title="@{max_defence_value}">
+  </div>
+
+  <!-- Help Tab -->
+  <div class='helptab'>
+    <h2>Journal/Notes</h2>
+    <span>Journal/Notes Stuff Goes here</span>
   </div>
 
   <!-- Footer -->
@@ -890,7 +867,7 @@
 <!--Sheet Workers -->
 <script type="text/worker">
 
-  const buttonlist = ["profile","journal","configuration"];
+  const buttonlist = ["profile","help","configuration"];
   
   /*config tabs control */
   buttonlist.forEach(button => {
