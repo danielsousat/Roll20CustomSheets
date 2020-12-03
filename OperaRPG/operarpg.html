@@ -1323,18 +1323,18 @@
         },
         {
           target: 'initiativefeatureeffect',
-          value: level => Math.floor(level/2)+1,
-          operation: OperationEnum.MULT
+          value: level => level,
+          operation: OperationEnum.SUM
         },
         {
           target: 'dodgefeatureeffect',
-          value: level => Math.floor(level/2)+1,
-          operation: OperationEnum.MULT
+          value: level => level,
+          operation: OperationEnum.SUM
         },
         {
           target: 'weaponeffect',
-          value: level => Math.floor(level/2),
-          operation: OperationEnum.MULT
+          value: level => level,
+          operation: OperationEnum.SUM
         },
         {
           target: 'physical_actionseffect',
@@ -1387,17 +1387,17 @@
         {
           target: 'initiativefeatureeffect',
           value: level => level,
-          operation: OperationEnum.MULT
+          operation: OperationEnum.SUM
         },
         {
           target: 'dodgefeatureeffect',
           value: level => level,
-          operation: OperationEnum.MULT
+          operation: OperationEnum.SUM
         },
         {
           target: 'weaponeffect',
           value: level => level,
-          operation: OperationEnum.MULT
+          operation: OperationEnum.SUM
         },
         {
           target: 'physical_actionseffect',
