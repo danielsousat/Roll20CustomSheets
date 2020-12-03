@@ -1,6 +1,7 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Acme&Paytone+One|Lustria&display=swap');
+
 .sheet-main-container {
 	min-width: 600px;
 	max-width: 800px;
@@ -25,7 +26,8 @@
 	width: 4.2em;
 }
 
-.sheet-main-container input[readonly], .sheet-main-container input[disabled] {
+.sheet-main-container input[readonly],
+.sheet-main-container input[disabled] {
 	font-weight: bold;
 	color: blue;
 }
@@ -154,7 +156,9 @@
 	margin-right: 10px;
 }
 
-.sheet-characteristics input, .sheet-gear input, .sheet-equip input {
+.sheet-characteristics input,
+.sheet-gear input,
+.sheet-equip input {
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -214,7 +218,8 @@ div.sheet-shadow-bottom-left::after {
 	font-size: 12px;
 }
 
-.sheet-header-row input, .sheet-skills input {
+.sheet-header-row input,
+.sheet-skills input {
 	border: none;
 }
 
@@ -281,9 +286,13 @@ div.sheet-shadow-bottom-left::after {
 
 .sheet-skill-points {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.sheet-skill-general-mod {
+	margin-top:5px;
 }
 
 .sheet-skill-points input {
@@ -327,6 +336,8 @@ div.sheet-shadow-bottom-left::after {
 	border-bottom: 1px solid black;
 	padding-left: 10px;
 	padding-right: 10px;
+	display: flex;
+    align-items: center;
 }
 
 .sheet-skill-points-middle {
@@ -355,11 +366,21 @@ div.sheet-shadow-bottom-left::after {
 .sheet-skill-hidden {
 	display: flex;
 	align-items: center;
+	margin: 5px;
 }
 
 .sheet-skill-hidden input {
 	margin-left: 5px;
 	margin-right: 20px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid black;
+	border-radius: 0;
+	padding: 0px;
+	background-color: #d2d3d5;
+	height: auto;
+
 }
 
 /*----------------- SKILLS LEVEL CIRCLE ------------------*/
@@ -461,7 +482,8 @@ div.sheet-shadow-bottom-left::after {
 	margin-bottom: 10px;
 }
 
-.sheet-critical-radio, .sheet-radio-zero {
+.sheet-critical-radio,
+.sheet-radio-zero {
 	opacity: 0;
 	z-index: 1;
 	position: relative;
@@ -497,7 +519,8 @@ div.sheet-shadow-bottom-left::after {
 	font-size: smaller;
 }
 
-.sheet-critical-radio:hover+span, .sheet-radio-zero:hover+span {
+.sheet-critical-radio:hover+span,
+.sheet-radio-zero:hover+span {
 	opacity: 0.7;
 }
 
@@ -842,13 +865,17 @@ div.sheet-shadow-bottom-left::after {
 
 /*Configure the tab buttons*/
 
-.sheet-profiletab, .sheet-configurationtab, .sheet-journaltab {
+.sheet-profiletab,
+.sheet-configurationtab,
+.sheet-journaltab {
 	display: none;
 }
 
 /* show the selected tab */
 
-.sheet-tabcontrol[value="profile"]~div.sheet-profiletab, .sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab, .sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
+.sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
+.sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
+.sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
 	display: block;
 }
 
@@ -962,12 +989,16 @@ div.sheet-shadow-bottom-left::after {
 	display: block;
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol,
+.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
 	z-index: 99;
 	font-family: 'Pictos'
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del,
+.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
 	font-family: 'Pictos';
 	background-color: #d13235;
 	background-image: none;
@@ -1001,7 +1032,7 @@ div.sheet-shadow-bottom-left::after {
 .sheet-corner-position {
 	position: absolute;
 	right: 0px;
-  bottom: 0px;
+	bottom: 0px;
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/
@@ -1022,6 +1053,7 @@ div.sheet-shadow-bottom-left::after {
 .sheet-rolltemplate-main .sheet-template-value {
 	font-family: Paytone One;
 	font-style: italic;
+	margin-left: 5px;
 }
 
 .sheet-rolltemplate-main .sheet-template-header {
