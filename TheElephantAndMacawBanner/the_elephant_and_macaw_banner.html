@@ -3,12 +3,15 @@
   <!-- Tab navigation -->
   <div class="tab-panel">
 
-    <button type="action" name="act_profile">U</button>
-    <button type="action" name="act_configuration">y</button>
-    <button type="action" name="act_help">?</button>
+    <input type="radio" name="attr_tabs_radio" value="profile" checked="true" />
+    <div>U</div>
+    <input type="radio" name="attr_tabs_radio" value="configuration" />
+    <div>y</div>
+    <input type="radio" name="attr_tabs_radio" value="help" />
+    <div>?</div>
 
   </div>
-  <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
+  <input type='hidden' class="tabcontrol" name='attr_selected_tab' value='profile' />
 
   <!-- Profile Tab -->
   <div class="profiletab">
@@ -353,7 +356,7 @@
                   </div>
                 </div>
 
-                
+
               </div>
 
               <div class="skills-header-column">
@@ -395,10 +398,10 @@
                     </div>
                   </div>
 
-                  <input class="hidden-zero-input hidden-input" type="radio" name="attr_skill_level" checked="true" value="0" />
+                  <input class="hidden-zero-input hidden-input" type="radio" name="attr_skill_level" checked="true"
+                    value="0" />
                   <div class="circle-box">
-                    <input class="hidden-input" type="radio" name="attr_skill_level" value="1"
-                      title="@{skill_level}" />
+                    <input class="hidden-input" type="radio" name="attr_skill_level" value="1" title="@{skill_level}" />
                     <input class="control-input" value="off" type="hidden" name="attr_skill_level_control1" />
                     <span></span>
                   </div>
@@ -764,17 +767,84 @@
 
   <!-- Config tab-->
   <div class='configurationtab'>
-    <h2>Config/Settings</h2>
-    <span>Sheet Config/Settings goes here</span>
 
-    <span class="secondary-label secondary-font" data-i18n="max_defence_value">Max defence value</span>
-    <input type="number" name="attr_max_defence_value" value="5" title="@{max_defence_value}">
+    <div class="box-margin">
+
+      <div class="outer-box">
+
+        <div class="black-box inner-box">
+          <span class="label primary-font" data-i18n="settings">Settings</span>
+
+          <div class="negative-corner top-left-corner"></div>
+          <div class="negative-corner top-right-corner"></div>
+        </div>
+
+      </div>
+
+      <div class="box-middle content-box">
+
+        <div class="settings-grid">
+          <span class="secondary-label secondary-font" data-i18n="max_defence_value">Max defence value</span>
+          <input type="number" name="attr_max_defence_value" value="5" title="@{max_defence_value}">
+        </div>
+
+      </div>
+
+      <div class="outer-box">
+        <div class="box-bottom">
+
+          <div class="negative-corner bottom-left-corner"></div>
+          <div class="negative-corner bottom-right-corner"></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Help Tab -->
   <div class='helptab'>
-    <h2>Journal/Notes</h2>
-    <span>Journal/Notes Stuff Goes here</span>
+    <div class="box-margin">
+
+      <div class="outer-box">
+
+        <div class="black-box inner-box">
+          <span class="label primary-font" data-i18n="help">Help</span>
+
+          <div class="negative-corner top-left-corner"></div>
+          <div class="negative-corner top-right-corner"></div>
+        </div>
+
+      </div>
+
+      <div class="box-middle content-box">
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem quam, hendrerit sed urna ac, vulputate
+          pulvinar felis. Sed imperdiet vitae erat ut consequat. Phasellus non ultricies felis. Duis sem sapien,
+          ultrices varius gravida quis, dictum nec dui. Nam sed quam tempus, semper ligula non, interdum odio. Ut quis
+          molestie elit. Sed maximus ornare tortor sed hendrerit. Suspendisse eu luctus ipsum.
+
+          Vestibulum tellus orci, accumsan ut justo a, dictum fermentum turpis. Nulla fermentum mollis nulla ac
+          tincidunt. Vivamus ipsum ante, tincidunt id faucibus ut, tincidunt sit amet lorem. Orci varius natoque
+          penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi blandit scelerisque lacus non
+          iaculis. Maecenas leo lacus, rhoncus mattis sodales vel, consequat ut arcu. Nulla congue varius tellus in
+          feugiat. Nam in laoreet dui, vel egestas tortor. Aenean eros odio, hendrerit vel ullamcorper efficitur,
+          facilisis ac purus. Aliquam quam velit, vulputate eu ultricies non, volutpat ac est. Nulla rutrum ac orci nec
+          molestie. Mauris efficitur metus vitae urna porta aliquet eu in leo. Praesent a odio nisl.
+        </p>
+
+
+      </div>
+
+      <div class="outer-box">
+        <div class="box-bottom">
+
+          <div class="negative-corner bottom-left-corner"></div>
+          <div class="negative-corner bottom-right-corner"></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Footer -->
@@ -867,15 +937,11 @@
 <!--Sheet Workers -->
 <script type="text/worker">
 
-  const buttonlist = ["profile","help","configuration"];
-  
-  /*config tabs control */
-  buttonlist.forEach(button => {
-      on(`clicked:${button}`, function() {
-          setAttrs({
-              tabcontrol: button
-          });
-      });
+  /*Tabs Control */
+  on('change:tabs_radio', function(eventInfo) {
+    setAttrs({
+      selected_tab: eventInfo.newValue
+    });
   });
 
   /*Controls skill level circles */

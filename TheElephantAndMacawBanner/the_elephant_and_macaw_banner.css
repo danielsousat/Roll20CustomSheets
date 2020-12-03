@@ -1,7 +1,6 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Acme&Paytone+One|Lustria&display=swap');
-
 .sheet-main-container {
 	min-width: 600px;
 	max-width: 800px;
@@ -26,8 +25,7 @@
 	width: 4.2em;
 }
 
-.sheet-main-container input[readonly],
-.sheet-main-container input[disabled] {
+.sheet-main-container input[readonly], .sheet-main-container input[disabled] {
 	font-weight: bold;
 	color: blue;
 }
@@ -115,29 +113,6 @@
 	position: relative;
 }
 
-.sheet-tab-panel {
-	display: flex;
-	flex-direction: row;
-	margin: 10px;
-}
-
-.sheet-tab-panel button {
-	margin-right: 5px !important;
-	border: 0px;
-    font-size: 25px;
-    width: 25px;
-    height: 25px;
-    background: transparent !important;
-    text-shadow: none !important;
-    box-shadow: none !important;
-	padding: 0px;
-	font-family: 'Pictos' !important;
-}
-
-.sheet-tab-panel button:hover {
-	opacity: 0.5;
-}
-
 .sheet-middle {
 	display: grid;
 	grid-template-columns: 65% 35%;
@@ -168,9 +143,7 @@
 	margin-right: 10px;
 }
 
-.sheet-characteristics input,
-.sheet-gear input,
-.sheet-equip input {
+.sheet-characteristics input, .sheet-gear input, .sheet-equip input {
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -230,12 +203,12 @@ div.sheet-shadow-bottom-left::after {
 	font-size: 12px;
 }
 
-.sheet-header-row input,
-.sheet-skills input {
+.sheet-header-row input, .sheet-skills input {
 	border: none;
 }
 
 /*----------------- INITIATIVE ------------------*/
+
 .sheet-initiative {
 	display: grid;
 	grid-template-columns: auto auto;
@@ -304,7 +277,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-skill-general-mod {
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 
 .sheet-skill-points input {
@@ -349,7 +322,7 @@ div.sheet-shadow-bottom-left::after {
 	padding-left: 10px;
 	padding-right: 10px;
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .sheet-skill-bonus-label {
@@ -382,7 +355,6 @@ div.sheet-shadow-bottom-left::after {
 	padding: 0px;
 	background-color: #d2d3d5;
 	height: auto;
-
 }
 
 /*----------------- SKILLS LEVEL CIRCLE ------------------*/
@@ -416,7 +388,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-hidden-zero-input {
-	display:none;
+	display: none;
 }
 
 .sheet-control-input[value="on"]~span {
@@ -488,8 +460,7 @@ div.sheet-shadow-bottom-left::after {
 	margin-bottom: 10px;
 }
 
-.sheet-critical-radio,
-.sheet-radio-zero {
+.sheet-critical-radio, .sheet-radio-zero {
 	opacity: 0;
 	z-index: 1;
 	position: relative;
@@ -525,8 +496,7 @@ div.sheet-shadow-bottom-left::after {
 	font-size: smaller;
 }
 
-.sheet-critical-radio:hover+span,
-.sheet-radio-zero:hover+span {
+.sheet-critical-radio:hover+span, .sheet-radio-zero:hover+span {
 	opacity: 0.7;
 }
 
@@ -867,21 +837,63 @@ div.sheet-shadow-bottom-left::after {
 	right: -12px;
 }
 
-/*----------------- TAB CONTROL ------------------*/
+/*----------------- SETTINGS TAB ------------------*/
+.sheet-settings-grid {
+	display: grid;
+	grid-template-columns: auto auto;
+	width: fit-content;
+	gap: 5px;
+}
+
+/*----------------- TABS CONTROL ------------------*/
+
+.sheet-tab-panel {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+
+.sheet-tab-panel input {
+	border: 0px;
+	width: 25px;
+	height: 25px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+	margin-right: -25px;
+	z-index: 1;
+	opacity: 0;
+}
+
+.sheet-tab-panel div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Pictos';
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+
+.sheet-tab-panel input:hover+div {
+	opacity: 0.5;
+}
+
+.sheet-tab-panel input:checked+div {
+	color: goldenrod;
+}
 
 /*Configure the tab buttons*/
 
-.sheet-profiletab,
-.sheet-configurationtab,
-.sheet-helptab {
+.sheet-profiletab, .sheet-configurationtab, .sheet-helptab {
 	display: none;
 }
 
 /* show the selected tab */
 
-.sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
-.sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
-.sheet-tabcontrol[value="help"]~div.sheet-helptab {
+.sheet-tabcontrol[value="profile"]~div.sheet-profiletab, .sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab, .sheet-tabcontrol[value="help"]~div.sheet-helptab {
 	display: block;
 }
 
@@ -995,16 +1007,12 @@ div.sheet-shadow-bottom-left::after {
 	display: block;
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol,
-.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol,
-.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .itemcontrol, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .itemcontrol {
 	z-index: 99;
 	font-family: 'Pictos'
 }
 
-.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del,
-.sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del,
-.sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
+.sheet-main-container .repcontainer[data-groupname="repeating_skills"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_gear"]>.repitem .repcontrol_del, .sheet-main-container .repcontainer[data-groupname="repeating_equip"]>.repitem .repcontrol_del {
 	font-family: 'Pictos';
 	background-color: #d13235;
 	background-image: none;
