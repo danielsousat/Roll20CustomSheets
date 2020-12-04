@@ -738,7 +738,7 @@
 
         <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}"
           data-i18n-placeholder="fight" placeholder="Briga" />
-        <input class="row-item-margin" readonly="true" name="attr_fightlevel" type="number" title="@{fightlevel}" />
+        <input class="row-item-margin" readonly="true" name="attr_fightlevel" type="text" title="@{fightlevel}" />
         <div class="weapons-subheader-grid">
           <input class="weapons-damage-base" readonly="true" name="attr_fightdamage" type="text" title="@{fightdamage}"
             value="d2-1" />
@@ -746,7 +746,7 @@
             title="@{fightdamagetotal}" value="0" />
         </div>
         <div class="weapons-subheader-grid">
-          <input class="weapons-base" readonly="true" name="attr_fightblow" type="number" title="@{fightblow}"
+          <input class="weapons-base" readonly="true" name="attr_fightblow" type="text" title="@{fightblow}"
             value="0" />
           <input class="weapons-base" disabled="true" name="attr_fightblowtotal" type="text"
             title="@{fightblowtotal}" value="@{fightlevel} + @{fightblow} + (@{chardexterity} @{weaponeffect})" />
@@ -755,7 +755,7 @@
         </div>
 
         <div class="weapons-subheader-grid">
-          <input class="weapons-base" readonly="true" name="attr_fightparry" type="number" title="@{fightparry}"
+          <input class="weapons-base" readonly="true" name="attr_fightparry" type="text" title="@{fightparry}"
             value="0" />
           <input class="weapons-base" disabled="true" name="attr_fightparrytotal" type="text"
             title="@{fightparrytotal}" value="@{fightlevel} + @{fightparry} + (@{chardexterity} @{weaponeffect})" />
@@ -776,14 +776,14 @@
           <div class="repeatable-grid weapons">
 
             <input class="row-item-margin" name="attr_weaponname" type="text" title="@{weaponname}" />
-            <input class="row-item-margin" name="attr_weaponlevel" type="number" title="@{weaponlevel}" value="0" />
+            <input class="row-item-margin" name="attr_weaponlevel" type="text" title="@{weaponlevel}" value="0" />
             <div class="weapons-subheader-grid">
               <input class="weapons-damage-base" name="attr_weapondamage" type="text" title="@{weapondamage}" value="0" />
               <input class="weapons-damage-total" readonly="true" name="attr_weapondamagetotal" type="text"
                 title="@{weapondamagetotal}" value="0" />
             </div>
             <div class="weapons-subheader-grid">
-              <input class="weapons-base" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
+              <input class="weapons-base" name="attr_weaponblow" type="text" title="@{weaponblow}" value="0" />
               <input class="weapons-base" name="attr_weaponblowtotal" type="text" title="@{weaponblowtotal}" 
                 disabled="true" value="@{weaponlevel} + @{weaponblow} + @{fightblow} + (@{chardexterity} @{weaponeffect})" />
               <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
@@ -791,7 +791,7 @@
             </div>
 
             <div class="weapons-subheader-grid">
-              <input class="weapons-base" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
+              <input class="weapons-base" name="attr_weaponparry" type="text" title="@{weaponparry}" value="0" />
               <input class="weapons-base" name="attr_weaponparrytotal" type="text" title="@{weaponparrytotal}" 
                 disabled="true" value="@{weaponlevel} + @{weaponparry} + @{fightparry} + (@{chardexterity} @{weaponeffect})" />
               <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
