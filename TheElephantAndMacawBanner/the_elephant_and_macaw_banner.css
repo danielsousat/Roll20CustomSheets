@@ -690,8 +690,8 @@ div.sheet-shadow-bottom-left::after {
 	margin-left: 5px;
 	padding: 0px;
 	border: 1px solid black;
+	width: 80px !important;
 	text-align: center;
-	width: 50px !important;
 }
 
 .sheet-gear-hidden {
@@ -843,6 +843,42 @@ div.sheet-shadow-bottom-left::after {
 	grid-template-columns: auto auto;
 	width: fit-content;
 	gap: 5px;
+}
+
+/*----------------- HELP TAB ------------------*/
+.sheet-help-content {
+	padding: 20px;
+}
+
+.sheet-help-title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+.sheet-help-default {
+	font-size: 15px !important;
+}
+
+.sheet-help-bold {
+	font-weight: bold;
+	font-size: 16px !important;
+}
+
+.sheet-help-roll {
+	font-size: 15px !important;
+	font-style: italic;
+	text-align: center;
+	margin: 10px;
+}
+
+.sheet-help-credits {
+	font-style: italic;
+}
+
+.sheet-help-margin-top {
+	margin-top: 20px;
 }
 
 /*----------------- TABS CONTROL ------------------*/
