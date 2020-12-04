@@ -112,5 +112,6 @@
 	"right_leg_f": "Perna direita(G)",
 	"left_leg_h": "Perna esquerda(H)",
 	"body_area": "Área do Corpo Atingida",
-	"physical_damage": "Dano por Físico"
+	"physical_damage": "Dano por Físico",
+	"base_total": "Base/Total"
 }

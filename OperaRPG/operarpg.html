@@ -99,7 +99,8 @@
 
         <input name="attr_initiativebase" type="number" disabled="true" title="@{initiativebase}"
           value="@{chardexterity}" />
-        <input type="text" readonly="true" name="attr_initiativefeatureeffect" value="+0" title="@{initiativefeatureeffect}">
+        <input type="text" readonly="true" name="attr_initiativefeatureeffect" value="+0"
+          title="@{initiativefeatureeffect}">
         <input name="attr_initiativemod" type="number" title="@{initiativemod}" value="0" />
         <input name="attr_initiativetotal" type="number" disabled="true" title="@{initiativetotal}"
           value="@{initiativebase} @{initiativefeatureeffect} + @{initiativemod}" />
@@ -136,8 +137,7 @@
     <div class="header-box damage">
 
       <span class="label secondary-font" data-i18n="physical_damage">Dano por Físico</span>
-      <input type="text" disabled="true" name="attr_physicaldamage" title="@{physicaldamage}"
-        value="floor(floor(@{charphysique} @{charphysicalfeatureeffect})/8)" />
+      <input type="text" readonly="true" name="attr_physicaldamage" title="@{physicaldamage}" value="0" />
 
     </div>
 
@@ -430,7 +430,7 @@
 
           <div class="showhide">
             <div class="select-hidden-grid">
-              
+
               <button type="action" class="add-button" name="act_increased_dexterity"></button>
               <span class="label secondary-font" data-i18n="increased_dexterity"
                 data-i18n-title="increased_dexterity-description"
@@ -530,7 +530,8 @@
           <div class="repeatable-grid skills">
             <button type="roll" class="roll-button" name="roll_fight_check" title="@{fight_check}"
               value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=[[@{fighttotal}]]}} {{result=[[?{@{normalorcontest} | @{normal}, 2d6cs<5cf>2 | @{contest}, 2d6cs>2cf<5+@{fighttotal}}+?{@{modifier}|0}]]}}"></button>
-            <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}" data-i18n-placeholder="fight" placeholder="Briga" />
+            <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}"
+              data-i18n-placeholder="fight" placeholder="Briga" />
             <span class="secondary-font" data-i18n="dexterity">Destreza</span>
             <input type="hidden" name="attr_fightattribute" value="@{chardexterity}" />
             <select class="select row-item-margin" name="attr_fightlevel" title="@{fightlevel}">
@@ -540,10 +541,9 @@
               <option value="3">3</option>
               <option value="4">4</option>
             </select>
-            <input class="row-item-margin" name="attr_fightcost" type="text" readonly title="@{fightcost}"
-              value="1" />
-            <input class="row-item-margin" name="attr_fighttotal" type="number" disabled="true"
-              title="@{fighttotal}" value="@{fightattribute} + @{fightlevel}" />
+            <input class="row-item-margin" name="attr_fightcost" type="text" readonly title="@{fightcost}" value="1" />
+            <input class="row-item-margin" name="attr_fighttotal" type="number" disabled="true" title="@{fighttotal}"
+              value="@{fightattribute} + @{fightlevel}" />
 
             <div>
             </div>
@@ -706,9 +706,27 @@
       <div class="repeatable-grid weapons">
         <span class="column-header  secondary-font" data-i18n="weapon">Arma</span>
         <span class="column-header  secondary-font" data-i18n="level">Nível</span>
-        <span class="column-header  secondary-font" data-i18n="damage">Dano</span>
-        <span class="column-header  secondary-font" data-i18n="blow">Golpe</span>
-        <span class="column-header  secondary-font" data-i18n="parry">Aparo</span>
+        <div>
+          <span class="column-header  secondary-font" data-i18n="damage">Dano</span>
+          <div class="weapons-subheader-grid">
+            <span class="column-subheader  secondary-font" data-i18n="base">Base</span>
+            <span class="column-subheader  secondary-font" data-i18n="total">Total</span>
+          </div>
+        </div>
+        <div>
+          <span class="column-header  secondary-font" data-i18n="blow">Golpe</span>
+          <div class="weapons-subheader-grid">
+            <span class="column-subheader  secondary-font" data-i18n="base">Base</span>
+            <span class="column-subheader  secondary-font" data-i18n="total">Total</span>
+          </div>
+        </div>
+        <div>
+          <span class="column-header  secondary-font" data-i18n="parry">Aparo</span>
+          <div class="weapons-subheader-grid">
+            <span class="column-subheader  secondary-font" data-i18n="base">Base</span>
+            <span class="column-subheader  secondary-font" data-i18n="total">Total</span>
+          </div>
+        </div>
         <span class="column-header  secondary-font" data-i18n="fast_shot">Tiro Rápido</span>
         <span class="column-header  secondary-font" data-i18n="aimed_shot">Tiro Mirado</span>
         <span class="column-header  secondary-font" data-i18n="rate_of_fire">Cad</span>
@@ -718,17 +736,29 @@
 
       <div class="repeatable-grid weapons">
 
-        <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}" data-i18n-placeholder="fight" placeholder="Briga" />
+        <input class="row-item-margin" readonly="true" name="attr_fight_name" type="text" title="@{fight_name}"
+          data-i18n-placeholder="fight" placeholder="Briga" />
         <input class="row-item-margin" readonly="true" name="attr_fightlevel" type="number" title="@{fightlevel}" />
-        <input class="row-item-margin" readonly="true" name="attr_fightdamage" type="text" title="@{fightdamage}" value="d2-1" />
-        <div class="weapons-die-label">
-          <input class="row-item-margin" readonly="true" name="attr_fightblow" type="number" title="@{fightblow}" value="0" />
+        <div class="weapons-subheader-grid">
+          <input class="weapons-damage-base" readonly="true" name="attr_fightdamage" type="text" title="@{fightdamage}"
+            value="d2-1" />
+          <input class="weapons-damage-total" readonly="true" name="attr_fightdamagetotal" type="text"
+            title="@{fightdamagetotal}" value="0" />
+        </div>
+        <div class="weapons-subheader-grid">
+          <input class="weapons-base" readonly="true" name="attr_fightblow" type="number" title="@{fightblow}"
+            value="0" />
+          <input class="weapons-base" disabled="true" name="attr_fightblowtotal" type="text"
+            title="@{fightblowtotal}" value="@{fightlevel} + @{fightblow} + (@{chardexterity} @{weaponeffect})" />
           <button type="roll" class="roll-button" name="roll_fightblow_check" title="@{fightblow_check}"
             value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{blow}}} {{damage=[[@{fightdamage}+@{physicaldamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{fightlevel} + @{fightblow} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
         </div>
 
-        <div class="weapons-die-label">
-          <input class="row-item-margin" readonly="true" name="attr_fightparry" type="number" title="@{fightparry}" value="0" />
+        <div class="weapons-subheader-grid">
+          <input class="weapons-base" readonly="true" name="attr_fightparry" type="number" title="@{fightparry}"
+            value="0" />
+          <input class="weapons-base" disabled="true" name="attr_fightparrytotal" type="text"
+            title="@{fightparrytotal}" value="@{fightlevel} + @{fightparry} + (@{chardexterity} @{weaponeffect})" />
           <button type="roll" class="roll-button" name="roll_fightparry_check" title="@{fightparry_check}"
             value="&{template:main} {{charname=@{character_name}}} {{action=@{fight}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{fightlevel} + @{fightparry} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
         </div>
@@ -747,17 +777,23 @@
 
             <input class="row-item-margin" name="attr_weaponname" type="text" title="@{weaponname}" />
             <input class="row-item-margin" name="attr_weaponlevel" type="number" title="@{weaponlevel}" value="0" />
-            <input class="row-item-margin" name="attr_weapondamage" type="text" title="@{weapondamage}" value="0" />
-            <div class="weapons-die-label">
-              <input class="row-item-margin" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
-                            
+            <div class="weapons-subheader-grid">
+              <input class="weapons-damage-base" name="attr_weapondamage" type="text" title="@{weapondamage}" value="0" />
+              <input class="weapons-damage-total" readonly="true" name="attr_weapondamagetotal" type="text"
+                title="@{weapondamagetotal}" value="0" />
+            </div>
+            <div class="weapons-subheader-grid">
+              <input class="weapons-base" name="attr_weaponblow" type="number" title="@{weaponblow}" value="0" />
+              <input class="weapons-base" name="attr_weaponblowtotal" type="text" title="@{weaponblowtotal}" 
+                disabled="true" value="@{weaponlevel} + @{weaponblow} + @{fightblow} + (@{chardexterity} @{weaponeffect})" />
               <button type="roll" class="roll-button" name="roll_weaponblow_check" title="@{weaponblow_check}"
                 value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{blow}}} {{damage=[[@{weapondamage}+@{physicaldamage}]]}} {{bodyroll=[[2d6cs0cf0]]}} {{result=[[2d6cs>2cf<5 + @{weaponlevel} + @{weaponblow} + @{fightblow} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
             </div>
 
-            <div class="weapons-die-label">
-              <input class="row-item-margin" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
-              
+            <div class="weapons-subheader-grid">
+              <input class="weapons-base" name="attr_weaponparry" type="number" title="@{weaponparry}" value="0" />
+              <input class="weapons-base" name="attr_weaponparrytotal" type="text" title="@{weaponparrytotal}" 
+                disabled="true" value="@{weaponlevel} + @{weaponparry} + @{fightparry} + (@{chardexterity} @{weaponeffect})" />
               <button type="roll" class="roll-button" name="roll_weaponparry_check" title="@{weaponparry_check}"
                 value="&{template:main} {{charname=@{character_name}}} {{action=@{weaponname}}} {{value=@{parry}}} {{result=[[2d6cs>2cf<5 + @{weaponlevel} + @{weaponparry} + @{fightparry} + (@{chardexterity} @{weaponeffect}) + ?{@{modifier}|0} ]] }}"></button>
             </div>
@@ -971,10 +1007,63 @@
     
     changeAttributes[targetId] = eventInfo.newValue;
 
-    console.log(eventInfo);
-    console.log(changeAttributes);
-
     setAttrs(changeAttributes);
+  });
+
+  function setRollTotal(factors, target) {
+    
+    getAttrs(factors, values => {
+      let total = '';
+      let out = {};
+
+      for (let i = 0; i < factors.length; i++) {
+        let v = factors[i];
+
+        total += `(${values[v]})`;
+
+        if ((i+1) != factors.length) {
+          total += '+';
+        }
+      }
+
+      console.log('total');
+      console.log(total);
+    
+      out[target] = total;
+      
+      setAttrs(out); 
+    });
+  }
+
+  /*Controling fight damage total*/
+  on('sheet:opened change:fightdamage change:physicaldamage', function(eventInfo) {
+    
+    setRollTotal(['fightdamage', 'physicaldamage'], 'fightdamagetotal');
+  });
+
+  /*Controling weapons damage total*/
+  on('change:repeating_weapons:weapondamage change:physicaldamage', function(eventInfo) {
+    console.log('weapon damage total');
+    setRollTotal(['repeating_weapons_weapondamage', 'physicaldamage'], 'repeating_weapons_weapondamagetotal');
+  });
+
+  /* calculating physical damage */
+  on('sheet:opened change:charphysique change:charphysicalfeatureeffect', function(eventInfo) {
+    getAttrs(['charphysique', 'charphysicalfeatureeffect'], values => {
+      let parse = '';
+      let factor = 0;
+      let total = 0;
+      parse += values.charphysique;
+      parse += values.charphysicalfeatureeffect;
+
+      factor = Math.floor(eval(parse));
+
+      total = Math.floor(factor/8);
+
+      setAttrs({
+        physicaldamage: total
+      });
+    });
   });
 
   //Repeating Sum [https://wiki.roll20.net/RepeatingSum]
@@ -1032,9 +1121,6 @@
         skillCost = 10;
         break;
     }
-
-    console.log("skill level = " + skillLevel);
-    console.log("skill cost = " + skillCost);
 
     return skillCost;
   }
@@ -1095,9 +1181,6 @@
     
     out.fightcost = skillCost;
     out = Object.assign(out, fightParams);
-
-    console.log('fight control: out');
-    console.log(out);
 
     setAttrs(out);
   });
@@ -1499,9 +1582,6 @@
         if (values[button].effects !== undefined) {
           newrowattrs[`repeating_${sectionName}s_${newrowid}_${sectionName}id`] = button;
         }
-  
-        console.log('setPreconfiguredSections: newrowattrs');
-        console.log(newrowattrs);
         
         setAttrs(newrowattrs);
         
@@ -1543,8 +1623,6 @@
   */
   function calculateEffectsAndMods(sectionConfig, sectionName, values, sectionIds, totals) {
     
-    console.log("calculateEffectsAndMods: values");
-    console.log(values);
 
     for(var i=0; i < sectionIds.length; i++) {
       const id = sectionIds[i];
@@ -1557,8 +1635,6 @@
           effects = sectionConfig[itemID].effects;
         }
 
-        console.log("calculateEffectsAndMods: effects");
-        console.log(effects);
         if (effects !== undefined) {
           sumEffects(effects, level, totals);
         }
@@ -1581,7 +1657,7 @@
     
     let totals = {};
     let out = {};
-    console.log("setting and calculating feature effects start");
+    
     
     getSectionIDs('features', function(featuresIdarray) {
       getSectionIDs('powers', function(powersIdarray) {
@@ -1591,8 +1667,6 @@
         buildSectionAttributesArray(powersIdarray, 'power', attributesArray);
         addAttributesMods(attributesArray);
         
-        console.log("setting and calculating feature effects: attributesArray");
-        console.log(attributesArray);
 
         getAttrs(attributesArray, function(values) {
 

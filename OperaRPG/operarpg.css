@@ -80,6 +80,11 @@
 	margin-right: 5px;
 }
 
+.sheet-column-subheader {
+	font-style: italic;
+	font-size: 10px !important;
+}
+
 .sheet-row-item-margin {
 	margin-right: 5px !important; 
 }
@@ -244,7 +249,8 @@
 	display: grid;
 	justify-items: stretch;
 	align-items: center;
-	gap: 5px;
+	column-gap: 10px;
+	row-gap: 5px;
 }
 
 .sheet-repeatable-item {
@@ -269,7 +275,7 @@
 }
 
 .sheet-weapons {
-	grid-template-columns: auto 45px 70px 65px 65px 65px 65px 45px 24px;
+	grid-template-columns: auto 40px 100px 90px 90px 65px 65px 45px 24px;
 }
 
 .sheet-fight-span {
@@ -285,6 +291,25 @@
 
 .sheet-weapons-die-label input {
 	margin-right: 1px !important;
+}
+
+.sheet-weapons-base {
+	width: 30px !important;
+}
+
+.sheet-weapons-damage-base {
+	width: 40px !important;
+}
+
+.sheet-weapons-damage-total {
+	width: 60px !important;
+}
+
+.sheet-weapons-subheader-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	column-gap: 2px;
+	align-items: center;
 }
 
 .sheet-weapon-hidden {
