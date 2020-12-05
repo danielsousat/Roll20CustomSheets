@@ -427,7 +427,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-endurance-shield {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/endurance_shield.png');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/TheElephantAndMacawBanner/assets/endurance_shield.png');
 	width: 47px;
 	min-height: 47px !important;
 	background-repeat: no-repeat;
@@ -586,13 +586,13 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-active-defence {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/active_defense.png');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/TheElephantAndMacawBanner/assets/active_defense.png');
 	width: 55px;
 	min-height: 55px !important;
 }
 
 .sheet-passive-defence {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/passive_defense.png');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/TheElephantAndMacawBanner/assets/passive_defense.png');
 	width: 55px;
 	min-height: 55px !important;
 }
@@ -641,7 +641,7 @@ div.sheet-shadow-bottom-left::after {
 }
 
 .sheet-energy-shield {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/master/TheElephantAndMacawBanner/assets/energy.png');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/TheElephantAndMacawBanner/assets/energy.png');
 	width: 65px;
 	background-repeat: no-repeat;
 	background-position: center center;
