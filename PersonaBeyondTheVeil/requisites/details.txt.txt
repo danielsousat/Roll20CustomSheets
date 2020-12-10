@@ -1,0 +1,35 @@
+Alright, starting on the “Player Sheet” from the top.
+“Name”, “Level”, “Age”, “Height”, and “Weight” are all just something that the players will need to be able to fill out and see on the sheet, they won’t be variables anywhere else.
+
+The middle four squares are similar. “Total HP”, “Total AT”, and “Limit” are all the upper numerical limits for those stats, they just need to be fillable. The remaining space beneath those values and the space beneath “Armor” needs to be fillable as well. None of these values should ever reach more than 3 digits if that gives a sense of how big the digits would need to be.
+
+On the bottom left and bottom right, there should work the same. “Feats” and “Aspects” should just be fillable spaces for about sentence long features. Just a place to jot down those somewhat wordy features.
+
+Lastly, “Inventory” in the middle should be the same, a fillable space for whatever items they end up carrying.
+
+As for the more complicated things, let’s start with the stats on the left. These are the stats used for combat and will be used in macros and whatnot. This isn’t like D&D5e where there is a stat and also a stat bonus, no, if their strength stat is 4, they get +4 to strength, so nothing to worry about there. This needs to be fillable, be pulled elsewhere for attacks and spells, and be able to take in temporary bonuses into account.
+Also, I’m sorry, the “Luck Points” at the bottom of those stats just need to be fillable on both sides of the slash mark.
+
+Right side, these are the social stats. So similarly to the combat stats, they are just numbers, no bonuses or anything. There is a mechanic with these called “risk”, which allows a player to potentially do better on the skill check. They choose a dice size (1d4, d6, d8, d10, d12, or d20) and two of those are rolled. Subtract the second result from the first and that is what is added to their stat for that particular instance, so it could be positive or negative depending.
+What I imagine would be best here, please do correct me if I’m wrong, would be for the player to be able to just click the name of the stat, be presented with a drop down menu that lets them choose what dice size they want to risk (or no risk at all), and then the calculation would be run and shown in the chat, along with the final result for that risk roll. 
+Please do ask questions if that didn’t make sense.
+
+Lastly, weapons. This would be similar to the 5e sheet, a player just needs to be able to add a blank weapon, modify its properties, and click on it to cause an attack to happen in chat. 
+The stats for weapons are as follows by default:
+Name, Accuracy (default: 1d6+Technique), Damage dice, Damage modifier (default: +Strength), descriptor for any special effects.
+
+That’s the first page, easily the most going on, the next are downhill after that.
+
+Second page, “Persona Sheet”
+From top to bottom, everything up to the “Fire”, “Wind”, etc boxes just need to be fillable. That’s just fluff information for the player to know, not anything that needs to be worried about elsewhere. 
+
+Those nine boxes with “Fire”, “Wind”, etc do need drop down menus beneath them with the following options: “Weak”, “Normal”, “Resist”, “Null”, “Reflect”, “Absorb”.
+
+As for the lines bellow those boxes, those are for spells. Spell name above the line, description underneath it. This will be just like the weapon macros, a player just needs to be able to modify the properties for the spells. All of the properties are the same as they are for weapons except for that the default damage modifier is Magic instead of Strength.
+
+That’s it for the second page.
+
+As for the third through fifth, these all work the same. I just need all the fields to be fillable, none of that info need to be pulled elsewhere, it’s all self contained. A name, rank number, point number, a space for notes, and a little box to mark either “NPC” or “PC”, that’s all
+
+
+That’s everything I can think of. It’s a lot, but do voice any concerns or questions, I’ll do my best to answer you in a timely manner!
