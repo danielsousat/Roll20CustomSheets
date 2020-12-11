@@ -18,7 +18,7 @@
 }
 
 .sheet-main-container input[type=text] {
-	width: 10px;
+	width: 100%;
 	flex-grow: 1;
 }
 
@@ -84,6 +84,12 @@
 	align-items: center;
 }
 
+.sheet-header-box {
+	display: flex;
+	flex-direction: column;
+	margin-right: 5px;
+}
+
 .sheet-logo {
 	text-align: center;
 	margin-right: 20px;
@@ -99,37 +105,52 @@
 	margin-right: 5px !important;
 }
 
-.sheet-attributes-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	justify-items: start;
-	align-items: center;
-	gap: 5px;
-}
-
 .sheet-middle {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	gap: 5px;
+	gap: 20px;
 }
 
-.sheet-footer {
-	text-align: right;
-	font-style: italic;
-}
-
-.sheet-box {
+.sheet-corner-box {
 	padding: 5px;
 	margin-bottom: 10px;
 	position: relative;
-	border: 2px solid black;
+	border: 2px solid burlywood;
 	border-radius: 15px;
 }
 
-.sheet-box-title {
-	text-transform: uppercase;
-	text-align: center;
+.sheet-attribute-box {
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	margin-bottom: 5px;
+}
+
+.sheet-luck-points {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 5px;
+
+}
+
+.sheet-inner-box {
+	border: 2px solid black;
+}
+
+.sheet-middle-box {
+	padding: 5px;
 	margin-bottom: 10px;
+	position: relative;
+	border: 2px solid burlywood;
+}
+
+.sheet-weapons-grid {
+	display: grid;
+	grid-template-columns: 10% 26% 26% 26% 10%;
+}
+
+.sheet-weapon-row {
+	display: flex;
+
 }
 
 .sheet-repeatable-row {
@@ -149,15 +170,15 @@
 
 /*Configure the tab buttons*/
 .sheet-profiletab,
-.sheet-configurationtab,
-.sheet-journaltab {
+.sheet-personastab,
+.sheet-social-linkstab {
 	display: none;
 }
 
 /* show the selected tab */
 .sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
-.sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
-.sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
+.sheet-tabcontrol[value="personas"]~div.sheet-personastab,
+.sheet-tabcontrol[value="social-links"]~div.sheet-social-linkstab {
 	display: block;
 }
 
