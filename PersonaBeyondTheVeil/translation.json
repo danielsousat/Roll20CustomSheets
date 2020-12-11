@@ -3,7 +3,7 @@
 	"name": "name",
 	"level": "Level",
 	"age": "Age",
-	"height": "Height",
+	"_height": "Height",
 	"weight": "Weight",
 	"profile": "Profile",
 	"social-links": "Social Links",
@@ -11,6 +11,7 @@
 	"strength": "strength (str)",
 	"temp-bonus": "temporary bonus",
 	"vitality": "vitality (vit)",
+	"technique": "technique (tec)",
 	"luck-points": "luck points:",
 	"feats": "feats",
 	"feat": "feat",
@@ -30,7 +31,6 @@
 	"knowledge": "knowledge (kn)",
 	"aspects": "aspects",
 	"aspect": "aspect",
-	"copyright": "[Nome do jogo] é um jogo escrito por [nome do autor].",
 	"advantagedisadvantage": "Possui vantagem ou desvantagem?",
 	"no": "Não",
 	"advantage": "Vantagem",
@@ -42,6 +42,5 @@
 	"fumble": "Falha Crítica!",
 	"check": "Teste",
 	"fire-description": "Dá 1d6 de dano de fogo.",
-	"ice-description": "Congela 1d4 inimigos.",
-	"technique": "technique (tec)"
+	"ice-description": "Congela 1d4 inimigos."
 }
