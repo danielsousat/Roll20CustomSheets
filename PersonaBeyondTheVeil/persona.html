@@ -25,12 +25,12 @@
         </div>
 
         <div class="header-box">
-          <input name="attr_level" type="number" title="@{level}" value="1" />
+          <input name="attr_level" type="text" title="@{level}" value="1" />
           <span class="label secondary-font" data-i18n="level">Level</span>
         </div>
 
         <div class="header-box">
-          <input name="attr_gp" type="number" title="@{gp}" />
+          <input name="attr_gp" type="text" title="@{gp}" />
           <span class="label secondary-font" data-i18n="gp">gp</span>
         </div>
       </div>
@@ -83,12 +83,11 @@
             <input type="hidden" name="attr_strength_total" disabled="true" value="@{strength} + @{strength_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_strength" type="number" title="@{strength}" value="0" />
+              <input class="attribute-input" name="attr_strength" type="text" title="@{strength}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_strength_bonus" type="number" title="@{strength_bonus}"
-                  value="0" />
+                <input class="bonus-input" name="attr_strength_bonus" type="text" title="@{strength_bonus}" value="0" />
               </div>
             </div>
 
@@ -99,12 +98,11 @@
             <input type="hidden" name="attr_vitality_total" disabled="true" value="@{vitality} + @{vitality_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_vitality" type="number" title="@{vitality}" value="0" />
+              <input class="attribute-input" name="attr_vitality" type="text" title="@{vitality}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_vitality_bonus" type="number" title="@{vitality_bonus}"
-                  value="0" />
+                <input class="bonus-input" name="attr_vitality_bonus" type="text" title="@{vitality_bonus}" value="0" />
               </div>
             </div>
 
@@ -115,12 +113,11 @@
             <input type="hidden" name="attr_agility_total" disabled="true" value="@{agility} + @{agility_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_agility" type="number" title="@{agility}" value="0" />
+              <input class="attribute-input" name="attr_agility" type="text" title="@{agility}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_agility_bonus" type="number" title="@{agility_bonus}"
-                  value="0" />
+                <input class="bonus-input" name="attr_agility_bonus" type="text" title="@{agility_bonus}" value="0" />
               </div>
             </div>
 
@@ -132,11 +129,11 @@
               value="@{technique} + @{technique_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_technique" type="number" title="@{technique}" value="0" />
+              <input class="attribute-input" name="attr_technique" type="text" title="@{technique}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_technique_bonus" type="number" title="@{technique_bonus}"
+                <input class="bonus-input" name="attr_technique_bonus" type="text" title="@{technique_bonus}"
                   value="0" />
               </div>
             </div>
@@ -148,12 +145,11 @@
             <input type="hidden" name="attr_magic_total" disabled="true" value="@{magic} + @{magic_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_magic" type="number" title="@{magic}" value="0" />
+              <input class="attribute-input" name="attr_magic" type="text" title="@{magic}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_magic_bonus" type="number" title="@{magic_bonus}"
-                  value="0" />
+                <input class="bonus-input" name="attr_magic_bonus" type="text" title="@{magic_bonus}" value="0" />
               </div>
             </div>
 
@@ -164,12 +160,11 @@
             <input type="hidden" name="attr_luck_total" disabled="true" value="@{luck} + @{luck_bonus}" />
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_luck" type="number" title="@{luck}" value="0" />
+              <input class="attribute-input" name="attr_luck" type="text" title="@{luck}" value="0" />
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="bonus-input" name="attr_luck_bonus" type="number" title="@{luck_bonus}"
-                  value="0" />
+                <input class="bonus-input" name="attr_luck_bonus" type="text" title="@{luck_bonus}" value="0" />
               </div>
             </div>
 
@@ -180,10 +175,10 @@
 
           <div class="luck-points">
             <span class="label secondary-font" data-i18n="luck-points">luck points:</span>
-            <input class="luck-points-input" name="attr_luck_points_current" type="number"
-              title="@{luck_points_current}" value="0" />
+            <input class="luck-points-input" name="attr_luck_points_current" type="text" title="@{luck_points_current}"
+              value="0" />
             <div class="luck-points-div">/</div>
-            <input class="luck-points-input" name="attr_luck_points_max" type="number" title="@{luck_points_max}"
+            <input class="luck-points-input" name="attr_luck_points_max" type="text" title="@{luck_points_max}"
               value="0" />
           </div>
 
@@ -193,14 +188,14 @@
         <div class="corner-box flex-column">
           <div class="inner-box">
 
-            <span class="label secondary-font" data-i18n="feats">feats</span>
+            <span class="box-title label secondary-font" data-i18n="feats">feats</span>
             <div class="title-div"></div>
 
             <fieldset class="repeating_feats">
 
               <div class="repeatable-row">
-                <input class="bottom-border-input" name="attr_feat_name" type="text" data-i18n-placeholder="feat" placeholder="feat"
-                  title="@{repeating_feats_$id_feat_name}" />
+                <input class="bottom-border-input" name="attr_feat_name" type="text" data-i18n-placeholder="feat"
+                  placeholder="feat" title="@{repeating_feats_$id_feat_name}" />
 
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -241,14 +236,17 @@
             </div>
 
             <div class="secondary-attribute-div"></div>
-            <input class="attribute-input" name="attr_hp" type="number" title="@{hp}" />
+            <input class="attribute-input" name="attr_hp" type="text" title="@{hp}" />
           </div>
 
           <div class="inner-box secondary-attribute-box">
-            <span class="label secondary-font" data-i18n="armor">armor</span>
-            <div class="title-div"></div>
-            <input class="attribute-input" name="attr_armor" type="number" title="@{armor}" />
-            
+
+            <div class="armor-label">
+              <span class="label secondary-font" data-i18n="armor">armor</span>
+              <div class="title-div"></div>
+            </div>
+            <input class="attribute-input" name="attr_armor" type="text" title="@{armor}" />
+
           </div>
 
           <div class="inner-box secondary-attribute-box">
@@ -261,7 +259,7 @@
             </div>
 
             <div class="secondary-attribute-div"></div>
-            <input class="attribute-input" name="attr_at" type="number" title="@{at}" />
+            <input class="attribute-input" name="attr_at" type="text" title="@{at}" />
           </div>
 
           <div class="inner-box secondary-attribute-box">
@@ -270,14 +268,15 @@
 
             <div class="secondary-attribute-row">
               <span class="smaller-label secondary-font" data-i18n="limit">limit:</span>
-              <input class="small-input" name="attr_fatigue_limit_mod" type="text" title="@{fatigue_limit_mod}" value="0" />
+              <input class="small-input" name="attr_fatigue_limit_mod" type="text" title="@{fatigue_limit_mod}"
+                value="0" />
               /
               <input class="small-input" name="attr_fatigue_limit_total" type="text" title="@{fatigue_limit_total}"
                 disabled="true" value="@{strength_total}+@{vitality_total}+@{fatigue_limit_mod}" />
             </div>
 
             <div class="secondary-attribute-div"></div>
-            <input class="attribute-input" name="attr_fatigue" type="number" title="@{fatigue}" />
+            <input class="attribute-input" name="attr_fatigue" type="text" title="@{fatigue}" />
           </div>
 
         </div>
@@ -287,11 +286,10 @@
           <div class="weapons-and-inventory-inner-box">
 
             <div class="weapons">
-              <span class="label secondary-font" data-i18n="weapons">weapons</span>
+              <span class="box-title label secondary-font" data-i18n="weapons">weapons</span>
               <div class="title-div"></div>
 
               <div class="weapons-grid">
-                <div></div>
                 <span class="smaller-label secondary-font" data-i18n="name">name</span>
                 <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
                 <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
@@ -303,12 +301,16 @@
                 <div class="weapons-grid">
                   <button type="roll" class="roll-button" name="roll_weapon"
                     title="@{repeating_weapons_$id_roll_weapon}"
-                    value="&{template:default} {{name=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}"></button>
-                  <input name="attr_weapon_name" type="text" title="@{repeating_weapons_$id_weapon_name}" />
-                  <input name="attr_weapon_accuracy" readonly="true" type="text"
-                    title="@{repeating_weapons_$id_weapon_accuracy}" />
-                  <input name="attr_weapon_damage" readonly="true" type="text"
-                    title="@{repeating_weapons_$id_weapon_damage}" />
+                    value="&{template:default} {{name=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}">
+                    
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text" title="@{repeating_weapons_$id_weapon_name}" />
+                    <input class="repeating-small-input" name="attr_weapon_accuracy" readonly="true" type="text"
+                      title="@{repeating_weapons_$id_weapon_accuracy}" />
+                    <input class="repeating-small-input" name="attr_weapon_damage" readonly="true" type="text"
+                      title="@{repeating_weapons_$id_weapon_damage}" />
+
+                  </button>
+
 
                   <div class="showhidebutton arrowtype">
                     <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -321,10 +323,14 @@
                 <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
                 <div class="showhide weapons-hidden">
+                  <div class="weapon-row">
+                    <span class="smaller-label secondary-font" data-i18n="name">name</span>
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text" title="@{repeating_weapons_$id_weapon_name}" />
+                  </div>
 
                   <div class="weapon-row">
                     <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
-                    <input name="attr_weapon_accuracy_dice" type="text"
+                    <input class="repeating-small-input" name="attr_weapon_accuracy_dice" type="text"
                       title="@{repeating_weapons_$id_weapon_accuracy_dice}" value="1d6" />
                     <span>+</span>
                     <select class="select" name="attr_weapon_accuracy_attr"
@@ -342,10 +348,10 @@
 
                   <div class="weapon-row">
                     <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
-                    <input name="attr_weapon_damage_dice" type="text"
+                    <input class="repeating-small-input" name="attr_weapon_damage_dice" type="text"
                       title="@{repeating_weapons_$id_weapon_damage_dice}" value="" />
                     <span>+</span>
-                    <input name="attr_weapon_damage_mod" type="text" title="@{repeating_weapons_$id_weapon_damage_mod}"
+                    <input class="repeating-small-input" name="attr_weapon_damage_mod" type="text" title="@{repeating_weapons_$id_weapon_damage_mod}"
                       value="" />
                     <span>x</span>
                     <select class="select" name="attr_weapon_damage_attr"
@@ -370,14 +376,14 @@
 
             <!--Inventory-->
             <div class="inventory">
-              <span class="label secondary-font" data-i18n="inventory">inventory</span>
+              <span class="box-title label secondary-font" data-i18n="inventory">inventory</span>
               <div class="title-div"></div>
 
               <fieldset class="repeating_inventory">
 
                 <div class="repeatable-row">
-                  <input class="bottom-border-input" name="attr_inventory_name" type="text" data-i18n-placeholder="name" placeholder="name"
-                    title="@{repeating_feats_$id_inventory_name}" />
+                  <input class="bottom-border-input" name="attr_inventory_name" type="text" data-i18n-placeholder="name"
+                    placeholder="name" title="@{repeating_inventory_$id_inventory_name}" />
 
                   <div class="showhidebutton arrowtype">
                     <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -390,7 +396,7 @@
                 <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
                 <textarea class="showhide" name="attr_inventory_description" data-i18n-placeholder="description"
-                  title="@{repeating_feats_$id_inventory_description}" placeholder="description"></textarea>
+                  title="@{repeating_inventory_$id_inventory_description}" placeholder="description"></textarea>
 
               </fieldset>
             </div>
@@ -407,84 +413,84 @@
         <div class="corner-box attributes">
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_knowledge" title="@{roll_knowledge}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="knowledge">knowledge (kn)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_knowledge" type="number" title="@{knowledge}" value="0" />
+              <input class="attribute-input" name="attr_knowledge" type="text" title="@{knowledge}" value="0" />
 
             </div>
 
           </div>
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_discipline" title="@{roll_discipline}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="discipline">discipline (di)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_discipline" type="number" title="@{discipline}" value="0" />
+              <input class="attribute-input" name="attr_discipline" type="text" title="@{discipline}" value="0" />
 
             </div>
 
           </div>
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_empathy" title="@{roll_empathy}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="empathy">empathy (em)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_empathy" type="number" title="@{empathy}" value="0" />
+              <input class="attribute-input" name="attr_empathy" type="text" title="@{empathy}" value="0" />
 
             </div>
 
           </div>
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_charm" title="@{roll_charm}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="charm">charm (ch)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_charm" type="number" title="@{charm}" value="0" />
+              <input class="attribute-input" name="attr_charm" type="text" title="@{charm}" value="0" />
 
             </div>
 
           </div>
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_expression" title="@{roll_expression}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="expression">expression (ex)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_expression" type="number" title="@{expression}" value="0" />
+              <input class="attribute-input" name="attr_expression" type="text" title="@{expression}" value="0" />
 
             </div>
 
           </div>
 
           <div class="attribute-box">
-            
+
             <button type="roll" class="roll-button" name="roll_courage" title="@{roll_courage}"
               value="&{template:default} {{name=@{character_name}}} {{roll=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="courage">courage (co)</span>
             </button>
 
             <div class="attribute-inner-box">
-              <input class="attribute-input" name="attr_courage" type="number" title="@{courage}" value="0" />
+              <input class="attribute-input" name="attr_courage" type="text" title="@{courage}" value="0" />
 
             </div>
 
@@ -497,14 +503,14 @@
         <div class="corner-box flex-column">
           <div class="inner-box">
 
-            <span class="label secondary-font" data-i18n="aspects">aspects</span>
+            <span class="box-title label secondary-font" data-i18n="aspects">aspects</span>
             <div class="title-div"></div>
 
             <fieldset class="repeating_aspects">
 
               <div class="repeatable-row">
-                <input class="bottom-border-input" name="attr_aspect_name" type="text" data-i18n-placeholder="aspect" placeholder="aspect"
-                  title="@{repeating_aspects_$id_aspect_name}" />
+                <input class="bottom-border-input" name="attr_aspect_name" type="text" data-i18n-placeholder="aspect"
+                  placeholder="aspect" title="@{repeating_aspects_$id_aspect_name}" />
 
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
@@ -627,7 +633,7 @@
                 </div>
 
                 <div class="persona-box">
-                  <input name="attr_persona_level" type="number" title="@{repeating_personas_$id_persona_level}" />
+                  <input name="attr_persona_level" type="text" title="@{repeating_personas_$id_persona_level}" />
                   <span class="label secondary-font" data-i18n="level">level</span>
                 </div>
 
@@ -647,12 +653,12 @@
 
               <div class="persona-row">
                 <div class="persona-box">
-                  <input name="attr_persona_refresh" type="number" title="@{repeating_personas_$id_persona_refresh}" />
+                  <input name="attr_persona_refresh" type="text" title="@{repeating_personas_$id_persona_refresh}" />
                   <span class="label secondary-font" data-i18n="refresh">refresh</span>
                 </div>
 
                 <div class="persona-box">
-                  <input name="attr_persona_ap" type="number" title="@{repeating_personas_$id_persona_ap}" />
+                  <input name="attr_persona_ap" type="text" title="@{repeating_personas_$id_persona_ap}" />
                   <span class="label secondary-font" data-i18n="ap">ap</span>
                 </div>
               </div>
@@ -843,8 +849,8 @@
 
                 <div class="spell-row">
                   <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
-                  <input name="attr_spell_accuracy_dice" type="text"
-                    title="@{repeating_spells_$id_spell_accuracy_dice}" value="1d6" />
+                  <input name="attr_spell_accuracy_dice" type="text" title="@{repeating_spells_$id_spell_accuracy_dice}"
+                    value="1d6" />
                   <span>+</span>
                   <select class="select" name="attr_spell_accuracy_attr"
                     title="@{repeating_spells_$id_spell_accuracy_attr}">
@@ -861,8 +867,7 @@
 
                 <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
-                  <input name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}"
-                    value="" />
+                  <input name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}" value="" />
                 </div>
 
                 <textarea name="attr_spell_description" data-i18n-placeholder="description" placeholder="description"
