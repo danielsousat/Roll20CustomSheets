@@ -25,8 +25,13 @@
         </div>
 
         <div class="header-box">
-          <input name="attr_level" type="text" title="@{level}" value="1" />
+          <input name="attr_level" type="number" title="@{level}" value="1" />
           <span class="label secondary-font" data-i18n="level">Level</span>
+        </div>
+
+        <div class="header-box">
+          <input name="attr_gp" type="number" title="@{gp}" />
+          <span class="label secondary-font" data-i18n="gp">gp</span>
         </div>
       </div>
 
@@ -444,10 +449,276 @@
     </fieldset>
   </div>
 
-  <!-- Config tab-->
-  <div class='personastab'>
-    <h2>personas</h2>
-    <span>personas</span>
+  <!-- Persona and Spells tab-->
+  <div class="personastab">
+    <div class="personas-middle">
+
+      <!--Personas-->
+      <div class="middle-column">
+        <span class="label secondary-font" data-i18n="personas">personas</span>
+
+        <div class="corner-box attributes">
+          <div class="inner-box">
+
+            <fieldset class="repeating_personas">
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_name" type="text" title="@{repeating_personas_$id_persona_name}" />
+                  <span class="label secondary-font" data-i18n="persona-name">persona name</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_level" type="number" title="@{repeating_personas_$id_persona_level}" />
+                  <span class="label secondary-font" data-i18n="level">level</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_arcana" type="text" title="@{repeating_personas_$id_persona_arcana}" />
+                  <span class="label secondary-font" data-i18n="arcana">arcana</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_conviction" type="text"
+                    title="@{repeating_personas_$id_persona_conviction}" />
+                  <span class="label secondary-font" data-i18n="conviction">conviction</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_refresh" type="number" title="@{repeating_personas_$id_persona_refresh}" />
+                  <span class="label secondary-font" data-i18n="refresh">refresh</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_ap" type="number" title="@{repeating_personas_$id_persona_ap}" />
+                  <span class="label secondary-font" data-i18n="ap">ap</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_types" type="text" title="@{repeating_personas_$id_persona_types}" />
+                  <span class="label secondary-font" data-i18n="types">types</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_stat_bonus" type="text" title="@{repeating_personas_$id_stat_bonus}" />
+                  <span class="label secondary-font" data-i18n="stat_bonus">stat bonus</span>
+                </div>
+              </div>
+
+              <div class="persona-elements">
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="fire">fire</span>
+                  <select class="select arcana" name="attr_persona_fire_interaction"
+                    title="@{repeating_personas_$id_persona_fire_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="ice">ice</span>
+                  <select class="select arcana" name="attr_persona_ice_interaction"
+                    title="@{repeating_personas_$id_persona_ice_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="wind">wind</span>
+                  <select class="select arcana" name="attr_persona_wind_interaction"
+                    title="@{repeating_personas_$id_persona_wind_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="lightning">lightning</span>
+                  <select class="select arcana" name="attr_persona_lightning_interaction"
+                    title="@{repeating_personas_$id_persona_lightning_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="psi">psi</span>
+                  <select class="select arcana" name="attr_persona_psi_interaction"
+                    title="@{repeating_personas_$id_persona_psi_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="nuke">nuke</span>
+                  <select class="select arcana" name="attr_persona_nuke_interaction"
+                    title="@{repeating_personas_$id_persona_nuke_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="light">light</span>
+                  <select class="select arcana" name="attr_persona_light_interaction"
+                    title="@{repeating_personas_$id_persona_light_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box">
+                  <span class="label secondary-font" data-i18n="dark">dark</span>
+                  <select class="select arcana" name="attr_persona_dark_interaction"
+                    title="@{repeating_personas_$id_persona_dark_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box last-element-box">
+                  <span class="label secondary-font" data-i18n="physical">physical</span>
+                  <select class="select arcana" name="attr_persona_physical_interaction"
+                    title="@{repeating_personas_$id_persona_physical_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="persona-div">
+              </div>
+
+            </fieldset>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!--Spells-->
+      <div class="middle-column">
+        <span class="label secondary-font" data-i18n="spells">spell</span>
+
+        <div class="corner-box attributes">
+          <div class="inner-box">
+
+            <div class="spells-grid">
+              <div></div>
+              <span class="smaller-label secondary-font" data-i18n="name">name</span>
+              <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
+              <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
+              <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+              <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+              <div></div>
+            </div>
+
+            <fieldset class="repeating_spells">
+
+              <div class="spells-grid">
+                <button type="roll" class="roll-button" name="roll_spell" title="@{repeating_spells_$id_roll_spell}"
+                  value="&{template:default} {{name=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}"></button>
+                <input name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" />
+                <input name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" />
+                <input name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" />
+                <input name="attr_spell_accuracy" readonly="true" type="text"
+                  title="@{repeating_spells_$id_spell_accuracy}" />
+                <input name="attr_spell_damage" readonly="true" type="text"
+                  title="@{repeating_spells_$id_spell_damage}" />
+
+                <div class="showhidebutton arrowtype">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <div class="showhide spells-hidden">
+
+                <div class="spell-row">
+                  <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+                  <input name="attr_spell_accuracy_dice" type="text"
+                    title="@{repeating_spells_$id_spell_accuracy_dice}" value="1d6" />
+                  <span>+</span>
+                  <select class="select" name="attr_spell_accuracy_attr"
+                    title="@{repeating_spells_$id_spell_accuracy_attr}">
+                    <option value="none">-</option>
+                    <option value="@{strength_total}" data-i18n="str">str</option>
+                    <option value="@{vitality_total}" data-i18n="vit">vit</option>
+                    <option value="@{agility_total}" data-i18n="agl">agl</option>
+                    <option value="@{technique_total}" data-i18n="tec" selected="selected">tec</option>
+                    <option value="@{magic_total}" data-i18n="mag">mag</option>
+                    <option value="@{luck_total}" data-i18n="luc">luk</option>
+                  </select>
+
+                </div>
+
+                <div class="weapon-row">
+                  <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+                  <input name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}"
+                    value="" />
+                </div>
+
+                <textarea name="attr_spell_description" data-i18n-placeholder="description" placeholder="description"
+                  title="@{repeating_spells_$id_spell_description}"></textarea>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>
@@ -548,7 +819,8 @@
 
   /*Controls show hide checkbox button from repeating sections*/
   on("change:repeating_feats:showhide_checkbox change:repeating_weapons:showhide_checkbox " +
-     "change:repeating_inventory:showhide_checkbox change:repeating_aspects:showhide_checkbox", function(eventInfo) {
+     "change:repeating_inventory:showhide_checkbox change:repeating_aspects:showhide_checkbox " +
+     "change:repeating_spells:showhide_checkbox", function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();
@@ -595,6 +867,28 @@
       out.repeating_weapons_weapon_damage += `${values.repeating_weapons_weapon_damage_dice}+${values.repeating_weapons_weapon_damage_mod}x${values.repeating_weapons_weapon_damage_attr}`;
 
       out.repeating_weapons_weapon_accuracy += `${values.repeating_weapons_weapon_accuracy_dice}+${values.repeating_weapons_weapon_accuracy_attr}`;
+
+      console.log(out);
+
+      setAttrs(out);
+
+    });
+
+  });
+
+  /* sets spell accuracy labels */
+  on("change:repeating_spells", function(eventInfo) {
+  
+    getAttrs([`repeating_spells_spell_accuracy_attr`,
+    `repeating_spells_spell_accuracy_dice`], values => {
+      
+      console.log(values);
+
+      let out = {
+        repeating_spells_spell_accuracy: ''
+      };
+
+      out.repeating_spells_spell_accuracy += `${values.repeating_spells_spell_accuracy_dice}+${values.repeating_spells_spell_accuracy_attr}`;
 
       console.log(out);
 
