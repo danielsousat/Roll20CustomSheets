@@ -76,7 +76,7 @@
           <div class="attribute-box">
             <span class="label secondary-font" data-i18n="strength">strength (str)</span>
             <input type="hidden" name="attr_strength_total" disabled="true" value="@{strength} + @{strength_bonus}" />
-            
+
             <div class="attribute-inner-box">
               <input class="attribute-input" name="attr_strength" type="number" title="@{strength}" value="0" />
               <div class="temporary-bonus">
@@ -107,7 +107,8 @@
 
           <div class="attribute-box">
             <span class="label secondary-font" data-i18n="technique">technique (tec)</span>
-            <input type="hidden" name="attr_technique_total" disabled="true" value="@{technique} + @{technique_bonus}" />
+            <input type="hidden" name="attr_technique_total" disabled="true"
+              value="@{technique} + @{technique_bonus}" />
 
             <div class="attribute-inner-box">
               <input class="attribute-input" name="attr_technique" type="number" title="@{technique}" value="0" />
@@ -269,8 +270,8 @@
                     </select>
                   </div>
 
-                  <textarea name="attr_weapon_description" data-i18n-placeholder="description"
-                    placeholder="description" title="@{repeating_weapons_$id_weapon_description}"></textarea>
+                  <textarea name="attr_weapon_description" data-i18n-placeholder="description" placeholder="description"
+                    title="@{repeating_weapons_$id_weapon_description}"></textarea>
 
                 </div>
 
@@ -370,8 +371,77 @@
 
   <!-- social-links Tab -->
   <div class='social-linkstab'>
-    <h2>social-links</h2>
-    <span>social-links</span>
+    <fieldset class="repeating_social-links">
+
+      <div class="corner-box social-links">
+
+        <div class="social-links-box">
+          <select class="select arcana" name="attr_social_link_arcana"
+            title="@{repeating_social-links_$id_social_link_arcana}">
+            <option value="0" data-i18n="the-fool" selected="selected">0 The Fool</option>
+            <option value="1" data-i18n="the-magician">I The Magician</option>
+            <option value="3" data-i18n="the-empress">III The Empress</option>
+            <option value="4" data-i18n="the-emperor">IV The Emperor</option>
+            <option value="5" data-i18n="the-hierophant">V The Hierophant</option>
+            <option value="6" data-i18n="the-lovers">VI The Lovers</option>
+            <option value="7" data-i18n="the-chariot">VII The Chariot</option>
+            <option value="8" data-i18n="justice">VIII Justice</option>
+            <option value="9" data-i18n="the-hermit">IX The Hermit</option>
+            <option value="10" data-i18n="fortune">X Fortune</option>
+            <option value="11" data-i18n="xi-strength">XI Strength</option>
+            <option value="12" data-i18n="the-hanged-man">XII The Hanged Man</option>
+            <option value="13" data-i18n="death">XIII Death</option>
+            <option value="14" data-i18n="temperance">XIV Temperance</option>
+            <option value="15" data-i18n="the-devil">XV The Devil</option>
+            <option value="16" data-i18n="the-tower">XVI The Tower</option>
+            <option value="17" data-i18n="the-star">XVII The Star</option>
+            <option value="18" data-i18n="the-moon">XVIII The Moon</option>
+            <option value="19" data-i18n="the-sun">XIX The Sun</option>
+            <option value="20" data-i18n="judgement">XX Judgement</option>
+            <option value="21" data-i18n="the-world">XXI The World</option>
+            <option value="22" data-i18n="the-jester">0 The Jester</option>
+            <option value="23" data-i18n="the-magus">I The Magus</option>
+            <option value="24" data-i18n="adjustment">XVIII Adjustment</option>
+            <option value="25" data-i18n="the-counselor">IX The Counselor</option>
+            <option value="26" data-i18n="hunger">XI Hunger</option>
+            <option value="27" data-i18n="art">XIV Art</option>
+            <option value="28" data-i18n="faith">XVII Faith</option>
+            <option value="29" data-i18n="the-aeon">XX The Aeon</option>
+          </select>
+
+          <span class="label secondary-font" data-i18n="name">name</span>
+          <input name="attr_social_link_name" type="text" title="@{repeating_social-links_$id_social_link_name}" />
+
+          <span class="label secondary-font" data-i18n="npc">npc</span>
+          <input name="attr_social_link_type" type="radio" checked="true"
+            title="@{repeating_social_links_$id_social_link_type}" value="npc" />
+
+          <span class="label secondary-font" data-i18n="pc">pc</span>
+          <input name="attr_social_link_type" type="radio" title="@{repeating_social-links_$id_social_link_type}"
+            value="pc" />
+        </div>
+
+        <div class="social-links-box2">
+          <input name="attr_social_link_rank" type="text" title="@{repeating_social-links_$id_social_link_rank}" />
+          <div class="social-link-label-box">
+            <span class="label secondary-font" data-i18n="rank">rank</span>
+          </div>
+        </div>
+
+        <div class="social-links-box2">
+          <input name="attr_social_link_points" type="text" title="@{repeating_social-links_$id_social_link_points}" />
+          <div class="social-link-label-box">
+            <span class="label secondary-font" data-i18n="points">points</span>
+          </div>
+        </div>
+
+        <div class="social-link-notes-box">
+          <span class="label secondary-font" data-i18n="notes">notes</span>
+        </div>
+        <textarea name="attr_social_links_notes" title="@{repeating_social-links_$id_social_links_notes}"></textarea>
+
+      </div>
+    </fieldset>
   </div>
 
   <!-- Config tab-->
