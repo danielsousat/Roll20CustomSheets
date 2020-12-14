@@ -5,7 +5,7 @@
     fatigue = str + vit + mods
     initiative = d20 + agl
     movement = agl+3
-  
+    edit rolls and roll template
   -->
 
   <!-- Header -->
@@ -87,7 +87,7 @@
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="attribute-input" name="attr_strength_bonus" type="number" title="@{strength_bonus}"
+                <input class="bonus-input" name="attr_strength_bonus" type="number" title="@{strength_bonus}"
                   value="0" />
               </div>
             </div>
@@ -103,7 +103,23 @@
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="attribute-input" name="attr_vitality_bonus" type="number" title="@{vitality_bonus}"
+                <input class="bonus-input" name="attr_vitality_bonus" type="number" title="@{vitality_bonus}"
+                  value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            <span class="label secondary-font" data-i18n="agility">agility (agl)</span>
+            <input type="hidden" name="attr_agility_total" disabled="true" value="@{agility} + @{agility_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_agility" type="number" title="@{agility}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_agility_bonus" type="number" title="@{agility_bonus}"
                   value="0" />
               </div>
             </div>
@@ -120,12 +136,45 @@
               <div class="temporary-bonus">
                 <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
                 <div class="temporary-bonus-div"></div>
-                <input class="attribute-input" name="attr_technique_bonus" type="number" title="@{technique_bonus}"
+                <input class="bonus-input" name="attr_technique_bonus" type="number" title="@{technique_bonus}"
                   value="0" />
               </div>
             </div>
 
           </div>
+
+          <div class="attribute-box">
+            <span class="label secondary-font" data-i18n="magic">magic (mag)</span>
+            <input type="hidden" name="attr_magic_total" disabled="true" value="@{magic} + @{magic_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_magic" type="number" title="@{magic}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_magic_bonus" type="number" title="@{magic_bonus}"
+                  value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            <span class="label secondary-font" data-i18n="luck">luck (luk)</span>
+            <input type="hidden" name="attr_luck_total" disabled="true" value="@{luck} + @{luck_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_luck" type="number" title="@{luck}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_luck_bonus" type="number" title="@{luck_bonus}"
+                  value="0" />
+              </div>
+            </div>
+
+          </div>
+
 
           <div class="luck-div"></div>
 
@@ -150,7 +199,7 @@
             <fieldset class="repeating_feats">
 
               <div class="repeatable-row">
-                <input name="attr_feat_name" type="text" data-i18n-placeholder="feat" placeholder="feat"
+                <input class="bottom-border-input" name="attr_feat_name" type="text" data-i18n-placeholder="feat" placeholder="feat"
                   title="@{repeating_feats_$id_feat_name}" />
 
                 <div class="showhidebutton arrowtype">
@@ -187,12 +236,48 @@
 
             <div class="secondary-attribute-row">
               <span class="smaller-label secondary-font" data-i18n="total-hp">total hp:</span>
-              <input class="small-input" name="attr_total_hp" type="number" disabled="true" title="@{total_hp}"
+              <input class="small-input" name="attr_total_hp" type="text" disabled="true" title="@{total_hp}"
                 value="15 +5*@{level} + 5*(@{vitality_total})" />
             </div>
 
             <div class="secondary-attribute-div"></div>
-            <input class="attribute-input" name="attr_hp" type="number" title="@{hp}" value="0" />
+            <input class="attribute-input" name="attr_hp" type="number" title="@{hp}" />
+          </div>
+
+          <div class="inner-box secondary-attribute-box">
+            <span class="label secondary-font" data-i18n="armor">armor</span>
+            <div class="title-div"></div>
+            <input class="attribute-input" name="attr_armor" type="number" title="@{armor}" />
+            
+          </div>
+
+          <div class="inner-box secondary-attribute-box">
+            <span class="label secondary-font" data-i18n="a-tokens">a. tokens</span>
+            <div class="title-div"></div>
+
+            <div class="secondary-attribute-row">
+              <span class="smaller-label secondary-font" data-i18n="total-at">total at:</span>
+              <input class="small-input" name="attr_total_at" type="text" title="@{total_at}" />
+            </div>
+
+            <div class="secondary-attribute-div"></div>
+            <input class="attribute-input" name="attr_at" type="number" title="@{at}" />
+          </div>
+
+          <div class="inner-box secondary-attribute-box">
+            <span class="label secondary-font" data-i18n="fatigue">fatigue</span>
+            <div class="title-div"></div>
+
+            <div class="secondary-attribute-row">
+              <span class="smaller-label secondary-font" data-i18n="limit">limit:</span>
+              <input class="small-input" name="attr_fatigue_limit_mod" type="text" title="@{fatigue_limit_mod}" value="0" />
+              /
+              <input class="small-input" name="attr_fatigue_limit_total" type="text" title="@{fatigue_limit_total}"
+                disabled="true" value="@{strength_total}+@{vitality_total}+@{fatigue_limit_mod}" />
+            </div>
+
+            <div class="secondary-attribute-div"></div>
+            <input class="attribute-input" name="attr_fatigue" type="number" title="@{fatigue}" />
           </div>
 
         </div>
@@ -291,7 +376,7 @@
               <fieldset class="repeating_inventory">
 
                 <div class="repeatable-row">
-                  <input name="attr_inventory_name" type="text" data-i18n-placeholder="name" placeholder="name"
+                  <input class="bottom-border-input" name="attr_inventory_name" type="text" data-i18n-placeholder="name" placeholder="name"
                     title="@{repeating_feats_$id_inventory_name}" />
 
                   <div class="showhidebutton arrowtype">
@@ -322,9 +407,11 @@
         <div class="corner-box attributes">
 
           <div class="attribute-box">
-            <span class="label secondary-font" data-i18n="knowledge">knowledge (kn)</span>
+            
             <button type="roll" class="roll-button" name="roll_knowledge" title="@{roll_knowledge}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{knowledge}+?{Risk | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{Risk | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}"></button>
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="knowledge">knowledge (kn)</span>
+            </button>
 
             <div class="attribute-inner-box">
               <input class="attribute-input" name="attr_knowledge" type="number" title="@{knowledge}" value="0" />
@@ -332,6 +419,77 @@
             </div>
 
           </div>
+
+          <div class="attribute-box">
+            
+            <button type="roll" class="roll-button" name="roll_discipline" title="@{roll_discipline}"
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="discipline">discipline (di)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_discipline" type="number" title="@{discipline}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            
+            <button type="roll" class="roll-button" name="roll_empathy" title="@{roll_empathy}"
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="empathy">empathy (em)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_empathy" type="number" title="@{empathy}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            
+            <button type="roll" class="roll-button" name="roll_charm" title="@{roll_charm}"
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="charm">charm (ch)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_charm" type="number" title="@{charm}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            
+            <button type="roll" class="roll-button" name="roll_expression" title="@{roll_expression}"
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="expression">expression (ex)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_expression" type="number" title="@{expression}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box">
+            
+            <button type="roll" class="roll-button" name="roll_courage" title="@{roll_courage}"
+              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="courage">courage (co)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_courage" type="number" title="@{courage}" value="0" />
+
+            </div>
+
+          </div>
+
 
         </div>
 
@@ -345,7 +503,7 @@
             <fieldset class="repeating_aspects">
 
               <div class="repeatable-row">
-                <input name="attr_aspect_name" type="text" data-i18n-placeholder="aspect" placeholder="aspect"
+                <input class="bottom-border-input" name="attr_aspect_name" type="text" data-i18n-placeholder="aspect" placeholder="aspect"
                   title="@{repeating_aspects_$id_aspect_name}" />
 
                 <div class="showhidebutton arrowtype">
@@ -643,7 +801,7 @@
 
       <!--Spells-->
       <div class="middle-column">
-        <span class="label secondary-font" data-i18n="spells">spell</span>
+        <span class="label secondary-font" data-i18n="spells">spells</span>
 
         <div class="corner-box attributes">
           <div class="inner-box">
@@ -789,18 +947,7 @@
 
 <!-- Strings translations for Roll Queries-->
 <div style="display: none;">
-  <span data-i18n="advantagedisadvantage">Possui vantagem ou desvantagem?</span>
-  <span data-i18n="no">Não</span>
-  <span data-i18n="advantage">Vantagem</span>
-  <span data-i18n="disadvantage">Desvantagem</span>
-  <span data-i18n="result">Resultado</span>
-  <span data-i18n="success">Sucesso!</span>
-  <span data-i18n="fail">Falha!</span>
-  <span data-i18n="critic">Sucesso Crítico!</span>
-  <span data-i18n="fumble">Falha Crítica!</span>
-  <span data-i18n="check">Teste</span>
-  <span data-i18n="fire-description">Dá 1d6 de dano de fogo.</span>
-  <span data-i18n="ice-description">Congela 1d4 inimigos.</span>
+  <span data-i18n="risk">Risk</span>
 </div>
 
 <!--Sheet Workers -->
@@ -838,13 +985,8 @@
   on("sheet:opened", function(eventInfo){
       
       setAttrs({
-          advantagedisadvantage: getTranslationByKey("advantagedisadvantage"),
-          no: getTranslationByKey("no"),
-          advantage: getTranslationByKey("advantage"),
-          disadvantage: getTranslationByKey("disadvantage"),
-          result: getTranslationByKey("result"),
-          check: getTranslationByKey("check")
-      });     
+          risk: getTranslationByKey("risk")
+      });  
       
   });
 

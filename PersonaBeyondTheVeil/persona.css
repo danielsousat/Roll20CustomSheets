@@ -8,13 +8,15 @@
 }
 
 .sheet-main-container input {
-	height: 28px;
+	background-color: #e6e6e6;
+	padding: 0px;
 }
 
 .sheet-main-container select {
 	width: auto;
-	height: 28px;
 	margin: 0px;
+	padding: 0px;
+	text-transform: uppercase;
 }
 
 .sheet-main-container input[type=text] {
@@ -23,17 +25,29 @@
 }
 
 .sheet-main-container input[type=number] {
-	width: 4.2em;
+	
 }
 
 .sheet-main-container textarea {
 	box-sizing: border-box;
 	margin: 0px;
 	height: auto;
+	background-color: #e6e6e6;
 }
 
 .sheet-main-container button {
 	margin: 0px !important;
+}
+
+.sheet-small-input {
+	width: 2em !important;
+	border-bottom: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-left: 0px;
+	padding: 0px;
+	border-radius: 0;
+	text-align: center;
 }
 
 /*----------------- GENERAL CSS ------------------*/
@@ -63,10 +77,24 @@
 .sheet-label {
 	text-transform: uppercase;
 	margin-right: 5px;
+	font-size: 15px;
+}
+
+.sheet-smaller-label {
+	text-transform: uppercase;
+	font-size: x-small;
 }
 
 .sheet-row-item-margin {
 	margin-right: 5px !important;
+}
+
+.sheet-bottom-border-input {
+	border-bottom: 1px solid black;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-radius: 0;
 }
 
 /*----------------- SHEET PARTS ------------------*/
@@ -75,7 +103,13 @@
 	display: flex;
 	flex-direction: row;
 	margin-bottom: 10px;
-	align-items: center;
+	align-items: stretch;
+	background-color: #e6e6e6;
+	padding: 5px;
+}
+
+.sheet-header input {
+	border: 0px;
 }
 
 .sheet-header-row {
@@ -91,9 +125,19 @@
 	margin-right: 5px;
 }
 
+.sheet-header-box span {
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	padding-left: 5px;
+}
+
 .sheet-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
 	margin-right: 20px;
+	border: 2px solid black;
 }
 
 .sheet-tab-panel {
@@ -116,32 +160,102 @@
 	padding: 5px;
 	margin-bottom: 10px;
 	position: relative;
-	border: 2px solid burlywood;
-	border-radius: 15px;
+	background-color: #e6e6e6;
 }
 
 .sheet-attribute-box {
 	border-top: 2px solid black;
 	border-left: 2px solid black;
 	margin-bottom: 5px;
+	padding-left: 5px;
+}
+
+.sheet-attribute-inner-box {
+	display: flex;
+}
+
+.sheet-attribute-input {
+	text-align: center;
+	font-size: xx-large;
+	height: 64px !important;
+	border: 0px;
+}
+
+.sheet-bonus-input {
+	text-align: center;
+	font-size: xx-large;
+	border: 0px;
+	flex-grow: 1;
+}
+
+.sheet-temporary-bonus {
+	border: 2px solid black;
+	text-align: center;
+}
+
+.sheet-temporary-bonus-div {
+	border-top: 2px solid black;
+	margin: 2px;
+}
+
+.sheet-luck-div {
+	border-top: 2px solid black;
+	margin: 10px;
 }
 
 .sheet-luck-points {
 	display: grid;
 	grid-auto-flow: column;
 	gap: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
 
+.sheet-luck-points input {
+	border-bottom: 1px solid black;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-radius: 0;
+	text-align: center;
 }
 
 .sheet-inner-box {
 	border: 2px solid black;
+	padding: 5px;
 }
 
 .sheet-middle-box {
 	padding: 5px;
 	margin-bottom: 10px;
 	position: relative;
-	border: 2px solid burlywood;
+	background-color: #e6e6e6;
+}
+
+.sheet-secondary-attributes {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+.sheet-secondary-attribute-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sheet-secondary-attribute-box .sheet-label {
+	text-align: center;
+}
+
+.sheet-title-div {
+	border-top: 2px solid black;
+	margin: 2px;
+}
+
+.sheet-secondary-attribute-div {
+	border-top: 1px solid black;
+	margin: 2px;
 }
 
 .sheet-weapons-grid {
@@ -256,9 +370,6 @@
 
 .sheet-main-container button[type=roll] {
 	border: 0px;
-	font-size: 25px;
-	width: 25px;
-	height: 25px;
 	background: transparent !important;
 	text-shadow: none !important;
 	box-shadow: none !important;
@@ -266,8 +377,7 @@
 }
 
 .sheet-main-container button[type=roll]::before {
-	content: 'T';
-	font-family: 'dicefontd20' !important;
+	display: none;
 }
 
 .sheet-main-container button[type=roll]:hover {
