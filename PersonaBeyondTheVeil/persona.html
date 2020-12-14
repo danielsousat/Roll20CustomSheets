@@ -302,8 +302,9 @@
                   <button type="roll" class="roll-button" name="roll_weapon"
                     title="@{repeating_weapons_$id_roll_weapon}"
                     value="&{template:default} {{name=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}">
-                    
-                    <input class="repeating-small-input" name="attr_weapon_name" type="text" title="@{repeating_weapons_$id_weapon_name}" />
+
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text"
+                      title="@{repeating_weapons_$id_weapon_name}" />
                     <input class="repeating-small-input" name="attr_weapon_accuracy" readonly="true" type="text"
                       title="@{repeating_weapons_$id_weapon_accuracy}" />
                     <input class="repeating-small-input" name="attr_weapon_damage" readonly="true" type="text"
@@ -325,7 +326,8 @@
                 <div class="showhide weapons-hidden">
                   <div class="weapon-row">
                     <span class="smaller-label secondary-font" data-i18n="name">name</span>
-                    <input class="repeating-small-input" name="attr_weapon_name" type="text" title="@{repeating_weapons_$id_weapon_name}" />
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text"
+                      title="@{repeating_weapons_$id_weapon_name}" />
                   </div>
 
                   <div class="weapon-row">
@@ -351,8 +353,8 @@
                     <input class="repeating-small-input" name="attr_weapon_damage_dice" type="text"
                       title="@{repeating_weapons_$id_weapon_damage_dice}" value="" />
                     <span>+</span>
-                    <input class="repeating-small-input" name="attr_weapon_damage_mod" type="text" title="@{repeating_weapons_$id_weapon_damage_mod}"
-                      value="" />
+                    <input class="repeating-small-input" name="attr_weapon_damage_mod" type="text"
+                      title="@{repeating_weapons_$id_weapon_damage_mod}" value="" />
                     <span>x</span>
                     <select class="select" name="attr_weapon_damage_attr"
                       title="@{repeating_weapons_$id_weapon_damage_attr}">
@@ -606,6 +608,9 @@
 
         <div class="social-link-notes-box">
           <span class="label secondary-font" data-i18n="notes">notes</span>
+          <div class="social-link-label-box invisible">
+            <span class="label secondary-font"> </span>
+          </div>
         </div>
         <textarea name="attr_social_links_notes" title="@{repeating_social-links_$id_social_links_notes}"></textarea>
 
@@ -629,7 +634,7 @@
               <div class="persona-row">
                 <div class="persona-box">
                   <input name="attr_persona_name" type="text" title="@{repeating_personas_$id_persona_name}" />
-                  <span class="label secondary-font" data-i18n="persona-name">persona name</span>
+                  <span class="label secondary-font" data-i18n="name">name</span>
                 </div>
 
                 <div class="persona-box">
@@ -781,17 +786,19 @@
                   </select>
                 </div>
 
-                <div class="element-box last-element-box">
-                  <span class="label secondary-font" data-i18n="physical">physical</span>
-                  <select class="select arcana" name="attr_persona_physical_interaction"
-                    title="@{repeating_personas_$id_persona_physical_interaction}">
-                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
-                    <option value="weak" data-i18n="weak">weak</option>
-                    <option value="resist" data-i18n="resist">resist</option>
-                    <option value="null" data-i18n="null">null</option>
-                    <option value="reflect" data-i18n="reflec">reflect</option>
-                    <option value="absorb" data-i18n="absorb">absorb</option>
-                  </select>
+                <div class="last-element-box">
+                  <div class="element-box">
+                    <span class="label secondary-font" data-i18n="physical">physical</span>
+                    <select class="select arcana" name="attr_persona_physical_interaction"
+                      title="@{repeating_personas_$id_persona_physical_interaction}">
+                      <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                      <option value="weak" data-i18n="weak">weak</option>
+                      <option value="resist" data-i18n="resist">resist</option>
+                      <option value="null" data-i18n="null">null</option>
+                      <option value="reflect" data-i18n="reflec">reflect</option>
+                      <option value="absorb" data-i18n="absorb">absorb</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
@@ -813,7 +820,6 @@
           <div class="inner-box">
 
             <div class="spells-grid">
-              <div></div>
               <span class="smaller-label secondary-font" data-i18n="name">name</span>
               <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
               <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
@@ -826,15 +832,18 @@
 
               <div class="spells-grid">
                 <button type="roll" class="roll-button" name="roll_spell" title="@{repeating_spells_$id_roll_spell}"
-                  value="&{template:default} {{name=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}"></button>
-                <input name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" />
-                <input name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" />
-                <input name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" />
-                <input name="attr_spell_accuracy" readonly="true" type="text"
-                  title="@{repeating_spells_$id_spell_accuracy}" />
-                <input name="attr_spell_damage" readonly="true" type="text"
-                  title="@{repeating_spells_$id_spell_damage}" />
-
+                  value="&{template:default} {{name=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}">
+                  
+                  <input class="repeating-small-input" name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" />
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" />
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" />
+                  <input class="repeating-small-input" name="attr_spell_accuracy" readonly="true" type="text"
+                    title="@{repeating_spells_$id_spell_accuracy}" />
+                  <input class="repeating-small-input" name="attr_spell_damage" readonly="true" type="text"
+                    title="@{repeating_spells_$id_spell_damage}" />
+                
+                </button>
+                
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
                   <span></span>
@@ -846,10 +855,20 @@
               <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
 
               <div class="showhide spells-hidden">
+                <div class="weapon-row">
+                  <span class="smaller-label secondary-font" data-i18n="name">name</span>
+                  <input class="repeating-small-input" name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" value="" />
 
-                <div class="spell-row">
+                  <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" value="" />
+
+                  <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" value="" />
+                </div>
+
+                <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
-                  <input name="attr_spell_accuracy_dice" type="text" title="@{repeating_spells_$id_spell_accuracy_dice}"
+                  <input class="repeating-small-input" name="attr_spell_accuracy_dice" type="text" title="@{repeating_spells_$id_spell_accuracy_dice}"
                     value="1d6" />
                   <span>+</span>
                   <select class="select" name="attr_spell_accuracy_attr"
@@ -867,7 +886,7 @@
 
                 <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
-                  <input name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}" value="" />
+                  <input class="repeating-small-input" name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}" value="" />
                 </div>
 
                 <textarea name="attr_spell_description" data-i18n-placeholder="description" placeholder="description"

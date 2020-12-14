@@ -108,10 +108,11 @@
 
 .sheet-header input {
 	border: 0px;
+	font-size: 15px;
+	margin-top: 10px;
 }
 
 .sheet-header-row {
-	margin-bottom: 5px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -314,13 +315,21 @@
 	margin-left: 5px;
 }
 
-.sheet-weapons-hidden textarea {
+.sheet-weapons-hidden textarea, .sheet-spells-hidden textarea {
 	font-size: x-small;
 }
 
 .sheet-social-links {
 	display: flex;
 	align-items: flex-end;
+}
+
+.sheet-social-links input {
+	border: 0px;
+}
+
+.sheet-social-links select {
+	font-size: 15px;
 }
 
 .sheet-social-links textarea {
@@ -332,6 +341,16 @@
 	grid-template-columns: auto auto;
 	justify-content: flex-end;
 	margin-right: 10px;
+	align-items: center;
+}
+
+.sheet-social-link-label-box {
+	border: 2px solid black;
+	text-align: center;
+}
+
+.sheet-invisible {
+	opacity: 0;
 }
 
 .sheet-arcana {
@@ -354,18 +373,31 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.sheet-persona-box input {
+	border-top: 0px;
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom: 1px solid black;
+	border-radius: 0;
+	text-align: center;
 }
 
 .sheet-persona-elements {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 5px;
+	margin-top: 10px;
 }
 
 .sheet-element-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border: 1px solid black;
 }
 
 .sheet-persona-div {
@@ -376,11 +408,20 @@
 
 .sheet-last-element-box {
 	grid-column: 1/5;
+	display: flex;
+	justify-content: center;
 }
 
 .sheet-spells-grid {
 	display: grid;
-	grid-template-columns: 10% 18% 18% auto 18% 18% 10%;
+	grid-template-columns: 20% 20% 10% 20% 20% 10%;
+}
+
+.sheet-spells-grid button {
+	grid-column: 1/6;
+	display: grid;
+	grid-template-columns: 1fr 1fr 10% 1fr 1fr;
+	gap: 5px;
 }
 
 .sheet-spell-row {
