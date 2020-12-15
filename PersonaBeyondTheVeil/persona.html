@@ -1,9 +1,9 @@
 <div class="main-container">
 
   <!-- Header -->
-  <div class="header">
+  <div class="header outer-shadow">
 
-    <div class="logo main-font">
+    <div class="logo main-font black-full-border">
       <h1 data-i18n="game-title">Persona Beyond The Veil</h1>
     </div>
 
@@ -13,34 +13,34 @@
 
         <div class="header-box grow">
           <input name="attr_character_name" type="text" title="@{character_name}" />
-          <span class="label secondary-font" data-i18n="name">Nome</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="name">Nome</span>
         </div>
 
         <div class="header-box">
           <input name="attr_level" type="text" title="@{level}" value="1" />
-          <span class="label secondary-font" data-i18n="level">Level</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="level">Level</span>
         </div>
 
         <div class="header-box">
           <input name="attr_gp" type="text" title="@{gp}" />
-          <span class="label secondary-font" data-i18n="gp">gp</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="gp">gp</span>
         </div>
       </div>
 
       <div class="header-row">
         <div class="header-box">
           <input name="attr_age" type="text" title="@{age}" />
-          <span class="label secondary-font" data-i18n="age">Age</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="age">Age</span>
         </div>
 
         <div class="header-box">
           <input name="attr_height" type="text" title="@{height}" />
-          <span class="label secondary-font" data-i18n="_height">Height</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="_height">Height</span>
         </div>
 
         <div class="header-box">
           <input name="attr_weight" type="text" title="@{weight}" />
-          <span class="label secondary-font" data-i18n="weight">Weight</span>
+          <span class="label secondary-font black-top-left-border" data-i18n="weight">Weight</span>
         </div>
       </div>
 
@@ -52,9 +52,11 @@
     <!-- Tab navigation -->
     <div class="tab-panel">
 
-      <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile" title="Profile" />
+      <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile"
+        title="Profile" />
       <div>U</div>
-      <input type="radio" name="attr_tabs_radio" value="social-links" data-i18n-title="social-links" title="Social Links" />
+      <input type="radio" name="attr_tabs_radio" value="social-links" data-i18n-title="social-links"
+        title="Social Links" />
       <div>k</div>
       <input type="radio" name="attr_tabs_radio" value="personas" data-i18n-title="personas" title="Personas" />
       <div>g</div>
@@ -84,9 +86,9 @@
       <div class="middle-column">
 
         <!-- Main Attributes -->
-        <div class="corner-box attributes">
+        <div class="corner-box outer-shadow attributes">
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="strength">strength (str)</span>
             <input type="hidden" name="attr_strength_total" disabled="true" value="@{strength} + @{strength_bonus}" />
 
@@ -101,7 +103,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="vitality">vitality (vit)</span>
             <input type="hidden" name="attr_vitality_total" disabled="true" value="@{vitality} + @{vitality_bonus}" />
 
@@ -116,7 +118,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="agility">agility (agl)</span>
             <input type="hidden" name="attr_agility_total" disabled="true" value="@{agility} + @{agility_bonus}" />
 
@@ -131,7 +133,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="technique">technique (tec)</span>
             <input type="hidden" name="attr_technique_total" disabled="true"
               value="@{technique} + @{technique_bonus}" />
@@ -148,7 +150,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="magic">magic (mag)</span>
             <input type="hidden" name="attr_magic_total" disabled="true" value="@{magic} + @{magic_bonus}" />
 
@@ -163,7 +165,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
             <span class="label secondary-font" data-i18n="luck">luck (luk)</span>
             <input type="hidden" name="attr_luck_total" disabled="true" value="@{luck} + @{luck_bonus}" />
 
@@ -193,8 +195,8 @@
         </div>
 
         <!-- Feats -->
-        <div class="corner-box flex-column">
-          <div class="inner-box">
+        <div class="corner-box outer-shadow flex-column">
+          <div class="inner-box black-full-border">
 
             <span class="box-title label secondary-font" data-i18n="feats">feats</span>
             <div class="title-div"></div>
@@ -231,9 +233,9 @@
       <div class="middle-column">
 
         <!-- Middle top secondary attributes -->
-        <div class="middle-box secondary-attributes">
+        <div class="middle-box secondary-attributes outer-shadow">
 
-          <div class="secondary-attribute-box">
+          <div class="secondary-attribute-box black-top-left-border black-full-border">
             <span class="label secondary-font" data-i18n="hit-points">hit points</span>
             <div class="title-div"></div>
 
@@ -247,7 +249,7 @@
             <input class="attribute-input" name="attr_hp" type="text" title="@{hp}" />
           </div>
 
-          <div class="inner-box secondary-attribute-box">
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
 
             <div class="armor-label">
               <span class="label secondary-font" data-i18n="armor">armor</span>
@@ -257,7 +259,7 @@
 
           </div>
 
-          <div class="inner-box secondary-attribute-box">
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
             <span class="label secondary-font" data-i18n="a-tokens">a. tokens</span>
             <div class="title-div"></div>
 
@@ -270,7 +272,7 @@
             <input class="attribute-input" name="attr_at" type="text" title="@{at}" />
           </div>
 
-          <div class="inner-box secondary-attribute-box">
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
             <span class="label secondary-font" data-i18n="fatigue">fatigue</span>
             <div class="title-div"></div>
 
@@ -290,8 +292,8 @@
         </div>
 
         <!-- Weapons and Inventory -->
-        <div class="middle-box weapons-and-inventory">
-          <div class="weapons-and-inventory-inner-box">
+        <div class="middle-box weapons-and-inventory outer-shadow">
+          <div class="weapons-and-inventory-inner-box black-full-border">
 
             <div class="weapons">
               <span class="box-title label secondary-font" data-i18n="weapons">weapons</span>
@@ -420,9 +422,9 @@
       <div class="middle-column">
 
         <!-- Skills -->
-        <div class="corner-box attributes">
+        <div class="corner-box outer-shadow attributes">
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_knowledge" title="@{roll_knowledge}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{knowledge_label}}} {{result=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -436,7 +438,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_discipline" title="@{roll_discipline}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{discipline_label}}} {{result=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -450,7 +452,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_empathy" title="@{roll_empathy}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{empathy_label}}} {{result=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -464,7 +466,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_charm" title="@{roll_charm}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{charm_label}}} {{result=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -478,7 +480,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_expression" title="@{roll_expression}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{expression_label}}} {{result=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -492,7 +494,7 @@
 
           </div>
 
-          <div class="attribute-box">
+          <div class="attribute-box black-top-left-border">
 
             <button type="roll" class="roll-button" name="roll_courage" title="@{roll_courage}"
               value="&{template:main} {{charname=@{character_name}}} {{risk=@{courage_label}}} {{result=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
@@ -510,8 +512,8 @@
         </div>
 
         <!-- Aspects -->
-        <div class="corner-box flex-column">
-          <div class="inner-box">
+        <div class="corner-box outer-shadow flex-column">
+          <div class="inner-box black-full-border">
 
             <span class="box-title label secondary-font" data-i18n="aspects">aspects</span>
             <div class="title-div"></div>
@@ -552,7 +554,7 @@
   <div class='social-linkstab'>
     <fieldset class="repeating_social-links">
 
-      <div class="corner-box social-links">
+      <div class="corner-box outer-shadow social-links">
 
         <div class="social-links-box">
           <select class="select arcana secondary-font" name="attr_social_link_arcana"
@@ -589,7 +591,8 @@
           </select>
 
           <span class="label secondary-font" data-i18n="name">name</span>
-          <input name="attr_social_link_name" type="text" title="@{repeating_social-links_$id_social_link_name}" />
+          <input class="social-link-name" name="attr_social_link_name" type="text"
+            title="@{repeating_social-links_$id_social_link_name}" />
 
           <span class="label secondary-font" data-i18n="npc">npc</span>
           <input name="attr_social_link_type" type="radio" checked="true"
@@ -602,21 +605,21 @@
 
         <div class="social-links-box2">
           <input name="attr_social_link_rank" type="text" title="@{repeating_social-links_$id_social_link_rank}" />
-          <div class="social-link-label-box">
+          <div class="social-link-label-box black-full-border">
             <span class="label secondary-font" data-i18n="rank">rank</span>
           </div>
         </div>
 
         <div class="social-links-box2">
           <input name="attr_social_link_points" type="text" title="@{repeating_social-links_$id_social_link_points}" />
-          <div class="social-link-label-box">
+          <div class="social-link-label-box black-full-border">
             <span class="label secondary-font" data-i18n="points">points</span>
           </div>
         </div>
 
-        <div class="social-link-notes-box">
+        <div class="social-links-box2">
           <span class="label secondary-font" data-i18n="notes">notes</span>
-          <div class="social-link-label-box invisible">
+          <div class="social-link-notes-box">
             <span class="label secondary-font"> </span>
           </div>
         </div>
@@ -632,10 +635,12 @@
 
       <!--Personas-->
       <div class="middle-column">
-        <span class="label secondary-font" data-i18n="personas">personas</span>
+        <div class="personas-label">
+          <span class="label secondary-font" data-i18n="personas">personas</span>
+        </div>
 
-        <div class="corner-box attributes">
-          <div class="inner-box">
+        <div class="corner-box outer-shadow attributes">
+          <div class="inner-box black-full-border">
 
             <fieldset class="repeating_personas">
 
@@ -690,8 +695,8 @@
 
               <div class="persona-elements">
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="fire">fire</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="fire">fire</span>
                   <select class="select arcana" name="attr_persona_fire_interaction"
                     title="@{repeating_personas_$id_persona_fire_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -703,8 +708,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="ice">ice</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="ice">ice</span>
                   <select class="select arcana" name="attr_persona_ice_interaction"
                     title="@{repeating_personas_$id_persona_ice_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -716,8 +721,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="wind">wind</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="wind">wind</span>
                   <select class="select arcana" name="attr_persona_wind_interaction"
                     title="@{repeating_personas_$id_persona_wind_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -729,8 +734,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="lightning">lightning</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="lightning">lightning</span>
                   <select class="select arcana" name="attr_persona_lightning_interaction"
                     title="@{repeating_personas_$id_persona_lightning_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -742,8 +747,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="psi">psi</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="psi">psi</span>
                   <select class="select arcana" name="attr_persona_psi_interaction"
                     title="@{repeating_personas_$id_persona_psi_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -755,8 +760,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="nuke">nuke</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="nuke">nuke</span>
                   <select class="select arcana" name="attr_persona_nuke_interaction"
                     title="@{repeating_personas_$id_persona_nuke_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -768,8 +773,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="light">light</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="light">light</span>
                   <select class="select arcana" name="attr_persona_light_interaction"
                     title="@{repeating_personas_$id_persona_light_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -781,8 +786,8 @@
                   </select>
                 </div>
 
-                <div class="element-box">
-                  <span class="label secondary-font" data-i18n="dark">dark</span>
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="dark">dark</span>
                   <select class="select arcana" name="attr_persona_dark_interaction"
                     title="@{repeating_personas_$id_persona_dark_interaction}">
                     <option value="normal" data-i18n="normal" selected="selected">normal</option>
@@ -794,20 +799,20 @@
                   </select>
                 </div>
 
-                <div class="last-element-box">
-                  <div class="element-box">
-                    <span class="label secondary-font" data-i18n="physical">physical</span>
-                    <select class="select arcana" name="attr_persona_physical_interaction"
-                      title="@{repeating_personas_$id_persona_physical_interaction}">
-                      <option value="normal" data-i18n="normal" selected="selected">normal</option>
-                      <option value="weak" data-i18n="weak">weak</option>
-                      <option value="resist" data-i18n="resist">resist</option>
-                      <option value="null" data-i18n="null">null</option>
-                      <option value="reflect" data-i18n="reflec">reflect</option>
-                      <option value="absorb" data-i18n="absorb">absorb</option>
-                    </select>
-                  </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="physical">physical</span>
+                  <select class="select arcana" name="attr_persona_physical_interaction"
+                    title="@{repeating_personas_$id_persona_physical_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
                 </div>
+
               </div>
 
               <div class="persona-div">
@@ -822,10 +827,12 @@
 
       <!--Spells-->
       <div class="middle-column">
-        <span class="label secondary-font" data-i18n="spells">spells</span>
+        <div class="personas-label">
+          <span class="label secondary-font" data-i18n="spells">spells</span>
+        </div>
 
-        <div class="corner-box attributes">
-          <div class="inner-box">
+        <div class="corner-box outer-shadow attributes">
+          <div class="inner-box black-full-border">
 
             <div class="spells-grid spacer">
               <span class="smaller-label secondary-font" data-i18n="name">name</span>

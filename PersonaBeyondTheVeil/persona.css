@@ -101,6 +101,25 @@
 	border-radius: 0;
 }
 
+.sheet-black-full-border {
+	border: 12px solid black;
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/8cc9302ad1712e273a22171abd19e4618d4c0535/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-slice: 10;
+	border-image-width: 1;
+	border-image-outset: initial;
+	border-image-repeat: stretch;
+}
+
+.sheet-black-top-left-border {
+	border-left: 12px solid black;
+	border-top: 12px solid black;
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/8cc9302ad1712e273a22171abd19e4618d4c0535/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-slice: 10;
+	border-image-width: 1;
+	border-image-outset: initial;
+	border-image-repeat: stretch;
+}
+
 /*----------------- SHEET PARTS ------------------*/
 
 .sheet-header {
@@ -131,8 +150,6 @@
 }
 
 .sheet-header-box span {
-	border-left: 2px solid black;
-	border-top: 2px solid black;
 	padding-left: 5px;
 }
 
@@ -142,7 +159,6 @@
 	align-items: center;
 	text-align: center;
 	margin-right: 20px;
-	border: 2px solid black;
 }
 
 .sheet-navigation-bar {
@@ -177,19 +193,23 @@
 .sheet-middle {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	gap: 20px;
+	gap: 25px;
 }
 
 .sheet-corner-box {
 	padding: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	position: relative;
 	background-color: #e6e6e6;
 }
 
+.sheet-outer-shadow {
+	box-shadow: 
+	0 0 0 3px white, 
+	0 0 0 8px #e6e6e6;
+}
+
 .sheet-attribute-box {
-	border-top: 2px solid black;
-	border-left: 2px solid black;
 	margin-bottom: 5px;
 	padding-left: 5px;
 }
@@ -251,31 +271,33 @@
 }
 
 .sheet-inner-box {
-	border: 2px solid black;
-	padding: 5px;
 	display: flex;
 	flex-direction: column;
 }
 
 .sheet-middle-box {
 	padding: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	position: relative;
 	background-color: #e6e6e6;
 }
 
 .sheet-secondary-attributes {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 30px;
+	grid-template-columns: 50% 50%;
+    gap: 5px;
 }
 
 .sheet-secondary-attribute-box {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	border: 2px solid black;
-	padding: 2px;
+}
+
+.sheet-secondary-attribute-row {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
 }
 
 .sheet-secondary-attribute-box .sheet-label {
@@ -354,6 +376,11 @@
 	align-items: flex-end;
 }
 
+.sheet-social-link-name {
+	border-bottom: 1px solid black !important; 
+	border-radius: 0!important;
+}
+
 .sheet-social-links input {
 	border: 0px;
 }
@@ -372,11 +399,25 @@
 	justify-content: flex-end;
 	margin-right: 10px;
 	align-items: center;
+	row-gap: 5px;
+}
+
+.sheet-social-links-box select {
+	font-size: 12px;
 }
 
 .sheet-social-link-label-box {
-	border: 2px solid black;
 	text-align: center;
+}
+
+.sheet-social-link-notes-box {
+	border-top: 12px solid black;
+	margin-bottom: 12px;
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/8cc9302ad1712e273a22171abd19e4618d4c0535/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-slice: 10;
+	border-image-width: 1;
+	border-image-outset: initial;
+	border-image-repeat: stretch;
 }
 
 .sheet-invisible {
@@ -390,7 +431,12 @@
 .sheet-personas-middle {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	column-gap: 20px;
+	column-gap: 30px;
+}
+
+.sheet-personas-label {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 .sheet-persona-row {
@@ -418,7 +464,7 @@
 
 .sheet-persona-elements {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 5px;
 	margin-top: 10px;
 }
@@ -427,7 +473,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border: 1px solid black;
+}
+
+.sheet-element-box select {
+	font-size: 10px !important;
+}
+
+.sheet-element-label {
+	text-transform: uppercase;
+	font-size: 10px;
 }
 
 .sheet-persona-div {
@@ -436,21 +490,15 @@
 	border-bottom: 4px dashed black;
 }
 
-.sheet-last-element-box {
-	grid-column: 1/5;
-	display: flex;
-	justify-content: center;
-}
-
 .sheet-spells-grid {
 	display: grid;
-	grid-template-columns: 20% 20% 10% 20% 20% 10%;
+	grid-template-columns: 20% 20% 12% 23% 20% 5%;
 }
 
 .sheet-spells-grid button {
 	grid-column: 1/6;
 	display: grid;
-	grid-template-columns: 1fr 1fr 10% 1fr 1fr;
+	grid-template-columns: 0.9fr 0.9fr 12% 1fr 1fr;
 	gap: 5px;
 }
 
