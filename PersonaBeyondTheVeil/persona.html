@@ -52,9 +52,12 @@
     <!-- Tab navigation -->
     <div class="tab-panel">
 
-      <button type="action" name="act_profile" data-i18n="profile">Profile</button>
-      <button type="action" name="act_social-links" data-i18n="social-links">Social Links</button>
-      <button type="action" name="act_personas" data-i18n="personas">Personas</button>
+      <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile" title="Profile" />
+      <div>U</div>
+      <input type="radio" name="attr_tabs_radio" value="social-links" data-i18n-title="social-links" title="Social Links" />
+      <div>k</div>
+      <input type="radio" name="attr_tabs_radio" value="personas" data-i18n-title="personas" title="Personas" />
+      <div>g</div>
 
     </div>
 
@@ -63,13 +66,13 @@
       <span class="label secondary-font" data-i18n="initiative">initiative</span>
     </button>
 
-    <div class="flex-row">
+    <div class="movement">
       <span class="label secondary-font" data-i18n="movement">movement:</span>
       <input type="text" disabled="true" name="attr_movement" value="@{agility_total}+3" title="@{movement}" />
     </div>
 
   </div>
-  <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
+  <input type='hidden' class="tabcontrol" name='attr_selected_tab' value='profile' />
 
   <!-- Profile Tab -->
   <div class="profiletab">
@@ -230,7 +233,7 @@
         <!-- Middle top secondary attributes -->
         <div class="middle-box secondary-attributes">
 
-          <div class="inner-box secondary-attribute-box">
+          <div class="secondary-attribute-box">
             <span class="label secondary-font" data-i18n="hit-points">hit points</span>
             <div class="title-div"></div>
 
@@ -294,7 +297,7 @@
               <span class="box-title label secondary-font" data-i18n="weapons">weapons</span>
               <div class="title-div"></div>
 
-              <div class="weapons-grid">
+              <div class="weapons-grid spacer">
                 <span class="smaller-label secondary-font" data-i18n="name">name</span>
                 <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
                 <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
@@ -552,7 +555,7 @@
       <div class="corner-box social-links">
 
         <div class="social-links-box">
-          <select class="select arcana" name="attr_social_link_arcana"
+          <select class="select arcana secondary-font" name="attr_social_link_arcana"
             title="@{repeating_social-links_$id_social_link_arcana}">
             <option value="0" data-i18n="the-fool" selected="selected">0 The Fool</option>
             <option value="1" data-i18n="the-magician">I The Magician</option>
@@ -824,7 +827,7 @@
         <div class="corner-box attributes">
           <div class="inner-box">
 
-            <div class="spells-grid">
+            <div class="spells-grid spacer">
               <span class="smaller-label secondary-font" data-i18n="name">name</span>
               <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
               <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
@@ -989,15 +992,11 @@
 <!--Sheet Workers -->
 <script type="text/worker">
 
-  const buttonlist = ["profile","social-links","personas"];
-  
-  /*config tabs control */
-  buttonlist.forEach(button => {
-      on(`clicked:${button}`, function() {
-          setAttrs({
-              tabcontrol: button
-          });
-      });
+  /*Tabs Control */
+  on('change:tabs_radio', function(eventInfo) {
+    setAttrs({
+      selected_tab: eventInfo.newValue
+    });
   });
 
   /*Controls show hide checkbox button from repeating sections*/
