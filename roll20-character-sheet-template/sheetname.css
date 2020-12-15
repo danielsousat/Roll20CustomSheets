@@ -8,18 +8,17 @@
 }
 
 .sheet-main-container input {
-	height: 28px;
+	height: auto;
 }
 
 .sheet-main-container select {
 	width: auto;
-	height: 28px;
+	height: auto;
 	margin: 0px;
 }
 
 .sheet-main-container input[type=text] {
-	width: 10px;
-	flex-grow: 1;
+	width: 100%;
 }
 
 .sheet-main-container input[type=number] {
@@ -147,17 +146,47 @@
 
 /*----------------- TAB CONTROL ------------------*/
 
+.sheet-tab-panel input {
+	border: 0px;
+	width: 25px;
+	height: 25px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+	margin-right: -25px;
+	z-index: 1;
+	opacity: 0;
+}
+
+.sheet-tab-panel div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Pictos';
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+
+.sheet-tab-panel input:hover+div {
+	opacity: 0.5;
+}
+
+.sheet-tab-panel input:checked+div {
+	color: gray;
+}
+
 /*Configure the tab buttons*/
-.sheet-profiletab,
-.sheet-configurationtab,
-.sheet-journaltab {
+
+.sheet-profiletab, .sheet-configurationtab, .sheet-helptab {
 	display: none;
 }
 
 /* show the selected tab */
-.sheet-tabcontrol[value="profile"]~div.sheet-profiletab,
-.sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab,
-.sheet-tabcontrol[value="journal"]~div.sheet-journaltab {
+
+.sheet-tabcontrol[value="profile"]~div.sheet-profiletab, .sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab, .sheet-tabcontrol[value="help"]~div.sheet-helptab {
 	display: block;
 }
 
