@@ -139,6 +139,19 @@
 	border: 2px solid black;
 }
 
+.sheet-navigation-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sheet-navigation-bar input {
+	background: none;
+	width: 2em !important;
+	border:1px solid black;
+	text-align: center;
+}
+
 .sheet-tab-panel {
 	display: flex;
 	flex-direction: row;
@@ -147,6 +160,7 @@
 
 .sheet-tab-panel button {
 	margin-right: 5px !important;
+	text-transform: uppercase;
 }
 
 .sheet-middle {
@@ -467,6 +481,10 @@
 	padding: 0px;
 }
 
+.sheet-main-container button[type=roll] input:hover {
+	cursor: pointer;
+}
+
 .sheet-main-container button[type=roll]::before {
 	display: none;
 }
@@ -633,6 +651,7 @@
 	border: 2px solid black;
 	font-family: Paytone One;
 	text-align: center;
+	background-color: #e6e6e6;
 }
 
 .sheet-rolltemplate-main p {
@@ -659,6 +678,11 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .sheet-template-label2 {
+	text-transform: uppercase;
+	font-style: italic;
 }
 
 .sheet-rolltemplate-main .sheet-template-success {

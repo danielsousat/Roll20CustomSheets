@@ -104,5 +104,10 @@
 	"a-tokens": "a. tokens",
 	"total-at": "total at:",
 	"fatigue": "fatigue",
-	"limit": "limit:"
+	"limit": "limit:",
+	"initiative": "initiative",
+	"check": "Teste",
+	"result": "Result",
+	"critic": "Sucesso Crítico!",
+	"movement": "movement"
 }

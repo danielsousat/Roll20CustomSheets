@@ -1,13 +1,5 @@
 <div class="main-container">
 
-  <!--TODO
-  
-    fatigue = str + vit + mods
-    initiative = d20 + agl
-    movement = agl+3
-    edit rolls and roll template
-  -->
-
   <!-- Header -->
   <div class="header">
 
@@ -56,12 +48,25 @@
 
   </div>
 
-  <!-- Tab navigation -->
-  <div class="tab-panel">
+  <div class="navigation-bar">
+    <!-- Tab navigation -->
+    <div class="tab-panel">
 
-    <button type="action" name="act_profile" data-i18n="profile">Profile</button>
-    <button type="action" name="act_social-links" data-i18n="social-links">Social Links</button>
-    <button type="action" name="act_personas" data-i18n="personas">Personas</button>
+      <button type="action" name="act_profile" data-i18n="profile">Profile</button>
+      <button type="action" name="act_social-links" data-i18n="social-links">Social Links</button>
+      <button type="action" name="act_personas" data-i18n="personas">Personas</button>
+
+    </div>
+
+    <button type="roll" class="roll-button" name="roll_intiative" title="@{roll_initiative}"
+      value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative}}} {{result=[[d20 + @{agility} &{tracker}]]}}">
+      <span class="label secondary-font" data-i18n="initiative">initiative</span>
+    </button>
+
+    <div class="flex-row">
+      <span class="label secondary-font" data-i18n="movement">movement:</span>
+      <input type="text" disabled="true" name="attr_movement" value="@{agility_total}+3" title="@{movement}" />
+    </div>
 
   </div>
   <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
@@ -301,13 +306,13 @@
                 <div class="weapons-grid">
                   <button type="roll" class="roll-button" name="roll_weapon"
                     title="@{repeating_weapons_$id_roll_weapon}"
-                    value="&{template:default} {{name=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}">
+                    value="&{template:main} {{charname=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}">
 
                     <input class="repeating-small-input" name="attr_weapon_name" type="text"
                       title="@{repeating_weapons_$id_weapon_name}" />
-                    <input class="repeating-small-input" name="attr_weapon_accuracy" readonly="true" type="text"
+                    <input class="repeating-small-input" name="attr_weapon_accuracy" type="text"
                       title="@{repeating_weapons_$id_weapon_accuracy}" />
-                    <input class="repeating-small-input" name="attr_weapon_damage" readonly="true" type="text"
+                    <input class="repeating-small-input" name="attr_weapon_damage" type="text"
                       title="@{repeating_weapons_$id_weapon_damage}" />
 
                   </button>
@@ -417,7 +422,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_knowledge" title="@{roll_knowledge}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{knowledge_label}}} {{result=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="knowledge">knowledge (kn)</span>
             </button>
 
@@ -431,7 +436,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_discipline" title="@{roll_discipline}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{discipline_label}}} {{result=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="discipline">discipline (di)</span>
             </button>
 
@@ -445,7 +450,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_empathy" title="@{roll_empathy}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{empathy_label}}} {{result=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="empathy">empathy (em)</span>
             </button>
 
@@ -459,7 +464,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_charm" title="@{roll_charm}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{charm_label}}} {{result=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="charm">charm (ch)</span>
             </button>
 
@@ -473,7 +478,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_expression" title="@{roll_expression}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{expression_label}}} {{result=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="expression">expression (ex)</span>
             </button>
 
@@ -487,7 +492,7 @@
           <div class="attribute-box">
 
             <button type="roll" class="roll-button" name="roll_courage" title="@{roll_courage}"
-              value="&{template:default} {{name=@{character_name}}} {{roll=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{courage_label}}} {{result=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
               <span class="label secondary-font" data-i18n="courage">courage (co)</span>
             </button>
 
@@ -832,18 +837,21 @@
 
               <div class="spells-grid">
                 <button type="roll" class="roll-button" name="roll_spell" title="@{repeating_spells_$id_roll_spell}"
-                  value="&{template:default} {{name=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}">
-                  
-                  <input class="repeating-small-input" name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" />
-                  <input class="repeating-small-input" name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" />
-                  <input class="repeating-small-input" name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" />
-                  <input class="repeating-small-input" name="attr_spell_accuracy" readonly="true" type="text"
+                  value="&{template:main} {{charname=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}">
+
+                  <input class="repeating-small-input" name="attr_spell_name" type="text"
+                    title="@{repeating_spells_$id_spell_name}" />
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text"
+                    title="@{repeating_spells_$id_spell_persona}" />
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text"
+                    title="@{repeating_spells_$id_spell_tier}" />
+                  <input class="repeating-small-input" name="attr_spell_accuracy" type="text"
                     title="@{repeating_spells_$id_spell_accuracy}" />
-                  <input class="repeating-small-input" name="attr_spell_damage" readonly="true" type="text"
+                  <input class="repeating-small-input" name="attr_spell_damage" type="text"
                     title="@{repeating_spells_$id_spell_damage}" />
-                
+
                 </button>
-                
+
                 <div class="showhidebutton arrowtype">
                   <input type="checkbox" name="attr_showhide_checkbox" value="1" />
                   <span></span>
@@ -857,19 +865,22 @@
               <div class="showhide spells-hidden">
                 <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="name">name</span>
-                  <input class="repeating-small-input" name="attr_spell_name" type="text" title="@{repeating_spells_$id_spell_name}" value="" />
+                  <input class="repeating-small-input" name="attr_spell_name" type="text"
+                    title="@{repeating_spells_$id_spell_name}" value="" />
 
                   <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
-                  <input class="repeating-small-input" name="attr_spell_persona" type="text" title="@{repeating_spells_$id_spell_persona}" value="" />
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text"
+                    title="@{repeating_spells_$id_spell_persona}" value="" />
 
                   <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
-                  <input class="repeating-small-input" name="attr_spell_tier" type="text" title="@{repeating_spells_$id_spell_tier}" value="" />
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text"
+                    title="@{repeating_spells_$id_spell_tier}" value="" />
                 </div>
 
                 <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
-                  <input class="repeating-small-input" name="attr_spell_accuracy_dice" type="text" title="@{repeating_spells_$id_spell_accuracy_dice}"
-                    value="1d6" />
+                  <input class="repeating-small-input" name="attr_spell_accuracy_dice" type="text"
+                    title="@{repeating_spells_$id_spell_accuracy_dice}" value="1d6" />
                   <span>+</span>
                   <select class="select" name="attr_spell_accuracy_attr"
                     title="@{repeating_spells_$id_spell_accuracy_attr}">
@@ -886,7 +897,8 @@
 
                 <div class="weapon-row">
                   <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
-                  <input class="repeating-small-input" name="attr_spell_damage" type="text" title="@{repeating_spells_$id_spell_damage}" value="" />
+                  <input class="repeating-small-input" name="attr_spell_damage" type="text"
+                    title="@{repeating_spells_$id_spell_damage}" value="" />
                 </div>
 
                 <textarea name="attr_spell_description" data-i18n-placeholder="description" placeholder="description"
@@ -926,44 +938,44 @@
 
     {{#check}}
     <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="check">Teste</span>
-      {{check}}
+      <span class="template-label secondary-font" data-i18n="check">Check</span>
+      <span class="template-label2 secondary-font">{{check}}</span>
     </div>
     {{/check}}
+
+    {{#risk}}
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="risk">Risk</span>
+      <span class="template-label2 secondary-font">{{risk}}</span>
+    </div>
+    {{/risk}}
 
     {{#result}}
 
     <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+      <span class="template-label secondary-font" data-i18n="result">Result</span>
       {{result}}
     </div>
 
-    {{#^rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
-    </div>
-    {{/^rollLess() result target}}
-
-    {{#rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
-    </div>
-    {{/rollLess() result target}}
-
-
-    {{#rollWasCrit() result}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
-    </div>
-    {{/rollWasCrit() result}}
-
-    {{#rollWasFumble() result}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
-    </div>
-    {{/rollWasFumble() result}}
-
     {{/result}}
+
+    {{#attack}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="accuracy">Accuracy</span>
+      {{attack}}
+    </div>
+
+    {{/attack}}
+
+    {{#damage}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="damage">Damage</span>
+      {{damage}}
+    </div>
+
+    {{/damage}}
 
   </div>
 
@@ -1009,7 +1021,14 @@
   on("sheet:opened", function(eventInfo){
       
       setAttrs({
-          risk: getTranslationByKey("risk")
+          risk: getTranslationByKey("risk"),
+          knowledge_label: getTranslationByKey("knowledge"),
+          discipline_label: getTranslationByKey("discipline"),
+          empathy_label: getTranslationByKey("empathy"),
+          charm_label: getTranslationByKey("charm"),
+          expression_label: getTranslationByKey("expression"),
+          courage_label: getTranslationByKey("courage"),
+          initiative: getTranslationByKey("initiative")
       });  
       
   });
