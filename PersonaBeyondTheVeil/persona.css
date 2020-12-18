@@ -103,7 +103,7 @@
 
 .sheet-black-full-border {
 	border: 12px solid black;
-	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/8cc9302ad1712e273a22171abd19e4618d4c0535/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/5191fe48acafe88230d2dc9980133ab6235a1a91/PersonaBeyondTheVeil/assets/Border.svg');
 	border-image-slice: 10;
 	border-image-width: 1;
 	border-image-outset: initial;
@@ -113,7 +113,7 @@
 .sheet-black-top-left-border {
 	border-left: 12px solid black;
 	border-top: 12px solid black;
-	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/8cc9302ad1712e273a22171abd19e4618d4c0535/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/5191fe48acafe88230d2dc9980133ab6235a1a91/PersonaBeyondTheVeil/assets/Border.svg');
 	border-image-slice: 10;
 	border-image-width: 1;
 	border-image-outset: initial;
