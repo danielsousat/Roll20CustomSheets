@@ -1,0 +1,33 @@
+Using the custom sheet on Roll20.
+
+1) You need to have a Pro account in order to use custom sheets;
+2) In the Game Settings, on the Character Sheet Template dropdown, select Custom;
+3) Below that, 4 tabs will open: HTML Layout, CSS Styling, Translation and Preview;
+4) Open the persona.html file in any text editor, copy it's contents and paste it on the HTML Layout tab;
+5) Repeat that copying the content from the persona.css file to the CSS Styling tab;
+6) Now, doing the same, copy the content from the translation.json file to the Translation tab;
+7) Click on Save Changes and you are done.
+
+PS: The sheet uses the Border.svg file that is in the assets folder to render the sheet's black borders. But the image it is pointing to is
+actually on my github repository. I won't delete it, but if the border somehow stops loading, it's because something happened to my repo.
+To fix that, juts store this image on any server (like imgur, for instance) and change the URL for the border-image-source on this
+part of the persona.css file:
+
+.sheet-black-full-border {
+	border: 12px solid black;
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/5191fe48acafe88230d2dc9980133ab6235a1a91/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-slice: 10;
+	border-image-width: 1;
+	border-image-outset: initial;
+	border-image-repeat: stretch;
+}
+
+.sheet-black-top-left-border {
+	border-left: 12px solid black;
+	border-top: 12px solid black;
+	border-image-source: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/5191fe48acafe88230d2dc9980133ab6235a1a91/PersonaBeyondTheVeil/assets/Border.svg');
+	border-image-slice: 10;
+	border-image-width: 1;
+	border-image-outset: initial;
+	border-image-repeat: stretch;
+}
