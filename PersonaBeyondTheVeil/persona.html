@@ -1,0 +1,1097 @@
+<div class="main-container">
+
+  <!-- Header -->
+  <div class="header outer-shadow">
+
+    <div class="logo main-font black-full-border">
+      <h1 data-i18n="game-title">Persona Beyond The Veil</h1>
+    </div>
+
+    <div class="flex-column grow">
+
+      <div class="header-row">
+
+        <div class="header-box grow">
+          <input name="attr_character_name" type="text" title="@{character_name}" />
+          <span class="label secondary-font black-top-left-border" data-i18n="name">Nome</span>
+        </div>
+
+        <div class="header-box">
+          <input name="attr_level" type="text" title="@{level}" value="1" />
+          <span class="label secondary-font black-top-left-border" data-i18n="level">Level</span>
+        </div>
+
+        <div class="header-box">
+          <input name="attr_gp" type="text" title="@{gp}" />
+          <span class="label secondary-font black-top-left-border" data-i18n="gp">gp</span>
+        </div>
+      </div>
+
+      <div class="header-row">
+        <div class="header-box">
+          <input name="attr_age" type="text" title="@{age}" />
+          <span class="label secondary-font black-top-left-border" data-i18n="age">Age</span>
+        </div>
+
+        <div class="header-box">
+          <input name="attr_height" type="text" title="@{height}" />
+          <span class="label secondary-font black-top-left-border" data-i18n="_height">Height</span>
+        </div>
+
+        <div class="header-box">
+          <input name="attr_weight" type="text" title="@{weight}" />
+          <span class="label secondary-font black-top-left-border" data-i18n="weight">Weight</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="navigation-bar">
+    <!-- Tab navigation -->
+    <div class="tab-panel">
+
+      <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile"
+        title="Profile" />
+      <div>U</div>
+      <input type="radio" name="attr_tabs_radio" value="social-links" data-i18n-title="social-links"
+        title="Social Links" />
+      <div>k</div>
+      <input type="radio" name="attr_tabs_radio" value="personas" data-i18n-title="personas" title="Personas" />
+      <div>g</div>
+
+    </div>
+
+    <button type="roll" class="roll-button" name="roll_intiative" title="@{roll_initiative}"
+      value="&{template:main} {{charname=@{character_name}}} {{check=@{initiative}}} {{result=[[d20 + @{agility} &{tracker}]]}}">
+      <span class="label secondary-font" data-i18n="initiative">initiative</span>
+    </button>
+
+    <div class="movement">
+      <span class="label secondary-font" data-i18n="movement">movement:</span>
+      <input type="text" disabled="true" name="attr_movement" value="@{agility_total}+3" title="@{movement}" />
+    </div>
+
+  </div>
+  <input type='hidden' class="tabcontrol" name='attr_selected_tab' value='profile' />
+
+  <!-- Profile Tab -->
+  <div class="profiletab">
+
+    <!-- Middle -->
+    <div class="middle">
+
+      <!-- Middle column 1-->
+      <div class="middle-column">
+
+        <!-- Main Attributes -->
+        <div class="corner-box outer-shadow attributes">
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="strength">strength (str)</span>
+            <input type="hidden" name="attr_strength_total" disabled="true" value="@{strength} + @{strength_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_strength" type="text" title="@{strength}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_strength_bonus" type="text" title="@{strength_bonus}" value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="vitality">vitality (vit)</span>
+            <input type="hidden" name="attr_vitality_total" disabled="true" value="@{vitality} + @{vitality_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_vitality" type="text" title="@{vitality}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_vitality_bonus" type="text" title="@{vitality_bonus}" value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="agility">agility (agl)</span>
+            <input type="hidden" name="attr_agility_total" disabled="true" value="@{agility} + @{agility_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_agility" type="text" title="@{agility}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_agility_bonus" type="text" title="@{agility_bonus}" value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="technique">technique (tec)</span>
+            <input type="hidden" name="attr_technique_total" disabled="true"
+              value="@{technique} + @{technique_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_technique" type="text" title="@{technique}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_technique_bonus" type="text" title="@{technique_bonus}"
+                  value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="magic">magic (mag)</span>
+            <input type="hidden" name="attr_magic_total" disabled="true" value="@{magic} + @{magic_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_magic" type="text" title="@{magic}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_magic_bonus" type="text" title="@{magic_bonus}" value="0" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+            <span class="label secondary-font" data-i18n="luck">luck (luk)</span>
+            <input type="hidden" name="attr_luck_total" disabled="true" value="@{luck} + @{luck_bonus}" />
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_luck" type="text" title="@{luck}" value="0" />
+              <div class="temporary-bonus">
+                <span class="smaller-label secondary-font" data-i18n="temp-bonus">temporary bonus</span>
+                <div class="temporary-bonus-div"></div>
+                <input class="bonus-input" name="attr_luck_bonus" type="text" title="@{luck_bonus}" value="0" />
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="luck-div"></div>
+
+          <div class="luck-points">
+            <span class="label secondary-font" data-i18n="luck-points">luck points:</span>
+            <input class="luck-points-input" name="attr_luck_points_current" type="text" title="@{luck_points_current}"
+              value="0" />
+            <div class="luck-points-div">/</div>
+            <input class="luck-points-input" name="attr_luck_points_max" type="text" title="@{luck_points_max}"
+              value="0" />
+          </div>
+
+        </div>
+
+        <!-- Feats -->
+        <div class="corner-box outer-shadow flex-column">
+          <div class="inner-box black-full-border">
+
+            <span class="box-title label secondary-font" data-i18n="feats">feats</span>
+            <div class="title-div"></div>
+
+            <fieldset class="repeating_feats">
+
+              <div class="repeatable-row">
+                <input class="bottom-border-input" name="attr_feat_name" type="text" data-i18n-placeholder="feat"
+                  placeholder="feat" title="@{repeating_feats_$id_feat_name}" />
+
+                <div class="showhidebutton arrowtype">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_feat_description" data-i18n-placeholder="description"
+                title="@{repeating_feats_$id_feat_description}" placeholder="description"></textarea>
+
+
+            </fieldset>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Middle column 2 -->
+      <div class="middle-column">
+
+        <!-- Middle top secondary attributes -->
+        <div class="middle-box secondary-attributes outer-shadow">
+
+          <div class="secondary-attribute-box black-top-left-border black-full-border">
+            <span class="label secondary-font" data-i18n="hit-points">hit points</span>
+            <div class="title-div"></div>
+
+            <div class="secondary-attribute-row">
+              <span class="smaller-label secondary-font" data-i18n="total-hp">total hp:</span>
+              <input class="small-input" name="attr_total_hp" type="text" disabled="true" title="@{total_hp}"
+                value="15 +5*@{level} + 5*(@{vitality_total})" />
+            </div>
+
+            <div class="secondary-attribute-div"></div>
+            <input class="attribute-input" name="attr_hp" type="text" title="@{hp}" />
+          </div>
+
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
+
+            <div class="armor-label">
+              <span class="label secondary-font" data-i18n="armor">armor</span>
+              <div class="title-div"></div>
+            </div>
+            <input class="attribute-input" name="attr_armor" type="text" title="@{armor}" />
+
+          </div>
+
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
+            <span class="label secondary-font" data-i18n="a-tokens">a. tokens</span>
+            <div class="title-div"></div>
+
+            <div class="secondary-attribute-row">
+              <span class="smaller-label secondary-font" data-i18n="total-at">total at:</span>
+              <input class="small-input" name="attr_total_at" type="text" title="@{total_at}" />
+            </div>
+
+            <div class="secondary-attribute-div"></div>
+            <input class="attribute-input" name="attr_at" type="text" title="@{at}" />
+          </div>
+
+          <div class="inner-box secondary-attribute-box black-top-left-border black-full-border">
+            <span class="label secondary-font" data-i18n="fatigue">fatigue</span>
+            <div class="title-div"></div>
+
+            <div class="secondary-attribute-row">
+              <span class="smaller-label secondary-font" data-i18n="limit">limit:</span>
+              <input class="small-input" name="attr_fatigue_limit_mod" type="text" title="@{fatigue_limit_mod}"
+                value="0" />
+              /
+              <input class="small-input" name="attr_fatigue_limit_total" type="text" title="@{fatigue_limit_total}"
+                disabled="true" value="@{strength_total}+@{vitality_total}+@{fatigue_limit_mod}" />
+            </div>
+
+            <div class="secondary-attribute-div"></div>
+            <input class="attribute-input" name="attr_fatigue" type="text" title="@{fatigue}" />
+          </div>
+
+        </div>
+
+        <!-- Weapons and Inventory -->
+        <div class="middle-box weapons-and-inventory outer-shadow">
+          <div class="weapons-and-inventory-inner-box black-full-border">
+
+            <div class="weapons">
+              <span class="box-title label secondary-font" data-i18n="weapons">weapons</span>
+              <div class="title-div"></div>
+
+              <div class="weapons-grid spacer">
+                <span class="smaller-label secondary-font" data-i18n="name">name</span>
+                <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+                <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+                <div></div>
+              </div>
+
+              <fieldset class="repeating_weapons">
+
+                <div class="weapons-grid">
+                  <button type="roll" class="roll-button" name="roll_weapon"
+                    title="@{repeating_weapons_$id_roll_weapon}"
+                    value="&{template:main} {{charname=@{weapon_name}}} {{attack=[[@{weapon_accuracy_dice} + @{weapon_accuracy_attr}]]}} {{damage=[[@{weapon_damage_dice} + @{weapon_damage_mod}*@{weapon_damage_attr}]]}}">
+
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text"
+                      title="@{repeating_weapons_$id_weapon_name}" />
+                    <input class="repeating-small-input" name="attr_weapon_accuracy" type="text"
+                      title="@{repeating_weapons_$id_weapon_accuracy}" />
+                    <input class="repeating-small-input" name="attr_weapon_damage" type="text"
+                      title="@{repeating_weapons_$id_weapon_damage}" />
+
+                  </button>
+
+
+                  <div class="showhidebutton arrowtype">
+                    <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                    <span></span>
+                  </div>
+
+                </div>
+
+                <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                <div class="showhide weapons-hidden">
+                  <div class="weapon-row">
+                    <span class="smaller-label secondary-font" data-i18n="name">name</span>
+                    <input class="repeating-small-input" name="attr_weapon_name" type="text"
+                      title="@{repeating_weapons_$id_weapon_name}" />
+                  </div>
+
+                  <div class="weapon-row">
+                    <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+                    <input class="repeating-small-input" name="attr_weapon_accuracy_dice" type="text"
+                      title="@{repeating_weapons_$id_weapon_accuracy_dice}" value="1d6" />
+                    <span>+</span>
+                    <select class="select" name="attr_weapon_accuracy_attr"
+                      title="@{repeating_weapons_$id_weapon_accuracy_attr}">
+                      <option value="none">-</option>
+                      <option value="@{strength_total}" data-i18n="str">str</option>
+                      <option value="@{vitality_total}" data-i18n="vit">vit</option>
+                      <option value="@{agility_total}" data-i18n="agl">agl</option>
+                      <option value="@{technique_total}" data-i18n="tec" selected="selected">tec</option>
+                      <option value="@{magic_total}" data-i18n="mag">mag</option>
+                      <option value="@{luck_total}" data-i18n="luc">luk</option>
+                    </select>
+
+                  </div>
+
+                  <div class="weapon-row">
+                    <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+                    <input class="repeating-small-input" name="attr_weapon_damage_dice" type="text"
+                      title="@{repeating_weapons_$id_weapon_damage_dice}" value="" />
+                    <span>+</span>
+                    <input class="repeating-small-input" name="attr_weapon_damage_mod" type="text"
+                      title="@{repeating_weapons_$id_weapon_damage_mod}" value="" />
+                    <span>x</span>
+                    <select class="select" name="attr_weapon_damage_attr"
+                      title="@{repeating_weapons_$id_weapon_damage_attr}">
+                      <option value="none">-</option>
+                      <option value="@{strength_total}" data-i18n="str" selected="selected">str</option>
+                      <option value="@{vitality_total}" data-i18n="vit">vit</option>
+                      <option value="@{agility_total}" data-i18n="agl">agl</option>
+                      <option value="@{technique_total}" data-i18n="tec">tec</option>
+                      <option value="@{magic_total}" data-i18n="mag">mag</option>
+                      <option value="@{luck_total}" data-i18n="luc">luk</option>
+                    </select>
+                  </div>
+
+                  <textarea name="attr_weapon_description" data-i18n-placeholder="description" placeholder="description"
+                    title="@{repeating_weapons_$id_weapon_description}"></textarea>
+
+                </div>
+
+              </fieldset>
+            </div>
+
+            <!--Inventory-->
+            <div class="inventory">
+              <span class="box-title label secondary-font" data-i18n="inventory">inventory</span>
+              <div class="title-div"></div>
+
+              <fieldset class="repeating_inventory">
+
+                <div class="repeatable-row">
+                  <input class="bottom-border-input" name="attr_inventory_name" type="text" data-i18n-placeholder="name"
+                    placeholder="name" title="@{repeating_inventory_$id_inventory_name}" />
+
+                  <div class="showhidebutton arrowtype">
+                    <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                    <span></span>
+                  </div>
+
+                </div>
+
+                <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+                <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+                <textarea class="showhide" name="attr_inventory_description" data-i18n-placeholder="description"
+                  title="@{repeating_inventory_$id_inventory_description}" placeholder="description"></textarea>
+
+              </fieldset>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Middle column 3 -->
+      <div class="middle-column">
+
+        <!-- Skills -->
+        <div class="corner-box outer-shadow attributes">
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_knowledge" title="@{roll_knowledge}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{knowledge_label}}} {{result=[[@{knowledge}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="knowledge">knowledge (kn)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_knowledge" type="text" title="@{knowledge}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_discipline" title="@{roll_discipline}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{discipline_label}}} {{result=[[@{discipline}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="discipline">discipline (di)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_discipline" type="text" title="@{discipline}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_empathy" title="@{roll_empathy}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{empathy_label}}} {{result=[[@{empathy}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="empathy">empathy (em)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_empathy" type="text" title="@{empathy}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_charm" title="@{roll_charm}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{charm_label}}} {{result=[[@{charm}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="charm">charm (ch)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_charm" type="text" title="@{charm}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_expression" title="@{roll_expression}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{expression_label}}} {{result=[[@{expression}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="expression">expression (ex)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_expression" type="text" title="@{expression}" value="0" />
+
+            </div>
+
+          </div>
+
+          <div class="attribute-box black-top-left-border">
+
+            <button type="roll" class="roll-button" name="roll_courage" title="@{roll_courage}"
+              value="&{template:main} {{charname=@{character_name}}} {{risk=@{courage_label}}} {{result=[[@{courage}+?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20} - ?{@{risk} | d2 | d4 | d6 | d8 | d10 | d12 | d20}]]}}">
+              <span class="label secondary-font" data-i18n="courage">courage (co)</span>
+            </button>
+
+            <div class="attribute-inner-box">
+              <input class="attribute-input" name="attr_courage" type="text" title="@{courage}" value="0" />
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <!-- Aspects -->
+        <div class="corner-box outer-shadow flex-column">
+          <div class="inner-box black-full-border">
+
+            <span class="box-title label secondary-font" data-i18n="aspects">aspects</span>
+            <div class="title-div"></div>
+
+            <fieldset class="repeating_aspects">
+
+              <div class="repeatable-row">
+                <input class="bottom-border-input" name="attr_aspect_name" type="text" data-i18n-placeholder="aspect"
+                  placeholder="aspect" title="@{repeating_aspects_$id_aspect_name}" />
+
+                <div class="showhidebutton arrowtype">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <textarea class="showhide" name="attr_aspect_description" data-i18n-placeholder="description"
+                title="@{repeating_aspects_$id_aspect_description}" placeholder="description"></textarea>
+
+
+            </fieldset>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- social-links Tab -->
+  <div class='social-linkstab'>
+    <div class="personas-label">
+      <span class="label secondary-font" data-i18n="social-links">Social links</span>
+    </div>
+
+    <fieldset class="repeating_social-links">
+
+      <div class="corner-box outer-shadow social-links">
+
+        <div class="social-links-box">
+          <select class="select arcana secondary-font" name="attr_social_link_arcana"
+            title="@{repeating_social-links_$id_social_link_arcana}">
+            <option value="0" data-i18n="the-fool" selected="selected">0 The Fool</option>
+            <option value="1" data-i18n="the-magician">I The Magician</option>
+            <option value="3" data-i18n="the-empress">III The Empress</option>
+            <option value="4" data-i18n="the-emperor">IV The Emperor</option>
+            <option value="5" data-i18n="the-hierophant">V The Hierophant</option>
+            <option value="6" data-i18n="the-lovers">VI The Lovers</option>
+            <option value="7" data-i18n="the-chariot">VII The Chariot</option>
+            <option value="8" data-i18n="justice">VIII Justice</option>
+            <option value="9" data-i18n="the-hermit">IX The Hermit</option>
+            <option value="10" data-i18n="fortune">X Fortune</option>
+            <option value="11" data-i18n="xi-strength">XI Strength</option>
+            <option value="12" data-i18n="the-hanged-man">XII The Hanged Man</option>
+            <option value="13" data-i18n="death">XIII Death</option>
+            <option value="14" data-i18n="temperance">XIV Temperance</option>
+            <option value="15" data-i18n="the-devil">XV The Devil</option>
+            <option value="16" data-i18n="the-tower">XVI The Tower</option>
+            <option value="17" data-i18n="the-star">XVII The Star</option>
+            <option value="18" data-i18n="the-moon">XVIII The Moon</option>
+            <option value="19" data-i18n="the-sun">XIX The Sun</option>
+            <option value="20" data-i18n="judgement">XX Judgement</option>
+            <option value="21" data-i18n="the-world">XXI The World</option>
+            <option value="22" data-i18n="the-jester">0 The Jester</option>
+            <option value="23" data-i18n="the-magus">I The Magus</option>
+            <option value="24" data-i18n="adjustment">XVIII Adjustment</option>
+            <option value="25" data-i18n="the-counselor">IX The Counselor</option>
+            <option value="26" data-i18n="hunger">XI Hunger</option>
+            <option value="27" data-i18n="art">XIV Art</option>
+            <option value="28" data-i18n="faith">XVII Faith</option>
+            <option value="29" data-i18n="the-aeon">XX The Aeon</option>
+          </select>
+
+          <span class="label secondary-font" data-i18n="name">name</span>
+          <input class="social-link-name" name="attr_social_link_name" type="text"
+            title="@{repeating_social-links_$id_social_link_name}" />
+
+          <span class="label secondary-font" data-i18n="npc">npc</span>
+          <input name="attr_social_link_type" type="radio" checked="true"
+            title="@{repeating_social_links_$id_social_link_type}" value="npc" />
+
+          <span class="label secondary-font" data-i18n="pc">pc</span>
+          <input name="attr_social_link_type" type="radio" title="@{repeating_social-links_$id_social_link_type}"
+            value="pc" />
+        </div>
+
+        <div class="social-links-box2">
+          <input name="attr_social_link_rank" type="text" title="@{repeating_social-links_$id_social_link_rank}" />
+          <div class="social-link-label-box black-full-border">
+            <span class="label secondary-font" data-i18n="rank">rank</span>
+          </div>
+        </div>
+
+        <div class="social-links-box2">
+          <input name="attr_social_link_points" type="text" title="@{repeating_social-links_$id_social_link_points}" />
+          <div class="social-link-label-box black-full-border">
+            <span class="label secondary-font" data-i18n="points">points</span>
+          </div>
+        </div>
+
+        <div class="social-links-box2">
+          <span class="label secondary-font" data-i18n="notes">notes</span>
+          <div class="social-link-notes-box">
+            <span class="label secondary-font"> </span>
+          </div>
+        </div>
+        <textarea name="attr_social_links_notes" title="@{repeating_social-links_$id_social_links_notes}"></textarea>
+
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- Persona and Spells tab-->
+  <div class="personastab">
+    <div class="personas-middle">
+
+      <!--Personas-->
+      <div class="middle-column">
+        <div class="personas-label">
+          <span class="label secondary-font" data-i18n="personas">personas</span>
+        </div>
+
+        <div class="corner-box outer-shadow attributes">
+          <div class="inner-box black-full-border">
+
+            <fieldset class="repeating_personas">
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_name" type="text" title="@{repeating_personas_$id_persona_name}" />
+                  <span class="label secondary-font" data-i18n="name">name</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_level" type="text" title="@{repeating_personas_$id_persona_level}" />
+                  <span class="label secondary-font" data-i18n="level">level</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_arcana" type="text" title="@{repeating_personas_$id_persona_arcana}" />
+                  <span class="label secondary-font" data-i18n="arcana">arcana</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_conviction" type="text"
+                    title="@{repeating_personas_$id_persona_conviction}" />
+                  <span class="label secondary-font" data-i18n="conviction">conviction</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_refresh" type="text" title="@{repeating_personas_$id_persona_refresh}" />
+                  <span class="label secondary-font" data-i18n="refresh">refresh</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_ap" type="text" title="@{repeating_personas_$id_persona_ap}" />
+                  <span class="label secondary-font" data-i18n="ap">ap</span>
+                </div>
+              </div>
+
+              <div class="persona-row">
+                <div class="persona-box">
+                  <input name="attr_persona_types" type="text" title="@{repeating_personas_$id_persona_types}" />
+                  <span class="label secondary-font" data-i18n="types">types</span>
+                </div>
+
+                <div class="persona-box">
+                  <input name="attr_persona_stat_bonus" type="text" title="@{repeating_personas_$id_stat_bonus}" />
+                  <span class="label secondary-font" data-i18n="stat_bonus">stat bonus</span>
+                </div>
+              </div>
+
+              <div class="persona-elements">
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="fire">fire</span>
+                  <select class="select arcana" name="attr_persona_fire_interaction"
+                    title="@{repeating_personas_$id_persona_fire_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="ice">ice</span>
+                  <select class="select arcana" name="attr_persona_ice_interaction"
+                    title="@{repeating_personas_$id_persona_ice_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="wind">wind</span>
+                  <select class="select arcana" name="attr_persona_wind_interaction"
+                    title="@{repeating_personas_$id_persona_wind_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="lightning">lightning</span>
+                  <select class="select arcana" name="attr_persona_lightning_interaction"
+                    title="@{repeating_personas_$id_persona_lightning_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="psi">psi</span>
+                  <select class="select arcana" name="attr_persona_psi_interaction"
+                    title="@{repeating_personas_$id_persona_psi_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="nuke">nuke</span>
+                  <select class="select arcana" name="attr_persona_nuke_interaction"
+                    title="@{repeating_personas_$id_persona_nuke_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="light">light</span>
+                  <select class="select arcana" name="attr_persona_light_interaction"
+                    title="@{repeating_personas_$id_persona_light_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="dark">dark</span>
+                  <select class="select arcana" name="attr_persona_dark_interaction"
+                    title="@{repeating_personas_$id_persona_dark_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+
+                <div class="element-box black-full-border">
+                  <span class="element-label secondary-font" data-i18n="physical">physical</span>
+                  <select class="select arcana" name="attr_persona_physical_interaction"
+                    title="@{repeating_personas_$id_persona_physical_interaction}">
+                    <option value="normal" data-i18n="normal" selected="selected">normal</option>
+                    <option value="weak" data-i18n="weak">weak</option>
+                    <option value="resist" data-i18n="resist">resist</option>
+                    <option value="null" data-i18n="null">null</option>
+                    <option value="reflect" data-i18n="reflec">reflect</option>
+                    <option value="absorb" data-i18n="absorb">absorb</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="persona-div">
+              </div>
+
+            </fieldset>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!--Spells-->
+      <div class="middle-column">
+        <div class="personas-label">
+          <span class="label secondary-font" data-i18n="spells">spells</span>
+        </div>
+
+        <div class="corner-box outer-shadow attributes">
+          <div class="inner-box black-full-border">
+
+            <div class="spells-grid spacer">
+              <span class="smaller-label secondary-font" data-i18n="name">name</span>
+              <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
+              <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
+              <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+              <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+              <div></div>
+            </div>
+
+            <fieldset class="repeating_spells">
+
+              <div class="spells-grid">
+                <button type="roll" class="roll-button" name="roll_spell" title="@{repeating_spells_$id_roll_spell}"
+                  value="&{template:main} {{charname=@{spell_name}}} {{attack=[[@{spell_accuracy_dice} + @{spell_accuracy_attr}]]}} {{damage=[[@{spell_damage}]]}}">
+
+                  <input class="repeating-small-input" name="attr_spell_name" type="text"
+                    title="@{repeating_spells_$id_spell_name}" />
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text"
+                    title="@{repeating_spells_$id_spell_persona}" />
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text"
+                    title="@{repeating_spells_$id_spell_tier}" />
+                  <input class="repeating-small-input" name="attr_spell_accuracy" type="text"
+                    title="@{repeating_spells_$id_spell_accuracy}" />
+                  <input class="repeating-small-input" name="attr_spell_damage" type="text"
+                    title="@{repeating_spells_$id_spell_damage}" />
+
+                </button>
+
+                <div class="showhidebutton arrowtype">
+                  <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+                  <span></span>
+                </div>
+
+              </div>
+
+              <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+              <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+              <div class="showhide spells-hidden">
+                <div class="weapon-row">
+                  <span class="smaller-label secondary-font" data-i18n="name">name</span>
+                  <input class="repeating-small-input" name="attr_spell_name" type="text"
+                    title="@{repeating_spells_$id_spell_name}" value="" />
+
+                  <span class="smaller-label secondary-font" data-i18n="persona">persona</span>
+                  <input class="repeating-small-input" name="attr_spell_persona" type="text"
+                    title="@{repeating_spells_$id_spell_persona}" value="" />
+
+                  <span class="smaller-label secondary-font" data-i18n="tier">tier</span>
+                  <input class="repeating-small-input" name="attr_spell_tier" type="text"
+                    title="@{repeating_spells_$id_spell_tier}" value="" />
+                </div>
+
+                <div class="weapon-row">
+                  <span class="smaller-label secondary-font" data-i18n="accuracy">accuracy</span>
+                  <input class="repeating-small-input" name="attr_spell_accuracy_dice" type="text"
+                    title="@{repeating_spells_$id_spell_accuracy_dice}" value="1d6" />
+                  <span>+</span>
+                  <select class="select" name="attr_spell_accuracy_attr"
+                    title="@{repeating_spells_$id_spell_accuracy_attr}">
+                    <option value="none">-</option>
+                    <option value="@{strength_total}" data-i18n="str">str</option>
+                    <option value="@{vitality_total}" data-i18n="vit">vit</option>
+                    <option value="@{agility_total}" data-i18n="agl">agl</option>
+                    <option value="@{technique_total}" data-i18n="tec" selected="selected">tec</option>
+                    <option value="@{magic_total}" data-i18n="mag">mag</option>
+                    <option value="@{luck_total}" data-i18n="luc">luk</option>
+                  </select>
+
+                </div>
+
+                <div class="weapon-row">
+                  <span class="smaller-label secondary-font" data-i18n="damage">damage</span>
+                  <input class="repeating-small-input" name="attr_spell_damage" type="text"
+                    title="@{repeating_spells_$id_spell_damage}" value="" />
+                </div>
+
+                <textarea name="attr_spell_description" data-i18n-placeholder="description" placeholder="description"
+                  title="@{repeating_spells_$id_spell_description}"></textarea>
+
+              </div>
+
+            </fieldset>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- end of sheet -->
+
+<!-- Roll Templates -->
+<rolltemplate class="sheet-rolltemplate-main">
+  <div class="template-container">
+    <div class="template-row template-header template-label secondary-font">
+      {{charname}}
+    </div>
+
+    {{#action}}
+    <div class="template-row">
+      <span class="template-label secondary-font">{{action}}</span>
+      {{#text}}
+      <p>{{text}}</p>
+      {{/text}}
+
+    </div>
+    {{/action}}
+
+    {{#check}}
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="check">Check</span>
+      <span class="template-label2 secondary-font">{{check}}</span>
+    </div>
+    {{/check}}
+
+    {{#risk}}
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="risk">Risk</span>
+      <span class="template-label2 secondary-font">{{risk}}</span>
+    </div>
+    {{/risk}}
+
+    {{#result}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="result">Result</span>
+      {{result}}
+    </div>
+
+    {{/result}}
+
+    {{#attack}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="accuracy">Accuracy</span>
+      {{attack}}
+    </div>
+
+    {{/attack}}
+
+    {{#damage}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="damage">Damage</span>
+      {{damage}}
+    </div>
+
+    {{/damage}}
+
+  </div>
+
+</rolltemplate>
+
+<!-- Strings translations for Roll Queries-->
+<div style="display: none;">
+  <span data-i18n="risk">Risk</span>
+</div>
+
+<!--Sheet Workers -->
+<script type="text/worker">
+
+  /*Tabs Control */
+  on('change:tabs_radio', function(eventInfo) {
+    setAttrs({
+      selected_tab: eventInfo.newValue
+    });
+  });
+
+  /*Controls show hide checkbox button from repeating sections*/
+  on("change:repeating_feats:showhide_checkbox change:repeating_weapons:showhide_checkbox " +
+     "change:repeating_inventory:showhide_checkbox change:repeating_aspects:showhide_checkbox " +
+     "change:repeating_spells:showhide_checkbox", function(eventInfo) {
+    
+    let source = eventInfo.sourceAttribute;
+    let changeAttributes = new Object();
+    let targetId = source + '_invisible';
+    
+    changeAttributes[targetId] = eventInfo.newValue;
+
+    console.log(eventInfo);
+    console.log(changeAttributes);
+
+    setAttrs(changeAttributes);
+  });
+
+  /*config Roll Queries translations */
+  on("sheet:opened", function(eventInfo){
+      
+      setAttrs({
+          risk: getTranslationByKey("risk"),
+          knowledge_label: getTranslationByKey("knowledge"),
+          discipline_label: getTranslationByKey("discipline"),
+          empathy_label: getTranslationByKey("empathy"),
+          charm_label: getTranslationByKey("charm"),
+          expression_label: getTranslationByKey("expression"),
+          courage_label: getTranslationByKey("courage"),
+          initiative: getTranslationByKey("initiative")
+      });  
+      
+  });
+
+  /* sets weapon damage and accuracy labels */
+  on("change:repeating_weapons", function(eventInfo) {
+  
+    getAttrs([`repeating_weapons_weapon_accuracy_attr`,
+    `repeating_weapons_weapon_accuracy_dice`,
+    `repeating_weapons_weapon_damage_attr`,
+    `repeating_weapons_weapon_damage_mod`,
+    `repeating_weapons_weapon_damage_dice`], values => {
+      
+      console.log(values);
+
+      let out = {
+        repeating_weapons_weapon_damage: '',
+        repeating_weapons_weapon_accuracy: ''
+      };
+
+      out.repeating_weapons_weapon_damage += `${values.repeating_weapons_weapon_damage_dice}+${values.repeating_weapons_weapon_damage_mod}x${values.repeating_weapons_weapon_damage_attr}`;
+
+      out.repeating_weapons_weapon_accuracy += `${values.repeating_weapons_weapon_accuracy_dice}+${values.repeating_weapons_weapon_accuracy_attr}`;
+
+      console.log(out);
+
+      setAttrs(out);
+
+    });
+
+  });
+
+  /* sets spell accuracy labels */
+  on("change:repeating_spells", function(eventInfo) {
+  
+    getAttrs([`repeating_spells_spell_accuracy_attr`,
+    `repeating_spells_spell_accuracy_dice`], values => {
+      
+      console.log(values);
+
+      let out = {
+        repeating_spells_spell_accuracy: ''
+      };
+
+      out.repeating_spells_spell_accuracy += `${values.repeating_spells_spell_accuracy_dice}+${values.repeating_spells_spell_accuracy_attr}`;
+
+      console.log(out);
+
+      setAttrs(out);
+
+    });
+
+  });
+  
+  
+</script>

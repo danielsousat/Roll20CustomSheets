@@ -26,12 +26,15 @@
   <!-- Tab navigation -->
   <div class="tab-panel">
 
-    <button type="action" name="act_profile" data-i18n="profile">Perfil</button>
-    <button type="action" name="act_journal" data-i18n="journal">Diário</button>
-    <button type="action" name="act_configuration" data-i18n="configuration">Configuração</button>
+    <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile" title="Perfil" />
+    <div>U</div>
+    <input type="radio" name="attr_tabs_radio" value="configuration" data-i18n-title="configuration" title="Configuração" />
+    <div>y</div>
+    <input type="radio" name="attr_tabs_radio" value="help" data-i18n-title="help" title="Ajuda" />
+    <div>?</div>
 
   </div>
-  <input type='hidden' class='tabcontrol' name='attr_tabcontrol' value='profile' />
+  <input type='hidden' class="tabcontrol" name='attr_selected_tab' value='profile' />
 
   <!-- Profile Tab -->
   <div class="profiletab">
@@ -181,16 +184,16 @@
 
   </div>
 
-  <!-- Journal Tab -->
-  <div class='journaltab'>
-    <h2>Journal/Notes</h2>
-    <span>Journal/Notes Stuff Goes here</span>
-  </div>
-
   <!-- Config tab-->
   <div class='configurationtab'>
     <h2>Config/Settings</h2>
     <span>Sheet Config/Settings goes here</span>
+  </div>
+
+  <!-- Help Tab -->
+  <div class='helptab'>
+    <h2>Help page</h2>
+    <span>Help Stuff Goes here</span>
   </div>
 
   <!-- Footer -->
@@ -283,7 +286,6 @@
 <!--Sheet Workers -->
 <script type="text/worker">
 
-  const buttonlist = ["profile","journal","configuration"];
   const spellslist = [
     {
       button: 'fire',
@@ -298,13 +300,11 @@
     }
   ];
   
-  /*config tabs control */
-  buttonlist.forEach(button => {
-      on(`clicked:${button}`, function() {
-          setAttrs({
-              tabcontrol: button
-          });
-      });
+  /*Tabs Control */
+  on('change:tabs_radio', function(eventInfo) {
+    setAttrs({
+      selected_tab: eventInfo.newValue
+    });
   });
 
   /*config spells select */

@@ -3,7 +3,7 @@
 	"name": "Nome",
 	"archetype": "Arquétipo",
 	"profile": "Perfil",
-	"journal": "Diário",
+	"help": "Ajuda",
 	"configuration": "Configuração",
 	"attributes": "Atributos",
 	"strength": "Força",
