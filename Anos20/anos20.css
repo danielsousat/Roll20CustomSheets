@@ -1,5 +1,10 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
 @import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+/*
+Bubbler One
+Limelight
+Gilda Display
+*/
 
 .sheet-main-container {
 	min-width: 600px;
@@ -98,6 +103,7 @@
 .sheet-profilegrid {
 	display: grid;
 	grid-template-columns: 0.5fr 1fr 0.5fr;
+	border: 10px double black;
 }
 
 .sheet-header {
@@ -109,6 +115,10 @@
 
 .sheet-passport {
 	text-transform: uppercase;
+}
+
+.sheet-profession {
+	display: flex;
 }
 
 .sheet-column {
