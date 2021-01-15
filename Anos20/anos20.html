@@ -18,34 +18,147 @@
   <!-- Profile Tab -->
   <div class="profiletab">
 
-    <div class="header">
-      <span class="passport" data-i18n="passport">passaporte</span>
+    <div class="profilegrid">
+      <div class="header">
+        <span class="passport" data-i18n="passport">passaporte</span>
 
-      <span class="mainlabel" data-i18n="name">Nome:</span>
-      <input name="attr_character_name" type="text" title="@{character_name}" />
+        <span class="mainlabel" data-i18n="name">Nome:</span>
+        <input name="attr_character_name" type="text" title="@{character_name}" />
 
-      <span class="mainlabel" data-i18n="profession">Profissão:</span>
-      <input name="attr_profession" type="text" title="@{profession}" />
+        <span class="mainlabel" data-i18n="profession">Profissão:</span>
+        <input name="attr_profession" type="text" title="@{profession}" />
 
-      <span class="mainlabel" data-i18n="problem">Problema:</span>
-      <input name="attr_problem" type="text" title="@{problem}" />
-    </div>
-
-    <!--Sanity-->
-    <div class="column">
-      <span class="box-label" data-i18n="sanity">sanidade</span>
-
-      <div class="sanity">
-        <input name="attr_sanity" class="base-radio radio-zero sanity-zero" type="radio" value="0" /> <span></span>
-        <input name="attr_sanity" class="base-radio sanity-radio" type="radio" value="1" /> <span></span>
-        <input name="attr_sanity" class="base-radio sanity-radio" type="radio" value="2" /> <span></span>
-        <input name="attr_sanity" class="base-radio sanity-radio" type="radio" value="3" /> <span></span>
-        <input name="attr_sanity" class="base-radio sanity-radio" type="radio" value="4" /> <span></span>
-        <input name="attr_sanity" class="base-radio sanity-radio" type="radio" value="5" /> <span></span>
+        <span class="mainlabel" data-i18n="problem">Problema:</span>
+        <input name="attr_problem" type="text" title="@{problem}" />
       </div>
-    </div>
 
-    
+      <!--Sanity-->
+      <div class="column">
+        <span class="box-label" data-i18n="sanity">sanidade</span>
+
+        <div class="sanity">
+          <input name="attr_sanity" class="base-radio radio-zero big-radio-zero" type="radio" value="0" title="@{sanity}" /> <span></span>
+          <input name="attr_sanity" class="base-radio big-radio sanity-radio" type="radio" value="1" title="@{sanity}" /> <span></span>
+          <input name="attr_sanity" class="base-radio big-radio sanity-radio" type="radio" value="2" title="@{sanity}" /> <span></span>
+          <input name="attr_sanity" class="base-radio big-radio sanity-radio" type="radio" value="3" title="@{sanity}" /> <span></span>
+          <input name="attr_sanity" class="base-radio big-radio sanity-radio" type="radio" value="4" title="@{sanity}" /> <span></span>
+          <input name="attr_sanity" class="base-radio big-radio sanity-radio" type="radio" value="5" title="@{sanity}" /> <span></span>
+        </div>
+      </div>
+
+      <div class="column">
+
+        <!--Profession Description-->
+        <div class="column profession">
+          <input class="profession-title" type="text" name="attr_professiontitle" title="@{professiontitle}" />
+          
+          <textarea class="profession-description" name="attr_professiondescription" data-i18n-placeholder="profession-description"
+            placeholder="Descrição da Profissão" title="@{professiondescription}"></textarea>
+
+        </div>
+
+        <!--Features-->
+        <div class="column features">
+
+          <span class="box-label" data-i18n="features">características</span>
+
+          <fieldset class="repeating_features">
+
+            <div class="repeatable-row">
+              <textarea class="feature-description" name="attr_featuredescription" data-i18n-placeholder="feature"
+                placeholder="característica" title="@{featuredescription}"></textarea>
+              <input name="attr_featuretype" type="hidden" value="0" />
+            </div>
+
+          </fieldset>
+        </div>
+      </div>
+
+      <!--Vitality-->
+      <div class="column">
+        <span class="box-label" data-i18n="vitality">vitalidade</span>
+
+        <div class="sanity">
+          <input name="attr_vitality" class="base-radio radio-zero big-radio-zero" type="radio" value="0" title="@{vitality}" checked="true"/> <span></span>
+          <input name="attr_vitality" class="base-radio vitality-radio big-radio" type="radio" value="1" title="@{vitality}" /> <span></span>
+          <input name="attr_vitality" class="base-radio vitality-radio big-radio" type="radio" value="2" title="@{vitality}" /> <span></span>
+          <input name="attr_vitality" class="base-radio vitality-radio big-radio" type="radio" value="3" title="@{vitality}" /> <span></span>
+          <input name="attr_vitality" class="base-radio vitality-radio big-radio" type="radio" value="4" title="@{vitality}" /> <span></span>
+          <input name="attr_vitality" class="base-radio vitality-radio big-radio" type="radio" value="5" title="@{vitality}" /> <span></span>
+        </div>
+      </div>
+
+      <!-- Clothing and Accessories-->
+      <div class="equipment">
+        <span class="box-label" data-i18n="clothes-and-accessories">vestimenta e acessórios</span>
+
+        <fieldset class="repeating_equipments">
+
+          <div class="repeatable-row">
+            <input name="attr_equipment" type="text" title="@{equipment}" />
+
+            <div class="showhidebutton arrowtype">
+              <input type="checkbox" name="attr_showhide_checkbox" value="1" />
+              <span></span>
+            </div>
+
+          </div>
+
+          <!-- Hidden checkbox that controls show/hide section. See Sheet Workers-->
+          <input class="toggle-checkbox" type="checkbox" name="attr_showhide_checkbox_invisible" value="1" />
+
+          <textarea class="showhide" name="attr_equipmentdescription" data-i18n-placeholder="description"
+            placeholder="Descrição" title="@{equipmentdescription}"></textarea>
+
+        </fieldset>
+      </div>
+
+      <!--Money and miscelaneous-->
+      <div class="misc">
+        <span class="mainlabel" data-i18n="credits">Créditos</span>
+        <input name="attr_credits" type="text" title="@{credits}" />
+
+        <span class="mainlabel artist" data-i18n="registered-studio">Atelier Registrado</span>
+        <input class="artist" name="attr_studio" type="text" title="@{studio}" />
+
+        <span class="mainlabel artist" data-i18n="art-type">Tipo de Arte</span>
+        <input class="artist" name="attr_art" type="text" title="@{art}" />
+
+        <span class="mainlabel studyarea" data-i18n="study-area">Área de Estudo</span>
+        <input class="studyarea" name="attr_study_area" type="text" title="@{study_area}" />
+
+        <span class="mainlabel student" data-i18n="study">Estudo</span>
+        <span class="mainlabel medic" data-i18n="medical-kit">Kit Médico</span>
+        <div class="misc-marker">
+          <input name="attr_misc_radio" class="base-radio radio-zero small-radio-zero" type="radio" value="0" title="@{misc_radio}" checked="true" /> <span></span>
+          <input name="attr_misc_radio" class="base-radio misc-radio small-radio" type="radio" value="1" title="@{misc_radio}" /> <span></span>
+          <input name="attr_misc_radio" class="base-radio misc-radio small-radio" type="radio" value="2" title="@{misc_radio" /> <span></span>
+          <input name="attr_misc_radio" class="base-radio misc-radio small-radio" type="radio" value="3" title="@{misc_radio}" /> <span></span>
+          <input name="attr_misc_radio" class="base-radio misc-radio small-radio" type="radio" value="4" title="@{misc_radio}" /> <span></span>
+          <input name="attr_misc_radio" class="base-radio misc-radio small-radio" type="radio" value="5" title="@{misc_radio}" /> <span></span>
+        </div>
+        
+        <span class="mainlabel shopkeeper" data-i18n="store-name">Nome da Loja</span>
+        <input class="shopkeeper" name="attr_store_name" type="text" title="@{store_name}" />
+
+        <span class="mainlabel shopkeeper" data-i18n="commerce-type">Tipo de Comércio</span>
+        <input class="shopkeeper" name="attr_commerce_type" type="text" title="@{commerce_type}" />
+
+        <span class="mainlabel police" data-i18n="weapon-type">Tipo de Arma</span>
+        <input class="police" name="attr_commerce_type" type="text" title="@{commerce_type}" />
+
+      </div>
+
+      <div class="logo">
+        Anos 20
+      </div>
+
+      <div class="logo2">
+        <span class="box-label" data-i18n="work-for-the-glory-of-the-city">trabalhe pela glória da cidade</span>
+      </div>
+
+
+    </div>
   </div>
 
   <!-- Config tab-->

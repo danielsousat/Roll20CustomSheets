@@ -86,15 +86,22 @@
 	text-align: center;
 }
 
+.sheet-repeatable-row {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	margin-bottom: 5px;
+}
+
 /*----------------- PROFILE TAB ------------------*/
 
-.sheet-profiletab {
+.sheet-profilegrid {
 	display: grid;
 	grid-template-columns: 0.5fr 1fr 0.5fr;
 }
 
 .sheet-header {
-	grid-column: 1/3;
+	grid-column: 1/4;
 	display: flex;
 	flex-direction: column;
 	align-items: center;	
@@ -107,7 +114,6 @@
 .sheet-column {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
 
 .sheet-sanity {
@@ -117,7 +123,22 @@
 	position: relative;
 }
 
-/*----------------- SANITY CHECKS ------------------*/
+.sheet-feature-description {
+	height: 40px !important;
+}
+
+.sheet-equipment {
+	grid-column: 1/4;
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-misc-marker {
+	display: flex;
+	align-items: center;
+}
+
+/*----------------- SANITY, VITALITY AND MISC RADIOS ------------------*/
 .sheet-base-radio {
 	opacity: 0;
 	z-index: 1;
@@ -125,29 +146,9 @@
 	position: relative;
 }
 
-.sheet-sanity-radio {
-	margin-bottom: -60px;
-}
-
-.sheet-sanity-radio, .sheet-sanity-radio+span {
-	width: 60px !important;
-	height: 60px !important;
-}
-
-.sheet-radio-zero, .sheet-radio-zero+span {
-	width: 30px !important;
-	height: 30px !important;
-}
-
-.sheet-radio-zero {
-	margin-bottom: -30px;
-}
-
 .sheet-radio-zero+span {
 	display: block;
-	border-radius: 50%;
 	font-family: "Pictos";
-	font-size: 20px;
 	text-align: center;
 }
 
@@ -159,18 +160,82 @@
 	visibility: hidden;
 }
 
-/* Here it uses an inverse logic. By default, the sanity image will the the filled one.
- But if it is preceded by a checked radio, then it shows a blank one. */
-
-.sheet-sanity-radio+span {
+.sheet-base-radio+span {
 	display: inline-block;
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_filled.svg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
+.sheet-big-radio {
+	margin-bottom: -60px;
+}
+
+.sheet-big-radio, .sheet-big-radio+span {
+	width: 60px !important;
+	height: 60px !important;
+}
+
+.sheet-big-radio-zero, .sheet-big-radio-zero+span {
+	width: 30px !important;
+	height: 30px !important;
+}
+
+.sheet-big-radio-zero {
+	margin-bottom: -30px;
+}
+
+.sheet-big-radio-zero+span {
+	font-size: 20px;
+}
+
+/*small radio*/
+.sheet-small-radio {
+	margin-right: -30px;
+}
+
+.sheet-small-radio, .sheet-small-radio+span {
+	width: 30px !important;
+	height: 30px !important;
+}
+
+.sheet-small-radio-zero, .sheet-small-radio-zero+span {
+	width: 25px !important;
+	height: 25px !important;
+}
+
+.sheet-small-radio-zero {
+	margin-right: -25px;
+}
+
+.sheet-small-radio-zero+span {
+	font-size: 15px;
+}
+
+/* Here it uses an inverse logic. By default, the sanity image will the the filled one.
+ But if it is preceded by a checked radio, then it shows a blank one. */
+
+.sheet-sanity-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_filled.svg');
+}
+
 .sheet-base-radio:checked~.sheet-sanity-radio+span {
 	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_blank.svg');
+}
+
+.sheet-vitality-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/72573fae571f215ed2f8e391e3c4da78bdd2abec/Anos20/assets/vitality_filled.svg');
+}
+
+.sheet-base-radio:checked~.sheet-vitality-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/72573fae571f215ed2f8e391e3c4da78bdd2abec/Anos20/assets/vitality_blank.svg');
+}
+
+.sheet-misc-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d77e0a8639bc81dad3787d772644f790b260d265/Anos20/assets/misc_marker_filled.svg');
+}
+
+.sheet-base-radio:checked~.sheet-misc-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d77e0a8639bc81dad3787d772644f790b260d265/Anos20/assets/misc_marker_blank.svg');
 }
 
 /*----------------- TAB CONTROL ------------------*/
