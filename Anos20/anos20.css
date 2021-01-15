@@ -1,0 +1,381 @@
+/*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
+@import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+
+.sheet-main-container {
+	min-width: 600px;
+	max-width: 800px;
+	min-height: 600px;
+}
+
+.sheet-main-container input {
+	height: auto;
+}
+
+.sheet-main-container select {
+	width: auto;
+	height: auto;
+	margin: 0px;
+}
+
+.sheet-main-container input[type=text] {
+	width: 100%;
+}
+
+.sheet-main-container input[type=number] {
+	width: 4.2em;
+}
+
+.sheet-main-container textarea {
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+.sheet-main-container button {
+	margin: 0px !important;
+}
+
+/*----------------- GENERAL CSS ------------------*/
+
+.sheet-main-font {
+	font-family: Paytone One;
+}
+
+.sheet-secondary-font {
+	font-family: Lustria;
+}
+
+.sheet-flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.sheet-flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-grow {
+	flex-grow: 1;
+}
+
+.sheet-label {
+	text-transform: uppercase;
+	margin-right: 5px;
+}
+
+.sheet-row-item-margin {
+	margin-right: 5px !important;
+}
+
+.sheet-tab-panel {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+
+.sheet-tab-panel button {
+	margin-right: 5px !important;
+}
+
+.sheet-footer {
+	text-align: right;
+	font-style: italic;
+}
+
+/*----------------- PROFILE TAB ------------------*/
+
+.sheet-profiletab {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+.sheet-header {
+	grid-column: 1/3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+}
+
+.sheet-passport {
+	text-transform: uppercase;
+}
+
+.sheet-sanity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*----------------- SANITY CHECKS ------------------*/
+.sheet-sanity-radio {
+
+}
+
+.sheet-sanity-radio+span {
+	display: inline-block;
+	background-image: url('assets/sanity_blank.svg');
+	width: 30px;
+	height: 30px;
+} 
+
+/*----------------- TAB CONTROL ------------------*/
+
+.sheet-tab-panel input {
+	border: 0px;
+	width: 25px;
+	height: 25px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+	margin-right: -25px;
+	z-index: 1;
+	opacity: 0;
+}
+
+.sheet-tab-panel div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Pictos';
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+
+.sheet-tab-panel input:hover+div {
+	opacity: 0.5;
+}
+
+.sheet-tab-panel input:checked+div {
+	color: gray;
+}
+
+/*Configure the tab buttons*/
+
+.sheet-profiletab, .sheet-configurationtab, .sheet-helptab {
+	display: none;
+}
+
+/* show the selected tab */
+
+.sheet-tabcontrol[value="profile"]~div.sheet-profiletab, .sheet-tabcontrol[value="configuration"]~div.sheet-configurationtab, .sheet-tabcontrol[value="help"]~div.sheet-helptab {
+	display: block;
+}
+
+/*----------------- ROLL BUTTON ------------------*/
+
+.sheet-main-container button[type=roll] {
+	border: 0px;
+	font-size: 25px;
+	width: 25px;
+	height: 25px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+}
+
+.sheet-main-container button[type=roll]::before {
+	content: 'T';
+	font-family: 'dicefontd20' !important;
+}
+
+.sheet-main-container button[type=roll]:hover {
+	opacity: 0.5;
+}
+
+/*------------- REPEATABLE SECTIONS BUTTONS -------------*/
+
+.repcontrol>.btn {
+	background-color: transparent;
+	font-size: 2px;
+	background-image: none;
+	text-shadow: none;
+	box-shadow: none;
+	display: inline-block;
+	position: relative;
+	border: 0px;
+}
+
+.repcontrol>.btn:hover {
+	opacity: 0.5;
+}
+
+.repcontrol>.btn.repcontrol_add::before {
+	content: "&";
+	color: black;
+	font-size: 20px;
+	font-family: 'Pictos' !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.repcontrol>.btn.repcontrol_edit::before {
+	content: "(";
+	color: black;
+	font-size: 20px;
+	font-family: 'Pictos' !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* change the 'Done' text after clicking 'Modify' */
+.editmode~.repcontrol>.repcontrol_edit::before {
+	content: ')';
+}
+
+
+/*------------- REPEATABLE SECTIONS TOGGLE SHOW/HIDE -------------*/
+
+.sheet-showhidebutton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+}
+
+.sheet-showhidebutton input[type=checkbox] {
+	width: 20px;
+	position: absolute;
+	opacity: 0;
+}
+
+.sheet-showhidebutton:hover {
+	opacity: 0.5;
+}
+
+.sheet-arrowtype input[type=checkbox]:checked~span::before {
+	content: '▲';
+}
+
+.sheet-arrowtype span::before {
+	content: '▼';
+}
+
+.sheet-showhidebutton span {
+	color: black;
+	font-size: 20px;
+}
+
+.sheet-toggle-checkbox {
+	display: none;
+}
+
+.sheet-showhide {
+	display: none;
+}
+
+.sheet-toggle-checkbox:checked~.sheet-showhide {
+	display: block;
+}
+
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .itemcontrol {
+	z-index: 99;
+	font-family: 'Pictos'
+}
+
+.sheet-main-container .repcontainer[data-groupname="repeating_equipments"]>.repitem .repcontrol_del {
+	font-family: 'Pictos';
+	background-color: #d13235;
+	background-image: none;
+	position: absolute;
+	z-index: 99 !important;
+	top: 0;
+	right: 0
+}
+
+/*------------- HIDDEN SELECT ITEMS -------------*/
+.sheet-select-spells {
+	display: grid;
+	grid-template-columns: 20px auto;
+	gap: 2px;
+	align-items: center;
+	background-color: antiquewhite;
+}
+
+.sheet-configtype {
+	font-family: 'Pictos';
+}
+
+.sheet-configtype input[type=checkbox]:checked~span::before {
+	content: '*';
+}
+
+.sheet-configtype span::before {
+	content: 'y';
+}
+
+.sheet-corner-position {
+	position: absolute;
+	right: 10px;
+}
+
+.sheet-add-button {
+	border: 0px;
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	background: transparent !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 0px;
+}
+
+.sheet-add-button::before {
+	content: '+';
+	font-family: 'Pictos' !important;
+}
+
+.sheet-add-button:hover {
+	opacity: 0.5;
+}
+
+/*------------- SHEET ROLL TEMPLATE -------------*/
+
+.sheet-rolltemplate-main .sheet-template-container {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+	font-family: Paytone One;
+	text-align: center;
+}
+
+.sheet-rolltemplate-main p {
+	font-family: Paytone One;
+	text-align: left;
+}
+
+.sheet-rolltemplate-main .sheet-template-row {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid black;
+	padding: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.sheet-rolltemplate-main .sheet-template-header {
+	flex-direction: row !important;
+	background-color: black;
+	color: white;
+}
+
+.sheet-rolltemplate-main .sheet-template-label {
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .sheet-template-success {
+	color: green;
+}
+
+.sheet-rolltemplate-main .sheet-template-fail {
+	color: red;
+}

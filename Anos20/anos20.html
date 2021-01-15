@@ -1,0 +1,258 @@
+<div class="main-container">
+
+  <!-- Tab navigation -->
+  <div class="tab-panel">
+
+    <input type="radio" name="attr_tabs_radio" value="profile" checked="true" data-i18n-title="profile"
+      title="Perfil" />
+    <div>U</div>
+    <input type="radio" name="attr_tabs_radio" value="configuration" data-i18n-title="configuration"
+      title="Configuração" />
+    <div>y</div>
+    <input type="radio" name="attr_tabs_radio" value="help" data-i18n-title="help" title="Ajuda" />
+    <div>?</div>
+
+  </div>
+  <input type='hidden' class="tabcontrol" name='attr_selected_tab' value='profile' />
+
+  <!-- Profile Tab -->
+  <div class="profiletab">
+
+    <div class="header">
+      <span class="passport" data-i18n="passport">passaporte</span>
+
+      <span class="mainlabel" data-i18n="name">Nome:</span>
+      <input name="attr_character_name" type="text" title="@{character_name}" />
+
+      <span class="mainlabel" data-i18n="profession">Profissão:</span>
+      <input name="attr_profession" type="text" title="@{profession}" />
+
+      <span class="mainlabel" data-i18n="problem">Problema:</span>
+      <input name="attr_problem" type="text" title="@{problem}" />
+    </div>
+
+    <!--Sanity-->
+    <div class="column">
+      <span class="box-label" data-i18n="sanity">sanidade</span>
+
+      <div class="sanity">
+        <input class="sanity-radio" type="radio" value="0" /> <span></span>
+        <input class="sanity-radio" type="radio" value="1" /> <span></span>
+        <input class="sanity-radio" type="radio" value="2" /> <span></span>
+        <input class="sanity-radio" type="radio" value="3" /> <span></span>
+        <input class="sanity-radio" type="radio" value="4" /> <span></span>
+        <input class="sanity-radio" type="radio" value="5" /> <span></span>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- Config tab-->
+  <div class='configurationtab'>
+    <h2>Config/Settings</h2>
+    <span>Sheet Config/Settings goes here</span>
+  </div>
+
+  <!-- Help Tab -->
+  <div class='helptab'>
+    <h2>Help page</h2>
+    <span>Help Stuff Goes here</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer secondary-font">
+    <span data-i18n="copyright">Anos 20 é um jogo escrito por Luis Heavy.</span>
+  </div>
+
+</div>
+
+<!-- end of sheet -->
+
+<!-- Roll Templates -->
+<rolltemplate class="sheet-rolltemplate-main">
+  <div class="template-container">
+    <div class="template-row template-header template-label secondary-font">
+      {{charname}}
+    </div>
+
+    {{#action}}
+    <div class="template-row">
+      <span class="template-label secondary-font">{{action}}</span>
+      {{#text}}
+      <p>{{text}}</p>
+      {{/text}}
+
+    </div>
+    {{/action}}
+
+    {{#check}}
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="check">Teste</span>
+      {{check}}
+    </div>
+    {{/check}}
+
+    {{#result}}
+
+    <div class="template-row">
+      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+      {{result}}
+    </div>
+
+    {{#^rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
+    </div>
+    {{/^rollLess() result target}}
+
+    {{#rollLess() result target}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
+    </div>
+    {{/rollLess() result target}}
+
+
+    {{#rollWasCrit() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+    </div>
+    {{/rollWasCrit() result}}
+
+    {{#rollWasFumble() result}}
+    <div class="template-row">
+      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
+    </div>
+    {{/rollWasFumble() result}}
+
+    {{/result}}
+
+  </div>
+
+</rolltemplate>
+
+<!-- Strings translations for Roll Queries-->
+<div style="display: none;">
+  <span data-i18n="advantagedisadvantage">Possui vantagem ou desvantagem?</span>
+  <span data-i18n="no">Não</span>
+  <span data-i18n="advantage">Vantagem</span>
+  <span data-i18n="disadvantage">Desvantagem</span>
+  <span data-i18n="result">Resultado</span>
+  <span data-i18n="success">Sucesso!</span>
+  <span data-i18n="fail">Falha!</span>
+  <span data-i18n="critic">Sucesso Crítico!</span>
+  <span data-i18n="fumble">Falha Crítica!</span>
+  <span data-i18n="check">Teste</span>
+  <span data-i18n="fire-description">Dá 1d6 de dano de fogo.</span>
+  <span data-i18n="ice-description">Congela 1d4 inimigos.</span>
+</div>
+
+<!--Sheet Workers -->
+<script type="text/worker">
+
+  const spellslist = [
+    {
+      button: 'fire',
+      name: getTranslationByKey('fire'),
+      description: getTranslationByKey('fire-description')
+    },
+    
+    {
+      button: 'ice',
+      name: getTranslationByKey('ice'),
+      description: getTranslationByKey('ice-description')
+    }
+  ];
+  
+  /*Tabs Control */
+  on('change:tabs_radio', function(eventInfo) {
+    setAttrs({
+      selected_tab: eventInfo.newValue
+    });
+  });
+
+  /*config spells select */
+  spellslist.forEach(spell => {
+      on(`clicked:${spell.button}`, function() {
+        var newrowid = generateRowID();
+        var newrowattrs = {};
+        newrowattrs["repeating_spells_" + newrowid + "_spell"] = spell.name;
+        newrowattrs["repeating_spells_" + newrowid + "_spelldescription"] = spell.description;
+        setAttrs(newrowattrs);
+      });
+  });
+
+  /*Controls show hide checkbox button from repeating sections*/
+  on("change:repeating_equipments:showhide_checkbox change:spells_showhide_checkbox" , function(eventInfo) {
+    
+    let source = eventInfo.sourceAttribute;
+    let changeAttributes = new Object();
+    let targetId = source + '_invisible';
+    
+    changeAttributes[targetId] = eventInfo.newValue;
+
+    console.log(eventInfo);
+    console.log(changeAttributes);
+
+    setAttrs(changeAttributes);
+  });
+
+  /*config Roll Queries translations */
+  on("sheet:opened", function(eventInfo){
+      
+      setAttrs({
+          advantagedisadvantage: getTranslationByKey("advantagedisadvantage"),
+          no: getTranslationByKey("no"),
+          advantage: getTranslationByKey("advantage"),
+          disadvantage: getTranslationByKey("disadvantage"),
+          result: getTranslationByKey("result"),
+          check: getTranslationByKey("check"),
+          strength: getTranslationByKey("strength"),
+          dexterity: getTranslationByKey("dexterity")
+      });     
+      
+  });
+
+  /*keep attributes values at 13 max*/
+  on("change:charbody change:charmind change:charcharisma change:charcuriosity change:charsurvival", function(eventInfo) {  
+    const maxValue = 13;
+    let oldValue = parseInt(eventInfo.previousValue)||0;
+    let newValue = parseInt(eventInfo.newValue)||0;
+    let attribute = eventInfo.sourceAttribute;
+    let changedAttributes = new Object();
+    
+    changedAttributes[attribute] = maxValue;
+    
+    if (newValue > maxValue) {
+  
+      changedAttributes[attribute] = maxValue;
+      setAttrs(changedAttributes);
+    }
+     
+  });
+
+  /*controls roll buttons when char has a condition checked*/
+  on("change:wounded change:shaken change:ashamed", function(eventInfo) {  
+    const disadvantage = "disadvantage";
+    const normal = "normal";
+    const sourceAttribute = eventInfo.sourceAttribute;
+    const newValue = eventInfo.newValue;
+    let changedAttributes = new Object();
+    let controlToUpdate = sourceAttribute + "control";
+    
+    changedAttributes[controlToUpdate] = normal;
+
+    switch(newValue) {
+      case "on":
+        changedAttributes[controlToUpdate] = disadvantage;
+        break;
+      default:
+        changedAttributes[controlToUpdate] = normal;
+    }
+    
+    setAttrs(changedAttributes);
+     
+  });
+  
+  
+</script>
