@@ -82,6 +82,10 @@
 	font-style: italic;
 }
 
+.sheet-box-label {
+	text-align: center;
+}
+
 /*----------------- PROFILE TAB ------------------*/
 
 .sheet-profiletab {
@@ -100,24 +104,74 @@
 	text-transform: uppercase;
 }
 
-.sheet-sanity {
+.sheet-column {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-/*----------------- SANITY CHECKS ------------------*/
-.sheet-sanity-radio, .sheet-sanity-radio+span {
-	width: 80px !important;
-	height: 80px !important;
+.sheet-sanity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
+
+/*----------------- SANITY CHECKS ------------------*/
+.sheet-base-radio {
+	opacity: 0;
+	z-index: 1;
+	-moz-appearance: none;
+	position: relative;
+}
+
+.sheet-sanity-radio {
+	margin-bottom: -60px;
+}
+
+.sheet-sanity-radio, .sheet-sanity-radio+span {
+	width: 60px !important;
+	height: 60px !important;
+}
+
+.sheet-radio-zero, .sheet-radio-zero+span {
+	width: 30px !important;
+	height: 30px !important;
+}
+
+.sheet-radio-zero {
+	margin-bottom: -30px;
+}
+
+.sheet-radio-zero+span {
+	display: block;
+	border-radius: 50%;
+	font-family: "Pictos";
+	font-size: 20px;
+	text-align: center;
+}
+
+.sheet-radio-zero+span::before {
+	content: 'D';
+}
+
+.sheet-radio-zero:checked+span {
+	visibility: hidden;
+}
+
+/* Here it uses an inverse logic. By default, the sanity image will the the filled one.
+ But if it is preceded by a checked radio, then it shows a blank one. */
 
 .sheet-sanity-radio+span {
 	display: inline-block;
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/fd7d60448c100bf5ad675d82267323613d2e2447/Anos20/assets/sanity_blank.svg');
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_filled.svg');
 	background-size: cover;
 	background-repeat: no-repeat;
-} 
+}
+
+.sheet-base-radio:checked~.sheet-sanity-radio+span {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_blank.svg');
+}
 
 /*----------------- TAB CONTROL ------------------*/
 
