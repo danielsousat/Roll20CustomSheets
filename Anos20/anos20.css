@@ -107,17 +107,16 @@
 }
 
 /*----------------- SANITY CHECKS ------------------*/
-.sheet-sanity-radio {
-
+.sheet-sanity-radio, .sheet-sanity-radio+span {
+	width: 80px !important;
+	height: 80px !important;
 }
 
 .sheet-sanity-radio+span {
 	display: inline-block;
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/7a496d6cbeebcf617819ce8cf90046e30662e522/Anos20/assets/sanity_blank.svg');
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/fd7d60448c100bf5ad675d82267323613d2e2447/Anos20/assets/sanity_blank.svg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100px;
-	height: 100px;
 } 
 
 /*----------------- TAB CONTROL ------------------*/
