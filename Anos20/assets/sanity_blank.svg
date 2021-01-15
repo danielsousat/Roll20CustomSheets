@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,8 +64,8 @@
        id="rect1436"
        width="109.581"
        height="109.58051"
-       x="49.36866"
-       y="65.21376" />
+       x="52.651852"
+       y="68.15374" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.29;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect1436-3"
@@ -89,6 +89,6 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="M 163.0349,174.79428 109.30775,159.05796 55.58059,174.79428 71.31691,121.06712 55.58059,67.339967 109.30775,83.076286 163.0349,67.339966 147.29858,121.06712 Z"
-       transform="matrix(0.72275766,0,0,0.72334595,28.164991,35.661881)" />
+       transform="matrix(0.72275766,0,0,0.72334595,28.439343,35.370581)" />
   </g>
 </svg>

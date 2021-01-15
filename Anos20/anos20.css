@@ -113,9 +113,11 @@
 
 .sheet-sanity-radio+span {
 	display: inline-block;
-	background-image: url('assets/sanity_blank.svg');
-	width: 30px;
-	height: 30px;
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/7a496d6cbeebcf617819ce8cf90046e30662e522/Anos20/assets/sanity_blank.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 100px;
 } 
 
 /*----------------- TAB CONTROL ------------------*/
