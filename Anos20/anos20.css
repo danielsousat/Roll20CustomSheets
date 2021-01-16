@@ -148,6 +148,23 @@ Gilda Display
 	align-items: center;
 }
 
+/*----------------- PROFESSIONS PROGRAMMING ------------------*/
+
+.sheet-profession-control:not([value="custom"]) ~ .sheet-custom,
+.sheet-profession-control:not([value="retiree"]) ~ .sheet-retiree,
+.sheet-profession-control:not([value="artist"]) ~ .sheet-artist,
+.sheet-profession-control:not([value="scientist"]) ~ .sheet-scientist,
+.sheet-profession-control:not([value="detective"]) ~ .sheet-detective,
+.sheet-profession-control:not([value="engineer"]) ~ .sheet-engineer,
+.sheet-profession-control:not([value="student"]) ~ .sheet-student,
+.sheet-profession-control:not([value="shopkeeper"]) ~ .sheet-shopkeeper,
+.sheet-profession-control:not([value="medic"]) ~ .sheet-medic,
+.sheet-profession-control:not([value="worker"]) ~ .sheet-worker,
+.sheet-profession-control:not([value="cop"]) ~ .sheet-cop {
+	
+	display: none;
+}
+
 /*----------------- SANITY, VITALITY AND MISC RADIOS ------------------*/
 .sheet-base-radio {
 	opacity: 0;
