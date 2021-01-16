@@ -1,13 +1,3 @@
-<!-- TODO 
-  Programar os créditos iniciais de acordo com a profissão escolhida
-
-  Implementar a rolagem e layout do roll template.
-
-  Finalizar o layout geral.
-
-
--->
-
 <div class="main-container">
 
   <!-- Tab navigation -->
@@ -32,6 +22,9 @@
       <div class="header">
         <span class="passport" data-i18n="passport">passaporte</span>
 
+        <button type="roll" class="roll-button" name="roll_action" title="@{action}"
+                value="&{template:main} {{charname=@{character_name}}} {{result=[[1d6]]}}"></button>
+
         <span class="mainlabel" data-i18n="name">Nome:</span>
         <input name="attr_character_name" type="text" title="@{character_name}" />
 
@@ -44,7 +37,7 @@
             <option value="scientist" data-i18n="scientist">Cientista</option>
             <option value="detective" data-i18n="detective">Detetive</option>
             <option value="engineer" data-i18n="engineer">Engenheiro</option>
-            <option value="student" data-i18n="student">Student</option>
+            <option value="student" data-i18n="student">Estudante</option>
             <option value="shopkeeper" data-i18n="shopkeeper">Lojista</option>
             <option value="medic" data-i18n="medic">Médico</option>
             <option value="worker" data-i18n="worker">Operário</option>
@@ -451,58 +444,56 @@
 <!-- Roll Templates -->
 <rolltemplate class="sheet-rolltemplate-main">
   <div class="template-container">
-    <div class="template-row template-header template-label secondary-font">
+    <div class="template-header">
       {{charname}}
     </div>
 
-    {{#action}}
-    <div class="template-row">
-      <span class="template-label secondary-font">{{action}}</span>
-      {{#text}}
-      <p>{{text}}</p>
-      {{/text}}
-
-    </div>
-    {{/action}}
-
-    {{#check}}
-    <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="check">Teste</span>
-      {{check}}
-    </div>
-    {{/check}}
-
     {{#result}}
-
-    <div class="template-row">
-      <span class="template-label secondary-font" data-i18n="result">Resultado</span>
+    <div class="template-roll">
       {{result}}
     </div>
 
-    {{#^rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="success">Sucesso!</span>
+    {{#rollTotal() result 1}}
+    <div class="template-result">
+      <span class="template-fail" data-i18n="roll_result_1">O personagem falha na ação determinada de forma desastrosa. Além de acarretar algo ruim para si ou para o grupo, perde-se 1 de sanidade.
+      </span>
     </div>
-    {{/^rollLess() result target}}
+    {{/rollTotal() result 1}}
 
-    {{#rollLess() result target}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fail">Falha!</span>
+    {{#rollTotal() result 2}}
+    <div class="template-result">
+      <span class="template-fail" data-i18n="roll_result_2">O personagem falha em fazer a ação que queria tendo de lidar com as consequências disso.
+      </span>
     </div>
-    {{/rollLess() result target}}
+    {{/rollTotal() result 2}}
 
-
-    {{#rollWasCrit() result}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-success" data-i18n="critic">Sucesso Crítico!</span>
+    {{#rollTotal() result 3}}
+    <div class="template-result">
+      <span class="template-fail" data-i18n="roll_result_3">O personagem até sente um leve gosto da conquista que almejava mas falha na sua execução.
+      </span>
     </div>
-    {{/rollWasCrit() result}}
+    {{/rollTotal() result 3}}
 
-    {{#rollWasFumble() result}}
-    <div class="template-row">
-      <span class="template-label secondary-font template-fail" data-i18n="fumble">Falha Crítica!</span>
+    {{#rollTotal() result 4}}
+    <div class="template-result">
+      <span class="template-sucess" data-i18n="roll_result_4">O personagem consegue alcançar seu objetivo no limite entre o acerto e a falha.
+      </span>
     </div>
-    {{/rollWasFumble() result}}
+    {{/rollTotal() result 4}}
+
+    {{#rollTotal() result 5}}
+    <div class="template-result">
+      <span class="template-sucess" data-i18n="roll_result_5">O personagem consegue concluir o que queria de uma forma mais satisfatória seguindo de uma forma tranquila.
+      </span>
+    </div>
+    {{/rollTotal() result 5}}
+
+    {{#rollTotal() result 6}}
+    <div class="template-result">
+      <span class="template-sucess" data-i18n="roll_result_6">O personagem consegue com maestria chegar a seu objetivo! A conclusão do seu ato é extremamente satisfatório, rendendo a recuperação de 1 sanidade.
+      </span>
+    </div>
+    {{/rollTotal() result 6}}
 
     {{/result}}
 
@@ -510,39 +501,9 @@
 
 </rolltemplate>
 
-<!-- Strings translations for Roll Queries-->
-<div style="display: none;">
-  <span data-i18n="advantagedisadvantage">Possui vantagem ou desvantagem?</span>
-  <span data-i18n="no">Não</span>
-  <span data-i18n="advantage">Vantagem</span>
-  <span data-i18n="disadvantage">Desvantagem</span>
-  <span data-i18n="result">Resultado</span>
-  <span data-i18n="success">Sucesso!</span>
-  <span data-i18n="fail">Falha!</span>
-  <span data-i18n="critic">Sucesso Crítico!</span>
-  <span data-i18n="fumble">Falha Crítica!</span>
-  <span data-i18n="check">Teste</span>
-  <span data-i18n="fire-description">Dá 1d6 de dano de fogo.</span>
-  <span data-i18n="ice-description">Congela 1d4 inimigos.</span>
-</div>
-
 <!--Sheet Workers -->
 <script type="text/worker">
-
-  const spellslist = [
-    {
-      button: 'fire',
-      name: getTranslationByKey('fire'),
-      description: getTranslationByKey('fire-description')
-    },
-    
-    {
-      button: 'ice',
-      name: getTranslationByKey('ice'),
-      description: getTranslationByKey('ice-description')
-    }
-  ];
-  
+ 
   /*Tabs Control */
   on('change:tabs_radio', function(eventInfo) {
     setAttrs({
@@ -550,19 +511,9 @@
     });
   });
 
-  /*config spells select */
-  spellslist.forEach(spell => {
-      on(`clicked:${spell.button}`, function() {
-        var newrowid = generateRowID();
-        var newrowattrs = {};
-        newrowattrs["repeating_spells_" + newrowid + "_spell"] = spell.name;
-        newrowattrs["repeating_spells_" + newrowid + "_spelldescription"] = spell.description;
-        setAttrs(newrowattrs);
-      });
-  });
 
   /*Controls show hide checkbox button from repeating sections*/
-  on("change:repeating_equipments:showhide_checkbox change:spells_showhide_checkbox" , function(eventInfo) {
+  on("change:repeating_equipments:showhide_checkbox" , function(eventInfo) {
     
     let source = eventInfo.sourceAttribute;
     let changeAttributes = new Object();
@@ -576,61 +527,32 @@
     setAttrs(changeAttributes);
   });
 
-  /*config Roll Queries translations */
-  on("sheet:opened", function(eventInfo){
-      
-      setAttrs({
-          advantagedisadvantage: getTranslationByKey("advantagedisadvantage"),
-          no: getTranslationByKey("no"),
-          advantage: getTranslationByKey("advantage"),
-          disadvantage: getTranslationByKey("disadvantage"),
-          result: getTranslationByKey("result"),
-          check: getTranslationByKey("check"),
-          strength: getTranslationByKey("strength"),
-          dexterity: getTranslationByKey("dexterity")
-      });     
-      
-  });
+  const credits = {
+    custom: 0,
+    retiree: 1100,
+    artist: 1000,
+    scientist: 900,
+    detective: 900,
+    engineer: 1100,
+    student: 300,
+    shopkeeper: 1000,
+    medic: 1200,
+    worker: 800,
+    cop: 800
+  };
 
-  /*keep attributes values at 13 max*/
-  on("change:charbody change:charmind change:charcharisma change:charcuriosity change:charsurvival", function(eventInfo) {  
-    const maxValue = 13;
-    let oldValue = parseInt(eventInfo.previousValue)||0;
-    let newValue = parseInt(eventInfo.newValue)||0;
-    let attribute = eventInfo.sourceAttribute;
-    let changedAttributes = new Object();
+  /* sets the profession's initial credits */
+  on('change:profession', function(eventInfo) {
+    const profession = eventInfo.newValue;
     
-    changedAttributes[attribute] = maxValue;
-    
-    if (newValue > maxValue) {
-  
-      changedAttributes[attribute] = maxValue;
-      setAttrs(changedAttributes);
-    }
-     
-  });
-
-  /*controls roll buttons when char has a condition checked*/
-  on("change:wounded change:shaken change:ashamed", function(eventInfo) {  
-    const disadvantage = "disadvantage";
-    const normal = "normal";
-    const sourceAttribute = eventInfo.sourceAttribute;
-    const newValue = eventInfo.newValue;
-    let changedAttributes = new Object();
-    let controlToUpdate = sourceAttribute + "control";
-    
-    changedAttributes[controlToUpdate] = normal;
-
-    switch(newValue) {
-      case "on":
-        changedAttributes[controlToUpdate] = disadvantage;
-        break;
-      default:
-        changedAttributes[controlToUpdate] = normal;
+    if (credits[profession] !== undefined) {
+      setAttrs(
+        {
+          credits: credits[profession]
+        }
+      );
     }
     
-    setAttrs(changedAttributes);
-     
   });
   
   

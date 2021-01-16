@@ -73,7 +73,8 @@ Gilda Display
 }
 
 .sheet-tab-panel {
-	display: flex;
+	/*display: flex;*/
+	display: none;
 	flex-direction: row;
 	margin: 10px;
 }
@@ -325,8 +326,8 @@ Gilda Display
 }
 
 .sheet-main-container button[type=roll]::before {
-	content: 'T';
-	font-family: 'dicefontd20' !important;
+	content: 'F';
+	font-family: 'dicefontd6' !important;
 }
 
 .sheet-main-container button[type=roll]:hover {
