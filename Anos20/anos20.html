@@ -258,7 +258,7 @@
             gerou medo e desconfiança por grande parte da
             população, principalmente da classe operária.</span>
 
-          <textarea class="profession-description custom" name="attr_professiondescription"
+          <textarea class="secondary-font profession-description custom" name="attr_professiondescription"
             data-i18n-placeholder="profession-description" placeholder="Descrição da Profissão"
             title="@{professiondescription}"></textarea>
 
@@ -401,7 +401,7 @@
         <fieldset class="repeating_equipments">
 
           <div class="repeatable-row">
-            <input name="attr_equipment" type="text" title="@{equipment}" />
+            <input class="secondary-font" name="attr_equipment" type="text" title="@{equipment}" />
           </div>
         </fieldset>
       </div>
@@ -411,23 +411,23 @@
         <input class="profession-control" type="hidden" name="attr_profession" />
 
         <span class="mainlabel secondary-font" data-i18n="credits">Créditos</span>
-        <input class="borderless-input" name="attr_credits" type="text" title="@{credits}" />
+        <input class="secondary-font borderless-input" name="attr_credits" type="text" title="@{credits}" />
         <div class="small-bottom-separator"></div>
 
         <span class="mainlabel secondary-font artist" data-i18n="registered-studio">Atelier Registrado</span>
-        <input class="artist borderless-input" name="attr_studio" type="text" title="@{studio}" />
+        <input class="secondary-font artist borderless-input" name="attr_studio" type="text" title="@{studio}" />
         <div class="artist small-bottom-separator"></div>
 
         <span class="mainlabel secondary-font artist" data-i18n="art-type">Tipo de Arte</span>
-        <input class="artist borderless-input" name="attr_art" type="text" title="@{art}" />
+        <input class="secondary-font artist borderless-input" name="attr_art" type="text" title="@{art}" />
         <div class="artist small-bottom-separator"></div>
 
         <span class="mainlabel secondary-font scientist" data-i18n="study-area">Área de Estudo</span>
-        <input class="scientist borderless-input" name="attr_study_area" type="text" title="@{study_area}" />
+        <input class="secondary-font scientist borderless-input" name="attr_study_area" type="text" title="@{study_area}" />
         <div class="scientist small-bottom-separator"></div>
 
         <span class="mainlabel secondary-font detective" data-i18n="pistol-name">Nome da Pistola</span>
-        <input class="detective borderless-input" name="attr_pistol_name" type="text" title="@{pistol_name}" />
+        <input class="secondary-font detective borderless-input" name="attr_pistol_name" type="text" title="@{pistol_name}" />
         <div class="detective small-bottom-separator"></div>
 
         <span class="mainlabel secondary-font student" data-i18n="study">Estudo</span>
@@ -463,21 +463,21 @@
         </div>
 
         <span class="mainlabel shopkeeper secondary-font" data-i18n="store-name">Nome da Loja</span>
-        <input class="shopkeeper borderless-input" name="attr_store_name" type="text" title="@{store_name}" />
+        <input class="secondary-font shopkeeper borderless-input" name="attr_store_name" type="text" title="@{store_name}" />
         <div class="shopkeeper small-bottom-separator"></div>
 
         <span class="mainlabel shopkeeper secondary-font" data-i18n="commerce-type">Tipo de Comércio</span>
-        <input class="shopkeeper borderless-input" name="attr_commerce_type" type="text" title="@{commerce_type}" />
+        <input class="secondary-font shopkeeper borderless-input" name="attr_commerce_type" type="text" title="@{commerce_type}" />
         <div class="shopkeeper small-bottom-separator"></div>
 
         <span class="mainlabel cop secondary-font" data-i18n="weapon-type">Tipo de Arma</span>
-        <input class="cop borderless-input" name="attr_weapon_type" type="text" title="@{weapon_type}" />
+        <input class="secondary-font cop borderless-input" name="attr_weapon_type" type="text" title="@{weapon_type}" />
         <div class="cop small-bottom-separator"></div>
 
       </div>
 
       <div class="logo">
-        Anos 20
+        
       </div>
 
       <div class="logo2">
@@ -514,7 +514,7 @@
 <!-- Roll Templates -->
 <rolltemplate class="sheet-rolltemplate-main">
   <div class="template-container">
-    <div class="template-header">
+    <div class="template-header template-main-font">
       {{charname}}
     </div>
 
@@ -525,7 +525,7 @@
 
     {{#rollTotal() result 1}}
     <div class="template-result">
-      <span class="template-fail" data-i18n="roll_result_1">O personagem falha na ação determinada de forma desastrosa.
+      <span class="template-fail template-secondary-font" data-i18n="roll_result_1">O personagem falha na ação determinada de forma desastrosa.
         Além de acarretar algo ruim para si ou para o grupo, perde-se 1 de sanidade.
       </span>
     </div>
@@ -533,7 +533,7 @@
 
     {{#rollTotal() result 2}}
     <div class="template-result">
-      <span class="template-fail" data-i18n="roll_result_2">O personagem falha em fazer a ação que queria tendo de lidar
+      <span class="template-fail template-secondary-font" data-i18n="roll_result_2">O personagem falha em fazer a ação que queria tendo de lidar
         com as consequências disso.
       </span>
     </div>
@@ -541,7 +541,7 @@
 
     {{#rollTotal() result 3}}
     <div class="template-result">
-      <span class="template-fail" data-i18n="roll_result_3">O personagem até sente um leve gosto da conquista que
+      <span class="template-fail template-secondary-font" data-i18n="roll_result_3">O personagem até sente um leve gosto da conquista que
         almejava mas falha na sua execução.
       </span>
     </div>
@@ -549,7 +549,7 @@
 
     {{#rollTotal() result 4}}
     <div class="template-result">
-      <span class="template-sucess" data-i18n="roll_result_4">O personagem consegue alcançar seu objetivo no limite
+      <span class="template-success template-secondary-font" data-i18n="roll_result_4">O personagem consegue alcançar seu objetivo no limite
         entre o acerto e a falha.
       </span>
     </div>
@@ -557,7 +557,7 @@
 
     {{#rollTotal() result 5}}
     <div class="template-result">
-      <span class="template-sucess" data-i18n="roll_result_5">O personagem consegue concluir o que queria de uma forma
+      <span class="template-success template-secondary-font" data-i18n="roll_result_5">O personagem consegue concluir o que queria de uma forma
         mais satisfatória seguindo de uma forma tranquila.
       </span>
     </div>
@@ -565,7 +565,7 @@
 
     {{#rollTotal() result 6}}
     <div class="template-result">
-      <span class="template-sucess" data-i18n="roll_result_6">O personagem consegue com maestria chegar a seu objetivo!
+      <span class="template-success template-secondary-font" data-i18n="roll_result_6">O personagem consegue com maestria chegar a seu objetivo!
         A conclusão do seu ato é extremamente satisfatório, rendendo a recuperação de 1 sanidade.
       </span>
     </div>

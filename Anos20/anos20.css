@@ -223,6 +223,14 @@ button.sheet-header {
 	font-size: 8px;
 }
 
+.sheet-logo {
+	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/anos20-new-sheet/Anos20/assets/anos20logo.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: 120px;
+}
+
 .sheet-logo2 {
 	display: flex;
 	flex-direction: column;
@@ -636,43 +644,48 @@ button.sheet-header {
 }
 
 /*------------- SHEET ROLL TEMPLATE -------------*/
-
 .sheet-rolltemplate-main .sheet-template-container {
 	display: flex;
 	flex-direction: column;
 	border: 2px solid black;
-	font-family: Paytone One;
 	text-align: center;
+	background-color: white;
 }
 
-.sheet-rolltemplate-main p {
-	font-family: Paytone One;
-	text-align: left;
+.sheet-rolltemplate-main .sheet-template-main-font {
+	font-family: 'Limelight';
 }
 
-.sheet-rolltemplate-main .sheet-template-row {
-	display: flex;
-	flex-direction: column;
-	border-bottom: 1px solid black;
-	padding: 5px;
-	justify-content: center;
-	align-items: center;
+.sheet-rolltemplate-main .sheet-template-secondary-font {
+	font-family: 'Lustria';
 }
 
 .sheet-rolltemplate-main .sheet-template-header {
 	flex-direction: row !important;
 	background-color: black;
 	color: white;
+	font-size: 18px;
+	padding: 10px;
 }
 
-.sheet-rolltemplate-main .sheet-template-label {
+.sheet-rolltemplate-main .sheet-template-roll {
+	padding: 10px;
+}
+
+.sheet-rolltemplate-main .sheet-template-result {
 	font-weight: bold;
-	text-transform: uppercase;
-	margin-bottom: 5px;
+}
+
+.sheet-rolltemplate-main .inlinerollresult {
+	border: 2px solid black !important;
+	background-color: black !important;
+	color: white !important;
+	font-size: 20px;
+	font-family: 'Limelight';
 }
 
 .sheet-rolltemplate-main .sheet-template-success {
-	color: green;
+	color: goldenrod;
 }
 
 .sheet-rolltemplate-main .sheet-template-fail {
