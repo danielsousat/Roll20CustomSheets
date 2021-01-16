@@ -4,7 +4,7 @@
 	"help": "Ajuda",
 	"passport": "passaporte",
 	"name": "Nome:",
-	"profession": "@{profession}",
+	"profession": "Profissão:",
 	"custom": "Personalizada",
 	"retiree": "Aposentado",
 	"artist": "Artista",
@@ -109,5 +109,6 @@
 	"roll_result_5": "O personagem consegue concluir o que queria de uma forma mais satisfatória seguindo de uma forma tranquila.\n      ",
 	"roll_result_2": "O personagem falha em fazer a ação que queria tendo de lidar com as consequências disso.\n      ",
 	"roll_result_4": "O personagem consegue alcançar seu objetivo no limite entre o acerto e a falha.\n      ",
-	"roll_result_1": "O personagem falha na ação determinada de forma desastrosa. Além de acarretar algo ruim para si ou para o grupo, perde-se 1 de sanidade.\n      "
+	"roll_result_1": "O personagem falha na ação determinada de forma desastrosa. Além de acarretar algo ruim para si ou para o grupo, perde-se 1 de sanidade.\n      ",
+	"or-not": "(ou não)"
 }

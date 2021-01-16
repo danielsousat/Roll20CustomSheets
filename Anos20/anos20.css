@@ -1,5 +1,5 @@
 /*----------------- MAIN CONTAINER DEFINITIONS ------------------*/
-@import url('https://fonts.googleapis.com/css?family=Paytone+One|Lustria&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bubbler+One|Lustria|Limelight&display=swap');
 /*
 Bubbler One
 Limelight
@@ -10,6 +10,8 @@ Gilda Display
 	min-width: 600px;
 	max-width: 800px;
 	min-height: 600px;
+	border: 10px double black;
+	padding: 20px;
 }
 
 .sheet-main-container input {
@@ -42,11 +44,12 @@ Gilda Display
 /*----------------- GENERAL CSS ------------------*/
 
 .sheet-main-font {
-	font-family: Paytone One;
+	/*font-family: 'Bubbler One';*/
+	font-family: 'Limelight';
 }
 
 .sheet-secondary-font {
-	font-family: Lustria;
+	font-family: 'Lustria';
 }
 
 .sheet-flex-row {
@@ -99,27 +102,70 @@ Gilda Display
 	margin-bottom: 5px;
 }
 
+.sheet-borderless-input {
+	border: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
 /*----------------- PROFILE TAB ------------------*/
 
 .sheet-profilegrid {
 	display: grid;
 	grid-template-columns: 0.5fr 1fr 0.5fr;
-	border: 10px double black;
+	row-gap: 10px;
+	align-items: center;
 }
 
 .sheet-header {
-	grid-column: 1/4;
-	display: flex;
-	flex-direction: column;
-	align-items: center;	
+	grid-column: 2/3;
+	text-align: center;
+}
+
+.sheet-header-margin {
+	margin-bottom: 60px;
+}
+
+button.sheet-header {
+	justify-self: center;
 }
 
 .sheet-passport {
 	text-transform: uppercase;
+	font-size: 25px;
+}
+
+.sheet-mainlabel {
+	font-size: 15px;
+}
+
+.sheet-profession-problem {
+	font-size: 14px;
+}
+
+.sheet-profession-quote {
+	text-transform: uppercase;
+	font-size: 18px;
+	text-align: center;
+}
+
+.sheet-profession-description {
+	font-size: 12px;
+}
+
+.sheet-box-label {
+	text-transform: uppercase;
+	font-size: 16px;
 }
 
 .sheet-profession {
 	display: flex;
+	justify-content: center;
+	
+}
+
+.sheet-profession-descriptions {
+	margin-bottom: 20px;
 }
 
 .sheet-column {
@@ -134,6 +180,16 @@ Gilda Display
 	position: relative;
 }
 
+.sheet-feature {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.sheet-feature::before {
+	content: 'L ';
+	font-family: 'Pictos';
+}
+
 .sheet-feature-description {
 	height: 40px !important;
 }
@@ -144,9 +200,104 @@ Gilda Display
 	flex-direction: column;
 }
 
+.sheet-equipment input[type="text"] {
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 2px solid black;
+	border-radius: 0px;
+	padding-bottom: 0px;
+}
+
 .sheet-misc-marker {
 	display: flex;
 	align-items: center;
+}
+
+.sheet-glory-of-the-city {
+	text-transform: uppercase;
+	font-size: 17px;
+}
+
+.sheet-glory-of-the-city-small {
+	font-size: 8px;
+}
+
+.sheet-logo2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	border: 3px solid black;
+	padding: 10px;
+}
+
+.sheet-misc {
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.sheet-misc .sheet-small-bottom-separator {
+	margin-bottom: 20px;
+}
+
+/*----------------- STYLED SEPARATOR ------------------*/
+.sheet-bottom-separator {
+	display: block;
+	max-height: 2px;
+	height: 2px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	position: relative;
+}
+
+.sheet-bottom-separator::before, .sheet-bottom-separator::after {
+	display: inline-block;
+	content: ' ';
+	width: 15px;
+	height: 15px;
+	border: 5px double black;
+	transform: rotate(45deg);
+	position: absolute;
+	top: -11.5px;
+}
+
+.sheet-bottom-separator::before {
+	left: -28px;
+}
+
+.sheet-bottom-separator::after {
+	right: -28px;
+}
+
+/* small one */
+.sheet-small-bottom-separator {
+	max-height: 1px;
+	height: 1px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	position: relative;
+}
+
+.sheet-small-bottom-separator::before, .sheet-small-bottom-separator::after {
+	display: inline-block;
+	content: ' ';
+	width: 7.5px;
+	height: 7.5px;
+	border: 2.5px double black;
+	transform: rotate(45deg);
+	position: absolute;
+	top: -6px;
+}
+
+.sheet-small-bottom-separator::before {
+	left: -13.5px;
+
+}
+
+.sheet-small-bottom-separator::after {
+	right: -13.5px;
 }
 
 /*----------------- PROFESSIONS PROGRAMMING ------------------*/
@@ -316,9 +467,9 @@ Gilda Display
 
 .sheet-main-container button[type=roll] {
 	border: 0px;
-	font-size: 25px;
-	width: 25px;
-	height: 25px;
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
 	background: transparent !important;
 	text-shadow: none !important;
 	box-shadow: none !important;
