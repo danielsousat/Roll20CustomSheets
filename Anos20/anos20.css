@@ -238,7 +238,7 @@ button.sheet-header {
 }
 
 .sheet-logo {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/anos20-new-sheet/Anos20/assets/anos20logo.png');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/anos20logo.png');
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -416,27 +416,27 @@ button.sheet-header {
  But if it is preceded by a checked radio, then it shows a blank one. */
 
 .sheet-sanity-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_filled.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/sanity_filled.svg');
 }
 
 .sheet-base-radio:checked~.sheet-sanity-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d7dc157d85352697206d4c62e71129e4858f7d4c/Anos20/assets/sanity_blank.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/sanity_blank.svg');
 }
 
 .sheet-vitality-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/72573fae571f215ed2f8e391e3c4da78bdd2abec/Anos20/assets/vitality_filled.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/vitality_filled.svg');
 }
 
 .sheet-base-radio:checked~.sheet-vitality-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/72573fae571f215ed2f8e391e3c4da78bdd2abec/Anos20/assets/vitality_blank.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/vitality_blank.svg');
 }
 
 .sheet-misc-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d77e0a8639bc81dad3787d772644f790b260d265/Anos20/assets/misc_marker_filled.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/misc_marker_filled.svg');
 }
 
 .sheet-base-radio:checked~.sheet-misc-radio+span {
-	background-image: url('https://raw.githubusercontent.com/danielsousat/Roll20CustomSheets/d77e0a8639bc81dad3787d772644f790b260d265/Anos20/assets/misc_marker_blank.svg');
+	background-image: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Anos20/assets/misc_marker_blank.svg');
 }
 
 /*----------------- TAB CONTROL ------------------*/
