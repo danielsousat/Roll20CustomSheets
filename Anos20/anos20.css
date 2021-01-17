@@ -122,6 +122,10 @@ Gilda Display
 	text-align: center;
 }
 
+.sheet-header input[type="text"], .sheet-header select, .sheet-header .sheet-profession-problem {
+	font-size: 14px;
+}
+
 .sheet-header-margin {
 	margin-bottom: 60px;
 }
@@ -132,15 +136,11 @@ button.sheet-header {
 
 .sheet-passport {
 	text-transform: uppercase;
-	font-size: 25px;
+	font-size: 30px;
 }
 
 .sheet-mainlabel {
 	font-size: 15px;
-}
-
-.sheet-profession-problem {
-	font-size: 14px;
 }
 
 .sheet-profession-quote {
@@ -160,8 +160,22 @@ button.sheet-header {
 
 .sheet-profession {
 	display: flex;
-	justify-content: center;
-	
+	justify-content: center;	
+}
+
+.sheet-profession select {
+	padding-left: 20px;
+}
+
+.sheet-profession-input {
+	text-align: left !important;
+	margin-left: 10px;
+	border-top: 0px;
+	border-left: 1px solid black;
+	border-right: 0px;
+	border-bottom: 0px;
+	border-radius: 0px;
+	padding: 0px 0px 0px 10px;
 }
 
 .sheet-profession-descriptions {
@@ -598,14 +612,6 @@ button.sheet-header {
 }
 
 /*------------- HIDDEN SELECT ITEMS -------------*/
-.sheet-select-spells {
-	display: grid;
-	grid-template-columns: 20px auto;
-	gap: 2px;
-	align-items: center;
-	background-color: antiquewhite;
-}
-
 .sheet-configtype {
 	font-family: 'Pictos';
 }

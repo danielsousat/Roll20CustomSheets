@@ -5,6 +5,7 @@
 	"passport": "passaporte",
 	"name": "Nome:",
 	"profession": "Profissão:",
+	"select": "Selecione",
 	"custom": "Personalizada",
 	"retiree": "Aposentado",
 	"artist": "Artista",

@@ -37,7 +37,7 @@
 
         <div class="profession">
           <select class="borderless-input main-font" name="attr_profession" title="@{profession}">
-            <option value="custom" data-i18n="custom" selected="selected">Personalizada</option>
+            <option value="none" data-i18n="select" selected="selected">Selecione</option>
             <option value="retiree" data-i18n="retiree">Aposentado</option>
             <option value="artist" data-i18n="artist">Artista</option>
             <option value="scientist" data-i18n="scientist">Cientista</option>
@@ -48,11 +48,12 @@
             <option value="medic" data-i18n="medic">Médico</option>
             <option value="worker" data-i18n="worker">Operário</option>
             <option value="cop" data-i18n="cop">Policial</option>
+            <option value="custom" data-i18n="custom">Personalizada</option>
           </select>
 
           <input class="profession-control" type="hidden" name="attr_profession" />
 
-          <input class="borderless-input profession-input custom main-font" name="attr_custom_profession" type="text"
+          <input class="profession-input custom main-font" name="attr_custom_profession" type="text"
             title="@{custom_profession}" />
         </div>
         <div class="bottom-separator"></div>
